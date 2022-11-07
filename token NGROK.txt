@@ -1,0 +1,2 @@
+ngrok config add-authtoken 2FbBwyu777hzOveJPrDCGdqgFxF_2Mw6BRasipeXfhj9fobmC
+ngrok http 80
