@@ -1,0 +1,93 @@
+*, *:after, *:before { 
+    box-sizing: border-box; 
+    margin: 0;
+    transition: .5s ease-in-out;  
+}
+
+body,header,nav,
+article,section,
+aside{
+    border: 1px solid  rgb(255, 20, 20);
+    margin: 10px;
+    text-align: center;
+    
+     
+	 
+}
+
+footer
+{
+	  border: 1px solid  rgb(255, 20, 20);
+    margin: 10px;
+    text-align: center; 
+	align: center;
+}
+
+body{
+  background: url('../ImagensSite/bg_.jpg') center center no-repeat fixed; 
+  background-size: 100% 100%;
+background-repeat: no-repeat;  
+}
+
+
+
+header { 
+	 
+	align: center;
+}
+
+button{
+  height: 42px; 
+  width: auto;
+  font-size: 18px;
+  color: #d9d9d9;
+  background: rgb(149, 0, 20);
+  outline: none;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 12px;
+   
+  transition: all 0.3s ease-in-out;
+}
+
+nav {
+    padding: 20px; 
+    top: 0mm; 
+}
+body{
+    float: center;
+     background-color: rgb(20, 20, 20);
+	 width: 98%;
+}
+article{
+    padding: 5px 0 0; 
+    align: center;
+}
+section{
+    padding: 80% 0px;
+    background-color: rgb(20, 20, 20);
+	align: center;
+}
+aside{
+      
+    float: right;
+     background-color: rgb(20, 20, 20);
+	  
+}
+h3:before{
+    content: "\003C";
+}
+h3:after{
+    content: "\003E";
+}
+
+@media(max-width: 100vh){
+    body{
+      position: relative;
+    }
+    article,aside,footer{
+        width: 100%;
+        float: center;
+    }
+}

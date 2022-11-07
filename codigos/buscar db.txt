@@ -1,0 +1,84 @@
+Buscar BD
+
+<?php
+
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "portal";
+$porta = 3306;
+
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+
+try{
+	$conn = new mysqli($host, $user, $pass, $dbname);	
+	echo "Conectado com sucesso";
+	
+}catch(PDOException $err)
+{
+	echo "Erro";
+}
+ echo "</br>";
+ 
+ 
+$sql = "SELECT senha FROM usuarios";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["senha"] . "</br>";
+  }
+} else {
+  echo "0 results";
+}
+
+
+#---ALERTA-----------------------
+#echo "<script>";
+#echo "alert('oi');";
+#echo "</script>";
+#--------------
+
+ 
+#---MAC---
+#$MAC = exec('getmac');
+#$MAC = strtok($MAC, ' ');
+#echo $MAC;
+#---------
+
+
+
+
+  echo   substr(shell_exec ("ipconfig/all"),80,20); 
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
