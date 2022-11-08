@@ -190,7 +190,14 @@ body {
  </center>
 
      
-
+<?php
+echo "<style>";
+echo "body{ background: url('ImagensSite/bg_.jpg') center center no-repeat fixed; 
+            background-size: 100% 100%;
+	        background-repeat: no-repeat;  
+           }";
+echo "</style>";
+?>
 
 <!--<div id="anim" style="height: 300px;width: 400px;background-color: black; color: white; font-size: bold;">  </div>
 -->
