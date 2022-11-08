@@ -255,9 +255,9 @@ function Blabla()
 	function Blabla3()
 	{
 		$string = "";
-		for($inta = 0; $inta <= 10000; $inta++)
+		for($inta = 0; $inta <= 1000; $inta++)
 		{
-			$string = $string."<src_".$inta."='//vimeo/watch?=fragment_".gerar_senha(300, true, true, true, true).".mp4' >";
+			$string = $string."<store src_".$inta."='//vimeo/watch?=fragment_".gerar_senha(300, true, true, true, true).".mp4' ></store>";
 		}
 		return $string;
 	}

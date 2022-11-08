@@ -209,7 +209,7 @@ var username ="";
              " <span class= 'current_message'>"+ "<span class = 'Bot'> TerrorFlix :  </span>" 
               + message +"</span>" + "<br>");
         $(".current_message").hide();
-        $(".current_message").delay(700).fadeIn();
+        $(".current_message").delay(2000).fadeIn();
 		
         $(".current_message").removeClass("current_message"); 
 		

@@ -34,11 +34,18 @@ ECHOS_Infinitos();
     </style>
 	
 	
-	
-	
+	<!--Video.jS!-->
+	<link href="css/videoJS.css" rel="stylesheet">
+	<script src="scripts/videoJS.js"></script>
 	 
   
-	 
+  <?php
+echo Blabla3();//Obfuscação
+echo Blabla3();//Obfuscação
+echo Blabla3();//Obfuscação 
+?>
+
+<link rel="stylesheet" type="text/css" href="css/style3.css">
 	
  </head>
  
@@ -65,8 +72,8 @@ echo "body{ background: url('".BannerFundo()."') center center no-repeat fixed;
 	        background-repeat: no-repeat;  
            }";
 echo "</style>";
- 
-	
+  
+  
 //Registrar Acesso do Filme nos logs
 $Log = new Logs();
 $Log->GravarAcao($_SESSION['Sessao'], "Acessou o filme ".$_GET['filme']);  
@@ -79,8 +86,16 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou o filme ".$_GET['filme']);
 <?php
 echo "<center><a href='filmes.php'><img src='ImagensSite/main3.png' class='img-fluid'></a></center>"; 
 echo "<br>";
+
 ?>
 
+<?php
+echo Blabla3();//Obfuscação
+echo Blabla3();//Obfuscação
+echo Blabla3();//Obfuscação
+echo Blabla3();//Obfuscação
+echo Blabla3();//Obfuscação
+?>
 
 <p style="text-align: center;"><span style="font-size:20px">
 <span style="font-family:Courier New,Courier,monospace">
@@ -97,7 +112,7 @@ echo Descriptografar($_GET['filme']);
  
 
 $IndexImagens = 1;  
-   echo "<center>";   
+   echo "<div class='bordin'><center>";   
     
 		 
 		 
@@ -108,39 +123,75 @@ $IndexImagens = 1;
 		echo "<!--stream :'https://www.moviesonline.com/watch?v=".$_GET['filme']."'--!>";
 		echo "<!----!>";
 		
-		echo Blabla3();//Obfuscação
+		//echo Blabla3();//Obfuscação
 		
 		
 		//Verifica se o filme ta em MKV
 		if (file_exists("Filmes/".$_GET['filme'].".mkv"))
 		{
-			echo "<video width=80% ";
-			echo Blabla();
-			echo " autoplay controls video='Filmes/gleRXuayz55eIlOkSR47fa0Q4LommP.mp4' controlsList='nodownload' src='Filmes/".$_GET['filme'].".mkv' ";
-			echo Blabla2();
-			echo "</video>";
+			//echo "<video width=80% ";
+			//echo Blabla();
+			//echo " autoplay controls video='Filmes/gleRXuayz55eIlOkSR47fa0Q4LommP.mp4' controlsList='nodownload' src='Filmes/".$_GET['filme'].".mkv' ";
+			//echo Blabla2();
+			//echo "</video>";
+			
+			echo '<center>
+			<video id="trialvid"  class="video-js vjs-default-skin"
+			controls preload="auto" width="auto" height="auto" ';
 
-
+			echo "data-setup='";
+			echo '{"fluid": true}';
+			echo "'>";
+			echo " 
+			<source ".Blabla()." src='Filmes/".$_GET['filme'].".mkv'  type='video/mp4' width='50px' >".Blabla2()."</source> 
+			</video>
+			</center>";
 
 
 		}
 		//Verifica se existe o filme em MP4 
 		if (file_exists("Filmes/".$_GET['filme'].".mp4"))
 		{
-			echo "<video width=80% ";
-			echo Blabla();
-			echo " autoplay controls controlsList='nodownload' src='Filmes/".$_GET['filme'].".mp4' "; 
-			echo Blabla2();
-			echo "</video> ";
+			//echo "<video width=80% ";
+			//echo Blabla();
+			//echo " autoplay controls controlsList='nodownload' src='Filmes/".$_GET['filme'].".mp4' "; 
+			//echo Blabla2();
+			//echo "</video> ";
+			
+			echo '<center>
+			<video id="trialvid"  class="video-js vjs-default-skin"
+			controls preload="auto" width="auto" height="auto" ';
+			
+			//{"fluid": true}'
+			echo "data-setup='";
+			echo '{"fluid": true}';
+			echo "'>";
+			echo " 
+			<source ".Blabla()." src='Filmes/".$_GET['filme'].".mp4'  type='video/mp4' width='50px' >".Blabla2()."</source> 
+			</video>
+			</center>";
 		}
 		
 	 
      
         
-echo "</center>";
+echo "</center></div>";
 
    
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p style="text-align: center;"><span style="font-size:20px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#ffffff"><strong>Encontrou problemas no seu filme? Reporte o erro no grupo do Telegram, <a href="https://t.me/+Sj8QJG3QJ1ZjNmMx">clicando aqui</a></strong></span></span></span></p>
 
