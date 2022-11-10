@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+ 
+
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Email: <input type="email" name="femail">
+  </br></br>
+  Senha: <input type="password" name="fsenha">
+   </br></br>
+  <input type="submit">
+</form>
+
+
+
+<?php
+$mac = exec('getmac');
+echo $mac."</br>";
+		$mac = strtok($mac, ' ');
+		echo $mac."</br>";
+?>
+
+
+
+
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+    $fname = $_POST['femail'];
+    $fsenha = $_POST['fsenha'];
+    if (empty($fname)) 
+	{
+        echo "<script>";
+		echo "alert('Entre com um email autorizado');";
+		echo "</script>";
+    } 
+	else if (empty($fsenha)) 
+	{
+		echo "<script>";
+		echo "alert('Senha em branco');";
+		echo "</script>";
+	}
+	else
+	{
+	#------------------------------------------------------------------------------
+		$host = "localhost";
+		$user = "root";
+		$pass = "";
+		$dbname = "portal";
+		$porta = 3306;
+		
+		$conn = new mysqli($host, $user, $pass, $dbname);
+		$sql = "SELECT ID, nome, usuario,senha, MAC1, MAC2, MAC3, MAC4 FROM usuarios";
+		
+		
+		$result = $conn->query($sql);
+
+		$mensagem = "";
+		
+		$mac = exec('getmac');
+		$mac = strtok($mac, ' ');
+		
+		if ($result->num_rows > 0) 
+		{ 
+			while($row = $result->fetch_assoc()) 
+			{ 
+				if($row['usuario'] == $fname)
+				{
+					if($row['senha'] == $fsenha)
+					{
+						if($row['MAC1'] == $mac || $row['MAC2'] == $mac || $row['MAC3'] == $mac || $row['MAC4'] == $mac)
+						{
+							$mensagem =  "Autenticado";
+						} 
+						else
+						{
+							$mensagem =  "Dispositivo nao autorizado";
+						}								
+					}
+					else
+						$mensagem =  "Senha Invalida";
+				}
+				else
+					$mensagem =  "Email Invalido";		
+			}
+		} 
+		else 
+		{
+		$mensagem =  "Nenhum resultado";
+		}
+		
+		echo $mensagem;
+
+	#===================================
+	}
+}
+?>
+
+</body>
+</html>
+
+
+

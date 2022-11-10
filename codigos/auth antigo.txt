@@ -1,0 +1,102 @@
+<?php
+
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "portal";
+$porta = 3306;
+
+
+#Valores que recebe via POST
+$login = $_POST['login'];
+$mac = $_POST['mac'];
+$senha = $_POST['senha']; 
+
+ 
+
+##Conecta com o banco
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+ 
+#Seleciona oq precisa pro auth
+$sql = "SELECT ID, nome, usuario,senha, MAC1, MAC2, MAC3, MAC4 FROM usuarios";
+
+
+$result = $conn->query($sql);
+
+$mensagem = "";
+
+if ($result->num_rows > 0) 
+{ 
+  while($row = $result->fetch_assoc()) 
+  {
+    #echo "id: " . $row['ID'] . " ". $row['usuario'] . "</br>";
+	if($row['usuario'] == $login)
+	{
+		if($row['senha'] == $senha)
+		{
+			if($row['MAC1'] == $mac)
+			{
+				$mensagem =  "Autenticado";
+			}
+			else if($row['MAC2'] == $mac)
+			{
+				$mensagem =  "Autenticado";
+			}
+			else if($row['MAC3'] == $mac)
+			{
+				$mensagem =  "Autenticado";
+			}
+			else if($row['MAC4'] == 99995)
+			{
+				$mensagem =  "Autenticado";
+			}
+			
+			else
+				
+			 $mensagem =  "Dispositivo nao autorizado";
+		}
+		else
+			 $mensagem =  "Senha Invalida";
+	}
+	else
+		$mensagem =  "Email Invalido";		
+  }
+} 
+else 
+{
+  $mensagem =  "Nenhum resultado";
+}
+
+echo $mensagem;
+
+
+
+ 
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

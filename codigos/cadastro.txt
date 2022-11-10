@@ -1,0 +1,16 @@
+$host = "localhost";
+							$user = "root";
+							$pass = "";
+							$dbname = "portal";
+							$porta = 3306;
+							
+							
+							$conecta = new PDO("mysql:host=$host;dbname=$dbname", $user , $pass); //instancia a classe PDO
+							$conecta->exec("set names utf8"); // Permite caracteres latinos.
+							$comandoSQL = "comando SQL aqui... INSERT, UPDATE ou DELETE";
+							
+							$comandoSQL = "INSERT INTO usuarios (MAC1, MAC2) VALUES ('$mac', '$mac') ";
+
+							echo $comandoSQL; // Este echo serve apenas para teste.
+							$grava = $conecta->prepare($comandoSQL); //testa o comando SQL
+							$grava->execute(array()); 
