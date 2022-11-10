@@ -39,7 +39,94 @@ Halloween();
 
 $ListaLinks = array(  
 "",
-"", 
+"A LENDA DO CAVALEIRO FANTASMA",
+"O Último Exorcismo - Parte 1 - 2010",
+"O Último Exorcismo - Parte 2 - 2013",
+"Re-Animator - Fase Terminal - 2003",
+"Elvira - As Loucas Aventuras de Elvira - 2001",
+"Elvira - A Rainha das Trevas - 1988",
+"Noite do Terror 2 - 2014",
+"Noite do Terror 1 - 2006",
+"Viagem do Medo - 2010",
+"Uma Noite Para Esquecer  - 2013",
+"Você é o Próximo - 2014",
+"The Silence - 2019",
+"Verónica - 2017",
+"Ultimo Mundo Canibal - Faces da Morte 8",
+"Zoombies 1 - 2016",
+"Zoombies 2 - 2019",
+"Viagem Maldita 2 - 2007",
+"Viagem Maldita 1 - 2006",
+"Tomates Assasinos 2",
+"Turistas - 2006",
+"Triângulo do Medo - 2009",
+"Slender Man - O Pesadelo sem Façe",
+"Wolf Creek 1",
+"Um Drink no Inferno 3 - 2000",
+"Um Drink no Inferno 2 - 1999",
+"Um Drink no Inferno 1 - 1996",
+"Toque de Recolher - 2006",
+"Terra Maldita - 2009",
+"Shakma - A Fúria Assassina - 1990",
+"Temos Vagas 2 - A Primeira Diária - 2008",
+"Temos Vagas 1 - 2007",
+"Silent Hill -  Revelações - 2012",
+"Sobrenatural 4 - A última Chave - 2018",
+"Sobrenatural 3 - A Origem - 2015",
+"Sobrenatural 2 - 2014",
+"Sobrenatural 1 - 2010",
+"Rua do Medo 2 - 1978",
+"Rua do Medo 3 - 1666",
+"Rua do Medo 1 - 1994",
+"Rota Mortal 2 - Não Olhe Para Trás - 2008",
+"Rota Mortal 1 - 2006",
+"Semente Do Diabo - 1979",
+"Refém do Espirito - 2008",
+"Um Clássico Filme de Terror - 2021",
+"Trem Fantasma - 2006",
+"Seres Rastejantes - 2006",
+"Pesadelos do Passado 1 - 2012",
+"Pesadelos do Passado 2 - 2014",
+"Premonição 1 - 2000",
+"Premonição 2 - 2003",
+"Premonição 3 - 2006",
+"Premonição 4 - 2009",
+"Premonição 5 - 2011",
+"Quarentena 1 - Remake - 2008",
+"Quarentena 2 - Terminal - 2011",
+"Sanatório - 2013",
+"O Homem Invisível - 2020",
+"Psicose - Remake - 1998",
+"Psicose 2 - 1983",
+"Psicose 4 - O Começo - 1990",
+"Psicose 3 - 1986",
+"Psicose 1 - 1960",
+"O Homem Sem Sombra 2 - 2008", 
+"O Homem Sem Sombra 1 - 2000", 
+"Poltergeist 4 - O Fenômeno - 2015", 
+"Poltergeist 3 - 1988", 
+"Poltergeist 2 - 1986", 
+"Poltergeist 1 - 1982", 
+"Piranha 2 - 2012", 
+"Piranha 1 - 2010", 
+"Maligno - 2022", 
+"Morte Morte Morte", 
+"Primitivo - 2007", 
+"Perseguidos - 2010", 
+"Pague Para Entrar e Reze Para Sair - 1981", 
+"Os Mortos Não Morrem - 2019", 
+"Perseguição 2 - O Resgate - 2008", 
+"Perseguição 3 - Correndo Para a Morte - 2014", 
+"Perseguição 1 - 2001", 
+"Pânico no Deserto 2 - 2008", 
+"Pânico no Deserto 1 - 2005", 
+"Paranóia - 2007", 
+"O Enigma do Outro Mundo", 
+"Pânico na Ilha - 2009", 
+"Os Pássaros 2 - O Ataque Final", 
+"Os Pássaros 1 - 1963", 
+"Os Estranhos - Caçada Noturna - 2018", 
+"Os Estranhos - 2008", 
 "Re-Animator - 1985",
 "Terra dos Mortos - 2005",
 "Os Órfãos - 2020",
@@ -620,6 +707,7 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 <strong>Adicionados recentemente:</strong></span></span></span></p>
 
 <?php
+echo "<marquee scrolldelay='50'>";
 for ($int = 0; $int <= 8; $int++)
 {
 	 //Checka se existe o filme 
@@ -628,13 +716,13 @@ for ($int = 0; $int <= 8; $int++)
 			if (file_exists("img/".$ListaLinks[$int].".jpg")) 
 			{
 				echo "<a href='player.php?filme=".$ListaLinks[$int]."'>";
-				echo "<img src='img/".$ListaLinks[$int].".jpg' width=140px border-width=20px border='solid' alt=''>";
+				echo "<img class='FilmeAddRecentemente' src='img/".$ListaLinks[$int].".jpg' alt='asd'>";
 				echo "</a>"; 
 			}
 			else if (file_exists("img/".$ListaLinks[$int].".png")) 
 			{
 				echo "<a href='player.php?filme=".$ListaLinks[$int]."'>";
-				echo "<img src='img/".$ListaLinks[$int].".png' width=140px border-width=20px border='solid' alt=''>";
+				echo "<img class='FilmeAddRecentemente' src='img/".$ListaLinks[$int].".png' alt=''>";
 				echo "</a>"; 
 			}
 			else
@@ -643,6 +731,7 @@ for ($int = 0; $int <= 8; $int++)
 		  
 		}
 }
+echo "</marquee>";
 ?>
 
 <br>
@@ -682,7 +771,7 @@ foreach ($ListaLinks as $IndexImagens => $nome)
 		if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
 		{ 
 			echo "  <a href='player.php?filme=".$ListaLinks[$IndexImagens]."'>";
-			echo "<span style width='140px'><span style border='100px'><img src='img/".$ListaLinks[$IndexImagens].".jpg' alt=''> ";
+			echo "<span style width='140px'><span style border='100px'><img class='Filme_capa' src='img/".$ListaLinks[$IndexImagens].".jpg' alt=''> ";
 			echo "</span></span></a>"; 
 			$IndexImagens++;			
 		}
@@ -692,7 +781,7 @@ foreach ($ListaLinks as $IndexImagens => $nome)
 		if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
 		{ 
 			echo "  <a href='player.php?filme=".$ListaLinks[$IndexImagens]."'>";
-			echo "<span style width='140px'><span style border='100px'><img src='img/".$ListaLinks[$IndexImagens].".png' alt=''> ";
+			echo "<span style width='140px'><span style border='100px'><img class='Filme_capa' src='img/".$ListaLinks[$IndexImagens].".png' alt=''> ";
 			echo "</span></span></a>"; 
 			$IndexImagens++;			
 		}

@@ -136,8 +136,8 @@ $IndexImagens = 1;
 			//echo "</video>";
 			
 			echo '<center>
-			<video id="trialvid"  class="video-js vjs-default-skin"
-			controls preload="auto" width="auto" height="auto" ';
+			<video id="my-video"  class="video-js vjs-default-skin"
+			controls preload="auto" width="auto" autoplay="true" height="auto" ';
 
 			echo "data-setup='";
 			echo '{"fluid": true}';
@@ -159,8 +159,8 @@ $IndexImagens = 1;
 			//echo "</video> ";
 			
 			echo '<center>
-			<video id="trialvid"  class="video-js vjs-default-skin"
-			controls preload="auto" width="auto" height="auto" ';
+			<video id="my-video"  class="video-js vjs-default-skin"
+			controls preload="auto" autoplay="true" width="auto" height="auto" ';
 			
 			//{"fluid": true}'
 			echo "data-setup='";
@@ -221,6 +221,11 @@ if (document.addEventListener) {
     return false;
     });
 }
+
+<script>
+document.getElementById('my-video').play();
+</script>
+
 </script>";
 ?>
 
