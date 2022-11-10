@@ -14,14 +14,50 @@ aside{
 	 
 }
 
+
+
+
+
+
+.imagem:hover
+{
+	cursor: pointer;
+}
+
+
+.Filme_capa
+{
+	transition: transform .3s;
+	width: 190px; 
+	height: auto;
+	margin: 3px;	
+}
+
+.Filme_capa:hover
+{
+	transform: scale(1.1);  
+}
+
+.FilmeAddRecentemente
+{
+	width:140px;
+	margin: 1px;	
+}
+
+ 
+
+
+
+
+
 .bordin 
 {
-	border: 1px solid  rgb(255, 20, 20);
+	border: 1px rounded   rgb(255, 20, 20);
     margin-top: 12px;
-	margin-left: 200px;
-	margin-right: 200px;
+	margin-left: 100px;
+	margin-right: 100px;
     text-align: center;
-	height: 50%; 
+	height: 90%; 
   width: auto;
 }
 
