@@ -29,8 +29,9 @@ aside{
 {
 	transition: transform .3s;
 	width: 190px; 
-	height: auto;
-	margin: 3px;	
+	height: 282px;
+	margin: 3px;
+border-radius: 20px;	
 }
 
 .Filme_capa:hover
