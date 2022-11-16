@@ -89,6 +89,8 @@ echo "<br>";
 
 ?>
 
+<p style="text-align: center;"><span style="font-size:20px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#ffffff"><?php echo $_GET['filme']; ?><strong></strong></span></span></span></p>
+
 <?php
 echo Blabla3();//Obfuscação
 echo Blabla3();//Obfuscação
@@ -137,7 +139,7 @@ $IndexImagens = 1;
 			
 			echo '<center>
 			<video id="my-video"  class="video-js vjs-default-skin"
-			controls preload="auto" width="auto" autoplay="true" height="auto" ';
+			controls  width="auto" autoplay height="auto" ';
 
 			echo "data-setup='";
 			echo '{"fluid": true}';
@@ -160,7 +162,7 @@ $IndexImagens = 1;
 			
 			echo '<center>
 			<video id="my-video"  class="video-js vjs-default-skin"
-			controls preload="auto" autoplay="true" width="auto" height="auto" ';
+			controls    width="auto" height="auto" ';
 			
 			//{"fluid": true}'
 			echo "data-setup='";
@@ -193,7 +195,7 @@ echo "</center></div>";
 
 
 
-<p style="text-align: center;"><span style="font-size:20px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#ffffff"><strong>Encontrou problemas no seu filme? Reporte o erro no grupo do Telegram, <a href="https://t.me/+Sj8QJG3QJ1ZjNmMx">clicando aqui</a></strong></span></span></span></p>
+<p style="text-align: center;"><span style="font-size:20px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#ffffff"><strong>Encontrou problemas no seu filme? Tente atualizar a pagina ou voltar para a lista e tentar novamente.<br>Caso o problema persista, reporte o erro no grupo do Telegram, <a href="https://t.me/+Sj8QJG3QJ1ZjNmMx">clicando aqui</a></strong></span></span></span></p>
 
 <center><h3><a href="javascript:history.back()">Voltar para lista de filmes</a></h3></center>
  

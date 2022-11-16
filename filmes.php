@@ -1,44 +1,87 @@
- <?php
+<?php
+ 
+// A sessão precisa ser iniciada em cada página diferente
+if (!isset($_SESSION)) 
+	session_start();
 
-	  // A sessão precisa ser iniciada em cada página diferente
-	  if (!isset($_SESSION)) 
-		  session_start();
+// Verifica se não há a variável da sessão que identifica o usuário
+if (!isset($_SESSION['Sessao'])) 
+{
+	// Destrói a sessão por segurança
+	session_destroy();
+	// Redireciona o visitante de volta pro login
+	header("Location: login.php"); exit;
+}
 
-	  // Verifica se não há a variável da sessão que identifica o usuário
-	  if (!isset($_SESSION['Sessao'])) {
-		  // Destrói a sessão por segurança
-		  session_destroy();
-		  // Redireciona o visitante de volta pro login
-		  header("Location: login.php"); exit;
-	  }
-	 
-	 
-		
+//-------------------------------------------------------------------------------------------------------
 //Adicao da API
-include_once "API.php";	  
-	 
-	  
- //Salva os cookies que vieram do login via SESSION 
+include_once "API.php";
 
-  
-	if(!isset($_COOKIE["usuarioCK"]) || !isset($_COOKIE["senhaCK"]))  
-	{
-		$string = 'Bem Vindo(a) ao TerrorFlix \nSalvamos seus dados de login por 1 semana, para facilitar seu acesso.\nApos esse periodo, ele sera resetado e voce \nprecisara entrar com usuario e senha novamente. \n\n\nObrigado e bom filme!!\nEquipe TerrorFlix';
-		echo "<script>alert(\"$string\")</script>";
-		setcookie("usuarioCK",$_SESSION['EmailKK'],  time() + 604800, "/");//email
-	    setcookie("senhaCK",$_SESSION['SenhaKK'],  time() + 604800, "/");//senha
-	    setcookie("nomeCK",$_SESSION['Sessao'],  time() + 604800, "/");//nome
-	} 
+//-------------------------------------------------------------------------------------------------------
 
+//Salva os cookies que vieram do login via SESSION 
+if(!isset($_COOKIE["usuarioCK"]) || !isset($_COOKIE["senhaCK"]))  
+{
+	$string = 'Bem Vindo(a) ao TerrorPrime \nSalvamos seus dados de login por 1 semana, para facilitar seu acesso.\nApos esse periodo, ele sera resetado e voce \nprecisara entrar com usuario e senha novamente. \n\n\nObrigado e bom filme!!\nEquipe TerrorPrime';
+	echo "<script>alert(\"$string\")</script>";
+	setcookie("usuarioCK",$_SESSION['EmailKK'],  time() + 604800, "/");//email
+    setcookie("senhaCK",$_SESSION['SenhaKK'],  time() + 604800, "/");//senha
+    setcookie("nomeCK",$_SESSION['Sessao'],  time() + 604800, "/");//nome
+}
+//-------------------------------------------------------------------------------------------------------
 
 //Efeitos do site em datas comemorativas
 Natal();
 Halloween();
-	  
-	   	  
+
+//-------------------------------------------------------------------------------------------------------
+
 
 $ListaLinks = array(  
 "",
+"",
+"", 
+"Olhos Famintos 4",
+"Cerdita",
+"Resident Evil - Condenação - 2012",
+"Resident Evil - A Vingança - 2017", 
+"Resident Evil 6 - O Capítulo Final - 2017", 
+"Resident Evil 5 - Retribuição - 2012", 
+"Resident Evil 4 - Recomeço - 2010", 
+"Resident Evil 3 - A Extinção - 2007", 
+"Resident Evil 2 - Apocalipse - 2004", 
+"Resident Evil 1 - Hóspede Maldito - 2002", 
+"The Red Book Ritual",
+"Experimentos Macabros 2022",
+"Hellraiser 10 - 2022",
+"Fuga Sobre Trilhos - 2008",
+"Rejeitados pelo Diabo - 2005", 
+"Centopeia Humana 3",
+"Centopeia Humana 2",
+"Centopeia Humana 1",
+"Trancada 2022",
+"Jack Frost 1 - 1997",
+"Os 3 Infernais - 2019",
+"Evocando Espíritos 1 - 2009",
+"As Senhoras de Salem  - 2012",
+"As Strippers Zumbis - 2007",
+"A Ilha do Dr. Moreau - 1996",
+"A Ilha do Dr. Moreau - 1977",
+"A Casa da Colina - 1999",
+"Martyrs - 2008",
+"Serbian Film",
+"Colheita Maldita 2009",
+"Colheita Maldita 8 - Genesis - 2011",
+"Colheita Maldita 7 Revelacao - 2001",
+"Colheita Maldita 6 - 666 - Isaac Está de Volta - 1999",
+"Colheita Maldita 5 - Campos do Terror - 1998",
+"Colheita Maldita 4 - O Encontro- 1996",
+"Colheita Maldita 3 - Colheita Urbana - 1995",
+"Colheita Maldita 2 O Sacrifício Final - 1992",
+"Colheita Maldita 1 - 1984", 
+"Domínio- Prequela do Exorcista - 2005",
+"Terror em Silent Hill",
+"Ripper 2 - Ressuscitando o Medo - 2004",
 "A LENDA DO CAVALEIRO FANTASMA",
 "O Último Exorcismo - Parte 1 - 2010",
 "O Último Exorcismo - Parte 2 - 2013",
@@ -571,141 +614,94 @@ $ListaLinks = array(
 "A Hora do Pesadelo 7",
 );
 
-	 
+
+//-------------------------------------------------------------------------------------------------------
+
+ECHOS_Infinitos(); 
+
+//-------------------------------------------------------------------------------------------------------
+
+
+ 
 ?>
-
-
-
-
-<?php
- ECHOS_Infinitos(); 
-?>
-
-<!-- |< >|< |< -->
-<!-- Expand smartphone -->
+ 
+ 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
  <head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
    <title>
-     TerrorFlix - Filmes
+     TerrorPrime - Filmes
    </title>
    <meta charset="utf-8">
    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style3.css">
-	
-	
-
-
-<!--Botao de Subir e Descer!--> 
-<?php
-echo "<center><img id='back-to-top' src='ImagensSite/subir.png' class='img-fluid'></center>"; 
-echo "<center><img id='back-to-down' src='ImagensSite/descer.png' class='img-fluid'></center>"; 
-echo "<br>";
-?> 
-
-<style>
-#back-to-top {
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
-}
-#back-to-down {
-  position: fixed;
-  bottom: 0px;
-  right: 50px;
-}
-</style>
-
-
-
-<script>
-var btn = document.querySelector("#back-to-top");
-btn.addEventListener("click", function() {
-    window.scrollTo(0, 0);
-});
-
-var btn = document.querySelector("#back-to-down");
-btn.addEventListener("click", function() {
-    window.scrollTo(0, 100000000);
-});
-</script>
-<!---------------------------------------------->
- 
- 
- 
- <?php
-  echo "<p style='text-align: center;'><span style='font-size:20px'><span style='font-family:Courier New,Courier,monospace'><span style='color:#ffffff'><strong>Logado(a) como ".$_SESSION['Sessao']."</strong></span></span></span></p>";
-  ?>
- 
- </head>
- <body>
-  <header>
+   <link rel="stylesheet" type="text/css" href="css/novo.css">  
+<link rel="icon" type="imagem/png" href="ImagensSite/subir.png" />
   
-    <center><img src='ImagensSite/main2.png' border='none' class='img-fluid'></center>
-	
-	
-	 
- 
-	
-	<?php
+
+<head>
+	<div class="menu">
+		<img class="Logopagina" src="ImagensSite/main3.png"><!--Logo!-->
+			<div><!--Menus!-->
+				<a class="itensmenu" href="filmes.php">Inicio</a>  
+				<a class="itensmenu" href="https://t.me/+Sj8QJG3QJ1ZjNmMx">Telegram</a> 
+				<a class="itensmenu" href="chat.php">Ajuda</a>
+				<a class="itensmenu" href="login.php">Sair</a>
+			</div>
+	</div>
+</head>
+<br>
+<body class="fundo"> 
+
+<br>
+<br>
+<br>
+<br>	
+<?php
 
 //Alerta de datas comemorativas
 $hoje = date('dm');
-if ($hoje == 3110)
+if ($hoje == 3110)//3110
 {
 	//Texto do dia das bruxas
-	echo "<p style='text-align: center;'><span style='font-size:20px'><span style='font-family:Courier New,Courier,monospace'><span style='color:#ffffff'><strong>Feliz Dia das Bruxas!!!<br>Nada melhor que um filme de terror hoje!!</strong></span></span></span></p>";
+	echo "<center><a class='textos'><strong>Feliz Dia das Bruxas!!!<br>Nada melhor que um filme de terror hoje!!</strong></a></center><br>";
 }
 else if ($hoje == 2512)
 {
 	//Texto feliz natal
-	echo "<p style='text-align: center;'><span style='font-size:20px'><span style='font-family:Courier New,Courier,monospace'><span style='color:#ffffff'><strong>Feliz Natal para voce!!!<br></strong></span></span></span></p>";
+	echo "<center><a class='textos'><strong>Feliz Natal para voce!!!</strong></a></center><br>";
 } 
- 
-
-//Contador de filmes
-echo "<p style='text-align: center;'><span style='font-size:20px'><span style='font-family:Courier New,Courier,monospace'><span style='color:#ffffff'><strong>Atualmente, contamos com ".count($ListaLinks)." filmes em nosso catalogo!</strong></span></span></span></p>";
- 
 
  
- 
- 
- 
+//Contador de Filmes
+echo "<center><a class='textos'><strong>Atualmente, contamos com ".count($ListaLinks)." filmes em nosso catalogo!</strong></a></center><br>";
+
+
+
 //Registrar Acesso nos logs
 $Log = new Logs();
-$Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");  
- 
- 
- 
- 
- 
+$Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes"); 
+
+
 ?>
-
-  
-	 
-	 
-	 
-	 <a href='dispositivo.php'><button value="Send">Meu ID</button></a> 
-	 <a href='https://t.me/+Sj8QJG3QJ1ZjNmMx'><button value="Send">Grupo do Telegram</button></a> 
-	 <a href='login.php'><button value="Send">Mudar de Conta</button></a>  
-	 <a href='chat.php'><button value="Send">Chat de Duvidas</button></a> 
-  
-  </header>
-  
-  
  
-   
-
-
-<!-- Lista de Filmes recen add --> 
-
-<article>
-<br>
-<p style='text-align: center;'><span style='font-size:20px'>
-<span style='font-family:Courier New,Courier,monospace'><span style='color:#ffffff'>
-<strong>Adicionados recentemente:</strong></span></span></span></p>
-
+	<div><!--Filme de Destaque!-->
+		<?php
+			
+			DestaquesVoid($ListaLinks); //Calcula se exeiste a imagem e o filme, e exibe aleatoriamente
+		
+		?>
+		 
+	</div>
+	<br>
+	
+	<div class="textos">
+		<strong>
+			Ultimos Filmes Adicionados:
+		</strong> 
+		<br> 
+		<br>
+		
+		
 <?php
 echo "<marquee scrolldelay='50'>";
 for ($int = 0; $int <= 8; $int++)
@@ -715,15 +711,11 @@ for ($int = 0; $int <= 8; $int++)
 		{ 
 			if (file_exists("img/".$ListaLinks[$int].".jpg")) 
 			{
-				echo "<a href='player.php?filme=".$ListaLinks[$int]."'>";
-				echo "<img class='FilmeAddRecentemente' src='img/".$ListaLinks[$int].".jpg' alt='asd'>";
-				echo "</a>"; 
+				echo "<a href='player.php?filme=".$ListaLinks[$int]."'><img class='capaFilmes' src='img/".$ListaLinks[$int].".jpg'></a>"; 
 			}
 			else if (file_exists("img/".$ListaLinks[$int].".png")) 
 			{
-				echo "<a href='player.php?filme=".$ListaLinks[$int]."'>";
-				echo "<img class='FilmeAddRecentemente' src='img/".$ListaLinks[$int].".png' alt=''>";
-				echo "</a>"; 
+				echo "<a href='player.php?filme=".$ListaLinks[$int]."'><img class='capaFilmes' src='img/".$ListaLinks[$int].".png'></a>"; 
 			}
 			else
 			{}
@@ -733,27 +725,22 @@ for ($int = 0; $int <= 8; $int++)
 }
 echo "</marquee>";
 ?>
-
-<br>
-<br>
-<br>
-</article>
-
-
-
-
-
-  
-<!-- Lista de Filmes normal -->
-<br>
- <p style='text-align: center;'><span style='font-size:20px'><span style='font-family:Courier New,Courier,monospace'>
-   <span style='color:#ffffff'><strong>Lista Completa</strong></span></span></span></p>   
-  <article>
-  
-  
-   
- <?php
+		 
+		   
+			
+			
  
+			
+			
+<div class="textos">
+		<h2><strong>Lista Completa:</strong> </h2>
+		 <br> 
+		 <br> 
+		 <br> 
+ <?php
+ echo "<center><a class='botaoSurpreenda_me' href=\"".SurpreendaMe($ListaLinks)."\">Deixe a gente escolher!!</a></center>";
+ echo "<br>";
+ echo "<br>";
  
 
 $IndexImagens = 0; 
@@ -769,10 +756,9 @@ foreach ($ListaLinks as $IndexImagens => $nome)
 	if (file_exists("img/".$ListaLinks[$IndexImagens].".jpg")) //Checka se existe a capa
 	{
 		if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
-		{ 
-			echo "  <a href='player.php?filme=".$ListaLinks[$IndexImagens]."'>";
-			echo "<span style width='140px'><span style border='100px'><img class='Filme_capa' src='img/".$ListaLinks[$IndexImagens].".jpg' alt=''> ";
-			echo "</span></span></a>"; 
+		{  
+			echo "<a href='player.php?filme=".$ListaLinks[$IndexImagens]."'><img class='capaFilmes' src='img/".$ListaLinks[$IndexImagens].".jpg'></a>"; 
+			 
 			$IndexImagens++;			
 		}
 	}
@@ -780,9 +766,8 @@ foreach ($ListaLinks as $IndexImagens => $nome)
 	{
 		if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
 		{ 
-			echo "  <a href='player.php?filme=".$ListaLinks[$IndexImagens]."'>";
-			echo "<span style width='140px'><span style border='100px'><img class='Filme_capa' src='img/".$ListaLinks[$IndexImagens].".png' alt=''> ";
-			echo "</span></span></a>"; 
+			echo "<a href='player.php?filme=".$ListaLinks[$IndexImagens]."'><img class='capaFilmes' src='img/".$ListaLinks[$IndexImagens].".png'></a>"; 
+			 
 			$IndexImagens++;			
 		}
 	}
@@ -793,20 +778,37 @@ foreach ($ListaLinks as $IndexImagens => $nome)
   
 ?>
  
-  
- 
-   
-  </article>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+</div>		
+	 
+	
+	
+</body>
+
+<?php
+echo "<br>";
+echo "<br>";
+echo "<center><a class='botaoSurpreenda_me' href=\"".SurpreendaMe($ListaLinks)."\">Deixe a gente escolher!!</a></center>";
+echo "<br>";
+echo "<br>";
+echo "<center><img id='back-to-top' src='ImagensSite/subir.png' class='img-fluid'></center>"; 
+echo "<center><img id='back-to-down' src='ImagensSite/descer.png' class='img-fluid'></center>"; 
+echo "<br>";
+?>
+
+<script>
+var btn = document.querySelector("#back-to-top");
+btn.addEventListener("click", function() {
+    window.scrollTo(0, 0);
+});
+
+var btn = document.querySelector("#back-to-down");
+btn.addEventListener("click", function() {
+    window.scrollTo(0, 100000000);
+});
+</script>
+
 <!-- Bloquear Mouse e Inspecionar Elementos -->
  <script>
   
@@ -834,15 +836,17 @@ document.onkeydown = function(e) {
     return false;
 };
 </script> 
-<!---------------------------------------------->
-  
-  <footer>
+
+
+
+
+ <footer>
     <?php
-echo "<center><img src='ImagensSite/main.png' class='img-fluid'></center>"; 
+echo "<center><img src='ImagensSite/main3.png'></center>"; 
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
 echo "<br>";
 ?> 
   </footer>
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
- </body>
-</html>

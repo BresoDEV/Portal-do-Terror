@@ -2,12 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Portal do Terror</title>
+    <title>TerrorPrime</title>
 
 	
  
@@ -120,10 +121,10 @@ include "API.php";
         <div class="row">
           <div class="col-lg-3 col-md-2 col-1"></div>
           <div class="col-lg-6 col-md-8 col-10 p-0">
-            <a class="btn text-white" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls autoplay="multiCollapseExample1">Oque é o Portal do Terror?</a>
+            <a class="btn text-white" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls autoplay="multiCollapseExample1">Oque é o TerrorPrime?</a>
         <div class="collapse multi-collapse" id="multiCollapseExample1">
           <div class="card card-body">
-            O Portal do Terror é um projeto criado de fã para fã.<br><br>
+            O TerrorPrime é um projeto criado de fã para fã.<br><br>
             Se voce ja tentou buscar um site de filmes e se deparou com milhares de paginas de anuncios e propagandas na tela, que muitas vezes acabam impedindo voce de assistir um bom filme,sabe o quanto isso é desagradável. E foi justamente por isso, que essa plataforma foi criada, para acabar com isso. Aqui voce tem acesso ao filme escolhido NA HORA, sem anuncios e propagandas, com alta qualidade.
           </div>
         </div>

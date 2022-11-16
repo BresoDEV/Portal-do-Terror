@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title> Chat TerrorFlix</title>
+    <title> Chat TerrorPrime</title>
      <meta name="viewport" content="width=device-width ,initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -213,7 +213,7 @@ var username ="";
     var prevMsg = $("#container_").html();
     
         $("#container_").html(prevMsg +
-             " <span class= 'current_message'>"+ "<span class = 'Bot'> TerrorFlix :  </span>" 
+             " <span class= 'current_message'>"+ "<span class = 'Bot'> TerrorPrime :  </span>" 
               + message +"</span>" + "<br>");
         $(".current_message").hide();
         $(".current_message").delay(2000).fadeIn();
@@ -232,7 +232,7 @@ var username ="";
 
 
     function get_username(){
-        send_message("Ola, sou o seu assistente virtual da Terrorflix. Qual o seu nome?");
+        send_message("Ola, sou o seu assistente virtual da TerrorPrime. Qual o seu nome?");
      }
      
      //all the AI is here 
@@ -339,7 +339,7 @@ var username ="";
 			|| (message.toLowerCase().indexOf("baixo")>=0))
 			{
                    $("#container_").html(" "); 
-                 send_message("Para baixar o aplicativo, clique <a href='https://appsgeyser.io/16220495/TerrorFlix?_ga=2.246572929.464995234.1667394558-1987572509.1667394557'>aqui</a>, ou se preferir, use o seguinte QR Code para ir direto para a pagina de downloads: <br><img src='https://raw.githubusercontent.com/BresoDEV/Portal-Do-Terror-APK/main/chart.png' alt='' width=200 height=200>");
+                 send_message("Para baixar o aplicativo, acesse o canal do Telegram, la voce vai encontrar os links");
 ;           }
 
 

@@ -1,6 +1,72 @@
  
 <?php
 
+
+function SurpreendaMe($entrada_array_Filme)
+{
+	$linkFinal;
+	$total_de_itens = count($entrada_array_Filme) - 1;
+	$booleta = true;
+	
+	while($booleta)
+	{
+		$numero_aleatorio = rand(0, $total_de_itens);
+		if (file_exists("Filmes/".$entrada_array_Filme[$numero_aleatorio].".mkv") || file_exists("Filmes/".$entrada_array_Filme[$numero_aleatorio].".mp4")) //Checka se existe o filme
+		{ 
+			$linkFinal = "player.php?filme=".$entrada_array_Filme[$numero_aleatorio]; 
+			$booleta = false;
+		} 
+	}
+	return $linkFinal;
+}
+
+
+
+function DestaquesVoid($entrada_array_Filme)
+{
+	$linkFinal;
+	$total_de_itens = count($entrada_array_Filme) - 1;
+	$booleta = true;
+	$inteiro = 0;
+	while($booleta)
+	{
+		$numero_aleatorio = rand(0, $total_de_itens);
+		if (file_exists("Filmes/".$entrada_array_Filme[$numero_aleatorio].".mkv")) //Checka se existe o filme
+		{ 
+			if (file_exists("destaques/".$entrada_array_Filme[$numero_aleatorio].".png")) //Checka se existe o filme
+			{ 
+				$linkFinal = "destaques/".$entrada_array_Filme[$numero_aleatorio].".png"; 
+				
+				echo "<a href=\"player.php?filme=".$entrada_array_Filme[$numero_aleatorio]."\"><img class=\"Filme_em_Destaque\" src=\"".$linkFinal."\"></a>";
+				$booleta = false;
+			} 
+			
+		} 
+		else if (file_exists("Filmes/".$entrada_array_Filme[$numero_aleatorio].".mp4"))
+		{
+			if (file_exists("destaques/".$entrada_array_Filme[$numero_aleatorio].".png")) //Checka se existe o filme
+			{ 
+				$linkFinal = "destaques/".$entrada_array_Filme[$numero_aleatorio].".png"; 
+				echo "<a href=\"player.php?filme=".$entrada_array_Filme[$numero_aleatorio]."\"><img class=\"Filme_em_Destaque\" src=\"".$linkFinal."\"></a>";
+				
+				$booleta = false;
+			} 
+		}
+		else if($inteiro != 1000)
+		{
+			$inteiro++;
+		}
+		else if ($inteiro >= 1000)
+		{
+			$booleta = false;
+		}
+	}
+	 
+}
+
+ 
+
+
 function Halloween()
 { 
 	$hoje = date('dm');
