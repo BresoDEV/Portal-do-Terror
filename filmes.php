@@ -40,7 +40,14 @@ Halloween();
 $ListaLinks = array(  
 "",
 "",
-"", 
+"Atividade Paranormal 7 Ente Próximos", 
+"Atividade Paranormal em Toquio", 
+"Atividade Paranormal 5 Marcados pelo Mal 2014", 
+"Atividade Paranormal 6 Dimensao Fantasma",
+"Atividade Paranormal 4", 
+"Atividade Paranormal 3", 
+"Atividade Paranormal 2", 
+"Atividade Paranormal 1", 
 "Olhos Famintos 4",
 "Cerdita",
 "Resident Evil - Condenação - 2012",
@@ -711,11 +718,11 @@ for ($int = 0; $int <= 8; $int++)
 		{ 
 			if (file_exists("img/".$ListaLinks[$int].".jpg")) 
 			{
-				echo "<a href='player.php?filme=".$ListaLinks[$int]."'><img class='capaFilmes' src='img/".$ListaLinks[$int].".jpg'></a>"; 
+				echo "<a href='player.php?filme=".$ListaLinks[$int]."'><img class='capaFilmes2' src='img/".$ListaLinks[$int].".jpg'></a>"; 
 			}
 			else if (file_exists("img/".$ListaLinks[$int].".png")) 
 			{
-				echo "<a href='player.php?filme=".$ListaLinks[$int]."'><img class='capaFilmes' src='img/".$ListaLinks[$int].".png'></a>"; 
+				echo "<a href='player.php?filme=".$ListaLinks[$int]."'><img class='capaFilmes2' src='img/".$ListaLinks[$int].".png'></a>"; 
 			}
 			else
 			{}
