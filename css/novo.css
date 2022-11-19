@@ -101,9 +101,19 @@ font-family:Courier New,Courier,monospace;
 	transition: transform .3s;
 	width: 150px;
 	height: 242px;
-	border-radius: 8px;
+	border-radius: 7px;
 	text-decoration: none;
-	margin: 10px ; 
+	margin: 2px ; 
+} 
+
+.capaFilmes2
+{
+	transition: transform .3s;
+	width: 230px;
+	height: 342px;
+	border-radius: 10px;
+	text-decoration: none;
+	margin: 1px ; 
 } 
 
 .capaFilmes:hover

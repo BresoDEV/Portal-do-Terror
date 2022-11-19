@@ -1,4 +1,5 @@
 <?php
+ 
 // A sessão precisa ser iniciada em cada página diferente
 if (!isset($_SESSION)) 
 	session_start();
@@ -34,7 +35,6 @@ Natal();
 Halloween();
 
 //-------------------------------------------------------------------------------------------------------
-
 
 
 $ListaLinks = array(  
@@ -633,166 +633,231 @@ ECHOS_Infinitos();
 //-------------------------------------------------------------------------------------------------------
 
 
+ 
+?>
+ 
+ 
+<!DOCTYPE html>
+<html lang="pt">
+ <head>
+   <title>
+     TerrorPrime - Filmes
+   </title>
+   <meta charset="utf-8">
+   <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="css/novo.css">  
+<link rel="icon" type="imagem/png" href="ImagensSite/subir.png" />
+  
+
+<head>
+	<div class="menu">
+		<img class="Logopagina" src="ImagensSite/main3.png"><!--Logo!-->
+			<div><!--Menus!-->
+				<a class="itensmenu" href="filmes.php">Inicio</a>  
+				<a class="itensmenu" href="https://t.me/+Sj8QJG3QJ1ZjNmMx">Telegram</a> 
+				<a class="itensmenu" href="chat.php">Ajuda</a>
+				<a class="itensmenu" href="login.php">Sair</a>
+			</div>
+	</div>
+</head>
+<br>
+<body class="fundo"> 
+
+<br>
+<br>
+<br>
+<br>	
+<?php
+
+//Alerta de datas comemorativas
+$hoje = date('dm');
+if ($hoje == 3110)//3110
+{
+	//Texto do dia das bruxas
+	echo "<center><a class='textos'><strong>Feliz Dia das Bruxas!!!<br>Nada melhor que um filme de terror hoje!!</strong></a></center><br>";
+}
+else if ($hoje == 2512)
+{
+	//Texto feliz natal
+	echo "<center><a class='textos'><strong>Feliz Natal para voce!!!</strong></a></center><br>";
+} 
+
+ 
+//Contador de Filmes
+echo "<center><a class='textos'><strong>Atualmente, contamos com ".count($ListaLinks)." filmes em nosso catalogo!</strong></a></center><br>";
+
+
+
 //Registrar Acesso nos logs
 $Log = new Logs();
 $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes"); 
 
 
-
-?> 
-
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta name="viewport" content="width-device-width, initial-width">
-	<link rel="stylesheet" href="css/edu.css">
-	<title>TerrorPrime - Filmes</title>
-</head>
-
-
-<body>
-	<nav class="navbar">
-		<div class="logo">
-			<img src="ImagensSite/main3.png">
-		</div>		
-		<div class="menu">
-			<a href="filmes.php">Inicio</a> 
-			<a href="dispositivo.php">Meu ID</a> 
-			<a href="chat.php">Duvidas</a> 
-			<a href="https://t.me/+Sj8QJG3QJ1ZjNmMx">Telegram</a> 
-			<a href="login.php">Sair</a> 
-			 
-		</div>
-	</nav>
-	
-	 
-	 
-	<header class="header">
-		 
+?>
+ 
+	<div><!--Filme de Destaque!-->
 		<?php
 			
 			DestaquesVoid($ListaLinks); //Calcula se exeiste a imagem e o filme, e exibe aleatoriamente
 		
 		?>
-	</header>
-	
-	
-	<div class="barra"></div>
-		
-	<div class="fundo">
-		<div class="divisor">
-			Confira os ultimos filmes que foram adicionados a plataforma...
-		</div>
-		
-		<div class="vidro">
 		 
-			<?php 
-			for ($int = 0; $int <= 4; $int++)
-			{
-			//Checka se existe o filme 
-				if (file_exists("Filmes/".$ListaLinks[$int].".mkv") || file_exists("Filmes/".$ListaLinks[$int].".mp4")) //Checka se existe o filme
-				{ 
-					if (file_exists("img/".$ListaLinks[$int].".jpg")) 
-					{
-						echo "<div class='vidro2'><a href='player.php?filme=".$ListaLinks[$int]."'><img class='capa' src='img/".$ListaLinks[$int].".jpg'></a><center></center></img></div>"; 
-					}
-					else if (file_exists("img/".$ListaLinks[$int].".png")) 
-					{
-							echo "<div class='vidro2'><a href='player.php?filme=".$ListaLinks[$int]."'><img class='capa' src='img/".$ListaLinks[$int].".png'></a><center></center></img></div>"; 
-					
-					}
-					else
-					{}
-						
-				
-				}
-			} 
-			?>
-		</div>
 	</div>
+	<br>
 	
-	 
-	 
-	 
-	 
-	 
-	<div class="fundo">
-		<div class="divisor">
-			Lista completa de filmes         
+	<div class="textos">
+		<strong>
+			Ultimos Filmes Adicionados:
+		</strong> 
+		<br> 
+		<br>
+		
+		
+<?php
+echo "<marquee scrolldelay='50'>";
+for ($int = 0; $int <= 5; $int++)
+{
+	 //Checka se existe o filme 
+		if (file_exists("Filmes/".$ListaLinks[$int].".mkv") || file_exists("Filmes/".$ListaLinks[$int].".mp4")) //Checka se existe o filme
+		{ 
+			if (file_exists("img/".$ListaLinks[$int].".jpg")) 
+			{
+				echo "<a href='player.php?filme=".$ListaLinks[$int]."'><img class='capaFilmes2' src='img/".$ListaLinks[$int].".jpg'></a>"; 
+			}
+			else if (file_exists("img/".$ListaLinks[$int].".png")) 
+			{
+				echo "<a href='player.php?filme=".$ListaLinks[$int]."'><img class='capaFilmes2' src='img/".$ListaLinks[$int].".png'></a>"; 
+			}
+			else
+			{}
+			  	
+		  
+		}
+}
+echo "</marquee>";
+?>
+		 
+		   
 			
 			
-		</div>
-		<?php
-		echo "<a class='botaoAleatorio' href=\"".SurpreendaMe($ListaLinks)."\">Deixe a gente escolher para voce!</a>";
-		?>
-		<div class="vidro">
-			<!--<div class="vidro2"><a href="Filmes/Pearl.mkv"><img class="capa" src="img/Pearl.jpg"></a><center>Pearl</center></img></div> !-->
-			
-			
-			
-			
-			
-			<?php
  
+			
+			
+<div class="textos">
+		<h2><strong>Lista Completa:</strong> </h2>
+		 <br> 
+		 <br> 
+		 <br> 
+ <?php
+ echo "<center><a class='botaoSurpreenda_me' href=\"".SurpreendaMe($ListaLinks)."\">Deixe a gente escolher!!</a></center>";
+ echo "<br>";
+ echo "<br>";
  
-			$IndexImagens = 0; 
+
+$IndexImagens = 0; 
 
  
-			//Ordena a lista de filmes por ordem alfabetica
-			sort($ListaLinks);
-			
-			
-			//So exibe os filmes que tem o arquivo de video e a capa
-			foreach ($ListaLinks as $IndexImagens => $nome)
-			{
-				if (file_exists("img/".$ListaLinks[$IndexImagens].".jpg")) //Checka se existe a capa
-				{
-					if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
-					{  
-						echo "<div class='vidro2'><a href='player.php?filme=".$ListaLinks[$IndexImagens]."'><img class='capa' src='img/".$ListaLinks[$IndexImagens].".jpg'></a><center></center></img></div>"; 
-						$IndexImagens++;			
-					}
-				}
-				else if (file_exists("img/".$ListaLinks[$IndexImagens].".png")) //Checka se existe a capa
-				{
-					if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
-					{ 
-						echo "<div class='vidro2'><a href='player.php?filme=".$ListaLinks[$IndexImagens]."'><img class='capa' src='img/".$ListaLinks[$IndexImagens].".png'></a><center></center></img></div>";  
-						
-						$IndexImagens++;			
-					}
-				}
-				else
-				{}
-			}
-			
-			
-			?>
+//Ordena a lista de filmes por ordem alfabetica
+sort($ListaLinks);
+
+
+//So exibe os filmes que tem o arquivo de video e a capa
+foreach ($ListaLinks as $IndexImagens => $nome)
+{
+	if (file_exists("img/".$ListaLinks[$IndexImagens].".jpg")) //Checka se existe a capa
+	{
+		if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
+		{  
+			echo "<a href='player.php?filme=".$ListaLinks[$IndexImagens]."'><img class='capaFilmes' src='img/".$ListaLinks[$IndexImagens].".jpg'></a>"; 
+			 
+			$IndexImagens++;			
+		}
+	}
+	else if (file_exists("img/".$ListaLinks[$IndexImagens].".png")) //Checka se existe a capa
+	{
+		if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
+		{ 
+			echo "<a href='player.php?filme=".$ListaLinks[$IndexImagens]."'><img class='capaFilmes' src='img/".$ListaLinks[$IndexImagens].".png'></a>"; 
+			 
+			$IndexImagens++;			
+		}
+	}
+	else
+	{}
+}
  
+  
+?>
  
-		</div>
-		
-		<?php
-		echo "<a class='botaoAleatorio' href=\"".SurpreendaMe($ListaLinks)."\">Deixe a gente escolher para voce!</a>";
-	?>
-	</div> 
+
+
+</div>		
 	 
 	
-	<div class="barra2"></div>
 	
-	
-		
 </body>
 
-<footer>
+<?php
+echo "<br>";
+echo "<br>";
+echo "<center><a class='botaoSurpreenda_me' href=\"".SurpreendaMe($ListaLinks)."\">Deixe a gente escolher!!</a></center>";
+echo "<br>";
+echo "<br>";
+echo "<center><img id='back-to-top' src='ImagensSite/subir.png' class='img-fluid'></center>"; 
+echo "<center><img id='back-to-down' src='ImagensSite/descer.png' class='img-fluid'></center>"; 
+echo "<br>";
+?>
+
+<script>
+var btn = document.querySelector("#back-to-top");
+btn.addEventListener("click", function() {
+    window.scrollTo(0, 0);
+});
+
+var btn = document.querySelector("#back-to-down");
+btn.addEventListener("click", function() {
+    window.scrollTo(0, 100000000);
+});
+</script>
+
+<!-- Bloquear Mouse e Inspecionar Elementos -->
+ <script>
+  
+ 
+ 
+if (document.addEventListener) {
+    document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+        return false;
+    });
+} else { //Versões antigas do IE
+    document.attachEvent("oncontextmenu", function(e) {
+        e = e || window.event;
+        e.returnValue = false;
+        return false;
+    });
+}
+</script>
+
+<script>
+document.onkeydown = function(e) {
+    if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 ||    e.keyCode === 117 || e.keycode === 17 || e.keycode === 85)) {
+         
+    }
+    return false;
+};
+</script> 
 
 
 
-</footer>
 
-
-
-
-
-</html>
+ <footer>
+    <?php
+echo "<center><img src='ImagensSite/main3.png'></center>"; 
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+?> 
+  </footer>
