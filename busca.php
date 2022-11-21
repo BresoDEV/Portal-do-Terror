@@ -90,7 +90,8 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 		if(isset($_GET['filme']))
 		{
 			echo '<form action="/busca.php" method="get" id="nameform">  
-				<input type="text" id="filme" name="filme">
+				<input type="text" id="filme" placeholder="O que você está procurando?" name="filme" autofocus required><br> 
+				 
 				<button type="submit" form="nameform" value="Submit">Buscar</button>
 			</form>';
 			 
@@ -98,7 +99,7 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 		else
 		{
 			 echo '<form action="/busca.php" method="get" id="nameform">  
-				<input type="text" id="filme" name="filme">
+				<input type="text" id="filme" name="filme" placeholder="O que você está procurando?" autofocus required>
 				<button type="submit" form="nameform" value="Submit">Buscar</button>
 			</form>';
 			 

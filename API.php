@@ -9,7 +9,8 @@
 global $ListaLinks;  
 
 
-$ListaLinks = array(  
+$ListaLinks = array( 
+"Tony", 
 "Sorria",
 "Uma Noite de Crime 5 A Fronteira",
 "Uma Noite de Crime 4 A Primeira Noite de Crime",

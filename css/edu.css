@@ -48,7 +48,7 @@ background-repeat: no-repeat;
 	text-decoration: none;
 	font-size: 20px;
 	padding: 10px 5px;
-	//margin-right: 10%;
+	margin-right: 1%;
 	background: rgb(16, 19, 19);
 	align-itens: center;
 	align-text: center;
@@ -139,14 +139,14 @@ display: flex;
  
  
 .divisor{ 
-display: flex;
+	display: flex;
 	flex-flow: row wrap;
-	 background: #A52A2A; 
+	background: #A52A2A; 
 	padding: 2%; 
 	opacity: 90%;
 	margin: 30px 50px 0px 50px;
-	 width: 100%;
-	height: auto;
+	width: 100%;
+	height: 80px;
    justify-content: center;
 	align-items: center; 
 	
@@ -238,6 +238,7 @@ input
 	font-size: 29px;
 	border-radius: 7px;
 	color: white;
+	 width: 600px;
 }
 
 button
