@@ -16,6 +16,7 @@ background-repeat: no-repeat;
 
 
 
+
 .navbar{
 	display: flex;
 	flex-flow: row wrap;
@@ -145,7 +146,7 @@ display: flex;
 	opacity: 90%;
 	margin: 30px 50px 0px 50px;
 	 width: 100%;
-  //height: auto;
+	height: auto;
    justify-content: center;
 	align-items: center; 
 	
@@ -226,4 +227,38 @@ transform: scale(1.1);
 	background: #A52A2A;
 	 font-size: 20px;
 }
+
+
+
+input
+{
+	//display: flex;
+	flex-flow: row wrap;
+	background:  rgb(16, 19, 19); 
+	font-size: 29px;
+	border-radius: 7px;
+	color: white;
+}
+
+button
+{
+	//display: flex;
+	flex-flow: row wrap;
+	color: white; 
+	background:  #A52A2A;
+	padding: 5px; 
+	font-size: 20px;
+	 border-radius: 7px;
+	font-family:Impact;
+}
+
+button:hover{
+	background: black;
+	color: white;
+	border-radius: 7px;
+}
+
+
+
+
 

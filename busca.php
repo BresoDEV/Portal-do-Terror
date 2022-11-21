@@ -661,81 +661,46 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 			<a href="dispositivo.php">Meu ID</a> 
 			<a href="chat.php">Duvidas</a> 
 			<a href="https://t.me/+Sj8QJG3QJ1ZjNmMx">Telegram</a> 
-			<a href="busca.php">Procurar</a> 
 			<a href="login.php">Sair</a> 
-			
 			 
-			
 		</div>
 	</nav>
 	
 	 
 	 
-	<header class="header">
-		 
-		<?php
-			
-			DestaquesVoid($ListaLinks); //Calcula se exeiste a imagem e o filme, e exibe aleatoriamente
-		
-		?>
-	</header>
+	 
 	
 	
 	 
 		
 	<div class="fundo">
 		<div class="divisor">
-			Confira os ultimos filmes que foram adicionados a plataforma...
-		</div>
-		
-		<div class="vidro">
-		 
-			<?php 
-			for ($int = 0; $int <= 4; $int++)
-			{
-			//Checka se existe o filme 
-				if (file_exists("Filmes/".$ListaLinks[$int].".mkv") || file_exists("Filmes/".$ListaLinks[$int].".mp4")) //Checka se existe o filme
-				{ 
-					if (file_exists("img/".$ListaLinks[$int].".jpg")) 
-					{
-						echo "<div class='vidro2'><a href='player.php?filme=".$ListaLinks[$int]."'><img class='capa' src='img/".$ListaLinks[$int].".jpg'></a><center></center></img></div>"; 
-					}
-					else if (file_exists("img/".$ListaLinks[$int].".png")) 
-					{
-							echo "<div class='vidro2'><a href='player.php?filme=".$ListaLinks[$int]."'><img class='capa' src='img/".$ListaLinks[$int].".png'></a><center></center></img></div>"; 
-					
-					}
-					else
-					{}
-						
-				
-				}
-			} 
-			 ?>
+		<?php
+		if(isset($_GET['filme']))
+		{
+			echo '<form action="/busca.php" method="get" id="nameform">  
+				<input type="text" id="filme" name="filme">
+				<button type="submit" form="nameform" value="Submit">Buscar</button>
+			</form>';
 			 
-			
+		}
+		else
+		{
+			 echo '<form action="/busca.php" method="get" id="nameform">  
+				<input type="text" id="filme" name="filme">
+				<button type="submit" form="nameform" value="Submit">Buscar</button>
+			</form>';
+			 
+		}
+		
+		
+		?> 
 		</div>
-	</div>
-	
-	 
-	 
-	 
-	 
-	 
-	<div class="fundo">
-		<div class="divisor">
-			Lista completa de filmes         
-			
-			
-		</div>
-		<?php
-		echo "<a class='botaoAleatorio' href=\"".SurpreendaMe($ListaLinks)."\">Deixe a gente escolher para voce!</a>";
-		?>
+		
 		<div class="vidro">
-			<!--<div class="vidro2"><a href="Filmes/Pearl.mkv"><img class="capa" src="img/Pearl.jpg"></a><center>Pearl</center></img></div> !-->
+		 
 			
-			
-			
+			 
 			
 			
 			<?php
@@ -749,40 +714,65 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 			sort($ListaLinks);
 			
 			
-			//So exibe os filmes que tem o arquivo de video e a capa
-			foreach ($ListaLinks as $IndexImagens => $nome)
+			if(isset($_GET['filme']))
 			{
-				if (file_exists("img/".$ListaLinks[$IndexImagens].".jpg")) //Checka se existe a capa
+			
+			foreach ($ListaLinks as $palavra)
 				{
-					if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
-					{  
-						echo "<div class='vidro2'><a href='player.php?filme=".$ListaLinks[$IndexImagens]."'><img class='capa' src='img/".$ListaLinks[$IndexImagens].".jpg'></a><center></center></img></div>"; 
-						$IndexImagens++;			
-					}
-				}
-				else if (file_exists("img/".$ListaLinks[$IndexImagens].".png")) //Checka se existe a capa
-				{
-					if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
-					{ 
-						echo "<div class='vidro2'><a href='player.php?filme=".$ListaLinks[$IndexImagens]."'><img class='capa' src='img/".$ListaLinks[$IndexImagens].".png'></a><center></center></img></div>";  
+					 
+					if (file_exists("img/".$ListaLinks[$IndexImagens].".jpg")) //Checka se existe a capa
+					{
 						
-						$IndexImagens++;			
+						if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
+						{
+							$listaBaixo = strtolower($ListaLinks[$IndexImagens]);
+							$buscaBaixo = strtolower($_GET['filme']);
+							if (strpos($listaBaixo, $buscaBaixo) !== false)
+							{
+								echo "<div class='vidro2'><a href='player.php?filme=".$ListaLinks[$IndexImagens]."'><img class='capa' src='img/".$ListaLinks[$IndexImagens].".jpg'></a><center></center></img></div>"; 
+										
+							}	
+							
+						}
 					}
+					
+					else if (file_exists("img/".$ListaLinks[$IndexImagens].".png")) //Checka se existe a capa
+					{
+						
+						if (file_exists("Filmes/".$ListaLinks[$IndexImagens].".mkv") || file_exists("Filmes/".$ListaLinks[$IndexImagens].".mp4")) //Checka se existe o filme
+						{
+							$listaBaixo = strtolower($ListaLinks[$IndexImagens]);
+							$buscaBaixo = strtolower($_GET['filme']);
+							if (strpos($listaBaixo, $buscaBaixo) !== false)
+							{
+								echo "<div class='vidro2'><a href='player.php?filme=".$ListaLinks[$IndexImagens]."'><img class='capa' src='img/".$ListaLinks[$IndexImagens].".png'></a><center></center></img></div>"; 
+										
+							}	
+							
+						}
+					}
+					
+					$IndexImagens++;
 				}
-				else
-				{}
+			
 			}
 			
 			
+			
+			
+			
+			
+			
+			
+			
 			?>
- 
- 
+			 
+			
 		</div>
-		
-		<?php
-		echo "<a class='botaoAleatorio' href=\"".SurpreendaMe($ListaLinks)."\">Deixe a gente escolher para voce!</a>";
-	?>
-	</div> 
+	</div>
+	
+	 
+	 
 	 
 	
 	<div class="barra2"></div>

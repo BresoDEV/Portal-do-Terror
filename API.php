@@ -571,6 +571,26 @@ function DestaquesVoid_novo($entrada_array_Filme)
 
 
 
+function Busca($entrada_array_Filme, $palavra)
+{ 
+	$vector = array($entrada_array_Filme);
+ 
+	//Ordena a lista de filmes por ordem alfabetica
+	sort($entrada_array_Filme);
+	
+	$index = 0;
+	$nome;
+	//So exibe os filmes que tem o arquivo de video e a capa
+	foreach ($entrada_array_Filme as $nome)
+	{
+		$vector[$index] = $nome[$index];
+		$index++;
+		 
+	}
+	var_dump($vector);
+	 
+}
+
 
 
 
