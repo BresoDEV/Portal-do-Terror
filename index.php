@@ -55,7 +55,7 @@ include "API.php";
             <h5>Quer ser um assinante? Entre em contato com a gente e adquira agora mesmo uma conta.</h5>
 			<br> 
             <h3>Ja tem uma conta? <br></h3>
-			<a href="login.php" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Entrar</a>
+			<a href="login.php" class="botao" role="button" aria-pressed="true">Entrar</a>
           </div>
         </div>
         <div class="row w-100">

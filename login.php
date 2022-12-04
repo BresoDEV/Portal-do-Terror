@@ -1,21 +1,23 @@
 <?php
-include "API.php";	
+include "API.php";	 
 
+
+function Mensagem()
+{
+	$mensagem = 'Bem Vindo(a)';
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
     $fname = $_POST['femail'];
     $fsenha = $_POST['fsenha'];
+	
     if (empty($fname)) 
 	{
-        echo "<script>";
-		echo "alert('Entre com um email autorizado');";
-		echo "</script>";
+        $mensagem = 'Email invalido';
+		
     } 
 	else if (empty($fsenha)) 
 	{
-		echo "<script>";
-		echo "alert('Senha em branco');";
-		echo "</script>";
+		$mensagem = 'Senha em branco';
 	}
 	else
 	{
@@ -68,42 +70,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 						} 
 						else
 						{
-							echo "<script>";
-							echo "alert('Dispositivo nao autorizado');";
-							echo "</script>"; 
+							$mensagem = 'Dispositivo nao autorizado';
 						}								
 					}
 					else
-					{
-						echo "<script>";
-						echo "alert('Senha Invalida');";
-						echo "</script>";
+					{ 
+						$mensagem = 'Senha Invalida'; 
 					}
 						 
 				}
 				else
 				{
-					echo "<script>";
-					echo "alert('Email Invalido');";
-					echo "</script>";
+					 
+					$mensagem = 'Email Invalido';
+					 
+					
 				}
 					 	
 			}
 		} 
 		else 
 		{ 
-			echo "<script>";
-			echo "alert('Nenhum resultado');";
-			echo "</script>";
+			//echo "<script>";
+			$mensagem = 'Nenhum resultado';
+			//echo "</script>";
 		}
 		
 	
-		//echo $mensagem;
+		return $mensagem;
  
 	#===================================
 	}
+	return $mensagem;
 }
- 
+return $mensagem;
+} 
  ?>
  
  
@@ -121,6 +122,14 @@ if (document.addEventListener) {
     return false;
     });
 }
+
+
+
+function imsg (msg) {
+  document.getElementById('imsg').innerHTML = 'Message';
+  return false;
+}
+
 </script>";
 ?>
 
@@ -138,6 +147,9 @@ if (document.addEventListener) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel="stylesheet" href="./css/style2.css">
 
+
+
+ 
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -197,6 +209,10 @@ background-size: 100% 100%;
 	else
 	{
 			echo "
+			<p style='text-align: center;'><span style='font-size:20px'><span style='font-family:Courier New,Courier,monospace'><span style='color:red'><strong>".Mensagem()."</strong></span></span></span></p>
+			<br> 
+			<br> 
+			
 			<p style='text-align: center;'><span style='font-size:20px'><span style='font-family:Courier New,Courier,monospace'><span style='color:#ffffff'><b>Email</b></span></span></span></p>
 			<br> 
 			<input type='text' name='femail' value=''>
@@ -211,7 +227,11 @@ background-size: 100% 100%;
   
   
 	<br><br>
-	<input type="submit" value="Entrar"> 
+	<br><br>
+	<input type="submit" onsubmit="return imsg()" value="Entrar"> 
+	
+	
+	 
 	
 	<br><br>
 	 
@@ -230,6 +250,6 @@ background-size: 100% 100%;
 
 
 ?>
-
-</body>
+ 
+</body> 	
 </html>

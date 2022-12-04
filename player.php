@@ -45,7 +45,8 @@ echo Blabla3();//Obfuscação
 echo Blabla3();//Obfuscação 
 ?>
 
-<link rel="stylesheet" type="text/css" href="css/style3.css">
+<!--<link rel="stylesheet" type="text/css" href="css/edu.css">-->
+<link rel="stylesheet" href="css/MetroUI.css">
 	
  </head>
  
@@ -83,11 +84,7 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou o filme ".$_GET['filme']);
  
  
 
-<?php
-echo "<center><a href='filmes.php'><img src='ImagensSite/main3.png' class='img-fluid'></a></center>"; 
-echo "<br>";
-
-?>
+ 
 
 <p style="text-align: center;"><span style="font-size:20px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#ffffff"><?php echo $_GET['filme']; ?><strong></strong></span></span></span></p>
 
@@ -108,8 +105,14 @@ echo Descriptografar($_GET['filme']);
 </strong></span></span></span></p>
 
  
-
-<?php
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <?php
 
  
 
@@ -131,47 +134,89 @@ $IndexImagens = 1;
 		//Verifica se o filme ta em MKV
 		if (file_exists("Filmes/".$_GET['filme'].".mkv"))
 		{
-			//echo "<video width=80% ";
+			//Antigo
+			//------------
+			//echo "<video ";
 			//echo Blabla();
-			//echo " autoplay controls video='Filmes/gleRXuayz55eIlOkSR47fa0Q4LommP.mp4' controlsList='nodownload' src='Filmes/".$_GET['filme'].".mkv' ";
+			//echo " width=100%  autoplay controls video='Filmes/gleRXuayz55eIlOkSR47fa0Q4LommP.mp4' controlsList='nodownload' src='Filmes/".$_GET['filme'].".mkv' ";
 			//echo Blabla2();
 			//echo "</video>";
 			
-			echo '<center>
-			<video id="my-video"  class="video-js vjs-default-skin"
-			controls  width="auto" autoplay height="auto" ';
-
-			echo "data-setup='";
-			echo '{"fluid": true}';
-			echo "'>";
-			echo " 
-			<source ".Blabla()." src='Filmes/".$_GET['filme'].".mkv'  type='video/mp4' width='50px' >".Blabla2()."</source> 
-			</video>
-			</center>";
+			
+			
+			//Normal
+			//echo '<video '.Blabla().' width=100% controls controlsList="nodownload"  autoplay muted>
+			//<source '.Blabla2().' src="Filmes/'.$_GET['filme'].'.mkv" type="video/mp4">
+			//<source src="Filmes/'.$_GET['filme'].'.ogg" type="video/ogg">
+			//	Your browser does not support the video tag.
+			//</video>';
+			
+			
+			
+			//Estilo METROUI
+			echo' <video width=70% data-role="video-player" data-autoplay="true"  data-controls-hide="4000" data-aspect-ratio="hd"
+			data-src="Filmes/'.$_GET['filme'].'.mkv" 
+			data-poster="ImagensSite\fundoPlayer.png">
+			</video>';
+			
+			
+			//Video.js
+			
+			//echo '<center>
+			//<video id="my-video"  class="video-js vjs-default-skin"
+			//controls  width="auto" autoplay height="auto" ';
+            //
+			//echo "data-setup='";
+			//echo '{"fluid": true}';
+			//echo "'>";
+			//echo " 
+			//<source ".Blabla()." src='Filmes/".$_GET['filme'].".mkv'  type='video/mp4' width='50px' >".Blabla2()."</source> 
+			//</video>
+			//</center>";
 
 
 		}
 		//Verifica se existe o filme em MP4 
 		if (file_exists("Filmes/".$_GET['filme'].".mp4"))
 		{
-			//echo "<video width=80% ";
+			//echo "<video width=100% ";
 			//echo Blabla();
 			//echo " autoplay controls controlsList='nodownload' src='Filmes/".$_GET['filme'].".mp4' "; 
 			//echo Blabla2();
 			//echo "</video> ";
 			
-			echo '<center>
-			<video id="my-video"  class="video-js vjs-default-skin"
-			controls    width="auto" height="auto" ';
 			
-			//{"fluid": true}'
-			echo "data-setup='";
-			echo '{"fluid": true}';
-			echo "'>";
-			echo " 
-			<source ".Blabla()." src='Filmes/".$_GET['filme'].".mp4'  type='video/mp4' width='50px' >".Blabla2()."</source> 
-			</video>
-			</center>";
+			
+			//Padrao HTML
+			//echo '<video '.Blabla().' width=100% controls controlsList="nodownload"  autoplay muted>
+			//<source '.Blabla2().' src="Filmes/'.$_GET['filme'].'.mp4" type="video/mp4">
+			//<source src="Filmes/'.$_GET['filme'].'.ogg" type="video/ogg">
+			//Your browser does not support the video tag.
+			//</video>';
+			
+			
+			//METROUI
+			//Estilo METROUI
+			echo' <video width=70% data-role="video-player" data-autoplay="true"  data-controls-hide="4000" data-aspect-ratio="hd"
+			data-src="Filmes/'.$_GET['filme'].'.mp4"
+			data-poster="ImagensSite\fundoPlayer.png">
+			</video>';
+			
+			
+			//VideoJS
+			//
+			//echo '<center>
+			//<video id="my-video"  class="video-js vjs-default-skin"
+			//controls    width="auto" height="auto" ';
+			//
+			////{"fluid": true}'
+			//echo "data-setup='";
+			//echo '{"fluid": true}';
+			//echo "'>";
+			//echo " 
+			//<source ".Blabla()." src='Filmes/".$_GET['filme'].".mp4'  type='video/mp4' width='50px' >".Blabla2()."</source> 
+			//</video>
+			//</center>";
 		}
 		
 	 
@@ -195,7 +240,17 @@ echo "</center></div>";
 
 
 
-<p style="text-align: center;"><span style="font-size:20px"><span style="font-family:Courier New,Courier,monospace"><span style="color:#ffffff"><strong>Encontrou problemas no seu filme? Tente atualizar a pagina ou voltar para a lista e tentar novamente.<br>Caso o problema persista, reporte o erro no grupo do Telegram, <a href="https://t.me/+Sj8QJG3QJ1ZjNmMx">clicando aqui</a></strong></span></span></span></p>
+
+ 
+<span style="font-size:20px">
+<span style="font-family:Courier New,Courier,monospace">
+<span style="color:#ffffff">
+<strong>
+<center>Encontrou problemas no seu filme? Tente atualizar a pagina ou voltar para a lista e tentar novamente.<br>
+Caso o problema persista, reporte o erro no grupo do Telegram, <a href="https://t.me/+Sj8QJG3QJ1ZjNmMx">clicando aqui</a>
+</center>
+</strong>
+</span></span></span>
 
 <center><h3><a href="javascript:history.back()">Voltar para lista de filmes</a></h3></center>
  
@@ -249,6 +304,9 @@ echo "<center><a href='filmes.php'><img src='ImagensSite/main.png' class='img-fl
 echo "<br>";
 ?>
 </br></br>
+ 
+ <script src="scripts\MetroUI.js"></script>
+ 
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>

@@ -86,11 +86,12 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 		
 	<div class="fundo">
 		<div class="divisor">
+		<center>
 		<?php
 		if(isset($_GET['filme']))
 		{
 			echo '<form action="/busca.php" method="get" id="nameform">  
-				<input type="text" id="filme" placeholder="O que você está procurando?" name="filme" autofocus required><br> 
+				<input type="text" id="filme" placeholder="O que você está procurando?" name="filme" autofocus required>
 				 
 				<button type="submit" form="nameform" value="Submit">Buscar</button>
 			</form>';
@@ -107,6 +108,7 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 		
 		
 		?> 
+		</center>
 		</div>
 		
 		<div class="vidro">

@@ -9,7 +9,21 @@
 global $ListaLinks;  
 
 
-$ListaLinks = array( 
+$ListaLinks = array(
+"A Morte do Demonio",
+"A Vingança de Jennifer",
+"O Misterio das Duas Irmãs",
+"Enterrado Vivo",
+"Filha da Luz",
+"Spawn - O Soldado do Inferno",
+"The Woman",
+"X - A Marca da Morte",
+"Sepultado Vivo 2",
+"Ninguem Sobrevive",
+"Irreversivel",
+"Wolf Creek 2 - 2013 - Legendado",
+"O Limite do Medo", 
+"Escada de Jaco", 
 "Tony", 
 "Sorria",
 "Uma Noite de Crime 5 A Fronteira",
@@ -545,6 +559,7 @@ $ListaLinks = array(
 "A Volta dos Mortos Vivos 1",
 "A Volta dos Mortos Vivos 2",
 "A Volta dos Mortos Vivos 3",
+"A Volta dos Mortos Vivos 4",
 "Aracnofobia - 1990", 
 "Sanatorio - 2013",   
 "Seed - Assassino em Serie - 2006",   
@@ -682,7 +697,7 @@ function Natal()
 	$hoje = date('m');
 	if ($hoje == 12)
 	{    
-		echo "<script type='text/javascript' src='scripts/neve.js'></script>";  		
+		echo "<script type='text/javascript' src='scripts/neve.js'></script>";   		
 	} 
 	
 }

@@ -17,13 +17,14 @@ if (!isset($_SESSION['Sessao']))
  
 include("API.php");
 
+ 
 //-------------------------------------------------------------------------------------------------------
 
 //Salva os cookies que vieram do login via SESSION 
 if(!isset($_COOKIE["usuarioCK"]) || !isset($_COOKIE["senhaCK"]))  
 {
-	$string = 'Bem Vindo(a) ao TerrorPrime \nSalvamos seus dados de login por 1 semana, para facilitar seu acesso.\nApos esse periodo, ele sera resetado e voce \nprecisara entrar com usuario e senha novamente. \n\n\nObrigado e bom filme!!\nEquipe TerrorPrime';
-	echo "<script>alert(\"$string\")</script>";
+	//$string = 'Bem Vindo(a) ao TerrorPrime \nSalvamos seus dados de login por 1 semana, para facilitar seu acesso.\nApos esse periodo, ele sera resetado e voce \nprecisara entrar com usuario e senha novamente. \n\n\nObrigado e bom filme!!\nEquipe TerrorPrime';
+	//echo "<script>alert(\"$string\")</script>";
 	setcookie("usuarioCK",$_SESSION['EmailKK'],  time() + 604800, "/");//email
     setcookie("senhaCK",$_SESSION['SenhaKK'],  time() + 604800, "/");//senha
     setcookie("nomeCK",$_SESSION['Sessao'],  time() + 604800, "/");//nome
@@ -33,6 +34,8 @@ if(!isset($_COOKIE["usuarioCK"]) || !isset($_COOKIE["senhaCK"]))
 //Efeitos do site em datas comemorativas
 Natal();
 Halloween();
+
+
 
 //-------------------------------------------------------------------------------------------------------
 
@@ -59,6 +62,7 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 <head>
 	<meta name="viewport" content="width-device-width, initial-width">
 	<link rel="stylesheet" href="css/edu.css">
+	
 	<title>TerrorPrime - Filmes</title>
 </head>
 
@@ -84,12 +88,13 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 	 
 	 
 	<header class="header">
-		 
+		 <center>
 		<?php
 			
-			DestaquesVoid($ListaLinks); //Calcula se exeiste a imagem e o filme, e exibe aleatoriamente
+			DestaquesVoid($ListaLinks); //Calcula se existe a imagem e o filme, e exibe aleatoriamente
 		
 		?>
+		</center>
 	</header>
 	
 	
@@ -97,12 +102,13 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 		
 	<div class="fundo">
 		<div class="divisor">
-			Confira os ultimos filmes que foram adicionados a plataforma...
+			Ultimos filmes...
 		</div>
 		
 		<div class="vidro">
 		 
 			<?php 
+			 
 			for ($int = 0; $int <= 4; $int++)
 			{
 			//Checka se existe o filme 
@@ -200,6 +206,11 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 	<div class="barra2"></div>
 	
 	
+		
+	
+		
+		
+		
 		
 </body>
 

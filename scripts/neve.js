@@ -15,11 +15,11 @@ var snowStorm = (function(window, document) {
   // --- common properties ---
 
   this.autoStart = true;          // Whether the snow should start automatically or not.
-  this.flakesMax = 200;           // Limit total amount of snow made (falling + sticking)
-  this.flakesMaxActive = 200;      // Limit amount of snow falling at once (less = lower CPU use)
-  this.animationInterval = 4;    // Theoretical "miliseconds per frame" measurement. 20 = fast + smooth, but high CPU use. 50 = more conservative, but slower
-  this.excludeMobile = false;      // Snow is likely to be bad news for mobile phones' CPUs (and batteries.) By default, be nice.
-  this.flakeBottom = null;        // Integer for Y axis snow limit, 0 or null for "full-screen" snow effect
+  this.flakesMax = 100;           // Limit total amount of snow made (falling + sticking)
+  this.flakesMaxActive = 60;      // Limit amount of snow falling at once (less = lower CPU use)
+  this.animationInterval = 1;    // Theoretical "miliseconds per frame" measurement. 20 = fast + smooth, but high CPU use. 50 = more conservative, but slower
+  this.excludeMobile = true;      // Snow is likely to be bad news for mobile phones' CPUs (and batteries.) By default, be nice.
+  this.flakeBottom = 0;        // Integer for Y axis snow limit, 0 or null for "full-screen" snow effect
   this.followMouse = false;        // Snow movement can respond to the user's mouse
   this.snowColor = '#fff';        // Don't eat (or use?) yellow snow.
   this.snowCharacter = '&bull;';  // &bull; = bullet, &middot; is square on some systems etc.
@@ -31,9 +31,9 @@ var snowStorm = (function(window, document) {
 
   // --- less-used bits ---
 
-  this.freezeOnBlur = true;       // Only snow when the window is in focus (foreground.) Saves CPU.
-  this.flakeLeftOffset = 0;       // Left margin/gutter space on edge of container (eg. browser window.) Bump up these values if seeing horizontal scrollbars.
-  this.flakeRightOffset = 0;      // Right margin/gutter space on edge of container
+  this.freezeOnBlur = false;       // Only snow when the window is in focus (foreground.) Saves CPU.
+  this.flakeLeftOffset = 50;       // Left margin/gutter space on edge of container (eg. browser window.) Bump up these values if seeing horizontal scrollbars.
+  this.flakeRightOffset = 50;      // Right margin/gutter space on edge of container
   this.flakeWidth = 5;            // Max pixel width reserved for snow element
   this.flakeHeight = 5;           // Max pixel height reserved for snow element
   this.vMaxX = 2.5;                 // Maximum X velocity range for snow
