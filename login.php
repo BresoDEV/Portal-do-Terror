@@ -4,9 +4,10 @@ include "API.php";
 
 function Mensagem()
 {
-	$mensagem = 'Bem Vindo(a)';
+	
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
+	$mensagem = 'Bem Vindo(a)';
     $fname = $_POST['femail'];
     $fsenha = $_POST['fsenha'];
 	
@@ -66,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 							
 							
 							header("Location: filmes.php");
-							 
+							 return 0;
 						} 
 						else
 						{
@@ -102,13 +103,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	#===================================
 	}
 	return $mensagem;
-}
-return $mensagem;
+} 
 } 
  ?>
  
  
 <?php
+
+Mensagem();
+
 echo "<script>
 if (document.addEventListener) {
    document.addEventListener('contextmenu', function(e) {
@@ -228,7 +231,7 @@ background-size: 100% 100%;
   
 	<br><br>
 	<br><br>
-	<input type="submit" onsubmit="return imsg()" value="Entrar"> 
+	<input type="submit" value="Entrar"> 
 	
 	
 	 

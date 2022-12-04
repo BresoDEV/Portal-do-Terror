@@ -109,7 +109,7 @@ $Log->GravarAcao($_SESSION['Sessao'], "Acessou a pagina de filmes");
 		 
 			<?php 
 			 
-			for ($int = 0; $int <= 4; $int++)
+			for ($int = 0; $int <= 5; $int++)
 			{
 			//Checka se existe o filme 
 				if (file_exists("Filmes/".$ListaLinks[$int].".mkv") || file_exists("Filmes/".$ListaLinks[$int].".mp4")) //Checka se existe o filme

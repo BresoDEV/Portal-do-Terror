@@ -53,7 +53,8 @@ include "API.php";
             <h1>Filmes de terror ilimitados, <br>Lançamentos e classicos!!.</h1>
             <h3>Assista onde quiser.</h3>
             <h5>Quer ser um assinante? Entre em contato com a gente e adquira agora mesmo uma conta.</h5>
-			<br> 
+			<br>  
+			<a href="https://t.me/+Sj8QJG3QJ1ZjNmMx" class="botao" role="button" aria-pressed="true">Entrar em Contato</a><br><br><br>
             <h3>Ja tem uma conta? <br></h3>
 			<a href="login.php" class="botao" role="button" aria-pressed="true">Entrar</a>
           </div>
