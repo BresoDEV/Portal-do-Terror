@@ -154,7 +154,7 @@ $IndexImagens = 1;
 			
 			
 			//Estilo METROUI
-			echo' <video width=70% data-role="video-player" data-autoplay="true"  data-controls-hide="4000" data-aspect-ratio="hd"
+			echo' <video width=70% data-role="video-player" data-autoplay="true" controlsList="nodownload" data-controls-hide="4000" data-aspect-ratio="hd"
 			data-src="Filmes/'.$_GET['filme'].'.mkv" 
 			data-poster="ImagensSite\fundoPlayer.png">
 			</video>';
@@ -197,7 +197,7 @@ $IndexImagens = 1;
 			
 			//METROUI
 			//Estilo METROUI
-			echo' <video width=70% data-role="video-player" data-autoplay="true"  data-controls-hide="4000" data-aspect-ratio="hd"
+			echo' <video width=70% data-role="video-player" data-autoplay="true" controlsList="nodownload" data-controls-hide="4000" data-aspect-ratio="hd"
 			data-src="Filmes/'.$_GET['filme'].'.mp4"
 			data-poster="ImagensSite\fundoPlayer.png">
 			</video>';
