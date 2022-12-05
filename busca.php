@@ -21,8 +21,8 @@ include("API.php");
 //Salva os cookies que vieram do login via SESSION 
 if(!isset($_COOKIE["usuarioCK"]) || !isset($_COOKIE["senhaCK"]))  
 {
-	$string = 'Bem Vindo(a) ao TerrorPrime \nSalvamos seus dados de login por 1 semana, para facilitar seu acesso.\nApos esse periodo, ele sera resetado e voce \nprecisara entrar com usuario e senha novamente. \n\n\nObrigado e bom filme!!\nEquipe TerrorPrime';
-	echo "<script>alert(\"$string\")</script>";
+	//$string = 'Bem Vindo(a) ao TerrorPrime \nSalvamos seus dados de login por 1 semana, para facilitar seu acesso.\nApos esse periodo, ele sera resetado e voce \nprecisara entrar com usuario e senha novamente. \n\n\nObrigado e bom filme!!\nEquipe TerrorPrime';
+	//echo "<script>alert(\"$string\")</script>";
 	setcookie("usuarioCK",$_SESSION['EmailKK'],  time() + 604800, "/");//email
     setcookie("senhaCK",$_SESSION['SenhaKK'],  time() + 604800, "/");//senha
     setcookie("nomeCK",$_SESSION['Sessao'],  time() + 604800, "/");//nome

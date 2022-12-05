@@ -647,9 +647,9 @@ function DestaquesVoid($entrada_array_Filme)
 		$numero_aleatorio = rand(0, $total_de_itens);
 		if (file_exists("Filmes/".$entrada_array_Filme[$numero_aleatorio].".mkv")) //Checka se existe o filme
 		{ 
-			if (file_exists("destaques/".$entrada_array_Filme[$numero_aleatorio].".png")) //Checka se existe o filme
+			if (file_exists("destaques/".$entrada_array_Filme[$numero_aleatorio].".jpg")) //Checka se existe o filme
 			{ 
-				$linkFinal = "destaques/".$entrada_array_Filme[$numero_aleatorio].".png"; 
+				$linkFinal = "destaques/".$entrada_array_Filme[$numero_aleatorio].".jpg"; 
 				
 				echo "<a href=\"player.php?filme=".$entrada_array_Filme[$numero_aleatorio]."\"><img class=\"Filme_em_Destaque\" src=\"".$linkFinal."\"></a>";
 				$booleta = false;
@@ -658,9 +658,9 @@ function DestaquesVoid($entrada_array_Filme)
 		} 
 		else if (file_exists("Filmes/".$entrada_array_Filme[$numero_aleatorio].".mp4"))
 		{
-			if (file_exists("destaques/".$entrada_array_Filme[$numero_aleatorio].".png")) //Checka se existe o filme
+			if (file_exists("destaques/".$entrada_array_Filme[$numero_aleatorio].".jpg")) //Checka se existe o filme
 			{ 
-				$linkFinal = "destaques/".$entrada_array_Filme[$numero_aleatorio].".png"; 
+				$linkFinal = "destaques/".$entrada_array_Filme[$numero_aleatorio].".jpg"; 
 				echo "<a href=\"player.php?filme=".$entrada_array_Filme[$numero_aleatorio]."\"><img class=\"Filme_em_Destaque\" src=\"".$linkFinal."\"></a>";
 				
 				$booleta = false;
