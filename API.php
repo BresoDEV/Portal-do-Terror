@@ -10,6 +10,10 @@ global $ListaLinks;
 
 
 $ListaLinks = array(
+"Vigiados",
+"Stigmata",
+"The Sadness 2021",
+"Pink Flamingo",
 "A Morte do Demonio",
 "A Vingança de Jennifer",
 "O Misterio das Duas Irmãs",
