@@ -10,6 +10,7 @@ global $ListaLinks;
 
 
 $ListaLinks = array(
+"Passaro Pintado",
 "Vigiados",
 "Stigmata",
 "The Sadness 2021",
