@@ -10,7 +10,20 @@ global $ListaLinks;
 
 
 $ListaLinks = array(
+"Doce Vingança 4",
+"Maya O Ritual do Fogo",
+"",
+"",
+"Maligno 2019",
+"Stairs",
+"Boa Noite Mamae 2014",
+"A Colheita Maldita  2009",
+"A Luz Do Demonio",
+"A Queda 2022",
+"Boa Noite Mamae 2022",
+"Hellraiser 2022", 
 "Passaro Pintado",
+"Skinamarink",
 "Vigiados",
 "Stigmata",
 "The Sadness 2021",

@@ -16,13 +16,13 @@ body {
  
 }
 
-input[type=submit] {
+input  {
   border-radius: 5px;
   border: 1px solid #333;
   background-color: rgb(143 12 12);
   color: #fff;
-  height: 50px;
-  width: 100px; 
+  height: 30px;
+  width: 250px; 
   transition: transform .3s;
   font-family:Impact;
 font-size: 20px;  
@@ -35,12 +35,7 @@ font-family:Impact;
 }
 
 
-input[type=text] {
-    font-size: 20px;
-} 
-input[type=password] {
-    font-size: 20px;
-} 
+ 
 
 
 body .logo {
