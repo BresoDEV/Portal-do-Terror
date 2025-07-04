@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<script>
+  if (!localStorage.getItem('logadoLocadora')) {
+      window.location.href = 'index.html'
+    }
+</script>
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo Trash de Terror</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: 'Courier New', monospace;
+      background-image: url('img/asfalt-dark.png');
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: darkred;
+      color: lime;
+      text-align: center;
+      padding: 20px;
+      font-size: 32px;
+      text-shadow: 2px 2px 0 black;
+      border-bottom: 4px double lime;
+    }
+
+    .catalogo {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .filme {
+      border: 3px ridge red;
+      background-color: #111;
+      margin: 10px;
+      width: 160px;
+      text-align: center;
+      box-shadow: 0 0 10px lime;
+      cursor: pointer;
+    }
+
+    .filme img {
+      width: 100%;
+      border-bottom: 2px dashed red;
+      transition: all 0.3s ease ;
+    }
+
+    .titulo {
+      padding: 10px;
+      font-size: 14px;
+      color: #0f0;
+      text-shadow: 1px 1px 0 #900;
+    }
+
+    .glitch {
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 0 red, -2px 0 blue;
+      }
+
+      20% {
+        text-shadow: -2px 0 red, 2px 0 blue;
+      }
+
+      40% {
+        text-shadow: 2px 2px lime, -2px -2px red;
+      }
+
+      60% {
+        text-shadow: 0px 0px red, 0px 0px blue;
+      }
+
+      80% {
+        text-shadow: -1px 1px lime, 1px -1px red;
+      }
+
+      100% {
+        text-shadow: 2px 0 red, -2px 0 blue;
+      }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      color: #0f0;
+      font-size: 14px;
+      padding: 20px;
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      background: #111;
+      padding: 20px;
+      border: 2px solid red;
+      box-shadow: 0 0 10px lime;
+      max-width: 60%;
+      margin: auto;
+    }
+
+    video {
+      width: 95%;
+    }
+
+    .close {
+      color: red;
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* VHS EFFECT */
+    .vhs-overlay {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 998;
+      background: repeating-linear-gradient(to bottom,
+          rgba(255, 255, 255, 0.07) 0px,
+          rgba(0, 0, 0, 0.07) 2px,
+          rgba(0, 0, 0, 0.07) 4px);
+      animation: flicker 0.3s infinite;
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 0.9;
+        transform: translateX(0);
+      }
+
+      20% {
+        opacity: 0.8;
+        transform: translateX(-1px);
+      }
+
+      40% {
+        opacity: 1;
+        transform: translateX(1px);
+      }
+
+      60% {
+        opacity: 0.9;
+        transform: translateX(0);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateX(-1px);
+      }
+
+      100% {
+        opacity: 0.95;
+        transform: translateX(1px);
+      }
+    }
+
+    .vhs-noise {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('img/ruido.gif');
+      /* GIF de interferência */
+      opacity: 0.4;
+      z-index: 997;
+      mix-blend-mode: screen;
+    }
+
+
+
+
+
+
+
+
+
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: lime;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10000;
+      animation: fadeOut 4s ease 4s forwards;
+    }
+
+    .loading-content {
+      text-align: center;
+    }
+
+    .loading-bar {
+      width: 300px;
+      height: 15px;
+      border: 2px solid lime;
+      margin-top: 20px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .loading-bar .progress {
+      width: 0%;
+      height: 100%;
+      background: lime;
+      animation: loadingAnim 6s linear ;
+      float: left;
+    }
+
+    @keyframes loadingAnim {
+      to {
+        width: 99%;
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+
+
+
+
+
+
+    #barra-pesquisa {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #pesquisa {
+      width: 80%;
+      max-width: 600px;
+      padding: 12px;
+      font-size: 16px;
+      font-family: 'Courier New', monospace;
+      background: black;
+      border: 2px solid lime;
+      color: lime;
+      text-align: center;
+      outline: none;
+      box-shadow: 0 0 10px lime;
+    }
+
+    h1{
+      font-size: 5vw;
+    }
+
+    img:hover{
+      scale: 1.05;
+      box-shadow: 0 0 30px red;
+     
+    }
+
+ 
+  </style>
+</head>
+
+<body>
+
+  <div id="loading-screen">
+    <div class="loading-content">
+      <div class="vhs-noise"></div>
+      <center>
+        <h1 class="glitch">📼 Carregando fita VHS...</h1>
+        <div class="loading-bar">
+          <div class="progress"></div>
+        </div>
+      </center>
+    </div>
+  </div>
+
+
+  <header class="glitch">🎃 Catálogo Trash de Filmes de Terror 👻</header>
+
+  <div id="barra-pesquisa">
+    <input type="text" id="pesquisa" placeholder="🔍 Procurar fita amaldiçoada..." />
+  </div>
+
+
+  <div class="catalogo" id="catalogo"></div>
+
+
+
+
+ 
+
+
+
+
+
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal()">&times;</span>
+
+      <!--<p><strong>Sinopse:</strong> <span id="modalSinopse"></span></p>-->
+
+      <center>
+        <h2 id="modalTitulo"></h2>
+ 
+
+        <video id="video" controls controlsList="nodownload" poster="img/logo.png">
+          <source src="filmes/When Evil Lurks.mp4" type="video/mp4">
+        </video>
+      </center>
+
+    </div>
+  </div>
+
+  <!-- VHS INTERFERÊNCIA -->
+  
+  <div class="vhs-noise"></div>
+
+  <div id="apagao"></div>
+
+  <script src="filmes.js"></script>
+  <script>
+
+
+    
+
+
+    const inputPesquisa = document.getElementById("pesquisa");
+
+    inputPesquisa.addEventListener("input", () => {
+      const termo = inputPesquisa.value.toLowerCase();
+      catalogo.innerHTML = ""; // limpa os filmes atuais
+
+      const filtrados = filmes.filter(filme =>
+        filme.video.toLowerCase().includes(termo)
+      );
+
+      filtrados.forEach(filme => {
+        const div = document.createElement("div");
+        div.classList.add("filme");
+        div.innerHTML = `
+      <img src="capas/${filme.capa}" alt="Capa do filme">
+      <div class="titulo">${filme.capa.replace(".jpg", "").replace(".png", "")}</div>
+    `;
+        div.onclick = () => abrirModal(filme);
+        catalogo.appendChild(div);
+      });
+    });
+
+
+
+
+    setTimeout(() => {
+      document.getElementById('loading-screen').style.display = 'none';
+    }, 8000); // 5 segundos de “leitura da fita”
+
+
+
+
+
+
+
+    // Transformar array plano em array de objetos
+    const filmes = [];
+    for (let i = 0; i < lista_filmes.length; i += 2) {
+      filmes.push({
+        video: lista_filmes[i],
+        capa: lista_filmes[i + 1],
+
+      });
+    }
+
+    const catalogo = document.getElementById("catalogo");
+    const modal = document.getElementById("modal");
+    const modalTitulo = document.getElementById("modalTitulo");
+    const modalSinopse = document.getElementById("modalSinopse");
+
+    filmes.forEach(filme => {
+      const div = document.createElement("div");
+      div.classList.add("filme");
+      div.innerHTML = `
+    <img src="capas/${filme.capa}" alt="Capa do filme">
+    <div class="titulo">${filme.capa.replace(".jpg", "").replace(".png", "")}</div>
+  `;
+      div.onclick = () => abrirModal(filme);
+      catalogo.appendChild(div);
+    });
+
+    function abrirModal(filme) {
+      modalTitulo.innerText = filme.capa.replace(".jpg", "").replace(".png", "");
+      //modalSinopse.innerText = filme.sinopse;
+      modal.style.display = "block";
+
+      document.getElementById('video').src = filme.video
+      document.getElementById('video').play()
+    }
+
+    function fecharModal() {
+      modal.style.display = "none";
+      document.getElementById('video').src = '';
+    }
+
+    window.onclick = function (e) {
+      if (e.target === modal) fecharModal();
+    }
+  </script>
+</body>
+
+</html>
