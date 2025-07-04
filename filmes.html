@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<script src="usuarios.js"></script>
 <script>
   if (!localStorage.getItem('logadoLocadora')) {
-      window.location.href = 'index.html'
-    }
+    window.location.href = 'index.html'
+  }
 </script>
+
 <head>
   <meta charset="UTF-8">
   <title>Catálogo Trash de Terror</title>
@@ -50,7 +52,7 @@
     .filme img {
       width: 100%;
       border-bottom: 2px dashed red;
-      transition: all 0.3s ease ;
+      transition: all 0.3s ease;
     }
 
     .titulo {
@@ -110,8 +112,8 @@
       padding: 20px;
       border: 2px solid red;
       box-shadow: 0 0 10px lime;
-      max-width: 60%;
-      margin: auto;
+      max-width: 91vw;
+
     }
 
     video {
@@ -229,7 +231,7 @@
       width: 0%;
       height: 100%;
       background: lime;
-      animation: loadingAnim 6s linear ;
+      animation: loadingAnim 6s linear;
       float: left;
     }
 
@@ -272,17 +274,15 @@
       box-shadow: 0 0 10px lime;
     }
 
-    h1{
+    h1 {
       font-size: 5vw;
     }
 
-    img:hover{
+    img:hover {
       scale: 1.05;
       box-shadow: 0 0 30px red;
-     
-    }
 
- 
+    }
   </style>
 </head>
 
@@ -313,7 +313,7 @@
 
 
 
- 
+
 
 
 
@@ -328,7 +328,8 @@
 
       <center>
         <h2 id="modalTitulo"></h2>
- 
+        <h2>Aguarde...</h2>
+
 
         <video id="video" controls controlsList="nodownload" poster="img/logo.png">
           <source src="" type="video/mp4">
@@ -339,7 +340,7 @@
   </div>
 
   <!-- VHS INTERFERÊNCIA -->
-  
+
   <div class="vhs-noise"></div>
 
   <div id="apagao"></div>
@@ -348,7 +349,7 @@
   <script>
 
 
-    
+
 
 
     const inputPesquisa = document.getElementById("pesquisa");
@@ -385,6 +386,11 @@
 
 
 
+    //habilita o download se for premium
+    if (usuarios[localStorage.getItem('nomeLocadora')].plano == 'completo') {
+      document.getElementById("video").setAttribute("controlsList", "");
+    }
+
 
     // Transformar array plano em array de objetos
     const filmes = [];
@@ -418,7 +424,9 @@
       modal.style.display = "block";
 
       document.getElementById('video').src = filme.video
-      document.getElementById('video').play()
+      setTimeout(() => {
+        document.getElementById('video').play()
+      }, 3000);
     }
 
     function fecharModal() {
