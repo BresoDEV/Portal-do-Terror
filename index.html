@@ -123,7 +123,8 @@
 
 <body>
 
-  <div class="scanlines"></div>
+
+
 
   <div class="login-box">
     <center>
@@ -143,11 +144,19 @@
     const usuarios = {
       "eduardo": {
         senha: "1234",
-        deviceKey: 'j7tn1hj11751618636492'
+        deviceKey: 'j7tn1hj11751618636492',
+        deviceKey2: "null",
+        deviceKey3: "ewgir26l1751662337535",
+        deviceKey4: "null",
+        plano: "completo"
       },
       "milena": {
         senha: "abcd",
-        deviceKey: null
+        deviceKey:  "",
+        deviceKey2: "",
+        deviceKey3: "",
+        deviceKey4: "",
+        plano: "completo"
       }
     };
 
@@ -161,7 +170,7 @@
     if (localStorage.getItem('logadoLocadora')) {
       window.location.href = 'filmes.html'
     }
-    
+
 
 
 
@@ -196,25 +205,62 @@
         return;
       }
 
-      if (!dados.deviceKey) {
+
+      //---------------TELAS----------------------------------------------
+      if (!dados.deviceKey) {//tela 1
         document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
           "<input value=\"" + minhaDeviceKey + "\">" +
           "\n\nCopie esta chave e cole no código HTML,\nna seção do usuário correspondente (deviceKey).";
+ 
+        localStorage.setItem('nomeLocadora', user);
+        localStorage.setItem('senhaLocadora', pass);
 
+        return;
+      } 
+      if (!dados.deviceKey2) {//tela 2
+        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
+          "<input value=\"" + minhaDeviceKey + "\">" +
+          "\n\nCopie esta chave e cole no código HTML,\nna seção do usuário correspondente (deviceKey).";
+ 
+        localStorage.setItem('nomeLocadora', user);
+        localStorage.setItem('senhaLocadora', pass);
 
+        return;
+      }
+      if (!dados.deviceKey3) {//tela 3
+        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
+          "<input value=\"" + minhaDeviceKey + "\">" +
+          "\n\nCopie esta chave e cole no código HTML,\nna seção do usuário correspondente (deviceKey).";
+ 
+        localStorage.setItem('nomeLocadora', user);
+        localStorage.setItem('senhaLocadora', pass);
+
+        return;
+      }
+      if (!dados.deviceKey4) {//tela 4
+        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
+          "<input value=\"" + minhaDeviceKey + "\">" +
+          "\n\nCopie esta chave e cole no código HTML,\nna seção do usuário correspondente (deviceKey).";
+ 
         localStorage.setItem('nomeLocadora', user);
         localStorage.setItem('senhaLocadora', pass);
 
         return;
       }
 
-      if (dados.deviceKey === minhaDeviceKey) {
+      //--------------------------------------------------------------
+
+      if (dados.deviceKey === minhaDeviceKey ||dados.deviceKey2 === minhaDeviceKey||dados.deviceKey3 === minhaDeviceKey||dados.deviceKey4 === minhaDeviceKey) 
+      {
         msg.innerText = "Login autorizado neste dispositivo.\nAguarde...";
         localStorage.setItem('logadoLocadora', '1')
-        setTimeout(() => {
+        setTimeout(() => 
+        {
           window.location.href = 'filmes.html'
         }, 3000);
-      } else {
+      }   
+      else 
+      {
         msg.innerText = "Acesso negado!\nEste usuário já está vinculado a outro dispositivo.";
       }
     }
