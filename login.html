@@ -147,13 +147,14 @@
 
   <script>
 
+    //Salva o id do device atual
+    if (!localStorage.getItem('id_Dispositivo_Atual')) {
+      localStorage.setItem('id_Dispositivo_Atual', "0")
+    }
+
+
 
     if (localStorage.getItem('nomeLocadora')) {
-
-
-
-
-
 
       if (usuarios[localStorage.getItem('nomeLocadora')].telefone !== 'null') {
         if (usuarios[localStorage.getItem('nomeLocadora')].pagamento_em_dia == 'sim') {
@@ -165,19 +166,28 @@
         }
       }
       else {
-        document.getElementById('login-box').innerText = 'Olá ' + localStorage.getItem('nomeLocadora') + '\n\nAguarde um momento, enquanto preparamos seu cadastro.\n\nSe voce ja enviou o código e já te respondemos no Whats, costuma demorar apenas alguns minutos'
+        if (localStorage.getItem('id_Dispositivo_Atual') !== "0") {
+          document.getElementById('login-box').innerHTML = "Sua chave ja foi criada anteriormente.\n\n" +
+            "<input value=\"" + localStorage.getItem('id_Dispositivo_Atual') + "\">" +
+            "\n\nCopie esta chave e envie para o nosso WhatsApp:\n(54)996180319";
+        }
+        //document.getElementById('login-box').innerText = 'Olá ' + localStorage.getItem('nomeLocadora') + '\n\nAguarde um momento, enquanto preparamos seu cadastro.\n\nSe voce ja enviou o código e já te respondemos no Whats, costuma demorar apenas alguns minutos'
       }
     }
 
 
     if (localStorage.getItem('trialInicio')) {
       if (!verificarTrial()) {
-          if (usuarios[localStorage.getItem('nomeLocadora')].reiniciar_trial == '1'){
-            window.location.href = 'reiniciarTrial.html'
-          }
-          document.getElementById('login-box').innerText = 'Seu tempo de uso expirou'
+        if (usuarios[localStorage.getItem('nomeLocadora')].reiniciar_trial == '1') {
+          window.location.href = 'reiniciarTrial.html'
         }
+        document.getElementById('login-box').innerText = 'Seu tempo de uso expirou'
+      }
     }
+
+
+
+
 
 
 
@@ -229,6 +239,7 @@
 
         localStorage.setItem('nomeLocadora', user);
         localStorage.setItem('senhaLocadora', pass);
+        localStorage.setItem('id_Dispositivo_Atual', minhaDeviceKey)
 
         return;
       }
@@ -239,6 +250,7 @@
 
         localStorage.setItem('nomeLocadora', user);
         localStorage.setItem('senhaLocadora', pass);
+        localStorage.setItem('id_Dispositivo_Atual', minhaDeviceKey)
 
         return;
       }
@@ -249,6 +261,7 @@
 
         localStorage.setItem('nomeLocadora', user);
         localStorage.setItem('senhaLocadora', pass);
+        localStorage.setItem('id_Dispositivo_Atual', minhaDeviceKey)
 
         return;
       }
@@ -259,6 +272,7 @@
 
         localStorage.setItem('nomeLocadora', user);
         localStorage.setItem('senhaLocadora', pass);
+        localStorage.setItem('id_Dispositivo_Atual', minhaDeviceKey)
 
         return;
       }
@@ -273,9 +287,9 @@
           iniciarTrial()
 
           setTimeout(() => {
-             
-              window.location.href = 'filmes.html'
-           
+
+            window.location.href = 'filmes.html'
+
 
           }, 3000);
         }

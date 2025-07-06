@@ -3,12 +3,12 @@
     "eduardo": {
       id:"1",
       senha: "1",
-      deviceKey:  '5bk7a4t71751779338103',
-      deviceKey2: "ont6vjj01751785829967",//celular
+      deviceKey:  "g7s7o1zj1751823061634",//g7s7o1zj1751823061634
+      deviceKey2: "null",//celular
       deviceKey3: "null",
       deviceKey4: "null",
       plano: "completo",
-      telefone:"996180319",
+      telefone:"96180319",
       pagamento_em_dia: "sim",
       dev:"0",
       reiniciar_trial:"0"
