@@ -53,15 +53,16 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      padding: 20px;
+      padding: 5px;
+       
     }
 
     .filme {
       border: 3px ridge red;
       background-color: #111;
       margin: 10px;
-      width: 25vw;
-      max-width: 200px;
+      width: 15vw;
+      max-width: 15vw;
       text-align: center;
       box-shadow: 0 0 10px lime;
       cursor: pointer;
@@ -140,9 +141,13 @@
 
     .close {
       color: red;
-      float: right;
+      position: fixed;
+      top: 10px;
+      right: 10px;
       font-size: 20px;
       cursor: pointer;
+      z-index: 100;
+      font-size: 13vw;
     }
 
     /* VHS EFFECT */
@@ -329,7 +334,7 @@
 
     video {
       width: 100%;
-      height: 30%;
+      height: 50%;
       background: #000;
       transform-origin: center center;
       transition: transform 0.3s ease-in-out;
@@ -400,7 +405,7 @@
 
   <div class="modal" id="modal">
     <div class="modal-content">
-      <span class="close" onclick="fecharModal()">&times;</span>
+      <span class="close"  onclick="fecharModal()">&times;</span>
 
       <!--<p><strong>Sinopse:</strong> <span id="modalSinopse"></span></p>-->
 
@@ -408,10 +413,12 @@
         <h2 id="modalTitulo"></h2>
 
 
-        <div class="vhs-player-container">
+        <div class="vhs-player-container" >
 
-          <video id="video" src="https://archive.org/download/jogos-mortais-1_202507/Jogos Mortais 1.mp4"
-            preload="metadata"></video>
+
+          <video  id="video" controls controlsList="nodownload" src=""
+            preload="metadata">
+          </video>
 
           <div class="controles">
             <button onclick="playVideo()">▶ Play</button>
@@ -452,22 +459,39 @@
       document.getElementById("video").play();
     }
 
+    function removerVideo() {
+      document.getElementById("video").style.display = "none";
+      modal.style.display = "none";
+      document.getElementById("video").src = '';
+    }
+
     function pauseVideo() {
       document.getElementById("video").pause();
     }
 
     function toggleFullscreen() {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else {
-        if (document.getElementById("video").requestFullscreen) {
-          document.getElementById("video").requestFullscreen();
-        } else if (document.getElementById("video").webkitRequestFullscreen) {
-          document.getElementById("video").webkitRequestFullscreen();
-        } else if (document.getElementById("video").msRequestFullscreen) {
-          document.getElementById("video").msRequestFullscreen();
-        }
-      }
+
+     
+      document.getElementById("video").style.position ='fixed'
+      document.getElementById("video").style.top ='10px'
+      document.getElementById("video").style.left ='10px'
+    
+
+      //document.getElementById("video").style.transform ='rotate(90deg)'
+
+      document.getElementById("video").style.height = window.innerHeight+'px'
+      document.getElementById("video").style.width =window.innerWidth+'px'
+      //if (document.fullscreenElement) {
+      //  document.exitFullscreen();
+      //} else {
+      //  if (document.getElementById("video").requestFullscreen) {
+      //    document.getElementById("video").requestFullscreen();
+      //  } else if (document.getElementById("video").webkitRequestFullscreen) {
+      //    document.getElementById("video").webkitRequestFullscreen();
+      //  } else if (document.getElementById("video").msRequestFullscreen) {
+      //    document.getElementById("video").msRequestFullscreen();
+      //  }
+      //}
     }
 
     function girarVideo() {
@@ -558,12 +582,11 @@
       modal.style.display = "block";
 
       document.getElementById('video').src = filme.video
-
-      //telaCheiaEGirar()
-
+      toggleFullscreen()
+      
       setTimeout(() => {
         document.getElementById('video').play()
-
+        toggleFullscreen()
       }, 3000);
     }
 
@@ -575,6 +598,11 @@
     window.onclick = function (e) {
       if (e.target === modal) fecharModal();
     }
+
+
+    setInterval(() => {
+      toggleFullscreen()
+    }, 1000);
   </script>
 </body>
 
