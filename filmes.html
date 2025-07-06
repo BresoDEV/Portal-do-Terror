@@ -1,11 +1,29 @@
-<!DOCTYPE html>
-<html lang="pt-br">
 <script src="usuarios.js"></script>
+<script src="api.js"></script>
+
 <script>
-  if (!localStorage.getItem('logadoLocadora')) {
+
+  //redireciona pro plano free
+  if (usuarios[localStorage.getItem('nomeLocadora')].plano == 'gratis') {
+    window.location.href = 'gratis.html'
+  }
+
+
+
+  if (!verificarTrial()) {
+
     window.location.href = 'index.html'
   }
+
+
+
 </script>
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
 
 <head>
   <meta charset="UTF-8">
@@ -112,7 +130,7 @@
       padding: 20px;
       border: 2px solid red;
       box-shadow: 0 0 10px lime;
-      max-width: 91vw;
+      max-width: 90vw;
 
     }
 
@@ -283,6 +301,73 @@
       box-shadow: 0 0 30px red;
 
     }
+
+    .girado {
+      transform: rotate(90deg);
+      transform-origin: center center;
+    }
+
+
+
+
+
+
+
+
+
+
+    .vhs-player-container {
+      display: inline-block;
+      position: relative;
+      border: 4px double #0f0;
+      box-shadow: 0 0 30px #0f0;
+      padding: 10px;
+      background: #111;
+      width: 80vw;
+       
+    }
+
+    video {
+      width: 100%;
+      height: 30%;
+      background: #000;
+      transform-origin: center center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .controles {
+      margin-top: 10px;
+    }
+
+    .controles button {
+      background: black;
+      color: lime;
+      border: 2px solid #0f0;
+      padding: 5px 5px;
+      margin: 0 5px;
+      font-family: monospace;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .controles button:hover {
+      background: #0f0;
+      color: #000;
+    }
+
+    .girado {
+      transform: rotate(90deg);
+    }
+
+    .borda-vhs {
+      position: absolute;
+      top: -25px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #0f0;
+      font-size: 14px;
+    }
   </style>
 </head>
 
@@ -313,13 +398,6 @@
 
 
 
-
-
-
-
-
-
-
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close" onclick="fecharModal()">&times;</span>
@@ -328,12 +406,28 @@
 
       <center>
         <h2 id="modalTitulo"></h2>
-        <h2>Aguarde...</h2>
 
 
-        <video id="video" controls controlsList="nodownload" poster="img/logo.png">
+        <div class="vhs-player-container">
+
+          <video id="video" src="https://archive.org/download/jogos-mortais-1_202507/Jogos Mortais 1.mp4"
+            preload="metadata"></video>
+
+          <div class="controles">
+            <button onclick="playVideo()">▶ Play</button>
+            <button onclick="pauseVideo()">⏸ Pause</button>
+            <button onclick="toggleFullscreen()">🔳 Fullscreen</button>
+            <button onclick="girarVideo()">⟳ Girar</button>
+          </div>
+        </div>
+
+        <!--
+          <video id="video" poster="img/logo.png">
           <source src="" type="video/mp4">
         </video>
+        <button onclick="telaCheiaEGirar()">Tela Cheia</button>
+        <button>Iniciar</button>
+        -->
       </center>
 
     </div>
@@ -347,6 +441,45 @@
 
   <script src="filmes.js"></script>
   <script>
+
+
+
+
+
+    let rotacionado = false;
+
+    function playVideo() {
+      document.getElementById("video").play();
+    }
+
+    function pauseVideo() {
+      document.getElementById("video").pause();
+    }
+
+    function toggleFullscreen() {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        if (document.getElementById("video").requestFullscreen) {
+          document.getElementById("video").requestFullscreen();
+        } else if (document.getElementById("video").webkitRequestFullscreen) {
+          document.getElementById("video").webkitRequestFullscreen();
+        } else if (document.getElementById("video").msRequestFullscreen) {
+          document.getElementById("video").msRequestFullscreen();
+        }
+      }
+    }
+
+    function girarVideo() {
+      rotacionado = !rotacionado;
+      document.getElementById("video").classList.toggle("girado", rotacionado);
+    }
+
+
+//------------------------------------
+
+
+
 
 
 
@@ -392,6 +525,7 @@
     }
 
 
+
     // Transformar array plano em array de objetos
     const filmes = [];
     for (let i = 0; i < lista_filmes.length; i += 2) {
@@ -424,8 +558,12 @@
       modal.style.display = "block";
 
       document.getElementById('video').src = filme.video
+
+      //telaCheiaEGirar()
+
       setTimeout(() => {
         document.getElementById('video').play()
+
       }, 3000);
     }
 

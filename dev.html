@@ -1,0 +1,46 @@
+<script src="usuarios.js"></script>
+<script src="api.js"></script>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        background-color: black;
+    }
+
+    button {
+        border: none;
+        padding: 15px;
+        border-radius: 10px;
+        color: aliceblue;
+        background-color: crimson;
+        font-size: 30px;
+    }
+</style>
+
+<body>
+    <br><br>
+    <center>
+        <button id="resetarTrial">resetarTrial</button><br><br>
+        <button id="resetarStorage">resetarStorage</button><br><br>
+    </center>
+</body>
+<script>
+
+    document.getElementById('resetarTrial').addEventListener('click', () => {
+        localStorage.setItem('trialInicio', '2024-07-06T02:16:12.421Z')
+    })
+    document.getElementById('resetarStorage').addEventListener('click', () => {
+        localStorage.clear()
+    })
+    //
+
+</script>
+
+</html>

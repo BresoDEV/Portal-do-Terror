@@ -1,19 +1,29 @@
  // Lista de usuários com senha e deviceKey manual
  const usuarios = {
     "eduardo": {
-      senha: "123Aa321",
-      deviceKey: 'j7tn1hj11751618636492',
+      id:"1",
+      senha: "1",
+      deviceKey:  '5bk7a4t71751779338103',
       deviceKey2: "null",
-      deviceKey3: "ewgir26l1751662337535",
+      deviceKey3: "null",
       deviceKey4: "null",
-      plano: "completo"
+      plano: "completo2",
+      telefone:"996180319",
+      pagamento_em_dia: "sim",
+      dev:"0",
+      reiniciar_trial:"0"
     },
-    "july": {
-      senha: "123Aa321",
+    "modelo": {
+      id:"2",
+      senha: "null",
       deviceKey:  null,
       deviceKey2: "null",
       deviceKey3: "null",
       deviceKey4: "null",
-      plano: "completo"
+      plano: "completo",
+      telefone:"null",
+      pagamento_em_dia: "nao",
+      dev:"0",
+      reiniciar_trial:"0"
     }
   };

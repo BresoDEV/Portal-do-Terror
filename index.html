@@ -1,258 +1,135 @@
+<script src="usuarios.js"></script>
+<script src="api.js"></script>
+<script>
+
+  if (ehDEV()) {
+    window.location.href = 'dev.html'
+  }
+
+
+
+
+
+
+
+  if (jaCadastrado()) {
+    if (cadastroTaEmDia()) {
+      if (pagamentoTaEmDia()) {
+
+        if (verificarTrial()) {
+
+          window.location.href = 'filmes.html'
+        }
+
+
+        
+      }
+      console.log('pagamentoTaEmDia = false')
+    }
+    console.log('cadastroTaEmDia = false')
+  }
+  console.log('jaCadastrado = false')
+ //if (localStorage.getItem('nomeLocadora')) {
+ //  if (usuarios[localStorage.getItem('nomeLocadora')].telefone !== 'null') {
+ //    if (usuarios[localStorage.getItem('nomeLocadora')].pagamento_em_dia == 'sim') {
+ //      //window.location.href = 'filmes.html'
+ //      window.location.href = 'filmes.html'
+ //    }
+ //  }
+ //}
+</script>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="bg-black text-white">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Locadora de Terror</title>
-  <style>
-    body {
-      background-color: #111;
-      color: #fff;
-      font-family: 'Courier New', Courier, monospace;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: url('img/bg.jpg') no-repeat center center fixed;
-      background-size: cover;
-      filter: grayscale(50%) contrast(100%);
-    }
-
-    h2 {
-      font-size: 3rem;
-      text-align: center;
-      color: red;
-      text-shadow: 0 0 5px red, 0 0 10px red;
-      margin-bottom: 30px;
-      animation: flicker 1s infinite alternate;
-    }
-
-    @keyframes flicker {
-      0% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.5;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
-
-    .login-box {
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-      box-shadow: 0 0 20px red;
-      width: 300px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .login-box input {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 2px solid #444;
-      background-color: #222;
-      color: #fff;
-      font-size: 1.2rem;
-      border-radius: 5px;
-      box-shadow: 0 0 5px red, 0 0 10px red;
-    }
-
-    .login-box button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 20px;
-      background-color: red;
-      border: none;
-      font-size: 1.2rem;
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0 0 5px red, 0 0 10px red;
-      transition: background-color 0.3s ease;
-    }
-
-    .login-box button:hover {
-      background-color: #cc0000;
-    }
-
-    .login-box p {
-      font-size: 1rem;
-      margin-top: 10px;
-      animation: flickerText 1s infinite alternate;
-    }
-
-    @keyframes flickerText {
-      0% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.5;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
-
-    .scanlines {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: repeating-linear-gradient(rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 100%);
-      background-size: 100% 2px;
-      pointer-events: none;
-      z-index: 1;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portaria para o Inferno - Filmes de Terror</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<style>
+  body {
+    background: url('img/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+</style>
 
-<body>
+<body class=" font-mono">
+
+  <!-- Header -->
 
 
+  <!-- Banner Principal -->
+  <section class="text-center px-6 md:px-0 max-w-4xl mx-auto my-20">
+    <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-red-600 drop-shadow-lg">
+      Assista aos filmes de terror mais assustadores<br /> direto da sua tela
+    </h2>
+    <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-xl mx-auto">
+      Explore um acervo sombrio e exclusivo. Curadoria feita para você que ama sentir o frio na espinha.<br>
+      Acesse em qualquer dispositivo, a qualquer hora, filmes clássicos do terror, escolhidos a dedo, com super
+      qualidade de audio/video.
+    </p>
+    <a href="planos.html" id="assinar"
+      class="inline-block bg-red-700 hover:bg-red-800 text-white font-bold px-10 py-4 rounded-lg text-lg transition shadow-lg">
+      Veja nossos planos
+    </a>
 
+    <br>
+    <br>
+    <a href="login.html"
+      class="inline-block bg-red-700 hover:bg-red-800 text-white font-bold px-10 py-4 rounded-lg text-lg transition shadow-lg">
+      Já possue cadastro? Entre agora
+    </a>
+  </section>
 
-  <div class="login-box">
-    <center>
-      <h2 onclick="resetar()">LOCADORA DE TERROR</h2>
-      <div id="hhh">
-        <input type="text" id="usuario" placeholder="Usuário"><br><br>
-        <input type="password" id="senha" placeholder="Senha"><br><br>
-        <button onclick="login()" id="Entrar">Entrar</button>
+  <!-- Como Funciona -->
+  <section id="como-funciona" class="max-w-6xl mx-auto px-6 md:px-0 py-16">
+    <h3 class="text-3xl font-bold text-center mb-12 text-red-600 drop-shadow">Como Funciona</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-gray-300">
 
-        <p id="msg"></p>
+      <div class="flex flex-col items-center text-center">
+        <div class="mb-6 bg-red-700 rounded-full p-5 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M9 21V7m6 14V7" />
+          </svg>
+        </div>
+        <h4 class="text-xl font-semibold mb-3">1. Escolha seu plano</h4>
+        <p>Selecione o plano que melhor combina com seu estilo de terror e orçamento.</p>
       </div>
-    </center>
-  </div>
 
-  <script src="usuarios.js"></script>
-  <script>
-   
+      <div class="flex flex-col items-center text-center">
+        <div class="mb-6 bg-red-700 rounded-full p-5 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15 10l4.553-4.553a2.5 2.5 0 00-3.536-3.536L11.464 6.464M6 9v3a3 3 0 003 3h5a3 3 0 003-3v-1" />
+          </svg>
+        </div>
+        <h4 class="text-xl font-semibold mb-3">2. Crie sua conta</h4>
+        <p>Cadastre-se rapidamente e tenha acesso imediato ao conteúdo.</p>
+      </div>
 
-
-
-    function resetar() {
-      localStorage.clear();
-      console.log('bin')
-    }
-
-    if (localStorage.getItem('logadoLocadora')) {
-      window.location.href = 'filmes.html'
-    }
-
-
-
-
-
-
-    function gerarDeviceKey() {
-      //return 'device-' + Math.random().toString(36).substring(2, 10) + Date.now();
-      return Math.random().toString(36).substring(2, 10) + Date.now();
-    }
-
-    let minhaDeviceKey = localStorage.getItem('deviceKey');
-    if (!minhaDeviceKey) {
-      minhaDeviceKey = gerarDeviceKey();
-      localStorage.setItem('deviceKey', minhaDeviceKey);
-
-    }
-
-    function login() {
-      const user = document.getElementById('usuario').value.toLowerCase();
-      const pass = document.getElementById('senha').value;
-      const msg = document.getElementById('msg');
-
-      if (!usuarios[user]) {
-        msg.innerText = "Usuário não encontrado.";
-        return;
-      }
-
-      const dados = usuarios[user];
-
-      if (dados.senha !== pass) {
-        msg.innerText = "Senha incorreta.";
-        return;
-      }
+      <div class="flex flex-col items-center text-center">
+        <div class="mb-6 bg-red-700 rounded-full p-5 shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M14 10h4.5a2.5 2.5 0 010 5H10l-4 4v-7a4 4 0 014-4h4z" />
+          </svg>
+        </div>
+        <h4 class="text-xl font-semibold mb-3">3. Assista e curta</h4>
+        <p>Assista no seu dispositivo favorito, a qualquer hora, e prepare-se para o medo!</p>
+      </div>
+    </div>
+  </section>
 
 
-      //---------------TELAS----------------------------------------------
-      if (!dados.deviceKey) {//tela 1
-        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
-          "<input value=\"" + minhaDeviceKey + "\">" +
-          "\n\nCopie esta chave e cole no código HTML,\nna seção do usuário correspondente (deviceKey).";
- 
-        localStorage.setItem('nomeLocadora', user);
-        localStorage.setItem('senhaLocadora', pass);
+  <!-- Footer -->
+  <footer class="text-center text-gray-600 text-sm p-6 mt-16">
+    © 2025 Portaria para o Inferno. Todos os direitos reservados.
+  </footer>
 
-        return;
-      } 
-      if (!dados.deviceKey2) {//tela 2
-        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
-          "<input value=\"" + minhaDeviceKey + "\">" +
-          "\n\nCopie esta chave e cole no código HTML,\nna seção do usuário correspondente (deviceKey).";
- 
-        localStorage.setItem('nomeLocadora', user);
-        localStorage.setItem('senhaLocadora', pass);
-
-        return;
-      }
-      if (!dados.deviceKey3) {//tela 3
-        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
-          "<input value=\"" + minhaDeviceKey + "\">" +
-          "\n\nCopie esta chave e cole no código HTML,\nna seção do usuário correspondente (deviceKey).";
- 
-        localStorage.setItem('nomeLocadora', user);
-        localStorage.setItem('senhaLocadora', pass);
-
-        return;
-      }
-      if (!dados.deviceKey4) {//tela 4
-        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
-          "<input value=\"" + minhaDeviceKey + "\">" +
-          "\n\nCopie esta chave e cole no código HTML,\nna seção do usuário correspondente (deviceKey).";
- 
-        localStorage.setItem('nomeLocadora', user);
-        localStorage.setItem('senhaLocadora', pass);
-
-        return;
-      }
-
-      //--------------------------------------------------------------
-
-      if (dados.deviceKey === minhaDeviceKey ||dados.deviceKey2 === minhaDeviceKey||dados.deviceKey3 === minhaDeviceKey||dados.deviceKey4 === minhaDeviceKey) 
-      {
-        msg.innerText = "Login autorizado neste dispositivo.\nAguarde...";
-        localStorage.setItem('logadoLocadora', '1')
-        setTimeout(() => 
-        {
-          if(dados.plano == 'completo')
-          {
-            window.location.href = 'filmes.html'
-          }
-
-          
-        }, 3000);
-      }   
-      else 
-      {
-        msg.innerText = "Acesso negado!\nEste usuário já está vinculado a outro dispositivo.";
-      }
-    }
-  </script>
 </body>
 
 </html>
