@@ -4,7 +4,7 @@
       id:"1",
       senha: "1",
       deviceKey:  '5bk7a4t71751779338103',
-      deviceKey2: "ont6vjj01751785829967",
+      deviceKey2: "ont6vjj01751785829967",//celular
       deviceKey3: "null",
       deviceKey4: "null",
       plano: "completo",
