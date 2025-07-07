@@ -5,7 +5,7 @@
       senha: "1",
       deviceKey:  "g7s7o1zj1751823061634",//pc gamer
       deviceKey2: "d9xvv7pt1751848980887",//play
-      deviceKey3: "null",
+      deviceKey3: null,
       deviceKey4: "null",
       plano: "completo",
       telefone:"96180319",
