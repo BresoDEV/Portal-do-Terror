@@ -11,7 +11,7 @@
       telefone:"96180319",
       pagamento_em_dia: "sim",
       dev:"0",
-      reiniciar_trial:"0"
+      reiniciar_trial:"1"
     },
     "modelo": {
       id:"2",
