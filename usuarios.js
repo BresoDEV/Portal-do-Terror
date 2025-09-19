@@ -2,10 +2,10 @@ const usuarios = {
     "eduardo": {
         id:"1",
         senha: "1",
-        deviceKey:  "null",
+        deviceKey:  "QHMP588X1758244156100",
         deviceKey2: "null",
         deviceKey3: "null",
-        deviceKey4: "J46S6OVT1758165698557",
+        deviceKey4: "null",
         plano: "completo",
         telefone:"996180319",
         pagamento_em_dia: "sim",
