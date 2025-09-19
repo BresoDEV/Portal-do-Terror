@@ -1,34 +1,187 @@
+ 
+ 
 <!---------------------------------->
 <script src="usuarios.js"></script>
 <script src="api.js"></script>
 <!---------------------------------->
+<script>
+    if (estaLogado()) {
+        redirecionar('filmes.html')
+    }
+	
+	 
+</script>
 
+
+<!DOCTYPE html>
 <html lang="pt-br">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Locadora de Terror</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: url('img/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            filter: grayscale(50%) contrast(100%);
+        }
 
-<input type="text" id="devicekey">
-<button id="gerar_devicekey">Gerar Acesso</button>
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            color: red;
+            text-shadow: 0 0 5px red, 0 0 10px red;
+            margin-bottom: 30px;
+            animation: flicker 1s infinite alternate;
+        }
 
-<script>
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+            }
 
-    document.getElementById('gerar_devicekey').addEventListener('click', () => {
-        if (!devicekeyDefinido()){
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .login-box {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px red;
+            width: 300px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .login-box input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #444;
+            background-color: #222;
+            color: #fff;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            box-shadow: 0 0 5px red, 0 0 10px red;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: red;
+            border: none;
+            font-size: 1.2rem;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 5px red, 0 0 10px red;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-box button:hover {
+            background-color: #cc0000;
+        }
+
+        .login-box p {
+            font-size: 1rem;
+            margin-top: 10px;
+            animation: flickerText 1s infinite alternate;
+        }
+
+        @keyframes flickerText {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 100%);
+            background-size: 100% 2px;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+    <div class="login-box" id="login-box">
+        <center>
+            <h2 onclick="resetar()">Cadastro</h2>
+            <div id="hhh">
+                <i id="olar"></i>
+                <input type="text" id="devicekey" placeholder="Chave de Acesso"><br><br>
+                 
+                <p id="msg"></p>
+                 
+                <button id="Voltar">Voltar</button>
+
+                
+            </div>
+        </center>
+    </div>
+
+
+    <script>
+
+          if (!devicekeyDefinido()){
             setDevicekey(gerarDeviceKey());
-            alert('devicekeyDefinido cadastrado com sucesso')
+            //alert('devicekeyDefinido cadastrado com sucesso')
             attPagina()
         }else{
-            alert('devicekeyDefinido ja existe')
-        }
-        
-    })
-
-    if (devicekeyDefinido()) {
-        console.log(getDevicekey())
+             console.log(getDevicekey())
         document.getElementById('devicekey').value = getDevicekey()
         //document.getElementById('devicekey').textContent = getDevicekey()
-        document.getElementById('gerar_devicekey').style.display = 'none'
-    }
+         
+        }
+     
 
 
-    console.log(getDevicekey())
-</script>
+        
+
+        addClick('Voltar', () => {
+            redirecionar('index.html')
+        })
+
+
+    </script>
+</body>
+
+</html>
