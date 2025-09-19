@@ -1,663 +1,709 @@
-const lista_filmes = [
-//    '120 Dias de Sodoma.mp4','120 Dias de Sodoma.jpg', 
-'https://archive.org/download/60-minutos-para-morrer-2017/60 Minutos Para Morrer - 2017.mp4','60 Minutos Para Morrer - 2017.jpg', 
-//'7 Desejos - 2017.mkv','7 Desejos - 2017.jpg', 
-'https://archive.org/download/o-silencio-dos-inocentes/O Silencio dos Inocentes.mp4','O Silencio dos Inocentes.jpg',
-'https://archive.org/download/a-arte-do-demonio-2004/A Arte do Demonio - 2004.mp4','A Arte do Demonio - 2004.jpg', 
-'https://archive.org/download/a-arte-do-demonio-2-2005/A Arte do Demonio 2 - 2005.mp4','A Arte do Demonio 2 - 2005.jpg', 
-'https://archive.org/download/a-arte-do-demonio-3-2008/A Arte do Demonio 3 - 2008.mp4','A Arte do Demonio 3 - 2008.jpg', 
-'https://archive.org/download/a-autopsia/A Autopsia.ia.mp4','A Autopsia.jpg', 
-'https://archive.org/download/a-bolha-assasina-1958/A Bolha Assasina 1958.mp4','A Bolha Assasina 1958.jpg', 
-'https://archive.org/download/a-bolha-assassina-1988_202507/A Bolha Assassina - 1988.mp4','A Bolha Assassina - 1988.jpg', 
-'https://archive.org/download/a-casa-amaldicoada-1999/A Casa Amaldiçoada - 1999.mp4','A Casa Amaldiçoada - 1999.jpg', 
-'https://archive.org/download/a-casa-dos-1000-corpos_202507/A Casa Dos 1000 Corpos.mp4','A Casa Dos 1000 Corpos.jpg', 
-'https://archive.org/download/a-casa-que-jack-construiu/A Casa Que Jack Construiu.ia.mp4','A Casa Que Jack Construiu.jpg', 
-//------------------------------'https://archive.org/download/a-casa-da-colina-1999/A Casa da Colina - 1999.mp4','A Casa da Colina - 1999.jpg', 
-'https://archive.org/download/a-casa-de-vidro-1-2001/A Casa de Vidro 1 - 2001.mp4','A Casa de Vidro 1 - 2001.jpg', 
-'https://archive.org/download/a-casa-de-vidro-2-2006/A Casa de Vidro 2 - 2006.mp4','A Casa de Vidro 2 - 2006.jpg', 
-'https://archive.org/download/a-casa-do-espanto-1/A Casa do Espanto 1.mp4','A Casa do Espanto 1.jpg', 
-'https://archive.org/download/a-casa-do-espanto-2_202507/A Casa do Espanto 2.mp4','A Casa do Espanto 2.jpg', 
-'https://archive.org/download/a-casa-do-espanto-3_202507/A Casa do Espanto 3.mp4','A Casa do Espanto 3.jpg', 
-'https://archive.org/download/a-casa-do-espanto-4_202507/A Casa do Espanto 4.mp4','A Casa do Espanto 4.jpg', 
-'https://archive.org/download/a-casa-dos-mortos-o-filme-2003/A Casa dos Mortos  - O Filme - 2003.mp4','A Casa dos Mortos  - O Filme - 2003.jpg', 
-'https://archive.org/download/a-casa-dos-mortos-2-2005/A Casa dos Mortos 2 - 2005.mp4','A Casa dos Mortos 2 - 2005.jpg', 
-'https://archive.org/download/a-casa-dos-passaros-mortos/A Casa dos Passaros Mortos.mp4','A Casa dos Passaros Mortos.jpg', 
-'https://archive.org/download/a-casa-que-pingava-sangue-1971_202507/A Casa que Pingava Sangue - 1971.mp4','A Casa que Pingava Sangue - 1971.jpg', 
-'https://archive.org/download/a-caverna-2005/A Caverna - 2005.mp4','A Caverna - 2005.jpg', 
-'https://archive.org/download/a-caverna-maldita-2006/A Caverna Maldita - 2006.mp4','A Caverna Maldita - 2006.jpg', 
-'https://archive.org/download/a-coisa-2011/A Coisa - 2011.mp4','A Coisa - 2011.jpg', 
-'https://archive.org/download/a-enfermeira-assassina-2014/A Enfermeira Assassina - 2014.mp4','A Enfermeira Assassina - 2014.jpg', 
-'https://archive.org/download/a-entidade-2/A Entidade 2.ia.mp4','A Entidade 2.jpg', 
-'https://archive.org/download/a-entidade_202507/A Entidade.ia.mp4','A Entidade.jpg', 
-'https://archive.org/download/a-epidemia-2010/A Epidemia - 2010.mp4','A Epidemia - 2010.jpg', 
-'https://archive.org/download/a-espera-do-mal-2005/A Espera do Mal - 2005.mp4','A Espera do Mal - 2005.jpg', 
-'https://archive.org/download/a-experiencia-1995/A Experiência - 1995.mp4','A Experiência - 1995.jpg', 
-'https://archive.org/download/a-experiencia-2-1998_20250708/A Experiência 2 - 1998.mp4','A Experiência 2 - 1998.jpg', 
-'https://archive.org/download/a-experiencia-3-2004_202507/A Experiência 3 - 2004.mp4','A Experiência 3 - 2004.jpg', 
-'https://archive.org/download/a-experiencia-4-o-despertar-2007_202507/A Experiência 4 - O Despertar - 2007.mp4','A Experiência 4 - O Despertar - 2007.jpg', 
-'https://archive.org/download/a-filha-de-dracula-1936/A Filha de Drácula - 1936.mp4','A Filha de Drácula - 1936.jpg', 
-'https://archive.org/download/a-forca-2015/A Forca - 2015.mp4','A Forca - 2015.jpg', 
-'https://archive.org/download/a-freira-2/A Freira 2.mp4','A Freira 2.jpg', 
-'https://archive.org/download/a-freira_202507/A Freira.ia.mp4','A Freira.jpg', 
-'https://archive.org/download/a-fronteira_202507/A Fronteira.mp4','A Fronteira.jpg', 
-'https://archive.org/download/a-gruta-2020_202507/A Gruta - 2020.mp4','A Gruta - 2020.jpg', 
-'https://archive.org/download/a-hora-do-espanto-2/A Hora do Espanto 2.mp4','A Hora do Espanto 2.jpg', 
-'https://archive.org/download/a-hora-do-espanto-3/A Hora do Espanto 3.ia.mp4','A Hora do Espanto 3.jpg', 
-'https://archive.org/download/a-hora-do-espanto_202507/A Hora do Espanto.mp4','A Hora do Espanto.jpg', 
-'https://archive.org/download/a-hora-do-pesadelo-1_202507/A Hora do Pesadelo 1.mp4','A Hora do Pesadelo 1.jpg', 
-'https://archive.org/download/a-hora-do-pesadelo-2/A Hora do Pesadelo 2.mp4','A Hora do Pesadelo 2.jpg', 
-'https://archive.org/download/a-hora-do-pesadelo-3/A Hora do Pesadelo 3.mp4','A Hora do Pesadelo 3.jpg', 
-'https://archive.org/download/a-hora-do-pesadelo-4/A Hora do Pesadelo 4.mp4','A Hora do Pesadelo 4.jpg', 
-'https://archive.org/download/a-hora-do-pesadelo-5/A Hora do Pesadelo 5.mp4','A Hora do Pesadelo 5.jpg', 
-'https://archive.org/download/a-hora-do-pesadelo-6/A Hora do Pesadelo 6.mp4','A Hora do Pesadelo 6.jpg', 
-'https://archive.org/download/a-hora-do-pesadelo-7/A Hora do Pesadelo 7.mp4','A Hora do Pesadelo 7.jpg', 
-'https://archive.org/download/a-ilha-do-dr.-moreau-1996/A Ilha do Dr. Moreau - 1996.mp4','A Ilha do Dr. Moreau - 1996.jpg', 
-'https://archive.org/download/a-ilha-dos-mortos/A Ilha dos Mortos.mp4','A Ilha dos Mortos.jpg', 
-//'A Luz Do Demonio.mkv','A Luz Do Demonio.jpg', 
-'https://archive.org/download/a-maldicao-de-samantha/A Maldicao de Samantha.ia.mp4','A Maldicao de Samantha.jpg', 
-'https://archive.org/download/a-maldicao-da-casa-winchester-2018/A Maldição da Casa Winchester - 2018.mp4','A Maldição da Casa Winchester - 2018.jpg', 
-'https://archive.org/download/a-maldicao-da-mosca-1965/A Maldição da Mosca - 1965.mp4','A Maldição da Mosca - 1965.jpg', 
-'https://archive.org/download/a-maldicao-do-mestre-dos-brinquedos-1998/A Maldição do Mestre dos Brinquedos (1998).ia.mp4','A Maldição do Mestre dos Brinquedos (1998).jpg', 
-'https://archive.org/download/a-montanha-dos-canibais-1978/A Montanha dos Canibais - 1978.mp4','A Montanha dos Canibais - 1978.jpg', 
-//'A Morte Pede Carona.mp4','A Morte Pede Carona.jpg', 
-//'A Morte Te Dá Parabéns 1 - 2018.mkv','A Morte Te Dá Parabéns 1 - 2018.jpg', 
-//'A Morte Te Dá Parabéns 2.mp4','A Morte Te Dá Parabéns 2.jpg', 
-'https://archive.org/download/a-morte-do-demonio/A Morte do Demonio.ia.mp4','A Morte do Demonio.jpg', 
-//'A Morte é a Única Saída - 2017.mkv','A Morte é a Única Saída - 2017.jpg', 
-//'A Mosca - Remake - 1986.mkv','A Mosca - Remake - 1986.jpg', 
-//'A Mosca 2 - 1989.mkv','A Mosca 2 - 1989.jpg', 
-//'A Mulher de Preto 1.mkv','A Mulher de Preto 1.jpg', 
-//'A Mulher de Preto 2.mkv','A Mulher de Preto 2.jpg', 
-//'A Mumia - 1932.mkv','A Mumia - 1932.jpg', 
-//'A Múmia - 1959.mkv','A Múmia - 1959.jpg', 
-//'A Múmia - 2017.mkv','A Múmia - 2017.jpg', 
-//'A Noite dos Mortos Vivos - 1990.mkv','A Noite dos Mortos Vivos - 1990.jpg', 
-//'A Noite dos Mortos Vivos - Re-Animação - 2012.mkv','A Noite dos Mortos Vivos - Re-Animação - 2012.jpg', 
-//'A Noite dos Mortos Vivos 3D - 2006.mkv','A Noite dos Mortos Vivos 3D - 2006.jpg', 
-//'A Noiva de Frankenstein - 1935.mkv','A Noiva de Frankenstein - 1935.jpg', 
-//'A Noiva do Re-Animator - 1989.mkv','A Noiva do Re-Animator - 1989.jpg', 
-//'A Orfa 2.mp4','A Orfa 2.jpg', 
-//'A Orfa.mp4','A Orfa.jpg', 
-//'A Piramide.mp4','A Piramide.jpg', 
-//'A Praga - 2006.mkv','A Praga - 2006.jpg', 
-//'A Praga da Múmia - 1944.mkv','A Praga da Múmia - 1944.jpg', 
-//'A Profecia - 1976.mkv','A Profecia - 1976.jpg', 
-//'A Profecia 2 - 1978.mkv','A Profecia 2 - 1978.jpg', 
-//'A Profecia 3 - 1981.mkv','A Profecia 3 - 1981.jpg', 
-//'A Profecia 4 - 1991.mkv','A Profecia 4 - 1991.jpg', 
-//'A Profecia 5 - 2006.mkv','A Profecia 5 - 2006.jpg', 
-//'A Queda 2022.mkv','A Queda 2022.jpg', 
-//'A Substancia.mp4','A Substancia.jpg', 
-//'A Tribo - 2008.mkv','A Tribo - 2008.jpg', 
-//'A Tribo 2 - 2009.mkv','A Tribo 2 - 2009.jpg', 
-//'A Vingança de Jennifer.mp4','A Vingança de Jennifer.jpg', 
-//'A Viúva das Sombras - 2021.mkv','A Viúva das Sombras - 2021.jpg', 
-//'A Volta dos Mortos Vivos 1.mkv','A Volta dos Mortos Vivos 1.jpg', 
-//'A Volta dos Mortos Vivos 2.mkv','A Volta dos Mortos Vivos 2.jpg', 
-//'A Volta dos Mortos Vivos 3.mkv','A Volta dos Mortos Vivos 3.jpg', 
-//'A Volta dos Mortos Vivos 4.mp4','A Volta dos Mortos Vivos 4.jpg', 
-//'A Última Casa à Esquerda - Remake - 2009.mkv','A Última Casa à Esquerda - Remake - 2009.jpg', 
-//'Abismo do Medo 1.mkv','Abismo do Medo 1.jpg', 
-//'Abismo do Medo 2.mkv','Abismo do Medo 2.jpg', 
-//'Advogado do Diabo.mp4','Advogado do Diabo.jpg', 
-//'Alta Tensao.mp4','Alta Tensao.jpg', 
-//'Além da Escuridao - 2012.mkv','Além da Escuridao - 2012.jpg', 
-//'Além do Lago Ness - 2008.mkv','Além do Lago Ness - 2008.jpg', 
-//'Anaconda 1.mkv','Anaconda 1.jpg', 
-//'Anaconda 2 - 2004.mkv','Anaconda 2 - 2004.jpg', 
-//'Anaconda 3 - 2008.mkv','Anaconda 3 - 2008.jpg', 
-//'Anaconda 4 - 2009.mkv','Anaconda 4 - 2009.jpg', 
-//'Animal - 2014.mkv','Animal - 2014.jpg', 
-//'Anjo Maldito - 2009.mkv','Anjo Maldito - 2009.jpg', 
-//'Anjos Rebeldes 1.mkv','Anjos Rebeldes 1.jpg', 
-//'Anjos Rebeldes 2.mkv','Anjos Rebeldes 2.jpg', 
-//'Anjos Rebeldes 3.mkv','Anjos Rebeldes 3.jpg', 
-//'Anjos Rebeldes 4.mkv','Anjos Rebeldes 4.jpg', 
-//'Anjos Rebeldes 5.mkv','Anjos Rebeldes 5.jpg', 
-//'Anjos da Morte - 2006.mkv','Anjos da Morte - 2006.jpg', 
-//'Annabelle 1 - 2014.mkv','Annabelle 1 - 2014.jpg', 
-//'Annabelle 2 - A Criação do Mal.mkv','Annabelle 2 - A Criação do Mal.jpg', 
-//'Annabelle 3 - De Volta Para Casa - 2019.mkv','Annabelle 3 - De Volta Para Casa - 2019.jpg', 
-//'Aprisionados - 2015.mkv','Aprisionados - 2015.jpg', 
-//'Aracnofobia - 1990.mkv','Aracnofobia - 1990.jpg', 
-//'Arraste-me para o Inferno.mkv','Arraste-me para o Inferno.jpg', 
-//'As Ruínas - 2008.mkv','As Ruínas - 2008.jpg', 
-//'As Strippers Zumbis - 2007.mkv','As Strippers Zumbis - 2007.jpg', 
-//'Asilo do Medo - 2019.mkv','Asilo do Medo - 2019.jpg', 
-//'Assim na Terra Como no Inferno.mp4','Assim na Terra Como no Inferno.jpg', 
-//'Atividade Paranormal 1.mp4','Atividade Paranormal 1.jpg', 
-//'Atividade Paranormal 2.mkv','Atividade Paranormal 2.jpg', 
-//'Atividade Paranormal 3.mp4','Atividade Paranormal 3.jpg', 
-//'Atividade Paranormal 4.mp4','Atividade Paranormal 4.jpg', 
-//'Atividade Paranormal 5 Marcados pelo Mal 2014.mp4','Atividade Paranormal 5 Marcados pelo Mal 2014.jpg', 
-//'Atividade Paranormal 6 Dimensao Fantasma.mp4','Atividade Paranormal 6 Dimensao Fantasma.jpg', 
-//'Atividade Paranormal 7 Ente Próximo.mkv','Atividade Paranormal 7 Ente Próximo.jpg', 
-//'Atividade Paranormal em Toquio.mp4','Atividade Paranormal em Toquio.jpg', 
-//'Através da Sombra - 2015.mkv','Através da Sombra - 2015.jpg', 
-//'Aviso de Tempestade - 2007.mkv','Aviso de Tempestade - 2007.jpg', 
-//'Baghead - A Bruxa dos Mortos.mp4','Baghead - A Bruxa dos Mortos.jpg', 
-//'Balada Para Satã - 1971.mkv','Balada Para Satã - 1971.jpg', 
-//'Banquete no Inferno 1 - 2005.mkv','Banquete no Inferno 1 - 2005.jpg', 
-//'Barbarian.mp4','Barbarian.jpg', 
-//'Benção Mortal - 1981.mkv','Benção Mortal - 1981.jpg', 
-//'Black Water - 2007.mkv','Black Water - 2007.jpg', 
-//'Boa Noite Mamae 2014.mp4','Boa Noite Mamae 2014.jpg', 
-//'Boa Noite Mamae 2022.mkv','Boa Noite Mamae 2022.jpg', 
-//'Bonecos da Morte (1989).mp4','Bonecos da Morte (1989).jpg', 
-//'Bonecos em Guerra - O Capítulo Final (1994).mp4','Bonecos em Guerra - O Capítulo Final (1994).jpg', 
-//'Bones - Anjo das Trevas - 2001.mkv','Bones - Anjo das Trevas - 2001.jpg', 
-//'Brinquedos Diabólicos - 1992.mp4','Brinquedos Diabólicos - 1992.jpg', 
-//'Bruxa de Blair 1.mkv','Bruxa de Blair 1.jpg', 
-//'Bruxa de Blair 2.mkv','Bruxa de Blair 2.jpg', 
-//'Bruxas - 2009.mkv','Bruxas - 2009.jpg', 
-//'Cadaveres - 2006.mkv','Cadaveres - 2006.jpg', 
-//'Cadaveres 2 - 2008.mp4','Cadaveres 2 - 2008.jpg', 
-//'Cadillac Preto - 2003.mkv','Cadillac Preto - 2003.jpg', 
-//'Canibais - A Tribo.mkv','Canibais - A Tribo.jpg', 
-//'Carrie - A Estranha 1976.mp4','Carrie - A Estranha 1976.jpg', 
-//'Cemiterio Maldito - A Origem.mp4','Cemiterio Maldito - A Origem.jpg', 
-//--------------------------------------'https://archive.org/download/cemiterio-maldito-1_202507/Cemiterio Maldito 1.mp4','Cemiterio Maldito 1.jpg', 
-//'Cemiterio Maldito 2.mkv','Cemiterio Maldito 2.jpg', 
-//'Cemitério Maldito Remaster.mkv','Cemitério Maldito Remaster.jpg', 
-//'Centopeia Humana 1.mp4','Centopeia Humana 1.jpg', 
-'https://archive.org/download/centopeia-humana-2/Centopeia Humana 2.ia.mp4','Centopeia Humana 2.jpg', 
-//'Centopeia Humana 3.mp4','Centopeia Humana 3.jpg', 
-//'Cerdita.mp4','Cerdita.jpg', 
-//'Chamado vs O Grito - 2018.mkv','Chamado vs O Grito - 2018.jpg', 
-//'Chernobyl - Sinta a Radiação - 2012.mkv','Chernobyl - Sinta a Radiação - 2012.jpg', 
-//'Christine O Carro Assassino.mkv','Christine O Carro Assassino.jpg', 
-//'Chucky Brinquedo Assassino 1 - 1988.mkv','Chucky Brinquedo Assassino 1 - 1988.jpg', 
-//'Chucky Brinquedo Assassino 2 - 1990.mkv','Chucky Brinquedo Assassino 2 - 1990.jpg', 
-//'Chucky Brinquedo Assassino 3 - 1991.mkv','Chucky Brinquedo Assassino 3 - 1991.jpg', 
-//'Chucky Brinquedo Assassino 4 - A Noiva de Chucky.mkv','Chucky Brinquedo Assassino 4 - A Noiva de Chucky.jpg', 
-//'Chucky Brinquedo Assassino 5 - O Filho de Chucky.mkv','Chucky Brinquedo Assassino 5 - O Filho de Chucky.jpg', 
-//'Chucky Brinquedo Assassino 6 - A Maldição de Chucky.mkv','Chucky Brinquedo Assassino 6 - A Maldição de Chucky.jpg', 
-//'Chucky Brinquedo Assassino 7 - O Culto de Chucky.mkv','Chucky Brinquedo Assassino 7 - O Culto de Chucky.jpg', 
-//'Chucky Brinquedo Assassino 8 - 2019.mkv','Chucky Brinquedo Assassino 8 - 2019.jpg', 
-//'Colecionador de Ossos.mkv','Colecionador de Ossos.jpg', 
-//'Colheita Maldita 1 - 1984.mkv','Colheita Maldita 1 - 1984.jpg', 
-//'Colheita Maldita 2 O Sacrifício Final - 1992.mkv','Colheita Maldita 2 O Sacrifício Final - 1992.jpg', 
-//'Colheita Maldita 2009.mp4','Colheita Maldita 2009.jpg', 
-//'Colheita Maldita 3 - Colheita Urbana - 1995.mkv','Colheita Maldita 3 - Colheita Urbana - 1995.jpg', 
-//'Colheita Maldita 4 - O Encontro- 1996.mkv','Colheita Maldita 4 - O Encontro- 1996.jpg', 
-//'Colheita Maldita 5 - Campos do Terror - 1998.mkv','Colheita Maldita 5 - Campos do Terror - 1998.jpg', 
-//'Colheita Maldita 6 - 666 - Isaac Está de Volta - 1999.mkv','Colheita Maldita 6 - 666 - Isaac Está de Volta - 1999.jpg', 
-//'Colheita Maldita 7 Revelacao - 2001.mp4','Colheita Maldita 7 Revelacao - 2001.jpg', 
-//'Colheita Maldita 8 - Genesis - 2011.mkv','Colheita Maldita 8 - Genesis - 2011.jpg', 
-//'Colheita Sombria 2023.mp4','Colheita Sombria 2023.jpg', 
-//'Colinas De Sangue - 2009.mkv','Colinas De Sangue - 2009.jpg', 
-//'Colisão Mortal - 2016.mkv','Colisão Mortal - 2016.jpg', 
-//'Comemoração Sangrenta - 2016.mkv','Comemoração Sangrenta - 2016.jpg', 
-//'Conde Dracula.mkv','Conde Dracula.jpg', 
-//'Continue Assistindo - 2017.mkv','Continue Assistindo - 2017.jpg', 
-//'Contos do Além - 1972.mkv','Contos do Além - 1972.jpg', 
-//'Corra - 2017.mkv','Corra - 2017.jpg', 
-//'Corrente do Mal - 2015.mkv','Corrente do Mal - 2015.jpg', 
-//'Cubo 1 - 1997.mkv','Cubo 1 - 1997.jpg', 
-//'Cubo 2 - Hipercubo - 2002.mkv','Cubo 2 - Hipercubo - 2002.jpg', 
-//'Cubo Zero - 2004.mkv','Cubo Zero - 2004.jpg', 
-//'Cujo - 1983.mkv','Cujo - 1983.jpg', 
-//'Cut - Cenas de Horror - 2000.mkv','Cut - Cenas de Horror - 2000.jpg', 
-//'Cães Assassinos - 2006.mkv','Cães Assassinos - 2006.jpg', 
-//'Deixe-me Entrar.mp4','Deixe-me Entrar.jpg', 
-//'Despertar dos Mortos - 2011.mkv','Despertar dos Mortos - 2011.jpg', 
-//'Devorador de Almas - 2006.mkv','Devorador de Almas - 2006.jpg', 
-//'Dezesseis Facadas.mp4','Dezesseis Facadas.jpg', 
-//'Dia dos Mortos - 1985.mkv','Dia dos Mortos - 1985.jpg', 
-//'Dia dos Mortos.mp4','Dia dos Mortos.jpg', 
-//'Distúrbio - 2018.mkv','Distúrbio - 2018.jpg', 
-//'Diário do Mortos - 2007.mkv','Diário do Mortos - 2007.jpg', 
-//'Doce Vingança 1.mkv','Doce Vingança 1.jpg', 
-//'Doce Vingança 2.mkv','Doce Vingança 2.jpg', 
-//'Doce Vingança 3.mkv','Doce Vingança 3.jpg', 
-//'Doce Vingança 4.mp4','Doce Vingança 4.jpg', 
-//'Domínio- Prequela do Exorcista - 2005.mp4','Domínio- Prequela do Exorcista - 2005.jpg', 
-//'Doutor Sono.mkv','Doutor Sono.jpg', 
-//'Dracula 1931.mkv','Dracula 1931.jpg', 
-//'Dragão Vermelho - 2002.mkv','Dragão Vermelho - 2002.jpg', 
-//'Drive-Thru - Fast Food Da Morte - 2007.mkv','Drive-Thru - Fast Food Da Morte - 2007.jpg', 
-//'Drácula de Bram Stoker - 1992.mkv','Drácula de Bram Stoker - 1992.jpg', 
-//'Elvira - A Rainha das Trevas - 1988.mkv','Elvira - A Rainha das Trevas - 1988.jpg', 
-//'Elvira - As Loucas Aventuras de Elvira - 2001.mkv','Elvira - As Loucas Aventuras de Elvira - 2001.jpg', 
-//'Enigmas de um Crime 2010.mp4','Enigmas de um Crime 2010.jpg', 
-//'Enjaulada 2016.mp4','Enjaulada 2016.jpg', 
-//'Enterrado Vivo.mp4','Enterrado Vivo.jpg', 
-//'Entrevista com Vampiros - 1994.mkv','Entrevista com Vampiros - 1994.jpg', 
-//'Escada de Jaco.mp4','Escada de Jaco.jpg', 
-//'Escuridão - 2005.mkv','Escuridão - 2005.jpg', 
-//'Espelho do Medo 1 - 2008.mkv','Espelho do Medo 1 - 2008.jpg', 
-//'Espelho do Medo 2 - 2010.mkv','Espelho do Medo 2 - 2010.jpg', 
-//'Espinhos - 2008.mkv','Espinhos - 2008.jpg', 
-//'Espíritos 1 - A Morte Está ao Seu Lado - 2004.mkv','Espíritos 1 - A Morte Está ao Seu Lado - 2004.jpg', 
-//'Espíritos 2 - Você Nunca Está Sozinho - 2006.mkv','Espíritos 2 - Você Nunca Está Sozinho - 2006.jpg', 
-//'Esquizofrenia - 1980.mkv','Esquizofrenia - 1980.jpg', 
-//'Estrada Maldita - 2007.mkv','Estrada Maldita - 2007.jpg', 
-//'Eu Ainda Sei O Que Vocês Fizeram No Verão Passado - 1998.mkv','Eu Ainda Sei O Que Vocês Fizeram No Verão Passado - 1998.jpg', 
-//'Eu Sei O Que Vocês Fizeram No Verão Passado - 1997.mkv','Eu Sei O Que Vocês Fizeram No Verão Passado - 1997.jpg', 
-//'Eu Sempre Vou Saber o Que Vocês Fizeram no Verão Passado - 2006.mkv','Eu Sempre Vou Saber o Que Vocês Fizeram no Verão Passado - 2006.jpg', 
-//'Eu vi o brilho da TV.mp4','Eu vi o brilho da TV.jpg', 
-//'Evocando Espíritos 1 - 2009.mkv','Evocando Espíritos 1 - 2009.jpg', 
-//'Experimentos Macabros 2022.mp4','Experimentos Macabros 2022.jpg', 
-//'Faces do Medo - 2013.mkv','Faces do Medo - 2013.jpg', 
-//'Fale Comigo 2023.mkv','Fale Comigo 2023.jpg', 
-//'Familia Addams.mkv','Familia Addams.jpg', 
-//'Fantasma 1 - 1979.mkv','Fantasma 1 - 1979.jpg', 
-//'Fantasma 2 - 1988.mkv','Fantasma 2 - 1988.jpg', 
-//'Fantasma 3 - 1994.mkv','Fantasma 3 - 1994.jpg', 
-//'Fantasma 4 - 1998.mkv','Fantasma 4 - 1998.jpg', 
-//'Filha da Luz.mp4','Filha da Luz.jpg', 
-//'Fome Animal - 1992.mkv','Fome Animal - 1992.jpg', 
-//'Frankenstein Encontra o Lobisomem - 1943.mkv','Frankenstein Encontra o Lobisomem - 1943.jpg', 
-//'Freddy vs Jason.mkv','Freddy vs Jason.jpg', 
-//'Fuga Sobre Trilhos - 2008.mkv','Fuga Sobre Trilhos - 2008.jpg', 
-//'Girl - 2020.mkv','Girl - 2020.jpg', 
-//'Gritos Mortais.mkv','Gritos Mortais.jpg', 
-//'Gritos do Além 2011.mp4','Gritos do Além 2011.jpg', 
-//'Grotesco 2009.mp4','Grotesco 2009.jpg', 
-//'Halloween a1 A Noite do Terror.mkv','Halloween a1 A Noite do Terror.jpg', 
-//'Halloween b2 O Pesadelo Continua.mkv','Halloween b2 O Pesadelo Continua.jpg', 
-//'Halloween c3 A Noite das Bruxas.mkv','Halloween c3 A Noite das Bruxas.jpg', 
-//'Halloween d4 O Retorno de Michael Myers.mkv','Halloween d4 O Retorno de Michael Myers.jpg', 
-//'Halloween e5 A Vingança de Michael Myers.mkv','Halloween e5 A Vingança de Michael Myers.jpg', 
-//'Halloween f6 A Última Vingança.mkv','Halloween f6 A Última Vingança.jpg', 
-//'Halloween g7 H20.mkv','Halloween g7 H20.jpg', 
-//'Halloween h8 - Ressurreição.mkv','Halloween h8 - Ressurreição.jpg', 
-//'Halloween i9 - O Inicio.mkv','Halloween i9 - O Inicio.jpg', 
-//'Halloween j10 2.mkv','Halloween j10 2.jpg', 
-//'Halloween k11 2018.mkv','Halloween k11 2018.jpg', 
-//'Halloween l12 Kills.mkv','Halloween l12 Kills.jpg', 
-//'Halloween m13 Ends.mp4','Halloween m13 Ends.jpg', 
-//'Halloween m14 Ends 2022.mp4','Halloween m14 Ends 2022.jpg', 
-//'Hannibal - 2001.mkv','Hannibal - 2001.jpg', 
-//'Hannibal - A Origem do Mal - 2007.mkv','Hannibal - A Origem do Mal - 2007.jpg', 
-//'Hellraiser 1 Renascido do Inferno.mp4','Hellraiser 1 Renascido do Inferno.jpg', 
-//'Hellraiser 10 2022.mkv','Hellraiser 10 2022.jpg', 
-//'Hellraiser 2 Renascido das Trevas.mp4','Hellraiser 2 Renascido das Trevas.jpg', 
-//'Hellraiser 3 Inferno na Terra.mp4','Hellraiser 3 Inferno na Terra.jpg', 
-//'Hellraiser 4 Herança Maldita.mp4','Hellraiser 4 Herança Maldita.jpg', 
-//'Hellraiser 5 Inferno.mp4','Hellraiser 5 Inferno.jpg', 
-//'Hellraiser 6 Cacador do Inferno.mp4','Hellraiser 6 Cacador do Inferno.jpg', 
-//'Hellraiser 7 O Retorno dos Mortos.mp4','Hellraiser 7 O Retorno dos Mortos.jpg', 
-//'Hellraiser 8 O Mundo do Inferno.mp4','Hellraiser 8 O Mundo do Inferno.jpg', 
-//'Hellraiser 9 Revelacoes.mp4','Hellraiser 9 Revelacoes.jpg', 
-//'Hellraiser O Julgamento.mp4','Hellraiser O Julgamento.jpg', 
-//'Hereditário - 2018.mkv','Hereditário - 2018.jpg', 
-//'Herege.mp4','Herege.jpg', 
-//'Histeria - 2000.mkv','Histeria - 2000.jpg', 
-//'Holocausto Canibal.mkv','Holocausto Canibal.jpg', 
-//'Horas de Medo -2010.mkv','Horas de Medo -2010.jpg', 
-//'Hush - A Morte Ouve - 2016.mkv','Hush - A Morte Ouve - 2016.jpg', 
-//'Ilha dos Mortos - 2009.mkv','Ilha dos Mortos - 2009.jpg', 
-//'Imagens do Além - 2008.mkv','Imagens do Além - 2008.jpg', 
-//'Instinto Assassino - 1991.mkv','Instinto Assassino - 1991.jpg', 
-//'Invasores - 2007.mkv','Invasores - 2007.jpg', 
-//'Invasores de Corpos - 1993.mkv','Invasores de Corpos - 1993.jpg', 
-//'Invasão Zumbi 1 - 2016.mkv','Invasão Zumbi 1 - 2016.jpg', 
-//'Invasão Zumbi 2 - Peninsula - 2020.mkv','Invasão Zumbi 2 - Peninsula - 2020.jpg', 
-//'Invocação do Mal 1 - 2013.mkv','Invocação do Mal 1 - 2013.jpg', 
-//'Invocação do Mal 2 - 2016.mkv','Invocação do Mal 2 - 2016.jpg', 
-//'Invocação do Mal 3 - A Ordem do Demônio - 2021.mkv','Invocação do Mal 3 - A Ordem do Demônio - 2021.jpg', 
-//'Irmãs Diabólicas - 1972.mkv','Irmãs Diabólicas - 1972.jpg', 
-//'Irreversivel.mp4','Irreversivel.jpg', 
-//'It 1 - 2017.mkv','It 1 - 2017.jpg', 
-//'It 2 - 2019.mkv','It 2 - 2019.jpg', 
-//'It- Uma obra prima do medo.mp4','It- Uma obra prima do medo.jpg', 
-//'Jack Frost 1 - 1997.mkv','Jack Frost 1 - 1997.jpg', 
-//'Jason X - 2001.mkv','Jason X - 2001.jpg', 
-//'Jogo Macabro.mkv','Jogo Macabro.jpg', 
-'https://archive.org/download/jogos-mortais-1_202507/Jogos Mortais 1.mp4','Jogos Mortais 1.jpg', 
-//'Jogos Mortais 10.mp4','Jogos Mortais 10.jpg', 
-//'Jogos Mortais 2.mkv','Jogos Mortais 2.jpg', 
-//'Jogos Mortais 3.mkv','Jogos Mortais 3.jpg', 
-//'Jogos Mortais 4.mkv','Jogos Mortais 4.jpg', 
-//'Jogos Mortais 5.mkv','Jogos Mortais 5.jpg', 
-//'Jogos Mortais 6.mkv','Jogos Mortais 6.jpg', 
-//'Jogos Mortais 7.mkv','Jogos Mortais 7.jpg', 
-//'Jogos Mortais 8.mkv','Jogos Mortais 8.jpg', 
-//'Jogos Mortais 9 - Espiral - O Legado de Jogos Mortais.mkv','Jogos Mortais 9 - Espiral - O Legado de Jogos Mortais.jpg', 
-//'Laranja Mecanica.mp4','Laranja Mecanica.jpg', 
-//'Leatherface Massacre no Texas.mp4','Leatherface Massacre no Texas.jpg', 
-//'Lenda Urbana 1 - 1998.mkv','Lenda Urbana 1 - 1998.jpg', 
-//'Lenda Urbana 2 - 2000.mkv','Lenda Urbana 2 - 2000.jpg', 
-//'Lenda Urbana 3 - 2005.mkv','Lenda Urbana 3 - 2005.jpg', 
-//'Lendas do Além-Túmulo - 1995.mkv','Lendas do Além-Túmulo - 1995.jpg', 
-//'Lendas do Além-Túmulo - 1996.mkv','Lendas do Além-Túmulo - 1996.jpg', 
-//'Lendas do Além-Túmulo - 2000.mkv','Lendas do Além-Túmulo - 2000.jpg', 
-//'Livrai-nos do Mal.mp4','Livrai-nos do Mal.jpg', 
-//'Lobisomem Americano em Londres - 1981.mkv','Lobisomem Americano em Londres - 1981.jpg', 
-//'Lobisomem Americano em Paris - 1997.mkv','Lobisomem Americano em Paris - 1997.jpg', 
-//'Longlegs.mp4','Longlegs.jpg', 
-//'M3gan.mp4','M3gan.jpg', 
-//'Malditas Aranhas - 2002.mkv','Malditas Aranhas - 2002.jpg',  
-//'Maligno - 2022.mp4','Maligno - 2022.jpg', 
-//'Maligno 2019.mp4','Maligno 2019.jpg', 
-//'Mama - 2013.mkv','Mama - 2013.jpg', 
-//'Martyrs - 2008.mp4','Martyrs - 2008.jpg', 
-//'Martyrs - 2015.mkv','Martyrs - 2015.jpg', 
-//'Martyrs - 2015.mp4','Martyrs - 2015.jpg', 
-//'Martyrs Lane.mp4','Martyrs Lane.jpg', 
-//'Maya O Ritual do Fogo.mp4','Maya O Ritual do Fogo.jpg', 
-//'Megan is Missing.mp4','Megan is Missing.jpg', 
-//'Menina Ma Com 2005.mp4','Menina Ma Com 2005.jpg', 
-//'Mestre dos Desejos 1.mkv','Mestre dos Desejos 1.jpg', 
-//'Mestre dos Desejos 2.mkv','Mestre dos Desejos 2.jpg', 
-//'Mestre dos Desejos 3.mkv','Mestre dos Desejos 3.jpg', 
-//'Mestre dos Desejos 4.mkv','Mestre dos Desejos 4.jpg', 
-//'Midsommar.mp4','Midsommar.jpg', 
-//'Minotauro - 2006.mkv','Minotauro - 2006.jpg', 
-//'Monstro do Armario.mkv','Monstro do Armario.jpg', 
-//'Morte Morte Morte.mp4','Morte Morte Morte.jpg', 
-//'Morte Súbita - 2007.mkv','Morte Súbita - 2007.jpg', 
-//'Mortuária - 2005.mkv','Mortuária - 2005.jpg', 
-//'Mother - 2017.mkv','Mother - 2017.jpg', 
-//'Mutação 1 - 1997.mkv','Mutação 1 - 1997.jpg', 
-//'Mutação 2 - 2001.mkv','Mutação 2 - 2001.jpg', 
-//'Mutação 3 - O Sentinela - 2003.mkv','Mutação 3 - O Sentinela - 2003.jpg', 
-//'Mutilados - 2006.mkv','Mutilados - 2006.jpg', 
-//'Nao Desligue 2016.mkv','Nao Desligue 2016.jpg', 
-//'Nasce um Monstro 1 - 1974.mkv','Nasce um Monstro 1 - 1974.jpg', 
-//'Nasce um Monstro 2 - 1978.mkv','Nasce um Monstro 2 - 1978.jpg', 
-//'Nasce um Monstro 3 - 1987.mkv','Nasce um Monstro 3 - 1987.jpg', 
-//'Navio Fantasma.mp4','Navio Fantasma.jpg', 
-//'Nefarious.mp4','Nefarious.jpg', 
-//'Ninguem Sobrevive.mp4','Ninguem Sobrevive.jpg', 
-//'Noite das Bruxas Macabra - 2014.mkv','Noite das Bruxas Macabra - 2014.jpg', 
-//'Noite de Halloween - 2006.mkv','Noite de Halloween - 2006.jpg', 
-//'Noite do Terror 1 - 2006.mkv','Noite do Terror 1 - 2006.jpg', 
-//'Noite do Terror 2 - 2014.mkv','Noite do Terror 2 - 2014.jpg', 
-//'Nos - 2019.mp4','Nos - 2019.jpg', 
-//'Nosferatu 1922.mp4','Nosferatu 1922.jpg', 
-//'Não Adianta Fugir - 2009.mkv','Não Adianta Fugir - 2009.jpg', 
-//'Não Olhe - 2019.mkv','Não Olhe - 2019.jpg', 
-//'O Abominavel Dr. Phibes.mp4','O Abominavel Dr. Phibes.jpg', 
-//'O Albergue 1.mkv','O Albergue 1.jpg', 
-//'O Albergue 2.mkv','O Albergue 2.jpg', 
-//'O Albergue 3.mkv','O Albergue 3.jpg', 
-//'O Atalho - 2013.mkv','O Atalho - 2013.jpg', 
-//'O Ataque dos Vermes Malditos 2.mp4','O Ataque dos Vermes Malditos 2.jpg', 
-//'O Ataque dos Vermes Malditos 3.mkv','O Ataque dos Vermes Malditos 3.jpg', 
-//'O Ataque dos Vermes Malditos 4 - O Começo da Lenda.mkv','O Ataque dos Vermes Malditos 4 - O Começo da Lenda.jpg', 
-//'O Ataque dos Vermes Malditos 5 Linhas de Sangue.mkv','O Ataque dos Vermes Malditos 5 Linhas de Sangue.jpg', 
-//'O Ataque dos Vermes Malditos 6 Um Dia Frio no Inferno 2018.mp4','O Ataque dos Vermes Malditos 6 Um Dia Frio no Inferno 2018.jpg', 
-//'O Ataque dos Vermes Malditos 7- Ilha dos Shriekers 2020.mkv','O Ataque dos Vermes Malditos 7- Ilha dos Shriekers 2020.jpg', 
-//'O Bar Luva Dourada 2019.mp4','O Bar Luva Dourada 2019.jpg', 
-//'O Bebê de Rosemary 1968.mp4','O Bebê de Rosemary 1968.jpg', 
-//'O Bosque - 2008.mkv','O Bosque - 2008.jpg', 
-//'O Bosque de Blair Witch.mp4','O Bosque de Blair Witch.jpg', 
-//'O Castelo Maldito - 1995.mkv','O Castelo Maldito - 1995.jpg', 
-//'O Cativeiro - 2010.mkv','O Cativeiro - 2010.jpg', 
-//'O Caçador De Cabeças - 1988.mkv','O Caçador De Cabeças - 1988.jpg', 
-//'O Chale - 2019.mkv','O Chale - 2019.jpg', 
-//'O Chamado 1.mkv','O Chamado 1.jpg', 
-//'O Chamado 2.mkv','O Chamado 2.jpg', 
-//'O Chamado 3.mkv','O Chamado 3.jpg', 
-//'O Chamado 4.mp4','O Chamado 4.jpg', 
-//'O Chupa-Cabra - 2014.mkv','O Chupa-Cabra - 2014.jpg', 
-//'O Colecionador de Corpos.mp4','O Colecionador de Corpos.jpg', 
-//'O Crematorio.mp4','O Crematorio.jpg', 
-//'O Culto - 2017.mkv','O Culto - 2017.jpg', 
-//'O Cão do Diabo - 1978.mkv','O Cão do Diabo - 1978.jpg', 
-//'O Dentista 1.mkv','O Dentista 1.jpg', 
-//'O Dentista 2.mkv','O Dentista 2.jpg', 
-//'O Discipulo de Dracula.mkv','O Discipulo de Dracula.jpg', 
-//'O Enigma do Outro Mundo.mkv','O Enigma do Outro Mundo.jpg', 
-//'O Exorcismo de Emily Rose.mp4','O Exorcismo de Emily Rose.jpg', 
-//'O Exorcista - O Devoto 2023.mp4','O Exorcista - O Devoto 2023.jpg', 
-//'O Exorcista 1.mkv','O Exorcista 1.jpg', 
-//'O Exorcista 2.mp4','O Exorcista 2.jpg', 
-//'O Exorcista 3.mp4','O Exorcista 3.jpg', 
-//'O Exorcista 4.mkv','O Exorcista 4.jpg', 
-//'O Exorcista do Papa.mp4','O Exorcista do Papa.jpg', 
-//'O Fantasma da Opera 1962.mkv','O Fantasma da Opera 1962.jpg', 
-//'O Farol.mkv','O Farol.jpg', 
-//'O Filho de Frankenstein - 1939.mkv','O Filho de Frankenstein - 1939.jpg', 
-//'O Grande Predador - 2007.mkv','O Grande Predador - 2007.jpg', 
-//'O Grito 1 - 2004.mkv','O Grito 1 - 2004.jpg', 
-//'O Grito 2 - 2006.mkv','O Grito 2 - 2006.jpg', 
-//'O Grito 3 - 2009.mkv','O Grito 3 - 2009.jpg', 
-//'O Grito 4 - 2020.mkv','O Grito 4 - 2020.jpg', 
-//'O Homem Invisível - 2020.mkv','O Homem Invisível - 2020.jpg', 
-//'O Homem Sem Sombra 1 - 2000.mkv','O Homem Sem Sombra 1 - 2000.jpg', 
-//'O Homem Sem Sombra 2 - 2008.mkv','O Homem Sem Sombra 2 - 2008.jpg', 
-//------------------------'https://archive.org/download/o-iluminado_202507/O Iluminado.mp4','O Iluminado.jpg', 
-//'O Internato - 2018.mkv','O Internato - 2018.jpg', 
-//'O Limite do Medo.mp4','O Limite do Medo.jpg', 
-//'O Lobisomem - 1941.mkv','O Lobisomem - 1941.jpg', 
-//'O Lobisomem - 2010.mkv','O Lobisomem - 2010.jpg', 
-'https://archive.org/download/o-massacre-da-serra-eletrica-1/O Massacre Da Serra Elétrica 1.mp4','O Massacre Da Serra Elétrica 1.jpg', 
-//'O Massacre Da Serra Elétrica 2.mkv','O Massacre Da Serra Elétrica 2.jpg', 
-//'O Massacre Da Serra Elétrica 2003.mp4','O Massacre Da Serra Elétrica 2003.jpg', 
-//'O Massacre Da Serra Elétrica 3 1990.mkv','O Massacre Da Serra Elétrica 3 1990.jpg', 
-//'O Massacre Da Serra Elétrica Inicio.mp4','O Massacre Da Serra Elétrica Inicio.jpg', 
-//'O Massacre da Serra Eletrica 3D.mp4','O Massacre da Serra Eletrica 3D.jpg', 
-//'O Massacre da Serra Elétrica 2022.mkv','O Massacre da Serra Elétrica 2022.jpg', 
-//'O Menu 2022.mp4','O Menu 2022.jpg', 
-//'O Mestre dos Brinquedos 2 A Volta do Mestre dos Brinquedos 1990.mp4','O Mestre dos Brinquedos 2 A Volta do Mestre dos Brinquedos 1990.jpg', 
-//'O Mestre dos Brinquedos 3 - A Vingança de Toulon (1991).mp4','O Mestre dos Brinquedos 3 - A Vingança de Toulon (1991).jpg', 
-//'O Mestre dos Brinquedos 4 - Bonecos em Guerra (1993).mp4','O Mestre dos Brinquedos 4 - Bonecos em Guerra (1993).jpg', 
-//'O Misterio da Passagem da Morte 2013.mp4','O Misterio da Passagem da Morte 2013.jpg', 
-//'O Mistério das Duas Irmãs - 2009.mkv','O Mistério das Duas Irmãs - 2009.jpg', 
-//'O Monstro da Neve.mkv','O Monstro da Neve.jpg', 
-//'O Monstro do Armario.mp4','O Monstro do Armario.jpg', 
-//'O Monstro do Artico - 1951.mkv','O Monstro do Artico - 1951.jpg', 
-//'O Nevoeiro - 2007.mkv','O Nevoeiro - 2007.jpg', 
-//'O Olho do Mal - 2008.mkv','O Olho do Mal - 2008.jpg', 
-//'O Outro Lado do Lago.mp4','O Outro Lado do Lago.jpg', 
-//'O Pacto.mp4','O Pacto.jpg', 
-//'O Pesadelo 1 - 2005.mkv','O Pesadelo 1 - 2005.jpg', 
-//'O Pesadelo 2 - 2007.mkv','O Pesadelo 2 - 2007.jpg', 
-//'O Pesadelo 3 - 2008.mkv','O Pesadelo 3 - 2008.jpg', 
-//'O Poco 2.mp4','O Poco 2.jpg', 
-//'O Poco.mkv','O Poco.jpg', 
-//'O Portal - 2005.mkv','O Portal - 2005.jpg', 
-//'O Porão - 1989.mkv','O Porão - 1989.jpg', 
-//'O Ritual - 2017.mkv','O Ritual - 2017.jpg', 
-//'O Sacrifício - 2006.mkv','O Sacrifício - 2006.jpg', 
-//'O Sangue do Dracula.mkv','O Sangue do Dracula.jpg', 
-//'O Segredo da Cabana - 2012.mkv','O Segredo da Cabana - 2012.jpg', 
-//'O Telefone Preto 2022.mkv','O Telefone Preto 2022.jpg', 
-//'O massacre da serra elétrica 4 O retorno.mp4','O massacre da serra elétrica 4 O retorno.jpg', 
-//'O Último Exorcismo - Parte 1 - 2010.mkv','O Último Exorcismo - Parte 1 - 2010.jpg', 
-//'O Último Exorcismo - Parte 2 - 2013.mkv','O Último Exorcismo - Parte 2 - 2013.jpg', 
-//'Olhos Assassinos - 1981.mkv','Olhos Assassinos - 1981.jpg', 
-//'Olhos Famintos 1.mkv','Olhos Famintos 1.jpg', 
-//'Olhos Famintos 2.mkv','Olhos Famintos 2.jpg', 
-//'Olhos Famintos 3.mkv','Olhos Famintos 3.jpg', 
-//'Olhos Famintos 4.mp4','Olhos Famintos 4.jpg', 
-//'Os 3 Infernais - 2019.mkv','Os 3 Infernais - 2019.jpg', 
-//'Os Escravos de Satanás - 2018.mkv','Os Escravos de Satanás - 2018.jpg', 
-//'Os Esquecidos.mkv','Os Esquecidos.jpg', 
-//'Os Estranhos - 2008.mkv','Os Estranhos - 2008.jpg', 
-//'Os Estranhos - Caçada Noturna - 2018.mkv','Os Estranhos - Caçada Noturna - 2018.jpg', 
-//'Os Mensageiros 1 - 2007.mkv','Os Mensageiros 1 - 2007.jpg', 
-//'Os Mensageiros 2 - 2009.mkv','Os Mensageiros 2 - 2009.jpg', 
-//'Os Mortos Não Morrem - 2019.mkv','Os Mortos Não Morrem - 2019.jpg', 
-//'Os Pássaros 1 - 1963.mkv','Os Pássaros 1 - 1963.jpg', 
-//'Os Pássaros 2 - O Ataque Final.mp4','Os Pássaros 2 - O Ataque Final.jpg', 
-//'Os Órfãos - 2020.mkv','Os Órfãos - 2020.jpg', 
-//'Outra Alma.mp4','Outra Alma.jpg', 
-//'Pague Para Entrar e Reze Para Sair - 1981.mkv','Pague Para Entrar e Reze Para Sair - 1981.jpg', 
-//'Palhaços Assassinos do Espaço Sideral - 1988.mkv','Palhaços Assassinos do Espaço Sideral - 1988.jpg', 
-//'Palhaços Infernais - 2017.mkv','Palhaços Infernais - 2017.jpg', 
-//'Panico 1.mkv','Panico 1.jpg', 
-//'Panico 2.mkv','Panico 2.jpg', 
-//'Panico 3.mkv','Panico 3.jpg', 
-//'Panico 4.mkv','Panico 4.jpg', 
-//'Panico 5.mp4','Panico 5.jpg', 
-//'Panico 6.mp4','Panico 6.jpg', 
-//'Paranóia - 2007.mkv','Paranóia - 2007.jpg', 
-//'Passaro Pintado.mp4','Passaro Pintado.jpg', 
-//'Pearl.mkv','Pearl.jpg', 
-//'Perseguidos - 2010.mkv','Perseguidos - 2010.jpg', 
-//'Perseguidos pela Morte - 2014.mkv','Perseguidos pela Morte - 2014.jpg', 
-//'Perseguição 1 - 2001.mkv','Perseguição 1 - 2001.jpg', 
-//'Perseguição 2 - O Resgate - 2008.mkv','Perseguição 2 - O Resgate - 2008.jpg', 
-//'Perseguição 3 - Correndo Para a Morte - 2014.mkv','Perseguição 3 - Correndo Para a Morte - 2014.jpg', 
-//'Pesadelos do Passado 1 - 2012.mkv','Pesadelos do Passado 1 - 2012.jpg', 
-//'Pesadelos do Passado 2 - 2014.mkv','Pesadelos do Passado 2 - 2014.jpg', 
-//'Pink Flamingo.mp4','Pink Flamingo.jpg', 
-//'Piranha 1 - 2010.mkv','Piranha 1 - 2010.jpg', 
-//'Piranha 2 - 2012.mkv','Piranha 2 - 2012.jpg', 
-//'Poltergeist 1 - 1982.mkv','Poltergeist 1 - 1982.jpg', 
-//'Poltergeist 2 - 1986.mkv','Poltergeist 2 - 1986.jpg', 
-//'Poltergeist 3 - 1988.mkv','Poltergeist 3 - 1988.jpg', 
-//'Poltergeist 4 - O Fenômeno - 2015.mkv','Poltergeist 4 - O Fenômeno - 2015.jpg', 
-//'Premonição 1 - 2000.mkv','Premonição 1 - 2000.jpg', 
-//'Premonição 2 - 2003.mkv','Premonição 2 - 2003.jpg', 
-//'Premonição 3 - 2006.mkv','Premonição 3 - 2006.jpg', 
-//'Premonição 4 - 2009.mkv','Premonição 4 - 2009.jpg', 
-//'Premonição 5 - 2011.mkv','Premonição 5 - 2011.jpg', 
-//'Primitivo - 2007.mkv','Primitivo - 2007.jpg', 
-//'Psicopata Americano 2.mkv','Psicopata Americano 2.jpg', 
-//'Psicopata Americano.mkv','Psicopata Americano.jpg', 
-//'Psicose - Remake - 1998.mkv','Psicose - Remake - 1998.jpg', 
-//'Psicose 1 - 1960.mkv','Psicose 1 - 1960.jpg', 
-//'Psicose 2 - 1983.mkv','Psicose 2 - 1983.jpg', 
-//'Psicose 3 - 1986.mkv','Psicose 3 - 1986.jpg', 
-//'Psicose 4 - O Começo - 1990.mkv','Psicose 4 - O Começo - 1990.jpg', 
-//'Pumpkinhead - 1988.mkv','Pumpkinhead - 1988.jpg', 
-//'Pumpkinhead 2 - 1994.mkv','Pumpkinhead 2 - 1994.jpg', 
-//'Pânico Na Floresta 6.mp4','Pânico Na Floresta 6.jpg', 
-//'Pânico na Floresta 1.mp4','Pânico na Floresta 1.jpg', 
-//'Pânico na Floresta 2.mp4','Pânico na Floresta 2.jpg', 
-//'Pânico na Floresta 3.mkv','Pânico na Floresta 3.jpg', 
-//'Pânico na Floresta 4.mp4','Pânico na Floresta 4.jpg', 
-//'Pânico na Floresta 5.mp4','Pânico na Floresta 5.jpg', 
-//'Pânico na Floresta 7 - A Fundação.mp4','Pânico na Floresta 7 - A Fundação.jpg', 
-//'Pânico na Ilha - 2009.mkv','Pânico na Ilha - 2009.jpg', 
-//'Pânico no Deserto 1 - 2005.mkv','Pânico no Deserto 1 - 2005.jpg', 
-//'Pânico no Deserto 2 - 2008.mkv','Pânico no Deserto 2 - 2008.jpg', 
-//'Pânico no Lago 1 - 1999.mkv','Pânico no Lago 1 - 1999.jpg', 
-//'Pânico no Lago 2 - 2007.mkv','Pânico no Lago 2 - 2007.jpg', 
-//'Pânico no Lago 3 - 2010.mkv','Pânico no Lago 3 - 2010.jpg', 
-//'Pânico no Lago 4 - 2012.mkv','Pânico no Lago 4 - 2012.jpg', 
-//'Pânico no Lago 5 - O Legado - 2018.mkv','Pânico no Lago 5 - O Legado - 2018.jpg', 
-//'Pânico no Lago vs. Anaconta.mkv','Pânico no Lago vs. Anaconta.jpg', 
-//'Quarentena 1 - Remake - 2008.mkv','Quarentena 1 - Remake - 2008.jpg', 
-//'Quarentena 2 - Terminal - 2011.mkv','Quarentena 2 - Terminal - 2011.jpg', 
-//'REC 1.mkv','REC 1.jpg', 
-//'REC 2.mkv','REC 2.jpg', 
-//'REC 3.mkv','REC 3.jpg', 
-//'REC 4.mkv','REC 4.jpg', 
-//'Re-Animator - 1985.mkv','Re-Animator - 1985.jpg', 
-//'Re-Animator - Fase Terminal - 2003.mkv','Re-Animator - Fase Terminal - 2003.jpg', 
-//'Refém do Espirito - 2008.mkv','Refém do Espirito - 2008.jpg', 
-//'Rejeitados pelo Diabo - 2005.mkv','Rejeitados pelo Diabo - 2005.jpg', 
-//'Resident Evil - A Vingança - 2017.mkv','Resident Evil - A Vingança - 2017.jpg', 
-//'Resident Evil - Condenação - 2012.mkv','Resident Evil - Condenação - 2012.jpg', 
-//'Resident Evil 1 - Hóspede Maldito - 2002.mkv','Resident Evil 1 - Hóspede Maldito - 2002.jpg', 
-//'Resident Evil 2 - Apocalipse - 2004.mkv','Resident Evil 2 - Apocalipse - 2004.jpg', 
-//'Resident Evil 3 - A Extinção - 2007.mkv','Resident Evil 3 - A Extinção - 2007.jpg', 
-//'Resident Evil 4 - Recomeço - 2010.mkv','Resident Evil 4 - Recomeço - 2010.jpg', 
-//'Resident Evil 5 - Retribuição - 2012.mkv','Resident Evil 5 - Retribuição - 2012.jpg', 
-//'Resident Evil 6 - O Capítulo Final - 2017.mkv','Resident Evil 6 - O Capítulo Final - 2017.jpg', 
-//'Ripper - O Mensageiro do Inferno - 2001.mkv','Ripper - O Mensageiro do Inferno - 2001.jpg', 
-//'Ripper 2 - Ressuscitando o Medo - 2004.mp4','Ripper 2 - Ressuscitando o Medo - 2004.jpg', 
-//'Rogai por Nos.mp4','Rogai por Nos.jpg', 
-//'Rota Mortal 1 - 2006.mkv','Rota Mortal 1 - 2006.jpg', 
-//'Rota Mortal 2 - Não Olhe Para Trás - 2008.mkv','Rota Mortal 2 - Não Olhe Para Trás - 2008.jpg', 
-//'Rota da Morte.mp4','Rota da Morte.jpg', 
-//'Rua do Medo 1 - 1994.mkv','Rua do Medo 1 - 1994.jpg', 
-//'Rua do Medo 2 - 1978.mkv','Rua do Medo 2 - 1978.jpg', 
-//'Rua do Medo 3 - 1666.mkv','Rua do Medo 3 - 1666.jpg', 
-//'Sanatorio - 2013.mkv','Sanatorio - 2013.jpg',
-//'Seed - Assassino em Serie - 2006.mkv','Seed - Assassino em Serie - 2006.jpg', 
-//'Seed 2 - A Nova Geração - 2014.mkv','Seed 2 - A Nova Geração - 2014.jpg', 
-//'Semente Do Diabo - 1979.mkv','Semente Do Diabo - 1979.jpg', 
-//'Sepultado Vivo - 1990.mkv','Sepultado Vivo - 1990.jpg', 
-//'Sepultado Vivo 2.mp4','Sepultado Vivo 2.jpg', 
-//'Serbian Film.mp4','Serbian Film.jpg', 
-//'Seres Rastejantes - 2006.mkv','Seres Rastejantes - 2006.jpg', 
-//'Seven - Sete Pecados Capitais.mp4','Seven - Sete Pecados Capitais.jpg', 
-//'Sexta-Feira 13 - Parte 1.mp4','Sexta-Feira 13 - Parte 1.jpg', 
-//'Sexta-Feira 13 - Parte 2.mp4','Sexta-Feira 13 - Parte 2.jpg', 
-//'Sexta-Feira 13 - Parte 3.mp4','Sexta-Feira 13 - Parte 3.jpg', 
-//'Sexta-Feira 13 - Parte 4 - O Capítulo Final.mp4','Sexta-Feira 13 - Parte 4 - O Capítulo Final.jpg', 
-//'Sexta-Feira 13 - Parte 5 - Um Novo Recomeço.mp4','Sexta-Feira 13 - Parte 5 - Um Novo Recomeço.jpg', 
-//'Sexta-Feira 13 - Parte 6- Jason Vive.mp4','Sexta-Feira 13 - Parte 6- Jason Vive.jpg', 
-//'Sexta-Feira 13 - Parte 7- A Matança Continua.mp4','Sexta-Feira 13 - Parte 7- A Matança Continua.jpg', 
-//'Sexta-Feira 13 - Parte 8- Jason Ataca Nova York.mp4','Sexta-Feira 13 - Parte 8- Jason Ataca Nova York.jpg', 
-//'Sexta-Feira 13 - Parte 9.mp4','Sexta-Feira 13 - Parte 9.jpg', 
-//'Sexta-Feira 13 2009.mp4','Sexta-Feira 13 2009.jpg', 
-//'Shakma - A Fúria Assassina - 1990.mkv','Shakma - A Fúria Assassina - 1990.jpg', 
-//'Siga o Mestre - 2006.mkv','Siga o Mestre - 2006.jpg', 
-//'Silent Hill - Revelações - 2012.mkv','Silent Hill - Revelações - 2012.jpg', 
-//'Sinais.mp4','Sinais.jpg', 
-//'Skinamarink.mp4','Skinamarink.jpg', 
-//'Slender Man - O Pesadelo sem Façe.mkv','Slender Man - O Pesadelo sem Façe.jpg', 
-//'Sobrenatural 1 - 2010.mkv','Sobrenatural 1 - 2010.jpg', 
-//'Sobrenatural 2 - 2014.mkv','Sobrenatural 2 - 2014.jpg', 
-//'Sobrenatural 3 - A Origem - 2015.mkv','Sobrenatural 3 - A Origem - 2015.jpg', 
-//'Sobrenatural 4 - A última Chave - 2018.mkv','Sobrenatural 4 - A última Chave - 2018.jpg', 
-//'Sobrenatural 5.mp4','Sobrenatural 5.jpg', 
-//'Sorria 2.mp4','Sorria 2.jpg', 
-//'Sorria.mp4','Sorria.jpg', 
-//'Sozinha.mp4','Sozinha.jpg', 
-//'Spawn - O Soldado do Inferno.mp4','Spawn - O Soldado do Inferno.jpg', 
-//'Splice A Nova Espécie.mp4','Splice A Nova Espécie.jpg', 
-//'Stairs.mp4','Stairs.jpg', 
-//'Stigmata.mkv','Stigmata.jpg', 
-//'Suspiria - 1977.mp4','Suspiria - 1977.jpg', 
-//'Suspiria - 2018.mkv','Suspiria - 2018.jpg', 
-//'Temos Vagas 1 - 2007.mkv','Temos Vagas 1 - 2007.jpg', 
-//'Temos Vagas 2 - A Primeira Diária - 2008.mkv','Temos Vagas 2 - A Primeira Diária - 2008.jpg', 
-//'Terra Maldita - 2009.mkv','Terra Maldita - 2009.jpg', 
-//'Terra dos Mortos - 2005.mkv','Terra dos Mortos - 2005.jpg', 
-//'Terras de Sangue - 2014.mkv','Terras de Sangue - 2014.jpg', 
-//'Terrifier 1 - 2016.mp4','Terrifier 1 - 2016.jpg', 
-//'Terrifier 2 -2022.mkv','Terrifier 2 -2022.jpg', 
-//'Terrifier 3.mp4','Terrifier 3.jpg', 
-//'Terror em Silent Hill.mkv','Terror em Silent Hill.jpg', 
-//'The Birds 1963.mp4','The Birds 1963.jpg', 
-//'The Red Book Ritual.mp4','The Red Book Ritual.jpg', 
-//'The Sadness 2021.mp4','The Sadness 2021.jpg', 
-//'The Silence - 2019.mkv','The Silence - 2019.jpg', 
-//'The Woman.mp4','The Woman.jpg', 
-//'Tomates Assasinos 2.mkv','Tomates Assasinos 2.jpg', 
-//'Tony.mp4','Tony.jpg', 
-//'Toque de Recolher - 2006.mkv','Toque de Recolher - 2006.jpg', 
-//'Trancada 2022.mkv','Trancada 2022.jpg', 
-//'Trem Fantasma - 2006.mkv','Trem Fantasma - 2006.jpg', 
-//'Triângulo do Medo - 2009.mkv','Triângulo do Medo - 2009.jpg', 
-//'Tubarao 1.mkv','Tubarao 1.jpg', 
-//'Tubarao 2.mkv','Tubarao 2.jpg', 
-//'Tubarao 3.mkv','Tubarao 3.jpg', 
-//'Tubarao 4 - O Ultimo Tubarao.mkv','Tubarao 4 - O Ultimo Tubarao.jpg', 
-//'Tubarao 4.mkv','Tubarao 4.jpg', 
-//'Turistas - 2006.mkv','Turistas - 2006.jpg', 
-//'Tusk A Transformacao.mp4','Tusk A Transformacao.jpg', 
-//'Ultimo Mundo Canibal - Faces da Morte 8.mkv','Ultimo Mundo Canibal - Faces da Morte 8.jpg', 
-//'Um Clássico Filme de Terror - 2021.mkv','Um Clássico Filme de Terror - 2021.jpg', 
-//'Um Drink no Inferno 1 - 1996.mkv','Um Drink no Inferno 1 - 1996.jpg', 
-//'Um Drink no Inferno 2 - 1999.mkv','Um Drink no Inferno 2 - 1999.jpg', 
-//'Um Drink no Inferno 3 - 2000.mkv','Um Drink no Inferno 3 - 2000.jpg', 
-//'Um Lugar Silencioso.mkv','Um Lugar Silencioso.jpg', 
-//'Uma Noite Para Esquecer - 2013.mkv','Uma Noite Para Esquecer - 2013.jpg', 
-//'Uma Noite de Crime 1 - 2013.mkv','Uma Noite de Crime 1 - 2013.jpg', 
-//'Uma Noite de Crime 2 - Anarquia - 2014.mkv','Uma Noite de Crime 2 - Anarquia - 2014.jpg', 
-//'Uma Noite de Crime 3 - 2016.mkv','Uma Noite de Crime 3 - 2016.jpg', 
-//'Uma Noite de Crime 4 A Primeira Noite de Crime.mp4','Uma Noite de Crime 4 A Primeira Noite de Crime.jpg', 
-//'Uma Noite de Crime 5 A Fronteira.mkv','Uma Noite de Crime 5 A Fronteira.jpg', 
-//'Vertigo 1958.mp4','Vertigo 1958.jpg', 
-//'Verónica - 2017.mkv','Verónica - 2017.jpg', 
-//'Viagem Maldita 1 - 2006.mkv','Viagem Maldita 1 - 2006.jpg', 
-//'Viagem Maldita 2 - 2007.mkv','Viagem Maldita 2 - 2007.jpg', 
-//'Viagem do Medo - 2010.mkv','Viagem do Medo - 2010.jpg', 
-//'Vigiados.mp4','Vigiados.jpg', 
-//'Você Nunca Me Encontrará (2023).mp4','Você Nunca Me Encontrará (2023).jpg', 
-//'Você é o Próximo - 2014.mkv','Você é o Próximo - 2014.jpg', 
-//'When Evil Lurks.mp4','When Evil Lurks.jpg', 
-//'Wolf Creek 1.mkv','Wolf Creek 1.jpg', 
-//'Wolf Creek 2 - 2013 - Legendado.mkv','Wolf Creek 2 - 2013 - Legendado.jpg', 
-//'X - A Marca da Morte.mp4','X - A Marca da Morte.jpg', 
-//'Ze do caixao - Encarnação Do Demonio.mkv','Ze do caixao - Encarnação Do Demonio.jpg', 
-//'Ze do caixao - Esta Noite Encarnarei no Teu Cadáver.mkv','Ze do caixao - Esta Noite Encarnarei no Teu Cadáver.jpg', 
-//'Ze do caixao - À Meia Noite Levarei Sua Alma.mkv','Ze do caixao - À Meia Noite Levarei Sua Alma.jpg', 
-//'Zoombies 1 - 2016.mkv','Zoombies 1 - 2016.jpg', 
-//'Zoombies 2 - 2019.mkv','Zoombies 2 - 2019.jpg', 
-//'o Apostolo.mp4','o Apostolo.jpg', 
-//'Á Prova de Morte - 2007.mkv','Á Prova de Morte - 2007.jpg', 
-//
-////novos
-//'Carrie, a Estranha - 2002.mp4','Carrie, a Estranha - 2002.jpg', 
-]
+const posters = [
+    '120 Dias de Sodoma.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:14
+    '60 Minutos Para Morrer - 2017.jpg', 'https://archive.org/download/60-minutos-para-morrer-2017/60 Minutos Para Morrer - 2017.mp4',//    13.4 kB','',//    11/06/2025, 10:26:14
+    '7 Desejos - 2017.jpg', '',//    11.2 kB','',//    11/06/2025, 10:26:14
+    'A Arte do Demonio - 2004.jpg', 'https://archive.org/download/a-arte-do-demonio-2004/A Arte do Demonio - 2004.mp4',//    10.3 kB','',//    11/06/2025, 10:26:14
+    'A Arte do Demonio 2 - 2005.jpg', 'https://archive.org/download/a-arte-do-demonio-2-2005/A Arte do Demonio 2 - 2005.mp4',//    15.0 kB','',//    11/06/2025, 10:26:14
+    'A Arte do Demonio 3 - 2008.jpg', 'https://archive.org/download/a-arte-do-demonio-3-2008/A Arte do Demonio 3 - 2008.mp4',//    12.3 kB','',//    11/06/2025, 10:26:14
+    'A Autopsia.jpg', 'https://archive.org/download/a-autopsia/A Autopsia.ia.mp4',//    10.9 kB','',//    11/06/2025, 10:26:14
+    'A Bolha Assasina 1958.jpg', 'https://archive.org/download/a-bolha-assasina-1958/A Bolha Assasina 1958.mp4',//    18.1 kB','',//    11/06/2025, 10:26:14
+    'A Bolha Assassina - 1988.jpg', 'https://archive.org/download/a-bolha-assassina-1988_202507/A Bolha Assassina - 1988.mp4',//    12.9 kB','',//    11/06/2025, 10:26:14
+    'A Casa Amaldiçoada - 1999.jpg', 'https://archive.org/download/a-casa-amaldicoada-1999/A Casa Amaldiçoada - 1999.mp4',//    12.1 kB','',//    11/06/2025, 10:26:14
+    'A Casa da Colina - 1999.jpg', 'https://archive.org/download/a-casa-da-colina-1999/A Casa da Colina - 1999.mp4',//    11.2 kB','',//    11/06/2025, 10:26:14
+    'A Casa de Vidro 1 - 2001.jpg', 'https://archive.org/download/a-casa-de-vidro-1-2001/A Casa de Vidro 1 - 2001.mp4',//    9.3 kB','',//    11/06/2025, 10:26:14
+    'A Casa de Vidro 2 - 2006.jpg', 'https://archive.org/download/a-casa-de-vidro-2-2006/A Casa de Vidro 2 - 2006.mp4',//    14.2 kB','',//    11/06/2025, 10:26:14
+    'A Casa do Espanto 1.jpg', 'https://archive.org/download/a-casa-do-espanto-1/A Casa do Espanto 1.mp4',//    10.7 kB','',//    11/06/2025, 10:26:14
+    'A Casa do Espanto 2.jpg', 'https://archive.org/download/a-casa-do-espanto-2_202507/A Casa do Espanto 2.mp4',//    7.1 kB','',//    11/06/2025, 10:26:14
+    'A Casa do Espanto 3.jpg', 'https://archive.org/download/a-casa-do-espanto-3_202507/A Casa do Espanto 3.mp4',//    10.7 kB','',//    11/06/2025, 10:26:14
+    'A Casa do Espanto 4.jpg', 'https://archive.org/download/a-casa-do-espanto-4_202507/A Casa do Espanto 4.mp4',//    13.5 kB','',//    11/06/2025, 10:26:14
+    'A Casa Dos 1000 Corpos.jpg', 'https://archive.org/download/a-casa-dos-1000-corpos_202507/A Casa Dos 1000 Corpos.mp4',//    15.3 kB','',//    11/06/2025, 10:26:14
+    'A Casa dos Mortos  - O Filme - 2003.jpg', 'https://archive.org/download/a-casa-dos-mortos-o-filme-2003/A Casa dos Mortos  - O Filme - 2003.mp4',//    6.2 kB','',//    11/06/2025, 10:26:14
+    'A Casa dos Mortos 2 - 2005.jpg', 'https://archive.org/download/a-casa-dos-mortos-2-2005/A Casa dos Mortos 2 - 2005.mp4',//    15.0 kB','',//    11/06/2025, 10:26:14
+    'A Casa dos Passaros Mortos.jpg', 'https://archive.org/download/a-casa-dos-passaros-mortos/A Casa dos Passaros Mortos.mp4',//    11.7 kB','',//    11/06/2025, 10:26:14
+    'A Casa Que Jack Construiu.jpg', 'https://archive.org/download/a-casa-que-jack-construiu/A Casa Que Jack Construiu.ia.mp4',//    13.5 kB','',//    11/06/2025, 10:26:14
+    'A Casa que Pingava Sangue - 1971.jpg', 'https://archive.org/download/a-casa-que-pingava-sangue-1971_202507/A Casa que Pingava Sangue - 1971.mp4',//    15.2 kB','',//    11/06/2025, 10:26:14
+    'A Caverna - 2005.jpg', 'https://archive.org/download/a-caverna-2005/A Caverna - 2005.mp4',//    11.7 kB','',//    11/06/2025, 10:26:14
+    'A Caverna Maldita - 2006.jpg', 'https://archive.org/download/a-caverna-maldita-2006/A Caverna Maldita - 2006.mp4',//    18.5 kB','',//    11/06/2025, 10:26:14
+    'A Coisa - 2011.jpg', 'https://archive.org/download/a-coisa-2011/A Coisa - 2011.mp4',//    10.6 kB','',//    11/06/2025, 10:26:14
+    'A Enfermeira Assassina - 2014.jpg', 'https://archive.org/download/a-enfermeira-assassina-2014/A Enfermeira Assassina - 2014.mp4',//    11.4 kB','',//    11/06/2025, 10:26:14
+    'A Entidade 2.jpg', 'https://archive.org/download/a-entidade-2/A Entidade 2.ia.mp4',//    11.9 kB','',//    11/06/2025, 10:26:14
+    'A Entidade.jpg', 'https://archive.org/download/a-entidade_202507/A Entidade.ia.mp4',//    14.2 kB','',//    11/06/2025, 10:26:14
+    'A Epidemia - 2010.jpg', 'https://archive.org/download/a-epidemia-2010/A Epidemia - 2010.mp4',//    14.6 kB','',//    11/06/2025, 10:26:14
+    'A Espera do Mal - 2005.jpg', 'https://archive.org/download/a-espera-do-mal-2005/A Espera do Mal - 2005.mp4',//    9.0 kB','',//    11/06/2025, 10:26:14
+    'A Experiência - 1995.jpg', 'https://archive.org/download/a-experiencia-1995/A Experiência - 1995.mp4',//    12.7 kB','',//    11/06/2025, 10:26:14
+    'A Experiência 2 - 1998.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:14
+    'A Experiência 3 - 2004.jpg', 'https://archive.org/download/a-experiencia-3-2004_202507/A Experiência 3 - 2004.mp4',//    12.1 kB','',//    11/06/2025, 10:26:14
+    'A Experiência 4 - O Despertar - 2007.jpg', 'https://archive.org/download/a-experiencia-4-o-despertar-2007_202507/A Experiência 4 - O Despertar - 2007.mp4',//    14.3 kB','',//    11/06/2025, 10:26:14
+    'A Filha de Drácula - 1936.jpg', '',//    17.7 kB','',//    11/06/2025, 10:26:14
+    'A Forca - 2015.jpg', '',//    5.7 kB','',//    11/06/2025, 10:26:16
+    'A Freira 2.jpg', '',//    6.4 kB','',//    11/06/2025, 10:26:16
+    'A Freira.jpg', '',//    6.5 kB','',//    11/06/2025, 10:26:16
+    'A Fronteira.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:16
+    'A Gruta - 2020.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Espanto 2.jpg', '',//    13.4 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Espanto 3.jpg', '',//    85.1 kB','',//    11/06/2025, 10:39:02
+    'A Hora do Espanto.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 1.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 2.jpg', '',//    14.3 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 3.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 4.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 5.jpg', '',//    15.5 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 6.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 7.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:16
+    'A Ilha do Dr. Moreau - 1977.jpg', '',//    10.8 kB','',//    11/06/2025, 10:26:16
+    'A Ilha do Dr. Moreau - 1996.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:16
+    'A Ilha dos Mortos.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:16
+    'A LENDA DO CAVALEIRO FANTASMA.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:16
+    'A Luz Do Demonio.jpg', '',//    8.0 kB','',//    11/06/2025, 10:26:16
+    'A Maldição da Casa Winchester - 2018.jpg', '',//    9.2 kB','',//    11/06/2025, 10:26:16
+    'A Maldição da Mosca - 1965.jpg', '',//    17.2 kB','',//    11/06/2025, 10:26:16
+    'A Maldicao de Samantha.jpg', '',//    12.6 kB','',//    11/06/2025, 10:26:16
+    'A Maldição do Mestre dos Brinquedos (1998).jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:16
+    'A Montanha dos Canibais - 1978.jpg', '',//    17.5 kB','',//    11/06/2025, 10:26:16
+    'A Morte do Demonio.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
+    'A Morte é a Única Saída - 2017.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:16
+    'A Morte Pede Carona.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
+    'A Morte te dá Parabéns 1 - 2018.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:16
+    'A Morte Te Dá Parabéns 2.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
+    'A Mosca - Remake - 1986.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:16
+    'A Mosca 2 - 1989.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:16
+    'A Mulher de Preto 1.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:16
+    'A Mulher de Preto 2.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:16
+    'A Mumia - 1932.jpg', '',//    20.2 kB','',//    11/06/2025, 10:26:16
+    'A Múmia - 1959.jpg', '',//    16.6 kB','',//    11/06/2025, 10:26:16
+    'A Múmia - 2017.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:16
+    'A Noite dos Mortos Vivos - 1990.jpg', '',//    14.4 kB','',//    11/06/2025, 10:26:16
+    'A Noite dos Mortos Vivos - Re-Animação - 2012.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:16
+    'A Noite dos Mortos Vivos 3D - 2006.jpg', '',//    16.8 kB','',//    11/06/2025, 10:26:16
+    'A Noiva de Frankenstein - 1935.jpg', '',//    20.3 kB','',//    11/06/2025, 10:26:16
+    'A Noiva do Re-Animator - 1989.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:16
+    'A Orfa 2.jpg', '',//    8.9 kB','',//    11/06/2025, 10:26:16
+    'A Orfa.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:16
+    'A Piramide.jpg', '',//    14.0 kB','',//    11/06/2025, 10:26:16
+    'A Praga - 2006.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:16
+    'A Praga da Múmia - 1944.jpg', '',//    19.0 kB','',//    11/06/2025, 10:26:16
+    'A Profecia - 1976.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
+    'A Profecia 2 - 1978.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
+    'A Profecia 3 - 1981.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:16
+    'A Profecia 4 - 1991.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:16
+    'A Profecia 5 - 2006.jpg', '',//    12.7 kB','',//    11/06/2025, 10:26:16
+    'Á Prova de Morte - 2007.jpg', '',//    15.4 kB','',//    11/06/2025, 10:26:22
+    'A Queda 2022.jpg', '',//    8.8 kB','',//    11/06/2025, 10:26:16
+    'A Substancia.jpg', '',//    800 kB','',//    11/06/2025, 23:22:24
+    'A Tribo - 2008.jpg', '',//    13.1 kB','',//    11/06/2025, 10:26:16
+    'A Tribo 2 - 2009.jpg', '',//    17.4 kB','',//    11/06/2025, 10:26:16
+    'A Última Casa à Esquerda - Remake - 2009.jpg', '',//    10.5 kB','',//    11/06/2025, 10:26:16
+    'A Vingança de Jennifer.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:16
+    'A Viúva das Sombras - 2021.jpg', '',//    14.1 kB','',//    11/06/2025, 10:26:16
+    'A Volta dos Mortos Vivos 1.jpg', '',//    15.5 kB','',//    11/06/2025, 10:26:16
+    'A Volta dos Mortos Vivos 2.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:16
+    'A Volta dos Mortos Vivos 3.jpg', '',//    14.7 kB','',//    11/06/2025, 10:26:16
+    'A Volta dos Mortos Vivos 4.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:16
+    'Abismo do Medo 1.jpg', '',//    15.7 kB','',//    11/06/2025, 10:26:16
+    'Abismo do Medo 2.jpg', '',//    12.2 kB','',//    11/06/2025, 10:26:16
+    'Advogado do Diabo.jpg', '',//    14.5 kB','',//    11/06/2025, 10:26:16
+    'Além da Escuridao - 2012.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:16
+    'Além do Lago Ness - 2008.jpg', '',//    18.0 kB','',//    11/06/2025, 10:26:16
+    'Alta Tensao.jpg', '',//    13.0 kB','',//    11/06/2025, 10:26:16
+    'American Guinea Pig 2 - Bloodshock.jpg', '',//    17.8 kB','',//    11/06/2025, 10:26:16
+    'American Guinea Pig Bouquet of Guts and Gore.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:16
+    'American Guinea Pig Sacrifice.jpg', '',//    9.1 kB','',//    11/06/2025, 10:26:16
+    'American Guinea Pig Song of Solomon.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:16
+    'Anaconda 1.jpg', '',//    7.6 kB','',//    11/06/2025, 10:26:16
+    'Anaconda 2 - 2004.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:16
+    'Anaconda 3 - 2008.jpg', '',//    19.2 kB','',//    11/06/2025, 10:26:16
+    'Anaconda 4 - 2009.jpg', '',//    14.4 kB','',//    11/06/2025, 10:26:16
+    'Animal - 2014.jpg', '',//    16.3 kB','',//    11/06/2025, 10:26:16
+    'Anjo Maldito - 2009.jpg', '',//    13.4 kB','',//    11/06/2025, 10:26:16
+    'Anjos da Morte - 2006.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:16
+    'Anjos Rebeldes 1.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:16
+    'Anjos Rebeldes 2.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:16
+    'Anjos Rebeldes 3.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:16
+    'Anjos Rebeldes 4.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
+    'Anjos Rebeldes 5.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
+    'Annabelle 1 - 2014.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:16
+    'Annabelle 2 - A Criação do Mal.jpg', '',//    13.0 kB','',//    11/06/2025, 10:26:16
+    'Annabelle 3 - De Volta Para Casa - 2019.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
+    'Aprisionados - 2015.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
+    'Aracnofobia - 1990.jpg', '',//    9.1 kB','',//    11/06/2025, 10:26:16
+    'Arraste-me para o Inferno.jpg', '',//    17.1 kB','',//    11/06/2025, 10:26:16
+    'As Ruínas - 2008.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:16
+    'As Senhoras de Salem - 2012.jpg', '',//    14.2 kB','',//    11/06/2025, 10:26:16
+    'As Strippers Zumbis - 2007.jpg', '',//    17.9 kB','',//    11/06/2025, 10:26:16
+    'Asilo do Medo - 2019.jpg', '',//    14.5 kB','',//    11/06/2025, 10:26:16
+    'Assim na Terra Como no Inferno.jpg', '',//    12.2 kB','',//    11/06/2025, 10:26:16
+    'Atividade Paranormal 1.jpg', '',//    8.8 kB','',//    11/06/2025, 10:26:16
+    'Atividade Paranormal 2.jpg', '',//    10.8 kB','',//    11/06/2025, 10:26:16
+    'Atividade Paranormal 3.jpg', '',//    8.5 kB','',//    11/06/2025, 10:26:16
+    'Atividade Paranormal 4.jpg', '',//    9.8 kB','',//    11/06/2025, 10:26:16
+    'Atividade Paranormal 5 Marcados pelo Mal 2014.jpg', '',//    10.5 kB','',//    11/06/2025, 10:26:16
+    'Atividade Paranormal 6 Dimensao Fantasma.jpg', '',//    12.6 kB','',//    11/06/2025, 10:26:16
+    'Atividade Paranormal 7 Ente Próximo.jpg', '',//    14.5 kB','',//    11/06/2025, 10:26:16
+    'Atividade Paranormal em Toquio.jpg', '',//    14.7 kB','',//    11/06/2025, 10:26:16
+    'Através da Sombra - 2015.jpg', '',//    13.1 kB','',//    11/06/2025, 10:26:16
+    'Aviso de Tempestade - 2007.jpg', '',//    18.6 kB','',//    11/06/2025, 10:26:16
+    'BACK.jpg', '',//    7.8 kB','',//    11/06/2025, 10:26:16
+    'Baghead - A Bruxa dos Mortos.jpg', '',//    9.4 kB','',//    11/06/2025, 10:26:16
+    'Balada Para Satã - 1971.jpg', '',//    15.9 kB','',//    11/06/2025, 10:26:16
+    'Banquete no Inferno 1 - 2005.jpg', '',//    16.8 kB','',//    11/06/2025, 10:26:16
+    'Banquete no Inferno 2 - 2008.jpg', '',//    21.1 kB','',//    11/06/2025, 10:26:16
+    'Banquete no Inferno 3 - 2009.jpg', '',//    16.4 kB','',//    11/06/2025, 10:26:16
+    'Barbarian.jpg', '',//    6.0 kB','',//    11/06/2025, 10:26:16
+    'Barbarian.png', '',//    69.8 kB','',//    01/11/2022, 07:58:12
+    'Benção Mortal - 1981.jpg', '',//    16.9 kB','',//    11/06/2025, 10:26:16
+    'bg.jpg', '',//    9.1 kB','',//    11/06/2025, 10:26:16
+    'bg2.jpg', '',//    10.0 kB','',//    11/06/2025, 10:26:16
+    'Black Water - 2007.jpg', '',//    12.5 kB','',//    11/06/2025, 10:26:16
+    'Boa Noite Mamae 2014.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:16
+    'Boa Noite Mamae 2022.jpg', '',//    8.7 kB','',//    11/06/2025, 10:26:16
+    'Bonecos da Morte (1989).jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:16
+    'Bonecos em Guerra - O Capítulo Final (1994).jpg', '',//    108 kB','',//    11/06/2025, 10:39:02
+    'Bones - Anjo das Trevas - 2001.jpg', '',//    7.4 kB','',//    11/06/2025, 10:26:16
+    'boo.gif', '',//    884 kB','',//    28/10/2022, 10:21:26
+    'boo.jpg', '',//    2.0 kB','',//    11/06/2025, 10:26:16
+    'Brinquedos Diabólicos - 1992.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:16
+    'Bruxa de Blair 1.jpg', '',//    9.2 kB','',//    11/06/2025, 10:26:16
+    'Bruxa de Blair 2.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:16
+    'Bruxas - 2009.jpg', '',//    15.1 kB','',//    11/06/2025, 10:26:16
+    'Cadaveres - 2006.jpg', '',//    8.2 kB','',//    11/06/2025, 10:26:16
+    'Cadaveres 2 - 2008.jpg', '',//    12.0 kB','',//    11/06/2025, 10:26:16
+    'Cadillac Preto - 2003.jpg', '',//    10.1 kB','',//    11/06/2025, 10:26:16
+    'Cães Assassinos - 2006.jpg', '',//    8.6 kB','',//    11/06/2025, 10:26:18
+    'Canibais - A Tribo.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:16
+    'Carrie - A Estranha 1976.jpg', '',//    15.0 kB','',//    11/06/2025, 10:26:16
+    'Carrie, a Estranha - 2002.jpg', '',//    188 kB','',//    23/06/2025, 12:40:24
+    'Cemitério Maldito Remaster.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:16
+    'Cemiterio Maldito - A Origem.jpg', '',//    8.4 kB','',//    11/06/2025, 10:26:16
+    'Cemiterio Maldito - A Origem.png', '',//    181 kB','',//    20/10/2023, 11:05:40
+    'Cemiterio Maldito 1.jpg', '',//    15.6 kB','',//    11/06/2025, 10:26:16
+    'Cemiterio Maldito 2.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:16
+    'Cemitério Maldito Remaster.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:16
+    'Centopeia Humana 1.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:16
+    'Centopeia Humana 2.jpg', 'https://archive.org/download/centopeia-humana-2/Centopeia Humana 2.ia.mp4',//    12.0 kB','',//    11/06/2025, 10:26:16
+    'Centopeia Humana 2.png', '',//    714 kB','',//    14/11/2022, 05:48:44
+    'Centopeia Humana 3.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
+    'Cerdita.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
+    'Chamado vs O Grito - 2018.jpg', '',//    12.7 kB','',//    11/06/2025, 10:26:16
+    'Chernobyl - Sinta a Radiação - 2012.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:16
+    'Christine O Carro Assassino.jpg', '',//    10.4 kB','',//    11/06/2025, 10:26:16
+    'Chucky Brinquedo Assassino 1 - 1988.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:16
+    'Chucky Brinquedo Assassino 2 - 1990.jpg', '',//    12.0 kB','',//    11/06/2025, 10:26:16
+    'Chucky Brinquedo Assassino 3 - 1991.jpg', '',//    10.4 kB','',//    11/06/2025, 10:26:16
+    'Chucky Brinquedo Assassino 4 - A Noiva de Chucky.jpg', '',//    15.5 kB','',//    11/06/2025, 10:26:16
+    'Chucky Brinquedo Assassino 5 - O Filho de Chucky.jpg', '',//    12.7 kB','',//    11/06/2025, 10:26:16
+    'Chucky Brinquedo Assassino 6 - A Maldição de Chucky.jpg', '',//    15.7 kB','',//    11/06/2025, 10:26:16
+    'Chucky Brinquedo Assassino 6 - A Maldição de Chucky.png', '',//    122 kB','',//    06/11/2022, 11:31:02
+    'Chucky Brinquedo Assassino 7 - O Culto de Chucky.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:16
+    'Chucky Brinquedo Assassino 8 - 2019.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
+    'Colecionador de Ossos.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
+    'Colheita Maldita 1 - 1984.jpg', '',//    7.8 kB','',//    11/06/2025, 10:26:16
+    'Colheita Maldita 2 O Sacrifício Final - 1992.jpg', '',//    14.7 kB','',//    11/06/2025, 10:26:16
+    'Colheita Maldita 2009.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:16
+    'Colheita Maldita 3 - Colheita Urbana - 1995.jpg', '',//    8.7 kB','',//    11/06/2025, 10:26:16
+    'Colheita Maldita 4 - O Encontro- 1996.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:16
+    'Colheita Maldita 5 - Campos do Terror - 1998.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:16
+    'Colheita Maldita 6 - 666 - Isaac Está de Volta - 1999.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:16
+    'Colheita Maldita 7 Revelacao - 2001.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
+    'Colheita Maldita 8 - Genesis - 2011.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:18
+    'Colheita Sombria 2023.jfif', '',//    17.5 kB','',//    11/06/2025, 10:11:00
+    'Colheita Sombria 2023.jpg', '',//    8.8 kB','',//    11/06/2025, 10:26:18
+    'Colinas De Sangue - 2009.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:18
+    'Colisão Mortal - 2016.jpg', '',//    14.3 kB','',//    11/06/2025, 10:26:18
+    'Comemoração Sangrenta - 2016.jpg', '',//    6.5 kB','',//    11/06/2025, 10:26:18
+    'Conde Dracula.jpg', '',//    17.6 kB','',//    11/06/2025, 10:26:18
+    'Continue Assistindo - 2017.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:18
+    'Contos do Além - 1972.jpg', '',//    17.4 kB','',//    11/06/2025, 10:26:18
+    'Corra - 2017.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:18
+    'Corrente do Mal - 2015.jpg', '',//    8.8 kB','',//    11/06/2025, 10:26:18
+    'Cubo 1 - 1997.jpg', '',//    14.5 kB','',//    11/06/2025, 10:26:18
+    'Cubo 2 - Hipercubo - 2002.jpg', '',//    15.6 kB','',//    11/06/2025, 10:26:18
+    'Cubo Zero - 2004.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:18
+    'Cujo - 1983.jpg', '',//    14.1 kB','',//    11/06/2025, 10:26:18
+    'Cut - Cenas de Horror - 2000.jpg', '',//    10.5 kB','',//    11/06/2025, 10:26:18
+    'De Volta à Casa da Colina - 2007.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:18
+    'Deixe-me Entrar.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:18
+    'Despertar dos Mortos - 2011.jpg', '',//    16.9 kB','',//    11/06/2025, 10:26:18
+    'Devorador de Almas - 2006.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:18
+    'Dezesseis Facadas.jpg', '',//    206 kB','',//    11/06/2025, 23:08:36
+    'Dia dos Mortos - 1985.jpg', '',//    14.5 kB','',//    11/06/2025, 10:26:18
+    'Dia dos Mortos.jpg', '',//    14.3 kB','',//    11/06/2025, 10:26:18
+    'Diário do Mortos - 2007.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:18
+    'Distúrbio - 2018.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:18
+    'Distúrbio - 2018.png', '',//    118 kB','',//    06/11/2022, 15:28:20
+    'Doce Vingança 1.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:18
+    'Doce Vingança 2.jpg', '',//    17.5 kB','',//    11/06/2025, 10:26:18
+    'Doce Vingança 3.jpg', '',//    13.6 kB','',//    11/06/2025, 10:26:18
+    'Doce Vingança 4.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:18
+    'Domínio- Prequela do Exorcista - 2005.jpg', '',//    8.9 kB','',//    11/06/2025, 10:26:18
+    'Doutor Sono.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:18
+    'Dracula 1931.jpg', '',//    20.1 kB','',//    11/06/2025, 10:26:18
+    'Drácula de Bram Stoker - 1992.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:18
+    'Dragão Vermelho - 2002.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:18
+    'Drive-Thru - Fast Food Da Morte - 2007.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:18
+    'Elvira - A Rainha das Trevas - 1988.jpg', '',//    10.1 kB','',//    11/06/2025, 10:26:18
+    'Elvira - As Loucas Aventuras de Elvira - 2001.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:18
+    'Enigmas de um Crime 2010.jpg', '',//    12.7 kB','',//    11/06/2025, 10:26:18
+    'Enjaulada 2016.jpg', '',//    13.9 kB','',//    11/06/2025, 10:26:18
+    'Enterrado Vivo.jpg', '',//    9.3 kB','',//    11/06/2025, 10:26:18
+    'Enterrado Vivo.png', '',//    101 kB','',//    03/12/2022, 07:37:08
+    'Entrevista com Vampiros - 1994.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:18
+    'Escada de Jaco.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:18
+    'Escuridão - 2005.jpg', '',//    8.9 kB','',//    11/06/2025, 10:26:18
+    'Espelho do Medo 1 - 2008.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:18
+    'Espelho do Medo 2 - 2010.jpg', '',//    18.4 kB','',//    11/06/2025, 10:26:18
+    'Espinhos - 2008.jpg', '',//    12.8 kB','',//    11/06/2025, 10:26:18
+    'Espíritos 1 - A Morte Está ao Seu Lado - 2004.jpg', '',//    17.2 kB','',//    11/06/2025, 10:26:18
+    'Espíritos 2 - Você Nunca Está Sozinho - 2006.jpg', '',//    13.1 kB','',//    11/06/2025, 10:26:18
+    'Espíritos 2 - Você Nunca Está Sozinho - 2006.jpg', '',//    12.4 kB','',//    11/06/2025, 10:26:18
+    'Esquizofrenia - 1980.jpg', '',//    9.6 kB','',//    11/06/2025, 10:26:18
+    'Estrada Maldita - 2007.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:18
+    'Eu Ainda Sei O Que Vocês Fizeram No Verão Passado - 1998.jpg', '',//    13.4 kB','',//    11/06/2025, 10:26:18
+    'Eu Sei O Que Vocês Fizeram No Verão Passado - 1997.jpg', '',//    12.0 kB','',//    11/06/2025, 10:26:18
+    'Eu Sempre Vou Saber o Que Vocês Fizeram no Verão Passado - 2006.jpg', '',//    16.3 kB','',//    11/06/2025, 10:26:18
+    'Eu vi o brilho da TV.jpg', '',//    84.3 kB','',//    11/06/2025, 23:09:42
+    'Evocando Espíritos 1 - 2009.jpg', '',//    10.8 kB','',//    11/06/2025, 10:26:18
+    'Experimentos Macabros 2022.jpg', '',//    9.1 kB','',//    11/06/2025, 10:26:18
+    'Faces do Medo - 2013.jpg', '',//    16.2 kB','',//    11/06/2025, 10:26:18
+    'Fale Comigo 2023.jpg', '',//    5.1 kB','',//    11/06/2025, 10:26:18
+    'Familia Addams.jpg', '',//    17.1 kB','',//    11/06/2025, 10:26:18
+    'Fantasma 1 - 1979.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:18
+    'Fantasma 2 - 1988.jpg', '',//    15.9 kB','',//    11/06/2025, 10:26:18
+    'Fantasma 3 - 1994.jpg', '',//    17.2 kB','',//    11/06/2025, 10:26:18
+    'Fantasma 4 - 1998.jpg', '',//    19.2 kB','',//    11/06/2025, 10:26:18
+    'Filha da Luz.jpg', '',//    9.4 kB','',//    11/06/2025, 10:26:18
+    'Fome Animal - 1992.jpg', '',//    14.6 kB','',//    11/06/2025, 10:26:18
+    'Frankenstein Encontra o Lobisomem - 1943.jpg', '',//    18.2 kB','',//    11/06/2025, 10:26:18
+    'Freddy vs Jason.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:18
+    'Fuga Sobre Trilhos - 2008.jpg', '',//    9.5 kB','',//    11/06/2025, 10:26:18
+    'Girl - 2020.jpg', '',//    9.3 kB','',//    11/06/2025, 10:26:18
+    'Girl - 2020.png', '',//    85.9 kB','',//    06/11/2022, 15:47:00
+    'Gritos do Além 2011.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:18
+    'Gritos Mortais.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:18
+    'Grotesco 2009.jpg', '',//    17.1 kB','',//    11/06/2025, 10:26:18
+    'Halloween a1 A Noite do Terror.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:18
+    'Halloween b2 O Pesadelo Continua.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:18
+    'Halloween c3 A Noite das Bruxas.jpg', '',//    12.6 kB','',//    11/06/2025, 10:26:18
+    'Halloween d4 O Retorno de Michael Myers.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:18
+    'Halloween e5 A Vingança de Michael Myers.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:18
+    'Halloween f6 A Última Vingança.jpg', '',//    9.5 kB','',//    11/06/2025, 10:26:18
+    'Halloween g7 H20.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:18
+    'Halloween h8 - Ressurreição.jpg', '',//    9.9 kB','',//    11/06/2025, 10:26:18
+    'Halloween i9 - O Inicio.jpg', '',//    16.0 kB','',//    11/06/2025, 10:26:18
+    'Halloween j10 2.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:18
+    'Halloween k11 2018.jpg', '',//    10.2 kB','',//    11/06/2025, 10:26:18
+    'Halloween l12 Kills.jpg', '',//    14.4 kB','',//    11/06/2025, 10:26:18
+    'Halloween m13 Ends.jpg', '',//    7.5 kB','',//    11/06/2025, 10:26:18
+    'Halloween m14 Ends 2022.jpg', '',//    9.2 kB','',//    11/06/2025, 10:26:18
+    'Hannibal - 2001.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:18
+    'Hannibal - A Origem do Mal - 2007.jpg', '',//    8.8 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser - 2022.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 1 Renascido do Inferno.jpg', '',//    17.1 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 10 - 2022.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 10 2022.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 2 Renascido das Trevas.jpg', '',//    11.1 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 3 Inferno na Terra.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 4 Herança Maldita.jpg', '',//    18.1 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 5 Inferno.jpg', '',//    13.6 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 6 Cacador do Inferno.jpg', '',//    8.7 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 7 O Retorno dos Mortos.jpg', '',//    15.3 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 8 O Mundo do Inferno.jpg', '',//    19.1 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser 9 Revelacoes.jpg', '',//    16.2 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser O Julgamento.jpg', '',//    12.0 kB','',//    11/06/2025, 10:26:18
+    'Hereditário - 2018.jpg', '',//    10.6 kB','',//    11/06/2025, 10:26:18
+    'Herege.jpg', '',//    27.5 kB','',//    11/06/2025, 23:10:28
+    'Histeria - 2000.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:18
+    'Holocausto Canibal.jpg', '',//    19.4 kB','',//    11/06/2025, 10:26:18
+    'Horas de Medo -2010.jpg', '',//    13.4 kB','',//    11/06/2025, 10:26:18
+    'Hush - A Morte Ouve - 2016.jpg', '',//    7.3 kB','',//    11/06/2025, 10:26:18
+    'Ilha dos Mortos - 2009.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:18
+    'Imagens do Além - 2008.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:18
+    'index.php', '',//    61 B','',//    28/10/2022, 10:27:16
+    'Instinto Assassino - 1991.jpg', '',//    17.9 kB','',//    11/06/2025, 10:26:18
+    'Invasão Zumbi 1 - 2016.jpg', '',//    17.2 kB','',//    11/06/2025, 10:26:18
+    'Invasão Zumbi 2 - Peninsula - 2020.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:18
+    'Invasores - 2007.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:18
+    'Invasores de Corpos - 1993.jpg', '',//    14.2 kB','',//    11/06/2025, 10:26:18
+    'Invocação do Mal 1 - 2013.jpg', '',//    13.6 kB','',//    11/06/2025, 10:26:18
+    'Invocação do Mal 2 - 2016.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:18
+    'Invocação do Mal 3 - A Ordem do Demônio - 2021.jpg', '',//    8.4 kB','',//    11/06/2025, 10:26:18
+    'Irmãs Diabólicas - 1972.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:18
+    'Irreversivel.jpg', '',//    10.4 kB','',//    11/06/2025, 10:26:18
+    'Irreversivel.png', '',//    243 kB','',//    25/11/2022, 19:24:24
+    'It 1 - 2017.jpg', '',//    6.9 kB','',//    11/06/2025, 10:26:18
+    'It 2 - 2019.jpg', '',//    7.0 kB','',//    11/06/2025, 10:26:18
+    'It- Uma obra prima do medo.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:18
+    'Jack Frost 1 - 1997.jpg', '',//    14.1 kB','',//    11/06/2025, 10:26:18
+    'Jason X - 2001.jpg', '',//    17.0 kB','',//    11/06/2025, 10:26:18
+    'Jogo Macabro.jpg', '',//    15.4 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 1.jpg', 'https://archive.org/download/jogos-mortais-1_202507/Jogos Mortais 1.mp4',//    10.9 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 10.jpg', '',//    6.8 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 2.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 3.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 4.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 5.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 6.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 7.jpg', '',//    17.5 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 8.jpg', '',//    14.5 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 9 - Espiral - O Legado de Jogos Mortais.jpg', '',//    10.4 kB','',//    11/06/2025, 10:26:18
+    'Laranja Mecanica.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:18
+    'Leatherface Massacre no Texas.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:18
+    'Lenda Urbana 1 - 1998.jpg', '',//    15.6 kB','',//    11/06/2025, 10:26:18
+    'Lenda Urbana 2 - 2000.jpg', '',//    15.7 kB','',//    11/06/2025, 10:26:18
+    'Lenda Urbana 3 - 2005.jpg', '',//    13.6 kB','',//    11/06/2025, 10:26:18
+    'Lendas do Além-Túmulo - 1995.jpg', '',//    15.7 kB','',//    11/06/2025, 10:26:18
+    'Lendas do Além-Túmulo - 1996.jpg', '',//    15.7 kB','',//    11/06/2025, 10:26:18
+    'Lendas do Além-Túmulo - 2000.jpg', '',//    15.7 kB','',//    11/06/2025, 10:26:18
+    'Livrai-nos do Mal.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:18
+    'Lobisomem Americano em Londres - 1981.jpg', '',//    15.1 kB','',//    11/06/2025, 10:26:18
+    'Lobisomem Americano em Paris - 1997.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:18
+    'logo.jpg', '',//    9.8 kB','',//    11/06/2025, 10:26:18
+    'logo.png', '',//    26.1 kB','',//    15/11/2022, 01:43:26
+    'Longlegs.jpg', '',//    12.2 kB','',//    11/06/2025, 10:26:18
+    'M3gan.jpg', '',//    57.3 kB','',//    11/06/2025, 10:39:02
+    'Malditas Aranhas - 2002.jpg', '',//    17.4 kB','',//    11/06/2025, 10:26:18
+    'Maligno - 2022.jpg', '',//    6.0 kB','',//    11/06/2025, 10:26:18
+    'Maligno 2019.jpg', '',//    48.2 kB','',//    11/06/2025, 10:39:00
+    'Mama - 2013.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:18
+    'Martyrs - 2008.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:18
+    'Martyrs - 2015.jpg', '',//    13.1 kB','',//    11/06/2025, 10:26:18
+    'Martyrs Lane.jpg', '',//    7.2 kB','',//    11/06/2025, 10:26:18
+    'Maya O Ritual do Fogo.jpg', '',//    79.9 kB','',//    11/06/2025, 10:39:00
+    'Megan is Missing.jpg', '',//    10.9 kB','',//    11/06/2025, 10:26:18
+    'Menina Ma Com 2005.jpg', '',//    10.1 kB','',//    11/06/2025, 10:26:18
+    'Menina Ma Com 2005.png', '',//    493 kB','',//    02/08/2023, 10:45:00
+    'Mestre dos Desejos 1.jpg', '',//    7.1 kB','',//    11/06/2025, 10:26:18
+    'Mestre dos Desejos 2.jpg', '',//    10.9 kB','',//    11/06/2025, 10:26:18
+    'Mestre dos Desejos 3.jpg', '',//    15.6 kB','',//    11/06/2025, 10:26:18
+    'Mestre dos Desejos 4.jpg', '',//    15.5 kB','',//    11/06/2025, 10:26:18
+    'Midsommar.jpg', '',//    10.1 kB','',//    11/06/2025, 10:26:18
+    'Minotauro - 2006.jpg', '',//    18.6 kB','',//    11/06/2025, 10:26:18
+    'Monstro do Armario.jpg', '',//    13.1 kB','',//    11/06/2025, 10:26:18
+    'Morte Morte Morte.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:18
+    'Morte Súbita - 2007.jpg', '',//    14.2 kB','',//    11/06/2025, 10:26:18
+    'Mortuária - 2005.jpg', '',//    12.8 kB','',//    11/06/2025, 10:26:18
+    'Mortuaria.jpg', '',//    10.6 kB','',//    11/06/2025, 10:26:18
+    'Mother - 2017.jpg', '',//    10.2 kB','',//    11/06/2025, 10:26:18
+    'Mutação 1 - 1997.jpg', '',//    11.1 kB','',//    11/06/2025, 10:26:18
+    'Mutação 2 - 2001.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:18
+    'Mutação 3 - O Sentinela - 2003.jpg', '',//    11.2 kB','',//    11/06/2025, 10:26:18
+    'Mutilados - 2006.jpg', '',//    14.6 kB','',//    11/06/2025, 10:26:18
+    'Não Adianta Fugir - 2009.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:20
+    'Nao Desligue 2016.jpg', '',//    9.5 kB','',//    11/06/2025, 10:26:18
+    'Não Olhe - 2019.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:20
+    'Nasce um Monstro 1 - 1974.jpg', '',//    9.2 kB','',//    11/06/2025, 10:26:18
+    'Nasce um Monstro 2 - 1978.jpg', '',//    8.9 kB','',//    11/06/2025, 10:26:18
+    'Nasce um Monstro 3 - 1987.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:18
+    'Navio Fantasma.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:18
+    'Nefarious.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:18
+    'Ninguem Sobrevive.jpg', '',//    15.1 kB','',//    11/06/2025, 10:36:18
+    'Noite das Bruxas Macabra - 2014.jpg', '',//    8.2 kB','',//    11/06/2025, 10:26:20
+    'Noite de Halloween - 2006.jpg', '',//    17.8 kB','',//    11/06/2025, 10:26:20
+    'Noite do Terror 1 - 2006.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:20
+    'Noite do Terror 2 - 2014.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:20
+    'Nos - 2019.jpg', '',//    8.2 kB','',//    11/06/2025, 10:26:20
+    'Nosferatu 1922.jpg', '',//    11.2 kB','',//    11/06/2025, 10:26:20
+    'O Abominavel Dr. Phibes.jpg', '',//    15.1 kB','',//    11/06/2025, 10:26:20
+    'O Albergue 1.jpg', '',//    17.7 kB','',//    11/06/2025, 10:26:20
+    'O Albergue 2.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:20
+    'O Albergue 3.jpg', '',//    16.6 kB','',//    11/06/2025, 10:26:20
+    'o Apostolo.jpg', '',//    14.4 kB','',//    11/06/2025, 10:26:20
+    'O Atalho - 2013.jpg', '',//    16.2 kB','',//    11/06/2025, 10:26:20
+    'O Ataque dos Vermes Malditos 2.jpg', '',//    14.5 kB','',//    11/06/2025, 10:26:20
+    'O Ataque dos Vermes Malditos 3.jpg', '',//    13.9 kB','',//    11/06/2025, 10:26:20
+    'O Ataque dos Vermes Malditos 4 - O Começo da Lenda.jpg', '',//    18.8 kB','',//    11/06/2025, 10:26:20
+    'O Ataque dos Vermes Malditos 5 Linhas de Sangue.jpg', '',//    17.5 kB','',//    11/06/2025, 10:26:20
+    'O Ataque dos Vermes Malditos 6 Um Dia Frio no Inferno 2018.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:20
+    'O Ataque dos Vermes Malditos 7- Ilha dos Shriekers 2020.jpg', '',//    16.3 kB','',//    11/06/2025, 10:26:20
+    'O Bar Luva Dourada 2019.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:20
+    'O Bebê de Rosemary 1968.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:20
+    'O Bosque - 2008.jpg', '',//    8.2 kB','',//    11/06/2025, 10:26:20
+    'O Bosque de Blair Witch.jpg', '',//    10.8 kB','',//    11/06/2025, 10:26:20
+    'O Caçador De Cabeças - 1988.jpg', '',//    17.8 kB','',//    11/06/2025, 10:26:20
+    'O Cão do Diabo - 1978.jpg', '',//    11.2 kB','',//    11/06/2025, 10:26:20
+    'O Castelo Maldito - 1995.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:20
+    'O Cativeiro - 2010.jpg', '',//    12.4 kB','',//    11/06/2025, 10:26:20
+    'O Chale - 2019.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:20
+    'O Chamado 1.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:20
+    'O Chamado 2.jpg', '',//    7.3 kB','',//    11/06/2025, 10:26:20
+    'O Chamado 3.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:20
+    'O Chamado 4.jpg', '',//    15.5 kB','',//    11/06/2025, 10:26:20
+    'O Chupa-Cabra - 2014.jpg', '',//    15.5 kB','',//    11/06/2025, 10:26:20
+    'O Colecionador de Corpos.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:20
+    'O Crematorio.jpg', '',//    12.4 kB','',//    11/06/2025, 10:26:20
+    'O Culto - 2017.jpg', '',//    10.6 kB','',//    11/06/2025, 10:26:20
+    'O Dentista 1.jpg', '',//    13.0 kB','',//    11/06/2025, 10:26:20
+    'O Dentista 2.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:20
+    'O Discipulo de Dracula.jpg', '',//    13.4 kB','',//    11/06/2025, 10:26:20
+    'O Enigma do Outro Mundo.jpg', '',//    14.1 kB','',//    11/06/2025, 10:26:20
+    'O Exorcismo de Emily Rose.jpg', '',//    6.3 kB','',//    11/06/2025, 10:26:20
+    'O Exorcista - O Devoto 2023.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:20
+    'O Exorcista 1.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:20
+    'O Exorcista 2.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:20
+    'O Exorcista 3.jpg', '',//    8.2 kB','',//    11/06/2025, 10:26:20
+    'O Exorcista 4.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:20
+    'O Exorcista do Papa.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:20
+    'O Fantasma da Opera 1962.jpg', '',//    21.2 kB','',//    11/06/2025, 10:26:20
+    'O Farol.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:20
+    'O Filho de Frankenstein - 1939.jpg', '',//    20.7 kB','',//    11/06/2025, 10:26:20
+    'O Grande Predador - 2007.jpg', '',//    20.9 kB','',//    11/06/2025, 10:26:20
+    'O Grito 1 - 2004.jpg', '',//    10.1 kB','',//    11/06/2025, 10:26:20
+    'O Grito 2 - 2006.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:20
+    'O Grito 3 - 2009.jpg', '',//    14.3 kB','',//    11/06/2025, 10:26:20
+    'O Grito 4 - 2020.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:20
+    'O Homem Invisível - 2020.jpg', '',//    10.8 kB','',//    11/06/2025, 10:26:20
+    'O Homem Sem Sombra 1 - 2000.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:20
+    'O Homem Sem Sombra 2 - 2008.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:20
+    'O Iluminado.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:20
+    'O Internato - 2018.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:20
+    'O Limite do Medo.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:20
+    'O Lobisomem - 1941.jpg', '',//    17.9 kB','',//    11/06/2025, 10:26:20
+    'O Lobisomem - 2010.jpg', '',//    16.6 kB','',//    11/06/2025, 10:26:20
+    'O Massacre Da Serra Elétrica 1.jpg', 'https://archive.org/download/o-massacre-da-serra-eletrica-1/O Massacre Da Serra Elétrica 1.mp4',//    14.9 kB','',//    11/06/2025, 10:26:20
+    'O Massacre Da Serra Elétrica 2.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:20
+    'O Massacre Da Serra Elétrica 2003.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:20
+    'O Massacre da Serra Elétrica 2022.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:20
+    'O Massacre Da Serra Elétrica 3 1990.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:20
+    'O Massacre da Serra Eletrica 3D.jpg', '',//    14.2 kB','',//    11/06/2025, 10:26:20
+    'O massacre da serra elétrica 4 O retorno.jpg', '',//    14.3 kB','',//    11/06/2025, 10:26:20
+    'O Massacre Da Serra Elétrica Inicio.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:20
+    'O Menu 2022.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:20
+    'O Mestre dos Brinquedos 2 A Volta do Mestre dos Brinquedos 1990.jpg', '',//    11.2 kB','',//    11/06/2025, 10:26:20
+    'O Mestre dos Brinquedos 3 - A Vingança de Toulon (1991).jpg', '',//    99.9 kB','',//    11/06/2025, 10:39:00
+    'O Mestre dos Brinquedos 4 - Bonecos em Guerra (1993).jpg', '',//    83.9 kB','',//    11/06/2025, 10:38:58
+    'O Misterio da Passagem da Morte 2013.jpg', '',//    12.5 kB','',//    11/06/2025, 10:26:20
+    'O Mistério das Duas Irmãs - 2009.jpg', '',//    12.4 kB','',//    11/06/2025, 10:26:20
+    'O Monstro da Neve.jpg', '',//    16.0 kB','',//    11/06/2025, 10:26:20
+    'O Monstro do Armario.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:20
+    'O Monstro do Artico - 1951.jpg', '',//    15.9 kB','',//    11/06/2025, 10:26:20
+    'O Nevoeiro - 2007.jpg', '',//    13.0 kB','',//    11/06/2025, 10:26:20
+    'O Olho do Mal - 2008.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:20
+    'O Outro Lado do Lago.jpg', '',//    10.6 kB','',//    11/06/2025, 10:26:20
+    'O Pacto.jpg', '',//    12.8 kB','',//    11/06/2025, 10:26:20
+    'O Pesadelo 1 - 2005.jpg', '',//    14.4 kB','',//    11/06/2025, 10:26:20
+    'O Pesadelo 2 - 2007.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:20
+    'O Pesadelo 2 - 2007.png', '',//    87.5 kB','',//    08/11/2022, 07:06:20
+    'O Pesadelo 3 - 2008.jpg', '',//    11.1 kB','',//    11/06/2025, 10:26:20
+    'O Poco 2.jpg', '',//    19.2 kB','',//    11/06/2025, 23:25:52
+    'O Poco.jpg', '',//    8.9 kB','',//    11/06/2025, 10:26:20
+    'O Porão - 1989.jpg', '',//    12.7 kB','',//    11/06/2025, 10:26:20
+    'O Portal - 2005.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:20
+    'O Ritual - 2017.jpg', '',//    12.4 kB','',//    11/06/2025, 10:26:20
+    'O Sacrifício - 2006.jpg', '',//    14.2 kB','',//    11/06/2025, 10:26:20
+    'O Sangue do Dracula.jpg', '',//    19.4 kB','',//    11/06/2025, 10:26:20
+    'O Segredo da Cabana - 2012.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:20
+    'O Silencio dos Inocentes.jpg', 'https://archive.org/download/o-silencio-dos-inocentes/O Silencio dos Inocentes.mp4',//    49.8 kB','',//    04/07/2025, 05:01:48
+    'O Telefone Preto 2022.jpg', '',//    10.2 kB','',//    11/06/2025, 10:26:20
+    'O Último Exorcismo - Parte 1 - 2010.jpg', '',//    9.9 kB','',//    11/06/2025, 10:26:20
+    'O Último Exorcismo - Parte 2 - 2013.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:20
+    'Olhos Assassinos - 1981.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:20
+    'Olhos Famintos 1.jpg', '',//    17.7 kB','',//    11/06/2025, 10:26:20
+    'Olhos Famintos 2.jpg', '',//    16.2 kB','',//    11/06/2025, 10:26:20
+    'Olhos Famintos 3.jpg', '',//    15.6 kB','',//    11/06/2025, 10:26:20
+    'Olhos Famintos 4.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:20
+    'Os 3 Infernais - 2019.jpg', '',//    13.9 kB','',//    11/06/2025, 10:26:20
+    'Os Escravos de Satanás - 2018.jpg', '',//    12.4 kB','',//    11/06/2025, 10:26:20
+    'Os Esquecidos.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:20
+    'Os Estranhos - 2008.jpg', '',//    10.9 kB','',//    11/06/2025, 10:26:20
+    'Os Estranhos - Caçada Noturna - 2018.jpg', '',//    12.6 kB','',//    11/06/2025, 10:26:20
+    'Os Mensageiros 1 - 2007.jpg', '',//    17.2 kB','',//    11/06/2025, 10:26:20
+    'Os Mensageiros 2 - 2009.jpg', '',//    16.2 kB','',//    11/06/2025, 10:26:20
+    'Os Mortos Não Morrem - 2019.jpg', '',//    16.2 kB','',//    11/06/2025, 10:26:20
+    'Os Órfãos - 2020.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:20
+    'Os Pássaros 1 - 1963.jpg', '',//    12.6 kB','',//    11/06/2025, 10:26:20
+    'Os Pássaros 2 - O Ataque Final.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:20
+    'Outra Alma.jpg', '',//    7.6 kB','',//    11/06/2025, 10:26:20
+    'Pague Para Entrar e Reze Para Sair - 1981.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:20
+    'Palhaços Assassinos do Espaço Sideral - 1988.jpg', '',//    16.0 kB','',//    11/06/2025, 10:26:20
+    'Palhaços Infernais - 2017.jpg', '',//    14.1 kB','',//    11/06/2025, 10:26:20
+    'Panico 1.jpg', '',//    12.0 kB','',//    11/06/2025, 10:26:20
+    'Panico 2.jpg', '',//    10.2 kB','',//    11/06/2025, 10:26:20
+    'Panico 3.jpg', '',//    8.8 kB','',//    11/06/2025, 10:26:20
+    'Panico 4.jpg', '',//    9.1 kB','',//    11/06/2025, 10:26:20
+    'Panico 5.jpg', '',//    8.7 kB','',//    11/06/2025, 10:26:20
+    'Panico 6.jpg', '',//    12.7 kB','',//    11/06/2025, 10:26:20
+    'Pânico na Floresta 1.jpg', '',//    15.1 kB','',//    11/06/2025, 10:26:20
+    'Pânico na Floresta 2.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:20
+    'Pânico na Floresta 3.jpg', '',//    14.4 kB','',//    11/06/2025, 10:26:20
+    'Pânico na Floresta 4.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:20
+    'Pânico na Floresta 5.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:20
+    'Pânico na Floresta 6.jpg', '',//    15.2 kB','',//    11/06/2025, 10:26:20
+    'Pânico na Floresta 7 - A Fundação.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:20
+    'Pânico na Ilha - 2009.jpg', '',//    18.1 kB','',//    11/06/2025, 10:26:20
+    'Pânico no Deserto 1 - 2005.jpg', '',//    17.6 kB','',//    11/06/2025, 10:26:20
+    'Pânico no Deserto 2 - 2008.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:20
+    'Pânico no Lago 1 - 1999.jpg', '',//    10.9 kB','',//    11/06/2025, 10:26:20
+    'Pânico no Lago 2 - 2007.jpg', '',//    16.8 kB','',//    11/06/2025, 10:26:20
+    'Pânico no Lago 3 - 2010.jpg', '',//    18.6 kB','',//    11/06/2025, 10:26:20
+    'Pânico no Lago 4 - 2012.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:20
+    'Pânico no Lago 5 - O Legado - 2018.jpg', '',//    18.3 kB','',//    11/06/2025, 10:26:20
+    'Pânico no Lago vs. Anaconta.jpg', '',//    17.3 kB','',//    11/06/2025, 10:26:20
+    'Paranóia - 2007.jpg', '',//    12.0 kB','',//    11/06/2025, 10:26:20
+    'Passaro Pintado.jpg', '',//    9.9 kB','',//    11/06/2025, 10:26:20
+    'Pearl.jpg', '',//    11.2 kB','',//    11/06/2025, 10:26:20
+    'Perseguição 1 - 2001.jpg', '',//    12.4 kB','',//    11/06/2025, 10:26:20
+    'Perseguição 2 - O Resgate - 2008.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:20
+    'Perseguição 3 - Correndo Para a Morte - 2014.jpg', '',//    15.6 kB','',//    11/06/2025, 10:26:20
+    'Perseguidos - 2010.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:20
+    'Perseguidos pela Morte - 2014.jpg', '',//    15.5 kB','',//    11/06/2025, 10:26:20
+    'Pesadelos do Passado 1 - 2012.jpg', '',//    13.1 kB','',//    11/06/2025, 10:26:20
+    'Pesadelos do Passado 2 - 2014.jpg', '',//    14.0 kB','',//    11/06/2025, 10:26:20
+    'Pink Flamingo.jpg', '',//    11.2 kB','',//    11/06/2025, 10:26:20
+    'Pink Flamingo.png', '',//    114 kB','',//    05/12/2022, 12:46:50
+    'Piranha 1 - 2010.jpg', '',//    10.6 kB','',//    11/06/2025, 10:26:20
+    'Piranha 2 - 2012.jpg', '',//    15.1 kB','',//    11/06/2025, 10:26:20
+    'Poltergeist 1 - 1982.jpg', '',//    10.6 kB','',//    11/06/2025, 10:26:20
+    'Poltergeist 2 - 1986.jpg', '',//    17.3 kB','',//    11/06/2025, 10:26:20
+    'Poltergeist 3 - 1988.jpg', '',//    17.6 kB','',//    11/06/2025, 10:26:20
+    'Poltergeist 4 - O Fenômeno - 2015.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:20
+    'Premonição 1 - 2000.jpg', '',//    15.0 kB','',//    11/06/2025, 10:26:20
+    'Premonição 2 - 2003.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:20
+    'Premonição 3 - 2006.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:20
+    'Premonição 4 - 2009.jpg', '',//    14.6 kB','',//    11/06/2025, 10:26:20
+    'Premonição 5 - 2011.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:20
+    'Primitivo - 2007.jpg', '',//    15.0 kB','',//    11/06/2025, 10:26:20
+    'Psicopata Americano 2.jpg', '',//    9.9 kB','',//    11/06/2025, 10:26:20
+    'Psicopata Americano.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:20
+    'Psicose - Remake - 1998.jpg', '',//    12.0 kB','',//    11/06/2025, 10:26:20
+    'Psicose 1 - 1960.jpg', '',//    6.9 kB','',//    11/06/2025, 10:26:20
+    'Psicose 2 - 1983.jpg', '',//    9.6 kB','',//    11/06/2025, 10:26:20
+    'Psicose 3 - 1986.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:20
+    'Psicose 4 - O Começo - 1990.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:20
+    'Pumpkinhead - 1988.jpg', '',//    14.4 kB','',//    11/06/2025, 10:26:20
+    'Pumpkinhead 2 - 1994.jpg', '',//    12.7 kB','',//    11/06/2025, 10:26:20
+    'Quarentena 1 - Remake - 2008.jpg', '',//    9.4 kB','',//    11/06/2025, 10:26:20
+    'Quarentena 2 - Terminal - 2011.jpg', '',//    13.1 kB','',//    11/06/2025, 10:26:20
+    'Re-Animator - 1985.jpg', '',//    18.4 kB','',//    11/06/2025, 10:26:20
+    'Re-Animator - Fase Terminal - 2003.jpg', '',//    14.6 kB','',//    11/06/2025, 10:26:20
+    'REC 1.jpg', '',//    9.3 kB','',//    11/06/2025, 10:26:20
+    'REC 2.jpg', '',//    7.6 kB','',//    11/06/2025, 10:26:20
+    'REC 3.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:20
+    'REC 4.jpg', '',//    9.3 kB','',//    11/06/2025, 10:26:20
+    'Refém do Espirito - 2008.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:20
+    'Rejeitados pelo Diabo - 2005.jpg', '',//    17.0 kB','',//    11/06/2025, 10:26:20
+    'Resident Evil - A Vingança - 2017.jpg', '',//    17.1 kB','',//    11/06/2025, 10:26:20
+    'Resident Evil - Condenação - 2012.jpg', '',//    15.3 kB','',//    11/06/2025, 10:26:20
+    'Resident Evil 1 - Hóspede Maldito - 2002.jpg', '',//    14.7 kB','',//    11/06/2025, 10:26:20
+    'Resident Evil 2 - Apocalipse - 2004.jpg', '',//    14.3 kB','',//    11/06/2025, 10:26:20
+    'Resident Evil 3 - A Extinção - 2007.jpg', '',//    12.5 kB','',//    11/06/2025, 10:26:20
+    'Resident Evil 4 - Recomeço - 2010.jpg', '',//    16.9 kB','',//    11/06/2025, 10:26:20
+    'Resident Evil 5 - Retribuição - 2012.jpg', '',//    15.3 kB','',//    11/06/2025, 10:26:20
+    'Resident Evil 6 - O Capítulo Final - 2017.jpg', '',//    12.8 kB','',//    11/06/2025, 10:26:20
+    'Ripper - O Mensageiro do Inferno - 2001.jpg', '',//    16.4 kB','',//    11/06/2025, 10:26:20
+    'Ripper 2 - Ressuscitando o Medo - 2004.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:20
+    'Rogai por Nos.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:20
+    'Rota da Morte.jpg', '',//    10.1 kB','',//    11/06/2025, 10:26:20
+    'Rota Mortal 1 - 2006.jpg', '',//    10.1 kB','',//    11/06/2025, 10:26:20
+    'Rota Mortal 2 - Não Olhe Para Trás - 2008.jpg', '',//    13.6 kB','',//    11/06/2025, 10:26:20
+    'Rua do Medo 1 - 1994.jpg', '',//    13.0 kB','',//    11/06/2025, 10:26:20
+    'Rua do Medo 2 - 1978.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:20
+    'Rua do Medo 3 - 1666.jpg', '',//    13.9 kB','',//    11/06/2025, 10:26:20
+    'Sanatorio - 2013.jpg', '',//    11.1 kB','',//    11/06/2025, 10:26:20
+    'Sanatório - 2013.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:20
+    'Seed - Assassino em Serie - 2006.jpg', '',//    16.0 kB','',//    11/06/2025, 10:26:20
+    'Seed 2 - A Nova Geração - 2014.jpg', '',//    15.3 kB','',//    11/06/2025, 10:26:20
+    'Semente Do Diabo - 1979.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:20
+    'Sepultado Vivo - 1990.jpg', '',//    17.0 kB','',//    11/06/2025, 10:26:20
+    'Sepultado Vivo 2.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:20
+    'Serbian Film.jpg', '',//    10.8 kB','',//    11/06/2025, 10:26:20
+    'Seres Rastejantes - 2006.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:20
+    'Seven - Sete Pecados Capitais.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:20
+    'Sexta-Feira 13 - Parte 1.jpg', '',//    13.0 kB','',//    11/06/2025, 10:26:20
+    'Sexta-Feira 13 - Parte 2.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:20
+    'Sexta-Feira 13 - Parte 3.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:20
+    'Sexta-Feira 13 - Parte 4 - O Capítulo Final.jpg', '',//    15.0 kB','',//    11/06/2025, 10:26:20
+    'Sexta-Feira 13 - Parte 5 - Um Novo Recomeço.jpg', '',//    13.4 kB','',//    11/06/2025, 10:26:20
+    'Sexta-Feira 13 - Parte 6- Jason Vive.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:20
+    'Sexta-Feira 13 - Parte 7- A Matança Continua.jpg', '',//    12.0 kB','',//    11/06/2025, 10:26:20
+    'Sexta-Feira 13 - Parte 8- Jason Ataca Nova York.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:20
+    'Sexta-Feira 13 - Parte 9.jpg', '',//    18.0 kB','',//    11/06/2025, 10:26:20
+    'Sexta-Feira 13 2009.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:20
+    'Shakma - A Fúria Assassina - 1990.jpg', '',//    13.6 kB','',//    11/06/2025, 10:26:20
+    'Siga o Mestre - 2006.jpg', '',//    12.6 kB','',//    11/06/2025, 10:26:20
+    'Silent Hill - Revelações - 2012.jpg', '',//    7.7 kB','',//    11/06/2025, 10:26:20
+    'Silent Hill - Revelações - 2012.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:20
+    'Sinais.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:20
+    'Skinamarink.jpg', '',//    59.4 kB','',//    11/06/2025, 10:39:02
+    'Slender Man - O Pesadelo sem Façe.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:20
+    'Sobrenatural 1 - 2010.jpg', '',//    10.4 kB','',//    11/06/2025, 10:26:20
+    'Sobrenatural 2 - 2014.jpg', '',//    10.0 kB','',//    11/06/2025, 10:26:20
+    'Sobrenatural 2.jpg', '',//    8.1 kB','',//    11/06/2025, 10:26:20
+    'Sobrenatural 3 - A Origem - 2015.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:20
+    'Sobrenatural 3.jpg', '',//    8.8 kB','',//    11/06/2025, 10:26:20
+    'Sobrenatural 4 - A última Chave - 2018.jpg', '',//    17.2 kB','',//    11/06/2025, 10:26:20
+    'Sobrenatural 4.jpg', '',//    9.6 kB','',//    11/06/2025, 10:26:20
+    'Sobrenatural 5.jpg', '',//    7.4 kB','',//    11/06/2025, 10:26:20
+    'Sorria 2.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:20
+    'Sorria.jpg', '',//    9.3 kB','',//    11/06/2025, 10:26:20
+    'Sorria.png', '',//    122 kB','',//    16/11/2022, 16:51:50
+    'Sozinha.jpeg', '',//    4.7 kB','',//    11/06/2025, 23:10:56
+    'Sozinha.jpg', '',//    4.7 kB','',//    11/06/2025, 23:11:14
+    'Spawn - O Soldado do Inferno.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:20
+    'Splice A Nova Espécie.jpg', '',//    9.3 kB','',//    11/06/2025, 10:26:20
+    'Stairs.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:20
+    'Stigmata.jpg', '',//    10.0 kB','',//    11/06/2025, 10:26:20
+    'Suspiria - 1977.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:20
+    'Suspiria - 2018.jpg', '',//    16.0 kB','',//    11/06/2025, 10:26:20
+    'Temos Vagas 1 - 2007.jpg', '',//    14.1 kB','',//    11/06/2025, 10:26:20
+    'Temos Vagas 2 - A Primeira Diária - 2008.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:20
+    'Terra dos Mortos - 2005.jpg', '',//    9.5 kB','',//    11/06/2025, 10:26:22
+    'Terra Maldita - 2009.jpg', '',//    13.0 kB','',//    11/06/2025, 10:26:22
+    'Terras de Sangue - 2014.jpg', '',//    13.9 kB','',//    11/06/2025, 10:26:22
+    'Terrifier - 2016.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:22
+    'Terrifier 1 - 2016.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:22
+    'Terrifier 2 -2022.jpg', '',//    15.0 kB','',//    11/06/2025, 10:26:22
+    'Terrifier 3.jpg', '',//    16.4 kB','',//    11/06/2025, 10:26:22
+    'Terror em Silent Hill.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:22
+    'The Birds 1963.jpg', '',//    14.2 kB','',//    11/06/2025, 10:26:22
+    'The Red Book Ritual.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:22
+    'The Sadness 2021.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:22
+    'The Sadness 2021.png', '',//    302 kB','',//    05/12/2022, 12:47:14
+    'The Silence - 2019.jpg', '',//    15.0 kB','',//    11/06/2025, 10:26:22
+    'The Woman.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:22
+    'Tomates Assasinos 2.jpg', '',//    16.6 kB','',//    11/06/2025, 10:26:22
+    'Tony.jpg', '',//    11.1 kB','',//    11/06/2025, 10:26:22
+    'Toque de Recolher - 2006.jpg', '',//    10.5 kB','',//    11/06/2025, 10:26:22
+    'Trancada 2022.jpg', '',//    9.8 kB','',//    11/06/2025, 10:26:22
+    'Trem Fantasma - 2006.jpg', '',//    14.4 kB','',//    11/06/2025, 10:26:22
+    'Triângulo do Medo - 2009.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:22
+    'Tubarao 1.jpg', '',//    10.4 kB','',//    11/06/2025, 10:26:22
+    'Tubarao 2.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:22
+    'Tubarao 3.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:22
+    'Tubarao 4 - O Ultimo Tubarao.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:22
+    'Tubarao 4.jpg', '',//    15.7 kB','',//    11/06/2025, 10:26:22
+    'Turistas - 2006.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:22
+    'Tusk A Transformacao.jpg', '',//    9.6 kB','',//    11/06/2025, 10:26:22
+    'Ultimo Mundo Canibal - Faces da Morte 8.jpg', '',//    17.3 kB','',//    11/06/2025, 10:26:22
+    'Um Clássico Filme de Terror - 2021.jpg', '',//    7.4 kB','',//    11/06/2025, 10:26:22
+    'Um Drink no Inferno 1 - 1996.jpg', '',//    15.3 kB','',//    11/06/2025, 10:26:22
+    'Um Drink no Inferno 2 - 1999.jpg', '',//    14.4 kB','',//    11/06/2025, 10:26:22
+    'Um Drink no Inferno 3 - 2000.jpg', '',//    13.6 kB','',//    11/06/2025, 10:26:22
+    'Um Lugar Silencioso 2.jpg', '',//    12.8 kB','',//    11/06/2025, 10:26:22
+    'Um Lugar Silencioso.jpg', '',//    12.4 kB','',//    11/06/2025, 10:26:22
+    'Uma Noite de Crime 1 - 2013.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:22
+    'Uma Noite de Crime 2 - Anarquia - 2014.jpg', '',//    17.2 kB','',//    11/06/2025, 10:26:22
+    'Uma Noite de Crime 2 - Anarquia - 2014.png', '',//    537 kB','',//    16/11/2022, 16:46:34
+    'Uma Noite de Crime 3 - 2016.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:22
+    'Uma Noite de Crime 3 - 2016.png', '',//    123 kB','',//    16/11/2022, 16:47:30
+    'Uma Noite de Crime 4 A Primeira Noite de Crime.jpg', '',//    6.5 kB','',//    11/06/2025, 10:26:22
+    'Uma Noite de Crime 5 A Fronteira.jpg', '',//    13.0 kB','',//    11/06/2025, 10:26:22
+    'Uma Noite Para Esquecer - 2013.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:22
+    'Uma Noite Para Esquecer - 2013.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:22
+    'Verónica - 2017.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:22
+    'Vertigo 1958.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:22
+    'Viagem do Medo - 2010.jpg', '',//    17.0 kB','',//    11/06/2025, 10:26:22
+    'Viagem Maldita 1 - 2006.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:22
+    'Viagem Maldita 2 - 2007.jpg', '',//    15.2 kB','',//    11/06/2025, 10:26:22
+    'Vigiados.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:22
+    'Você é o Próximo - 2014.jpg', '',//    6.5 kB','',//    11/06/2025, 10:26:22
+    'Você Nunca Me Encontrará (2023).jpg', '',//    12.4 kB','',//    11/06/2025, 10:26:22
+    'When Evil Lurks.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:22
+    'Wolf Creek 1.jpg', '',//    12.8 kB','',//    11/06/2025, 10:26:22
+    'Wolf Creek 2 - 2013 - Legendado.jpg', '',//    13.0 kB','',//    11/06/2025, 10:26:22
+    'Wolf Creek 2 - 2013 - Legendado.png', '',//    254 kB','',//    25/11/2022, 15:50:18
+    'X - A Marca da Morte.jpg', '',//    11.2 kB','',//    11/06/2025, 10:26:22
+    'Ze do caixao - À Meia Noite Levarei Sua Alma.jpg', '',//    20.7 kB','',//    11/06/2025, 10:26:22
+    'Ze do caixao - Encarnação Do Demonio.jpg', '',//    16.7 kB','',//    11/06/2025, 10:26:22
+    'Ze do caixao - Esta Noite Encarnarei no Teu Cadáver.jpg', '',//    17.7 kB','',//    11/06/2025, 10:26:22
+    'Zoombies 1 - 2016.jpg', '',//    18.2 kB','',//    11/06/2025, 10:26:22
+    'Zoombies 2 - 2019.jpg', 'orfa2.mp4',//    15.9 kB','',//    11/06/2025, 10:26:22
+  ];

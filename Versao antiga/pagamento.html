@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="bg-black text-white">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pagamento - Portaria para o Inferno</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+  body{
+      background: url('img/bg_dark.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+</style>
+<body class=" min-h-screen flex flex-col items-center justify-center p-6 font-mono">
+
+  <h1 class="text-4xl font-bold text-red-600 mb-10 drop-shadow-lg">Pagamento Seguro</h1>
+
+  <!-- QR Code -->
+  <div class="bg-gray-800 p-6 rounded-xl shadow-lg mb-8">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=+5554996180319" alt="QR Code para pagamento" class="w-64 h-64 object-contain" />
+  </div>
+
+  <!-- Instruções -->
+  <div class="max-w-xl text-center text-gray-300 mb-10 px-4">
+    <p class="mb-4 text-lg">
+      Escaneie o QR code acima com o aplicativo do seu banco ou carteira digital para realizar o pagamento.
+    </p>
+    <p class="mb-2">
+      Após confirmar o pagamento, aguarde a confirmação automática, ou entre em contato conosco caso tenha algum problema.
+    </p>
+  </div>
+
+  <!-- Botão Contato -->
+  <a href="mailto:contato@portariadoterror.com" class="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-3 rounded-lg shadow-lg transition">
+    Fale Conosco
+  </a>
+
+  <footer class="mt-20 text-gray-600 text-sm text-center w-full">
+    © 2025 Portaria para o Inferno. Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>

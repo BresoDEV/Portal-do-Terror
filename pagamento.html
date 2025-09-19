@@ -1,44 +1,134 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="bg-black text-white">
+<html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pagamento - Portaria para o Inferno</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: url('img/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Courier New', monospace;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #f44336;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #f44336;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 40px 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px black;
+    }
+
+    .qr-code img {
+      width: 250px;
+      height: 250px;
+      border: 3px solid #f44336;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .pix-code {
+      background-color: #111;
+      color: #ccc;
+      padding: 15px;
+      border-radius: 6px;
+      word-break: break-all;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .copy-button {
+      background-color: #f44336;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 30px;
+      transition: 0.3s;
+    }
+
+    .copy-button:hover {
+      opacity: 0.9;
+    }
+
+    .info-text {
+      font-size: 1rem;
+      color: #bbb;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+      padding: 20px 0;
+      margin-top: 60px;
+      background-color: #222;
+    }
+  </style>
 </head>
-<style>
-  body{
-      background: url('img/bg_dark.jpg') no-repeat center center fixed;
-    background-size: cover;
-  }
-</style>
-<body class=" min-h-screen flex flex-col items-center justify-center p-6 font-mono">
 
-  <h1 class="text-4xl font-bold text-red-600 mb-10 drop-shadow-lg">Pagamento Seguro</h1>
+<body>
 
-  <!-- QR Code -->
-  <div class="bg-gray-800 p-6 rounded-xl shadow-lg mb-8">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=+5554996180319" alt="QR Code para pagamento" class="w-64 h-64 object-contain" />
-  </div>
+  <header>
+    <h1>Pagamento via Pix</h1>
+  </header>
 
-  <!-- Instruções -->
-  <div class="max-w-xl text-center text-gray-300 mb-10 px-4">
-    <p class="mb-4 text-lg">
-      Escaneie o QR code acima com o aplicativo do seu banco ou carteira digital para realizar o pagamento.
+  <main class="container">
+
+    <div class="qr-code">
+      <img src="img/qrcode-pix.png" alt="QR Code para pagamento Pix" />
+    </div>
+
+    <div class="pix-code" id="pixCode">
+      00020126360014BR.GOV.BCB.PIX0114+5599999999995204000053039865802BR5925LOCADORA DO INFERNO6009SÃO PAULO62290525PagamentoPlanoMensal6304B14F
+    </div>
+
+    <button class="copy-button" onclick="copiarPix()">Copiar código Pix</button>
+
+    <p class="info-text">
+      Escaneie o QR Code ou copie o código acima para realizar o pagamento.<br />
+      O acesso será liberado automaticamente após a confirmação.
     </p>
-    <p class="mb-2">
-      Após confirmar o pagamento, aguarde a confirmação automática, ou entre em contato conosco caso tenha algum problema.
-    </p>
-  </div>
 
-  <!-- Botão Contato -->
-  <a href="mailto:contato@portariadoterror.com" class="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-3 rounded-lg shadow-lg transition">
-    Fale Conosco
-  </a>
+  </main>
 
-  <footer class="mt-20 text-gray-600 text-sm text-center w-full">
+  <footer>
     © 2025 Portaria para o Inferno. Todos os direitos reservados.
   </footer>
 
+  <script>
+    function copiarPix() {
+      const pixCode = document.getElementById('pixCode').innerText;
+      navigator.clipboard.writeText(pixCode).then(() => {
+        alert('Código Pix copiado com sucesso!');
+      }).catch(() => {
+        alert('Erro ao copiar o código Pix.');
+      });
+    }
+  </script>
+
 </body>
+
 </html>

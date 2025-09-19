@@ -1,0 +1,107 @@
+<!---------------------------------->
+<script src="usuarios.js"></script>
+<script src="api.js"></script>
+<script src="filmes.js"></script>
+<!---------------------------------->
+
+
+<style>
+    button {
+        padding: 1vw;
+        border-radius: 1vw;
+        background-color: darkviolet;
+        color: aliceblue;
+        font-size: x-large;
+        width: 40vw;
+        font-size: 3vw;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+
+    table {
+        border: solid 2px rgb(91, 87, 87);
+        width: 80%;
+    }
+    tr,td{
+        border: 1px solid rgb(91, 87, 87);
+        padding: 3px;
+    }
+
+    body,
+    html {
+        background-color: rgb(48, 47, 47);
+        color: rgb(255, 255, 255);
+    }
+</style>
+
+<center>
+    <button id="ListarUsers">Listar users</button><br>
+    <button id="ListarFilmes">Listar filmes</button><br>
+
+
+    <br>
+    <br>
+    <div id="resultado">
+
+    </div>
+</center>
+<br>
+<br>
+
+
+<script>
+
+  
+
+    addClick('ListarFilmes', () => {
+        var s = "<table>"
+        var ct = 0;
+        posters.forEach(() => {
+
+            if (!posters[ct]) {
+                return
+            }
+
+
+            if(posters[ct + 1] == ''){
+                s+="<tr style=\"background-color:rgb(123, 66, 66)\"><td>"+posters[ct]+"</td><td>"+posters[ct + 1]+"</td></tr>"
+            }
+            else{
+                s+="<tr><td>"+posters[ct]+"</td><td>"+posters[ct + 1]+"</td></tr>"
+            }
+
+
+            ct += 2
+        });
+        s += "</tr></table>"
+        get('resultado').innerHTML = s
+    })
+
+
+    addClick('ListarUsers', () => {
+        var s = ""
+        Object.keys(usuarios).forEach(x => {
+
+            s += "<table><tr>" +
+                "<th>Nome:" + x + "</th></tr>" +
+                "<tr><td>ID: " + usuarios[x].id + "</td></tr>" +
+                "<tr><td>Senha: " + usuarios[x].senha + "</td></tr>" +
+
+                "<tr><td>Plano: " + usuarios[x].plano + "</td></tr>" +
+                "<tr><td>Telefone: " + usuarios[x].telefone + "</td></tr>" +
+                "<tr><td>Pagamento em dia: " + usuarios[x].pagamento_em_dia + "</td></tr>" +
+                "<tr><td>DEV: " + usuarios[x].dev + "</td></tr>" +
+                "<tr><td>Reiniciar trial: " + usuarios[x].reiniciar_trial + "</td></tr>" +
+
+                "<tr><td>DeviceKey 1: " + usuarios[x].deviceKey + "</td></tr>" +
+                "<tr><td>DeviceKey 2: " + usuarios[x].deviceKey2 + "</td></tr>" +
+                "<tr><td>DeviceKey 3: " + usuarios[x].deviceKey3 + "</td></tr>" +
+                "<tr><td>DeviceKey 4: " + usuarios[x].deviceKey4 + "</td></tr>"
+            s += "</table>"
+        });
+        get('resultado').innerHTML = s
+
+    })
+
+
+</script>

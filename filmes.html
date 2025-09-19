@@ -1,607 +1,391 @@
+<!---------------------------------->
 <script src="usuarios.js"></script>
 <script src="api.js"></script>
+<!---------------------------------->
+
 
 <script>
-
-  //redireciona pro plano free
-  if (usuarios[localStorage.getItem('nomeLocadora')].plano == 'gratis') {
-    window.location.href = 'gratis.html'
+  if (!estaLogado()) {
+    redirecionar('index.html')
   }
-
-
-
-  if (!verificarTrial()) {
-
-    window.location.href = 'index.html'
-  }
-
-
-
 </script>
 
-
-<!DOCTYPE html>
-<html lang="pt-br">
-
-
+<!doctype html>
+<html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Catálogo Trash de Terror</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo de Filmes — Apenas Capas</title>
   <style>
+    :root {
+      --bg: #0b0b0d;
+      --card: #0f1720;
+      --muted: #9aa4b2;
+      --accent: #ff3b6b;
+      --gap: 14px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
     body {
-      background-color: black;
-      color: red;
-      font-family: 'Courier New', monospace;
-      background-image: url('img/asfalt-dark.png');
+      height: 100%
+    }
+
+    body {
       margin: 0;
-      padding: 0;
-      overflow-x: hidden;
+      font-family: Inter, Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+      background: #2b2b2b;
+      color: #e6eef6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 28px;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     header {
-      background: darkred;
-      color: lime;
-      text-align: center;
-      padding: 20px;
-      font-size: 32px;
-      text-shadow: 2px 2px 0 black;
-      border-bottom: 4px double lime;
-    }
-
-    .catalogo {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 5px;
-       
-    }
-
-    .filme {
-      border: 3px ridge red;
-      background-color: #111;
-      margin: 10px;
-      width: 15vw;
-      max-width: 15vw;
-      text-align: center;
-      box-shadow: 0 0 10px lime;
-      cursor: pointer;
-    }
-
-    .filme img {
-      width: 100%;
-      border-bottom: 2px dashed red;
-      transition: all 0.3s ease;
-    }
-
-    .titulo {
-      padding: 10px;
-      font-size: 14px;
-      color: #0f0;
-      text-shadow: 1px 1px 0 #900;
-    }
-
-    .glitch {
-      animation: glitch 1s infinite;
-    }
-
-    @keyframes glitch {
-      0% {
-        text-shadow: 2px 0 red, -2px 0 blue;
-      }
-
-      20% {
-        text-shadow: -2px 0 red, 2px 0 blue;
-      }
-
-      40% {
-        text-shadow: 2px 2px lime, -2px -2px red;
-      }
-
-      60% {
-        text-shadow: 0px 0px red, 0px 0px blue;
-      }
-
-      80% {
-        text-shadow: -1px 1px lime, 1px -1px red;
-      }
-
-      100% {
-        text-shadow: 2px 0 red, -2px 0 blue;
-      }
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      color: #0f0;
-      font-size: 14px;
-      padding: 20px;
-      z-index: 999;
-      overflow-y: auto;
-    }
-
-    .modal-content {
-      background: #111;
-      padding: 20px;
-      border: 2px solid red;
-      box-shadow: 0 0 10px lime;
-      max-width: 90vw;
-
-    }
-
-    video {
-      width: 95%;
-    }
-
-    .close {
-      color: red;
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 100;
-      font-size: 13vw;
-    }
-
-    /* VHS EFFECT */
-    .vhs-overlay {
-      pointer-events: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 998;
-      background: repeating-linear-gradient(to bottom,
-          rgba(255, 255, 255, 0.07) 0px,
-          rgba(0, 0, 0, 0.07) 2px,
-          rgba(0, 0, 0, 0.07) 4px);
-      animation: flicker 0.3s infinite;
-    }
-
-    @keyframes flicker {
-      0% {
-        opacity: 0.9;
-        transform: translateX(0);
-      }
-
-      20% {
-        opacity: 0.8;
-        transform: translateX(-1px);
-      }
-
-      40% {
-        opacity: 1;
-        transform: translateX(1px);
-      }
-
-      60% {
-        opacity: 0.9;
-        transform: translateX(0);
-      }
-
-      80% {
-        opacity: 1;
-        transform: translateX(-1px);
-      }
-
-      100% {
-        opacity: 0.95;
-        transform: translateX(1px);
-      }
-    }
-
-    .vhs-noise {
-      pointer-events: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('img/ruido.gif');
-      /* GIF de interferência */
-      opacity: 0.4;
-      z-index: 997;
-      mix-blend-mode: screen;
-    }
-
-
-
-
-
-
-
-
-
-    #loading-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      color: lime;
-      font-family: 'Courier New', monospace;
-      display: flex;
-      justify-content: center;
       align-items: center;
-      flex-direction: column;
-      z-index: 10000;
-      animation: fadeOut 4s ease 4s forwards;
+      justify-content: space-between;
+      margin-bottom: 18px;
     }
 
-    .loading-content {
-      text-align: center;
+    header h1 {
+      font-size: 18px;
+      letter-spacing: 1px;
+      margin: 0;
+      color: var(--muted);
+      font-weight: 600;
     }
 
-    .loading-bar {
-      width: 300px;
-      height: 15px;
-      border: 2px solid lime;
-      margin-top: 20px;
-      overflow: hidden;
-      background: #111;
+    /* Grid of posters */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: var(--gap);
     }
 
-    .loading-bar .progress {
-      width: 0%;
-      height: 100%;
-      background: lime;
-      animation: loadingAnim 6s linear;
-      float: left;
-    }
-
-    @keyframes loadingAnim {
-      to {
-        width: 99%;
-      }
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-
-
-
-
-
-
-    #barra-pesquisa {
-      background: #111;
-      padding: 20px;
-      text-align: center;
-    }
-
-    #pesquisa {
-      width: 80%;
-      max-width: 600px;
-      padding: 12px;
-      font-size: 16px;
-      font-family: 'Courier New', monospace;
-      background: black;
-      border: 2px solid lime;
-      color: lime;
-      text-align: center;
-      outline: none;
-      box-shadow: 0 0 10px lime;
-    }
-
-    h1 {
-      font-size: 5vw;
-    }
-
-    img:hover {
-      scale: 1.05;
-      box-shadow: 0 0 30px red;
-
-    }
-
-    .girado {
-      transform: rotate(90deg);
-      transform-origin: center center;
-    }
-
-
-
-
-
-
-
-
-
-
-    .vhs-player-container {
-      display: inline-block;
+    /* Each poster card keeps the poster aspect ratio (2:3) */
+    .poster {
       position: relative;
-      border: 4px double #0f0;
-      box-shadow: 0 0 30px #0f0;
-      padding: 10px;
-      background: #111;
-      width: 80vw;
-       
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.12));
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+      transition: transform .28s cubic-bezier(.2, .9, .2, 1), box-shadow .28s;
+      transform-origin: center;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .poster:focus {
+      outline: 2px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .poster img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform-origin: center;
+      transition: transform .4s ease;
+    }
+
+    .poster:hover,
+    .poster:focus {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7), 0 6px 22px rgba(0, 0, 0, 0.5);
+    }
+
+    .poster:hover img {
+      transform: scale(1.06) rotate(-0.3deg)
+    }
+
+    /* optional faint label shown only on focus (accessibility) */
+    .label {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5));
+      padding: 6px 8px;
+      border-radius: 7px;
+      display: none;
+      /* hide by default; comment out if you want visible titles */
+      pointer-events: none;
+    }
+
+    .poster:focus .label {
+      display: block
+    }
+
+    /* responsive tweaks */
+    @media (min-width:600px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+    }
+
+    @media (min-width:900px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      }
+    }
+
+    @media (min-width:1200px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+    }
+
+    /* Empty state */
+    .empty {
+      text-align: center;
+      padding: 48px 12px;
+      color: var(--muted);
+    }
+
+    /* small utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .player_filme {
+      display: none;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(0, 0, 0);
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 1000000;
     }
 
     video {
       width: 100%;
-      height: 50%;
-      background: #000;
-      transform-origin: center center;
-      transition: transform 0.3s ease-in-out;
+      height: 100vh;
     }
 
-    .controles {
-      margin-top: 10px;
-    }
-
-    .controles button {
-      background: black;
-      color: lime;
-      border: 2px solid #0f0;
-      padding: 5px 5px;
-      margin: 0 5px;
-      font-family: monospace;
-      font-size: 16px;
+    .fechar {
       cursor: pointer;
+      background-color: rgb(21, 21, 21);
+      padding: 5px;
+      border-radius: 150%;
+      position: fixed;
+      right: 5%;
+      top: 5%;
+      color: rgb(194, 77, 77);
+      font-size: x-large;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     }
 
-    .controles button:hover {
-      background: #0f0;
-      color: #000;
-    }
-
-    .girado {
-      transform: rotate(90deg);
-    }
-
-    .borda-vhs {
-      position: absolute;
-      top: -25px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      color: #0f0;
-      font-size: 14px;
+    .buscar {
+      font-size: 23px;
+      width: 50%;
+      background-color: #414141;
+      color: #ff0000;
+      border: none;
     }
   </style>
 </head>
 
 <body>
 
-  <div id="loading-screen">
-    <div class="loading-content">
-      <!--<div class="vhs-noise"></div>-->
-      <center>
-        <h1 class="glitch">📼 Carregando fita VHS...</h1>
-        <div class="loading-bar">
-          <div class="progress"></div>
-        </div>
-      </center>
+  <div class="player_filme" id="player_filme">
+    <video id="video" controls src=""></video>
+    <div class="fechar" id="fechar">
+      X
     </div>
   </div>
 
 
-  <header class="glitch">🎃 Catálogo Trash de Filmes de Terror 👻</header>
 
-  <div id="barra-pesquisa">
-    <input type="text" id="pesquisa" placeholder="🔍 Procurar fita amaldiçoada..." />
+  <div class="wrap">
+    <header>
+
+      <div aria-hidden="true" id="Perfil"
+        style="border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:23px">
+        Perfil</div>
+      <input class="buscar" id="buscar" type="text" placeholder="Buscar filme...">
+    </header>
+
+    <main>
+
+
+      <section id="gallery" class="gallery" aria-live="polite">
+        <!-- Posters serão injetados aqui pelo JavaScript -->
+      </section>
+
+      <div id="empty" class="empty" style="display:none">
+        Nenhuma capa disponível.
+      </div>
+    </main>
   </div>
-
-
-  <div class="catalogo" id="catalogo"></div>
-
-
-
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close"  onclick="fecharModal()">&times;</span>
-
-      <!--<p><strong>Sinopse:</strong> <span id="modalSinopse"></span></p>-->
-
-      <center>
-        <h2 id="modalTitulo"></h2>
-
-
-        <div class="vhs-player-container" >
-
-
-          <video  id="video" controls controlsList="nodownload" src="" >
-          </video>
-
-          <div class="controles">
-            <button onclick="playVideo()">▶ Play</button>
-            <button onclick="pauseVideo()">⏸ Pause</button>
-            <button onclick="toggleFullscreen()">🔳 Fullscreen</button>
-            <button onclick="girarVideo()">⟳ Girar</button>
-          </div>
-        </div>
-
-        <!--
-          <video id="video" poster="img/logo.png">
-          <source src="" type="video/mp4">
-        </video>
-        <button onclick="telaCheiaEGirar()">Tela Cheia</button>
-        <button>Iniciar</button>
-        -->
-      </center>
-
-    </div>
-  </div>
-
-  <!-- VHS INTERFERÊNCIA -->
-
-  <!--<div class="vhs-noise"></div>-->
-
-  <div id="apagao"></div>
-
+  <br>
+  <br>
+  <br>
   <script src="filmes.js"></script>
   <script>
 
+    const gallery = document.getElementById('gallery');
+    const empty = document.getElementById('empty');
 
 
 
+    function renderPosters(list) {
+      var ct = 0;
+      gallery.innerHTML = '';
+      if (!list || list.length === 0) {
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
 
-    let rotacionado = false;
+      list.forEach(() => {
 
-    function playVideo() {
-      document.getElementById("video").play();
-    }
+        if (!posters[ct]) {
+          return
+        }
+        if ('' == posters[ct + 1]) {
+          //console.log(posters[ct])//ver filmes faltando
 
-    function removerVideo() {
-      document.getElementById("video").style.display = "none";
-      modal.style.display = "none";
-      document.getElementById("video").src = '';
-    }
-
-    function pauseVideo() {
-      document.getElementById("video").pause();
-    }
-
-    function toggleFullscreen() {
-
-     
-      document.getElementById("video").style.position ='fixed'
-      document.getElementById("video").style.top ='10px'
-      document.getElementById("video").style.left ='10px'
-    
-
-      //document.getElementById("video").style.transform ='rotate(90deg)'
-
-      document.getElementById("video").style.height = window.innerHeight+'px'
-      document.getElementById("video").style.width =window.innerWidth+'px'
-      //if (document.fullscreenElement) {
-      //  document.exitFullscreen();
-      //} else {
-      //  if (document.getElementById("video").requestFullscreen) {
-      //    document.getElementById("video").requestFullscreen();
-      //  } else if (document.getElementById("video").webkitRequestFullscreen) {
-      //    document.getElementById("video").webkitRequestFullscreen();
-      //  } else if (document.getElementById("video").msRequestFullscreen) {
-      //    document.getElementById("video").msRequestFullscreen();
-      //  }
-      //}
-    }
-
-    function girarVideo() {
-      rotacionado = !rotacionado;
-      document.getElementById("video").classList.toggle("girado", rotacionado);
-    }
+        }
 
 
-//------------------------------------
+        else {
+
+          const a = document.createElement('a');
+          //a.href = "player.html?filme="+posters[ct + 1];
+          //a.target = '_blank';
+          a.className = 'poster';
+          //a.setAttribute('aria-label', 'Capa do filme ' + (idx + 1));
+          a.setAttribute('role', 'img');
+
+          const img = document.createElement('img');
+          img.src = 'capas/' + posters[ct];
 
 
+          a.appendChild(img);
+          gallery.appendChild(a);
 
+          var filme_link = posters[ct + 1]
 
-
-
-
-
-    const inputPesquisa = document.getElementById("pesquisa");
-
-    inputPesquisa.addEventListener("input", () => {
-      const termo = inputPesquisa.value.toLowerCase();
-      catalogo.innerHTML = ""; // limpa os filmes atuais
-
-      const filtrados = filmes.filter(filme =>
-        filme.video.toLowerCase().includes(termo)
-      );
-
-      filtrados.forEach(filme => {
-        const div = document.createElement("div");
-        div.classList.add("filme");
-        div.innerHTML = `
-      <img src="capas/${filme.capa}" alt="Capa do filme">
-      <div class="titulo">${filme.capa.replace(".jpg", "").replace(".png", "")}</div>
-    `;
-        div.onclick = () => abrirModal(filme);
-        catalogo.appendChild(div);
-      });
-    });
-
-
-
-
-    setTimeout(() => {
-      document.getElementById('loading-screen').style.display = 'none';
-    }, 8000); // 5 segundos de “leitura da fita”
-
-
-
-
-
-
-    //habilita o download se for premium
-    if (usuarios[localStorage.getItem('nomeLocadora')].plano == 'completo') {
-      document.getElementById("video").setAttribute("controlsList", "");
-    }
-
-
-
-    // Transformar array plano em array de objetos
-    const filmes = [];
-    for (let i = 0; i < lista_filmes.length; i += 2) {
-      filmes.push({
-        video: lista_filmes[i],
-        capa: lista_filmes[i + 1],
+          a.addEventListener('click', () => {
+            document.getElementById('player_filme').style.display = 'block'
+            console.clear()
+            console.log(filme_link)
+            document.getElementById('video').src = filme_link;
+            document.getElementById('video').play()
+          })
+        }
+        ct += 2
 
       });
     }
 
-    const catalogo = document.getElementById("catalogo");
-    const modal = document.getElementById("modal");
-    const modalTitulo = document.getElementById("modalTitulo");
-    const modalSinopse = document.getElementById("modalSinopse");
+    renderPosters(posters);
 
-    filmes.forEach(filme => {
-      const div = document.createElement("div");
-      div.classList.add("filme");
-      div.innerHTML = `
-    <img src="capas/${filme.capa}" alt="Capa do filme">
-    <div class="titulo">${filme.capa.replace(".jpg", "").replace(".png", "")}</div>
-  `;
-      div.onclick = () => abrirModal(filme);
-      catalogo.appendChild(div);
-    });
 
-    function abrirModal(filme) {
-      modalTitulo.innerText = filme.capa.replace(".jpg", "").replace(".png", "");
-      //modalSinopse.innerText = filme.sinopse;
-      modal.style.display = "block";
+    document.getElementById('buscar').addEventListener('input', () => {
 
-      document.getElementById('video').src = filme.video
-      toggleFullscreen()
-      
-      setTimeout(() => {
-        document.getElementById('video').play()
-        toggleFullscreen()
-      }, 3000);
-    }
+      var ct = 0
+      gallery.innerHTML = '';
 
-    function fecharModal() {
-      modal.style.display = "none";
-      document.getElementById('video').src = '';
-    }
+       
 
-    window.onclick = function (e) {
-      if (e.target === modal) fecharModal();
-    }
+      posters.forEach(() => {
+
+        if (posters[ct]) {
+          if (posters[ct + 1] !== '') {
+
+
+
+
+            if (posters[ct].toLowerCase().includes(document.getElementById('buscar').value.toLowerCase())) {
+
+              const a = document.createElement('a');
+              //a.href = "player.html?filme="+posters[ct + 1];
+              //a.target = '_blank';
+              a.className = 'poster';
+              //a.setAttribute('aria-label', 'Capa do filme ' + (idx + 1));
+              a.setAttribute('role', 'img');
+
+              const img = document.createElement('img');
+              img.src = 'capas/' + posters[ct];
+
+
+              a.appendChild(img);
+              gallery.appendChild(a);
+
+              var filme_link = posters[ct + 1]
+
+              a.addEventListener('click', () => {
+                document.getElementById('player_filme').style.display = 'block'
+                console.clear()
+                console.log(filme_link)
+                document.getElementById('video').src = filme_link;
+              })
+
+            }
+
+          }
+        }
+        ct += 2
+
+      });
+    })
 
 
     setInterval(() => {
-      toggleFullscreen()
-    }, 1000);
+      document.getElementById('player_filme').style.height = '100vh'
+      document.getElementById('player_filme').style.width = '100vw'
+    }, 1);
+
+
+
+
+    addClick('fechar', () => {
+      document.getElementById('video').src = '';
+      document.getElementById('player_filme').style.display = 'none'
+    })
+
+    addClick('Perfil', () => {
+      redirecionar('perfil.html')
+    })
+
   </script>
 </body>
 

@@ -1,0 +1,189 @@
+<!---------------------------------->
+<script src="usuarios.js"></script>
+<script src="api.js"></script>
+<!---------------------------------->
+<script>
+    if (!estaLogado()) {
+        redirecionar('index.html')
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meu Perfil - Portaria para o Inferno</title>
+    <style>
+        body {
+            background: url('img/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', monospace;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #f44336;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #f44336;
+        }
+
+        .profile-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px black;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .profile-picture {
+            flex: 1 1 200px;
+            text-align: center;
+        }
+
+        .profile-picture img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid #f44336;
+            object-fit: cover;
+        }
+
+        .profile-details {
+            flex: 2 1 300px;
+        }
+
+        .profile-details h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .profile-details p {
+            margin: 5px 0;
+            color: #ccc;
+        }
+
+        .actions {
+            margin-top: 30px;
+        }
+
+        .actions a {
+            display: inline-block;
+            background-color: #f44336;
+            padding: 12px 25px;
+            border-radius: 6px;
+            margin-right: 15px;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            padding: 20px 0;
+            margin-top: 60px;
+            background-color: #222;
+        }
+
+        @media (max-width: 600px) {
+            .profile-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-details {
+                text-align: center;
+            }
+
+            .actions a {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Meu Perfil</h1>
+    </header>
+
+    <main class="profile-container">
+
+        <div class="profile-info">
+            <div class="profile-picture">
+                <img src="img/boo.gif" alt="Foto do usuário" />
+            </div>
+            <div class="profile-details">
+                <h2 id="nome">Nome do Usuário</h2>
+                <p id="devicekey"><strong>Dispositivo:</strong> usuario@email.com</p>
+                <p id="telefone"><strong>Telefone:</strong> (11) 91234-5678</p>
+                <p id="plano"><strong>Plano:</strong> Assinatura Premium</p>
+                <p><strong>Status do Pagamento:</strong> Em dia ✅</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <center>
+                <a href="filmes.html">Assistir Filmes</a>
+                <a id="Sair">Sair</a>
+            </center>
+        </div>
+
+    </main>
+
+    <footer>
+        © 2025 Portaria para o Inferno. Todos os direitos reservados.
+    </footer>
+
+</body>
+<script>
+
+
+    inner('nome', getnomeDefinido())
+    inner('devicekey', '<strong>Dispositivo:</strong> ' + getDevicekey())
+    inner('telefone','<strong>Telefone:</strong> ' +  usuarios[getnomeDefinido()].telefone)
+    inner('plano','<strong>Plano:</strong> ' +  usuarios[getnomeDefinido()].plano)
+
+
+
+    addClick('Sair', () => {
+        deslogar()
+        attPagina()
+    })
+    addClick('Voltar', () => {
+        redirecionar('index.html')
+    })
+
+</script>
+
+</html>

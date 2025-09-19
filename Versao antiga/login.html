@@ -1,0 +1,307 @@
+<script src="usuarios.js"></script>
+<script src="api.js"></script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Locadora de Terror</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: url('img/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      filter: grayscale(50%) contrast(100%);
+    }
+
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+      color: red;
+      text-shadow: 0 0 5px red, 0 0 10px red;
+      margin-bottom: 30px;
+      animation: flicker 1s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .login-box {
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 20px red;
+      width: 300px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .login-box input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #444;
+      background-color: #222;
+      color: #fff;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      box-shadow: 0 0 5px red, 0 0 10px red;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: red;
+      border: none;
+      font-size: 1.2rem;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 5px red, 0 0 10px red;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-box button:hover {
+      background-color: #cc0000;
+    }
+
+    .login-box p {
+      font-size: 1rem;
+      margin-top: 10px;
+      animation: flickerText 1s infinite alternate;
+    }
+
+    @keyframes flickerText {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .scanlines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: repeating-linear-gradient(rgba(255, 255, 255, 0.2) 0px, rgba(255, 255, 255, 0.2) 1px, transparent 1px, transparent 100%);
+      background-size: 100% 2px;
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+
+  <div class="login-box" id="login-box">
+    <center>
+      <h2 onclick="resetar()">Login</h2>
+      <div id="hhh">
+        <i id="olar"></i>
+        <input type="text" id="usuario" placeholder="Usuário"><br><br>
+        <input type="password" id="senha" placeholder="Senha"><br><br>
+        <button onclick="login()" id="Entrar">Entrar</button>
+
+        <p id="msg"></p>
+      </div>
+    </center>
+  </div>
+
+
+  <script>
+
+    //Salva o id do device atual
+    if (!localStorage.getItem('id_Dispositivo_Atual')) {
+      localStorage.setItem('id_Dispositivo_Atual', "0")
+    }
+
+
+
+    if (localStorage.getItem('nomeLocadora')) {
+
+      if (usuarios[localStorage.getItem('nomeLocadora')].telefone !== 'null') {
+        if (usuarios[localStorage.getItem('nomeLocadora')].pagamento_em_dia == 'sim') {
+          //window.location.href = 'filmes.html'
+          document.getElementById('olar').innerText = 'Olá ' + localStorage.getItem('nomeLocadora') + ', seu cadastro esta pronto\nFaça login para acessar a plataforma'
+        }
+        else {
+          document.getElementById('login-box').innerText = 'Olá ' + localStorage.getItem('nomeLocadora') + '\n\nHouve um problema com o seu pagamento.\n\nEntre em contato no WhatsApp para mais informações'
+        }
+      }
+      else {
+        if (localStorage.getItem('id_Dispositivo_Atual') !== "0") {
+          document.getElementById('login-box').innerHTML = "Sua chave ja foi criada anteriormente.\n\n" +
+            "<input value=\"" + localStorage.getItem('id_Dispositivo_Atual') + "\">" +
+            "\n\nCopie esta chave e envie para o nosso WhatsApp:\n(54)996180319";
+        }
+        //document.getElementById('login-box').innerText = 'Olá ' + localStorage.getItem('nomeLocadora') + '\n\nAguarde um momento, enquanto preparamos seu cadastro.\n\nSe voce ja enviou o código e já te respondemos no Whats, costuma demorar apenas alguns minutos'
+      }
+    }
+
+
+    if (localStorage.getItem('trialInicio')) {
+      if (!verificarTrial()) {
+        if (usuarios[localStorage.getItem('nomeLocadora')].reiniciar_trial == '1') {
+          window.location.href = 'reiniciarTrial.html'
+        }
+        document.getElementById('login-box').innerText = 'Seu tempo de uso expirou'
+      }
+    }
+
+
+
+
+
+
+
+    function resetar() {
+      localStorage.clear();
+      console.log('bin')
+    }
+
+    //if (localStorage.getItem('logadoLocadora')) {
+    //  window.location.href = 'filmes.html'
+    //}
+
+
+
+
+
+
+
+
+    let minhaDeviceKey = localStorage.getItem('deviceKey');
+    if (!minhaDeviceKey) {
+      minhaDeviceKey = gerarDeviceKey();
+      localStorage.setItem('deviceKey', minhaDeviceKey);
+    }
+
+    function login() {
+      const user = document.getElementById('usuario').value.toLowerCase();
+      const pass = document.getElementById('senha').value;
+      const msg = document.getElementById('msg');
+
+      if (!usuarios[user]) {
+        msg.innerText = "Usuário não encontrado.";
+        return;
+      }
+
+      const dados = usuarios[user];
+
+      if (dados.senha !== pass) {
+        msg.innerText = "Senha incorreta.";
+        return;
+      }
+
+
+      //---------------TELAS----------------------------------------------
+      if (!dados.deviceKey) {//tela 1
+        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
+          "<input value=\"" + minhaDeviceKey + "\">" +
+          "\n\nCopie esta chave e envie para o nosso WhatsApp:\n(54)996180319";
+
+        localStorage.setItem('nomeLocadora', user);
+        localStorage.setItem('senhaLocadora', pass);
+        localStorage.setItem('id_Dispositivo_Atual', minhaDeviceKey)
+
+        return;
+      }
+      if (!dados.deviceKey2) {//tela 2
+        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
+          "<input value=\"" + minhaDeviceKey + "\">" +
+          "\n\nCopie esta chave e envie para o nosso WhatsApp:\n(54)996180319";
+
+        localStorage.setItem('nomeLocadora', user);
+        localStorage.setItem('senhaLocadora', pass);
+        localStorage.setItem('id_Dispositivo_Atual', minhaDeviceKey)
+
+        return;
+      }
+      if (!dados.deviceKey3) {//tela 3
+        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
+          "<input value=\"" + minhaDeviceKey + "\">" +
+          "\n\nCopie esta chave e envie para o nosso WhatsApp:\n(54)996180319";
+
+        localStorage.setItem('nomeLocadora', user);
+        localStorage.setItem('senhaLocadora', pass);
+        localStorage.setItem('id_Dispositivo_Atual', minhaDeviceKey)
+
+        return;
+      }
+      if (!dados.deviceKey4) {//tela 4
+        document.getElementById('hhh').innerHTML = "Primeiro acesso detectado.\n\n" +
+          "<input value=\"" + minhaDeviceKey + "\">" +
+          "\n\nCopie esta chave e envie para o nosso WhatsApp:\n(54)996180319";
+
+        localStorage.setItem('nomeLocadora', user);
+        localStorage.setItem('senhaLocadora', pass);
+        localStorage.setItem('id_Dispositivo_Atual', minhaDeviceKey)
+
+        return;
+      }
+
+      //--------------------------------------------------------------
+
+      if (dados.deviceKey === minhaDeviceKey || dados.deviceKey2 === minhaDeviceKey || dados.deviceKey3 === minhaDeviceKey || dados.deviceKey4 === minhaDeviceKey) {
+        if (dados.pagamento_em_dia == "sim") {
+          msg.innerText = "Login autorizado neste dispositivo.\nAguarde...";
+          localStorage.setItem('logadoLocadora', '1')
+
+          iniciarTrial()
+
+          setTimeout(() => {
+
+            window.location.href = 'filmes.html'
+
+
+          }, 3000);
+        }
+        else {
+          msg.innerText = "Acesso negado!\nEste usuário não está com o pagamento em dia.";
+        }
+      }
+      else {
+        msg.innerText = "Acesso negado!\nEste usuário já está vinculado a outro dispositivo.";
+      }
+    }
+  </script>
+</body>
+
+</html>
