@@ -2,8 +2,8 @@ const usuarios = {
     "eduardo": {
         id:"1",
         senha: "1",
-        deviceKey:  "QHMP588X1758244156100",
-        deviceKey2: "null",
+        deviceKey:  "QHMP588X1758244156100",//celular
+        deviceKey2: "0YVJF1Q41758244570080",//pc gamer
         deviceKey3: "null",
         deviceKey4: "null",
         plano: "completo",
