@@ -8,6 +8,12 @@
   if (!estaLogado()) {
     redirecionar('index.html')
   }
+
+
+
+  const meuPlano = obterMeuPlano()
+
+
 </script>
 
 <!doctype html>
@@ -43,6 +49,10 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       padding: 28px;
+
+
+      background: url('img/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
     }
 
     .wrap {
@@ -260,8 +270,22 @@
   <script src="filmes.js"></script>
   <script>
 
+
+    if (meuPlano == 'basico') {
+      get('buscar').remove()
+      //remover download
+    }
+    if (meuPlano == 'premium') {
+      //remover download
+    }
+    if (meuPlano == 'master') {
+
+    }
+    //-----------------
+
     const gallery = document.getElementById('gallery');
     const empty = document.getElementById('empty');
+
 
 
 
@@ -319,54 +343,60 @@
     renderPosters(posters);
 
 
-    document.getElementById('buscar').addEventListener('input', () => {
 
-      var ct = 0
-      gallery.innerHTML = '';
 
-       
+    if (document.getElementById('buscar')) {
+      document.getElementById('buscar').addEventListener('input', () => {
 
-      posters.forEach(() => {
-
-        if (posters[ct]) {
-          if (posters[ct + 1] !== '') {
+        var ct = 0
+        gallery.innerHTML = '';
 
 
 
+        posters.forEach(() => {
 
-            if (posters[ct].toLowerCase().includes(document.getElementById('buscar').value.toLowerCase())) {
-
-              const a = document.createElement('a');
-              //a.href = "player.html?filme="+posters[ct + 1];
-              //a.target = '_blank';
-              a.className = 'poster';
-              //a.setAttribute('aria-label', 'Capa do filme ' + (idx + 1));
-              a.setAttribute('role', 'img');
-
-              const img = document.createElement('img');
-              img.src = 'capas/' + posters[ct];
+          if (posters[ct]) {
+            if (posters[ct + 1] !== '') {
 
 
-              a.appendChild(img);
-              gallery.appendChild(a);
 
-              var filme_link = posters[ct + 1]
 
-              a.addEventListener('click', () => {
-                document.getElementById('player_filme').style.display = 'block'
-                console.clear()
-                console.log(filme_link)
-                document.getElementById('video').src = filme_link;
-              })
+              if (posters[ct].toLowerCase().includes(document.getElementById('buscar').value.toLowerCase())) {
+
+                const a = document.createElement('a');
+                //a.href = "player.html?filme="+posters[ct + 1];
+                //a.target = '_blank';
+                a.className = 'poster';
+                //a.setAttribute('aria-label', 'Capa do filme ' + (idx + 1));
+                a.setAttribute('role', 'img');
+
+                const img = document.createElement('img');
+                img.src = 'capas/' + posters[ct];
+
+
+                a.appendChild(img);
+                gallery.appendChild(a);
+
+                var filme_link = posters[ct + 1]
+
+                a.addEventListener('click', () => {
+                  document.getElementById('player_filme').style.display = 'block'
+                  console.clear()
+                  console.log(filme_link)
+                  document.getElementById('video').src = filme_link;
+                })
+
+              }
 
             }
-
           }
-        }
-        ct += 2
+          ct += 2
 
-      });
-    })
+        });
+      })
+    }
+
+
 
 
     setInterval(() => {

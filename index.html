@@ -3,8 +3,18 @@
 <script src="api.js"></script>
 <!---------------------------------->
 <script>
+    console.log(getnomeDefinido())
+    console.log(getSenha())
+
     if (estaLogado()) {
-        redirecionar('filmes.html')
+
+        if (logar(getnomeDefinido(), getSenha())) {
+           redirecionar('filmes.html')
+        }else{
+            deslogar()
+           // redirecionar('login.html')
+        }
+        
     }
 </script>
 

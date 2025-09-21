@@ -6,10 +6,10 @@
     if (estaLogado()) {
         redirecionar('filmes.html')
     }
-	
-	if(!devicekeyDefinido()){
-	redirecionar('cadastro.html')
-	}
+
+    if (!devicekeyDefinido()) {
+        redirecionar('cadastro.html')
+    }
 </script>
 
 
@@ -153,13 +153,15 @@
                 <button id="Entrar">Entrar</button>
                 <button id="Voltar">Voltar</button>
 
-                
+
             </div>
         </center>
     </div>
 
 
     <script>
+
+        inner('olar', 'Dispositivo atual:<br>'+getDevicekey()+'<br>')
 
         document.getElementById('Entrar').addEventListener('click', () => {
 
@@ -171,13 +173,13 @@
                 redirecionar('filmes.html')
             }
             setTimeout(() => {
-                mensagem=''
+                mensagem = ''
             }, 3000);
 
         })
 
         setInterval(() => {
-            setarTexto('msg',mensagem)
+            setarTexto('msg', mensagem)
         }, 1);
 
         addClick('Voltar', () => {

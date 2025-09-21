@@ -6,6 +6,7 @@ function estaLogado() {
 function deslogar() {
     localStorage.removeItem('Portal_estaLogado')
     localStorage.removeItem('Portal_nomeDefinido')
+    localStorage.removeItem('Portal_senha')
 }
 
 //--------------------------------------
@@ -33,6 +34,16 @@ function setDevicekey(key) {
 }
 function gerarDeviceKey() {
     return (Math.random().toString(36).substring(2, 10) + Date.now()).toUpperCase();
+}
+//--------------------------------------
+function SenhaDefinida() {
+    return localStorage.getItem('Portal_senha') !== null
+}
+function getSenha() {
+    return localStorage.getItem('Portal_senha')
+}
+function setSenha(key) {
+    localStorage.setItem('Portal_senha', key)
 }
 //--------------------------------------
 
@@ -66,42 +77,47 @@ function logar(nome, pass) {
 
 
                         setnomeDefinido(nome)
+                        setSenha(pass)
                         localStorage.setItem('Portal_estaLogado','1')
 
                         return true
                     }
                     else {
-                        mensagem='Pagamento não esta em dia'
+                        mensagem='Seu acesso está temporariamente bloqueado porque há um pagamento pendente.'
                         return false
                     }
 
 
                 }
                 else {
-                    mensagem='sem telefone'
+                    mensagem='Você precisa cadastrar um número de telefone para prosseguir.'
                     return false
                 }
 
             } else {
-                mensagem='deviceKey nao bateu'
+                mensagem='Este dispositivo ainda não está autorizado, faça a liberação via WhatsApp para continuar.'
                 return false
             }
         }
         else {
-            mensagem='Senha nao bateu'
+            mensagem='Senha incorreta! Tente novamente'
             return false
         }
 
 
     }
     else {
-        mensagem='User nao existe'
+        mensagem='Não encontramos esse usuário, verifique se digitou corretamente.'
         return false
     }
 }
 
 
-
+function obterMeuPlano(){
+    if (usuarios[getnomeDefinido()]){
+        return usuarios[getnomeDefinido()].plano//plano
+    }
+}
 
 
 function redirecionar(link){
@@ -112,7 +128,10 @@ function attPagina(){
 }
 
 function addClick(id,func){
-    document.getElementById(id).addEventListener('click',func)
+    if(document.getElementById(id))
+    {
+        document.getElementById(id).addEventListener('click',func)
+    }
 }
 
 function get(id){

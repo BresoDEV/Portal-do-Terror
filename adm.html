@@ -32,10 +32,23 @@
         background-color: rgb(48, 47, 47);
         color: rgb(255, 255, 255);
     }
+
+    details{
+        width: 80%;
+        margin-bottom: 13px;
+        background-color: darkgrey;
+        padding: 5px;
+        color: black;
+        text-align: left;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 </style>
 
 <center>
+    <button id="clearStorage">clear Storage</button><br>
     <button id="ListarUsers">Listar users</button><br>
+    <button id="ListarUsers2">Listar users 2</button><br>
     <button id="ListarFilmes">Listar filmes</button><br>
 
 
@@ -82,6 +95,37 @@
         var s = ""
         Object.keys(usuarios).forEach(x => {
 
+            s += "<details>" +
+                "<summary>" + x + "</summary>" +
+                "</br>ID: " + usuarios[x].id + "</br>" +
+                "Senha: " + usuarios[x].senha + "</br>" +
+
+                "Plano: " + usuarios[x].plano + "</br>" +
+                "Telefone: " + usuarios[x].telefone + "</br>" +
+                "Pagamento em dia: " + usuarios[x].pagamento_em_dia + "</br>" +
+                "DEV: " + usuarios[x].dev + "</br>" +
+                "Reiniciar trial: " + usuarios[x].reiniciar_trial + "</br>" +
+
+                "DeviceKey 1: " + usuarios[x].deviceKey + "</br>" +
+                "DeviceKey 2: " + usuarios[x].deviceKey2 + "</br>" +
+                "DeviceKey 3: " + usuarios[x].deviceKey3 + "</br>" +
+                "DeviceKey 4: " + usuarios[x].deviceKey4 + "</br></br>"
+            s += "</details>"
+        });
+        get('resultado').innerHTML = s
+
+    })
+
+    addClick('clearStorage', () => {
+        localStorage.clear();
+    })
+
+
+    
+    addClick('ListarUsers2', () => {
+        var s = ""
+        Object.keys(usuarios).forEach(x => {
+
             s += "<table><tr>" +
                 "<th>Nome:" + x + "</th></tr>" +
                 "<tr><td>ID: " + usuarios[x].id + "</td></tr>" +
@@ -102,6 +146,5 @@
         get('resultado').innerHTML = s
 
     })
-
 
 </script>
