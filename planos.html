@@ -1,3 +1,8 @@
+<!---------------------------------->
+<script src="usuarios.js"></script>
+<script src="api.js"></script>
+<!---------------------------------->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -91,7 +96,7 @@
     }
 
     button {
-        background-color: #F87171;
+        background-color: #f12b2b;
         color: white;
         padding: 0.5rem 1rem;
         border-radius: 0.375rem;
@@ -147,7 +152,7 @@
     .plano-master button {
         background-color: black;
         color: #F87171;
-        border: 1px solid #F87171;
+         
     }
 
     .plano-premium button:hover,
@@ -187,7 +192,7 @@
         <li>📲 Acesso a 2 telas</li>
       </ul>
       <div class="preco">R$ 20,00</div>
-      <button>Adquirir</button>
+      <button id="Basico">Adquirir</button>
     </div>
 
     <!-- Plano Premium -->
@@ -202,11 +207,11 @@
         <li>🧟‍♂️ Suporte via chat</li>
       </ul>
       <div class="preco">R$ 30,00/mês</div>
-      <button>Assinar Agora</button>
+      <button id="Premium">Assinar Agora</button>
     </div>
 
     <!-- Plano Master -->
-    <div class="plano plano-master">
+    <div class="plano">
       <h2>Plano Master</h2>
       <p class="descricao">Para os verdadeiros guardiões do inferno digital.</p>
       <ul class="lista">
@@ -216,7 +221,7 @@
         <li>📡 Suporte prioritário</li>
       </ul>
       <div class="preco">R$ 40,00/mês</div>
-      <button>Adquirir</button>
+      <button id="Master">Adquirir</button>
     </div>
   </div>
 
@@ -224,5 +229,21 @@
     © 2025 Portaria para o Inferno. Todos os direitos reservados.
   </footer>
 
+  <script>
+    //
+    //
+    //
+    
+    
+    addClick('Basico',()=>{
+      redirecionar('pagamento.html?plano=Basico');
+    })
+    addClick('Premium',()=>{
+      redirecionar('pagamento.html?plano=Premium');
+    })
+    addClick('Master',()=>{
+      redirecionar('pagamento.html?plano=Master');
+    })
+  </script>
 </body>
 </html>

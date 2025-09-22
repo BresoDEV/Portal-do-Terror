@@ -1,3 +1,9 @@
+<!---------------------------------->
+<script src="usuarios.js"></script>
+<script src="api.js"></script>
+<!---------------------------------->
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -98,14 +104,16 @@
   <main class="container">
 
     <div class="qr-code">
-      <img src="img/qrcode-pix.png" alt="QR Code para pagamento Pix" />
+      <img src="" id="QR" alt="QR Code para pagamento Pix" />
     </div>
 
     <div class="pix-code" id="pixCode">
-      00020126360014BR.GOV.BCB.PIX0114+5599999999995204000053039865802BR5925LOCADORA DO INFERNO6009SÃO PAULO62290525PagamentoPlanoMensal6304B14F
+      00020126360014BR.GOV.BCB.PIX0114+5599999999995204000053039865802BR5925LOCADORA DO INFERNO6009SÃO
+      PAULO62290525PagamentoPlanoMensal6304B14F
     </div>
 
     <button class="copy-button" onclick="copiarPix()">Copiar código Pix</button>
+    <button class="copy-button" onclick="redirecionar('index.html')">Voltar</button>
 
     <p class="info-text">
       Escaneie o QR Code ou copie o código acima para realizar o pagamento.<br />
@@ -119,12 +127,38 @@
   </footer>
 
   <script>
+
+
+    const params = new URLSearchParams(window.location.search);
+    const plano = params.get('plano');
+
+    if (!plano) {
+      redirecionar('planos.html')
+    }
+
+    //------------------------------------------
+
+    if (plano == 'Basico') {
+      get('QR').src = 'img/20.png'
+      inner('pixCode', '00020126580014BR.GOV.BCB.PIX0136e0152142-5f9c-4743-8184-8ce30561e96c520400005303986540520.005802BR5916Eduardo Bresolin6009SAO PAULO62140510SCSHliusWV63045971');
+    }
+    if (plano == 'Premium') {
+      get('QR').src = 'img/30.png'
+      inner('pixCode', '00020126580014BR.GOV.BCB.PIX0136e0152142-5f9c-4743-8184-8ce30561e96c520400005303986540530.005802BR5916Eduardo Bresolin6009SAO PAULO621405107fY69zewXq6304CA60');
+    }
+    if (plano == 'Master') {
+      get('QR').src = 'img/40.png'
+      inner('pixCode', '00020126580014BR.GOV.BCB.PIX0136e0152142-5f9c-4743-8184-8ce30561e96c520400005303986540540.005802BR5916Eduardo Bresolin6009SAO PAULO62140510RePYeUddVX630409D7');
+    }
+
+    //------------------------------------------
+
     function copiarPix() {
       const pixCode = document.getElementById('pixCode').innerText;
       navigator.clipboard.writeText(pixCode).then(() => {
-        alert('Código Pix copiado com sucesso!');
+        inner('pixCode', '<font style="color:lime">Código Pix copiado com sucesso!</font>');
       }).catch(() => {
-        alert('Erro ao copiar o código Pix.');
+        inner('pixCode', '<font style="color:red">Erro ao copiar o código Pix.</font>');
       });
     }
   </script>

@@ -7,9 +7,9 @@ const posters = [
     'A Arte do Demonio 3 - 2008.jpg', 'https://archive.org/download/a-arte-do-demonio-3-2008/A Arte do Demonio 3 - 2008.mp4',//    12.3 kB','',//    11/06/2025, 10:26:14
     'A Autopsia.jpg', 'https://archive.org/download/a-autopsia/A Autopsia.ia.mp4',//    10.9 kB','',//    11/06/2025, 10:26:14
     'A Bolha Assasina 1958.jpg', 'https://archive.org/download/a-bolha-assasina-1958/A Bolha Assasina 1958.mp4',//    18.1 kB','',//    11/06/2025, 10:26:14
-    'A Bolha Assassina - 1988.jpg', 'https://archive.org/download/a-bolha-assassina-1988_202507/A Bolha Assassina - 1988.mp4',//    12.9 kB','',//    11/06/2025, 10:26:14
+    'A Bolha Assassina - 1988.jpg', 'https://ia902904.us.archive.org/23/items/a-bolha-assassina-1988_202507/A%20Bolha%20Assassina%20-%201988.mp4',//    12.9 kB','',//    11/06/2025, 10:26:14
     'A Casa Amaldiçoada - 1999.jpg', 'https://archive.org/download/a-casa-amaldicoada-1999/A Casa Amaldiçoada - 1999.mp4',//    12.1 kB','',//    11/06/2025, 10:26:14
-    'A Casa da Colina - 1999.jpg', 'https://archive.org/download/a-casa-da-colina-1999/A Casa da Colina - 1999.mp4',//    11.2 kB','',//    11/06/2025, 10:26:14
+    'A Casa da Colina - 1999.jpg', '',//    11.2 kB','',//    11/06/2025, 10:26:14
     'A Casa de Vidro 1 - 2001.jpg', 'https://archive.org/download/a-casa-de-vidro-1-2001/A Casa de Vidro 1 - 2001.mp4',//    9.3 kB','',//    11/06/2025, 10:26:14
     'A Casa de Vidro 2 - 2006.jpg', 'https://archive.org/download/a-casa-de-vidro-2-2006/A Casa de Vidro 2 - 2006.mp4',//    14.2 kB','',//    11/06/2025, 10:26:14
     'A Casa do Espanto 1.jpg', 'https://archive.org/download/a-casa-do-espanto-1/A Casa do Espanto 1.mp4',//    10.7 kB','',//    11/06/2025, 10:26:14
@@ -26,30 +26,30 @@ const posters = [
     'A Caverna Maldita - 2006.jpg', 'https://archive.org/download/a-caverna-maldita-2006/A Caverna Maldita - 2006.mp4',//    18.5 kB','',//    11/06/2025, 10:26:14
     'A Coisa - 2011.jpg', 'https://archive.org/download/a-coisa-2011/A Coisa - 2011.mp4',//    10.6 kB','',//    11/06/2025, 10:26:14
     'A Enfermeira Assassina - 2014.jpg', 'https://archive.org/download/a-enfermeira-assassina-2014/A Enfermeira Assassina - 2014.mp4',//    11.4 kB','',//    11/06/2025, 10:26:14
-    'A Entidade 2.jpg', 'https://archive.org/download/a-entidade-2/A Entidade 2.ia.mp4',//    11.9 kB','',//    11/06/2025, 10:26:14
     'A Entidade.jpg', 'https://archive.org/download/a-entidade_202507/A Entidade.ia.mp4',//    14.2 kB','',//    11/06/2025, 10:26:14
+    'A Entidade 2.jpg', 'https://archive.org/download/a-entidade-2/A Entidade 2.ia.mp4',//    11.9 kB','',//    11/06/2025, 10:26:14
     'A Epidemia - 2010.jpg', 'https://archive.org/download/a-epidemia-2010/A Epidemia - 2010.mp4',//    14.6 kB','',//    11/06/2025, 10:26:14
     'A Espera do Mal - 2005.jpg', 'https://archive.org/download/a-espera-do-mal-2005/A Espera do Mal - 2005.mp4',//    9.0 kB','',//    11/06/2025, 10:26:14
     'A Experiência - 1995.jpg', 'https://archive.org/download/a-experiencia-1995/A Experiência - 1995.mp4',//    12.7 kB','',//    11/06/2025, 10:26:14
     'A Experiência 2 - 1998.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:14
     'A Experiência 3 - 2004.jpg', 'https://archive.org/download/a-experiencia-3-2004_202507/A Experiência 3 - 2004.mp4',//    12.1 kB','',//    11/06/2025, 10:26:14
     'A Experiência 4 - O Despertar - 2007.jpg', 'https://archive.org/download/a-experiencia-4-o-despertar-2007_202507/A Experiência 4 - O Despertar - 2007.mp4',//    14.3 kB','',//    11/06/2025, 10:26:14
-    'A Filha de Drácula - 1936.jpg', '',//    17.7 kB','',//    11/06/2025, 10:26:14
-    'A Forca - 2015.jpg', '',//    5.7 kB','',//    11/06/2025, 10:26:16
-    'A Freira 2.jpg', '',//    6.4 kB','',//    11/06/2025, 10:26:16
-    'A Freira.jpg', '',//    6.5 kB','',//    11/06/2025, 10:26:16
-    'A Fronteira.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:16
+    'A Filha de Drácula - 1936.jpg', 'https://archive.org/download/a-filha-de-dracula-1936_202509/A%20Filha%20de%20Dr%C3%A1cula%20-%201936.mkv',//    17.7 kB','',//    11/06/2025, 10:26:14
+    'A Forca - 2015.jpg', 'https://archive.org/download/a-forca-2015_202509/A%20Forca%20-%202015.mkv',//    5.7 kB','',//    11/06/2025, 10:26:16
+    'A Freira 1.jpg', 'https://archive.org/download/a-freira_202509/A%20Freira.mp4',//    6.5 kB','',//    11/06/2025, 10:26:16
+    'A Freira 2.jpg', 'https://archive.org/download/a-freira-2_202509/A%20Freira%202.mp4',//    6.4 kB','',//    11/06/2025, 10:26:16
+    'A Fronteira.jpg', 'https://archive.org/download/a-fronteira_202509/A%20Fronteira.mkv',//    16.1 kB','',//    11/06/2025, 10:26:16
     'A Gruta - 2020.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
-    'A Hora do Espanto 2.jpg', '',//    13.4 kB','',//    11/06/2025, 10:26:16
-    'A Hora do Espanto 3.jpg', '',//    85.1 kB','',//    11/06/2025, 10:39:02
-    'A Hora do Espanto.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
-    'A Hora do Pesadelo 1.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:16
-    'A Hora do Pesadelo 2.jpg', '',//    14.3 kB','',//    11/06/2025, 10:26:16
-    'A Hora do Pesadelo 3.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:16
-    'A Hora do Pesadelo 4.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
-    'A Hora do Pesadelo 5.jpg', '',//    15.5 kB','',//    11/06/2025, 10:26:16
-    'A Hora do Pesadelo 6.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:16
-    'A Hora do Pesadelo 7.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Espanto 1.jpg', 'https://archive.org/download/a-hora-do-espanto_202509/A Hora do Espanto.mp4',//    11.7 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Espanto 2.jpg', 'https://archive.org/download/a-hora-do-espanto-2_202509/A%20Hora%20do%20Espanto%202.mp4',//    13.4 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Espanto 3.jpg', 'https://archive.org/download/a-hora-do-espanto-3_202509/A%20Hora%20do%20Espanto%203.mp4',//    85.1 kB','',//    11/06/2025, 10:39:02
+    'A Hora do Pesadelo 1.jpg', 'https://archive.org/download/a-hora-do-pesadelo-1_202509/A%20Hora%20do%20Pesadelo%201.mkv',//    11.9 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 2.jpg', 'https://archive.org/download/a-hora-do-pesadelo-2_202509/A%20Hora%20do%20Pesadelo%202.mkv',//    14.3 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 3.jpg', 'https://archive.org/download/a-hora-do-pesadelo-3_202509/A%20Hora%20do%20Pesadelo%203.mkv',//    12.1 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 4.jpg', 'https://archive.org/download/a-hora-do-pesadelo-4_202509/A%20Hora%20do%20Pesadelo%204.mkv',//    9.7 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 5.jpg', 'https://archive.org/download/a-hora-do-pesadelo-5_202509/A%20Hora%20do%20Pesadelo%205.mkv',//    15.5 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 6.jpg', 'https://archive.org/download/a-hora-do-pesadelo-6_202509/A%20Hora%20do%20Pesadelo%206.mkv',//    11.3 kB','',//    11/06/2025, 10:26:16
+    'A Hora do Pesadelo 7.jpg', 'https://archive.org/download/a-hora-do-pesadelo-7_202509/A%20Hora%20do%20Pesadelo%207.mkv',//    14.9 kB','',//    11/06/2025, 10:26:16
     'A Ilha do Dr. Moreau - 1977.jpg', '',//    10.8 kB','',//    11/06/2025, 10:26:16
     'A Ilha do Dr. Moreau - 1996.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:16
     'A Ilha dos Mortos.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:16
@@ -77,8 +77,8 @@ const posters = [
     'A Noite dos Mortos Vivos 3D - 2006.jpg', '',//    16.8 kB','',//    11/06/2025, 10:26:16
     'A Noiva de Frankenstein - 1935.jpg', '',//    20.3 kB','',//    11/06/2025, 10:26:16
     'A Noiva do Re-Animator - 1989.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:16
-    'A Orfa 2.jpg', '',//    8.9 kB','',//    11/06/2025, 10:26:16
-    'A Orfa.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:16
+    'A Orfa.jpg', '',//    8.9 kB','',//    11/06/2025, 10:26:16
+    'A Orfa 2.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:16
     'A Piramide.jpg', '',//    14.0 kB','',//    11/06/2025, 10:26:16
     'A Praga - 2006.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:16
     'A Praga da Múmia - 1944.jpg', '',//    19.0 kB','',//    11/06/2025, 10:26:16
@@ -151,16 +151,12 @@ const posters = [
     'Barbarian.jpg', '',//    6.0 kB','',//    11/06/2025, 10:26:16
     'Barbarian.png', '',//    69.8 kB','',//    01/11/2022, 07:58:12
     'Benção Mortal - 1981.jpg', '',//    16.9 kB','',//    11/06/2025, 10:26:16
-    'bg.jpg', '',//    9.1 kB','',//    11/06/2025, 10:26:16
-    'bg2.jpg', '',//    10.0 kB','',//    11/06/2025, 10:26:16
     'Black Water - 2007.jpg', '',//    12.5 kB','',//    11/06/2025, 10:26:16
     'Boa Noite Mamae 2014.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:16
     'Boa Noite Mamae 2022.jpg', '',//    8.7 kB','',//    11/06/2025, 10:26:16
     'Bonecos da Morte (1989).jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:16
     'Bonecos em Guerra - O Capítulo Final (1994).jpg', '',//    108 kB','',//    11/06/2025, 10:39:02
     'Bones - Anjo das Trevas - 2001.jpg', '',//    7.4 kB','',//    11/06/2025, 10:26:16
-    'boo.gif', '',//    884 kB','',//    28/10/2022, 10:21:26
-    'boo.jpg', '',//    2.0 kB','',//    11/06/2025, 10:26:16
     'Brinquedos Diabólicos - 1992.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:16
     'Bruxa de Blair 1.jpg', '',//    9.2 kB','',//    11/06/2025, 10:26:16
     'Bruxa de Blair 2.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:16
@@ -172,12 +168,12 @@ const posters = [
     'Canibais - A Tribo.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:16
     'Carrie - A Estranha 1976.jpg', '',//    15.0 kB','',//    11/06/2025, 10:26:16
     'Carrie, a Estranha - 2002.jpg', '',//    188 kB','',//    23/06/2025, 12:40:24
-    'Cemitério Maldito Remaster.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:16
-    'Cemiterio Maldito - A Origem.jpg', '',//    8.4 kB','',//    11/06/2025, 10:26:16
-    'Cemiterio Maldito - A Origem.png', '',//    181 kB','',//    20/10/2023, 11:05:40
     'Cemiterio Maldito 1.jpg', '',//    15.6 kB','',//    11/06/2025, 10:26:16
     'Cemiterio Maldito 2.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:16
     'Cemitério Maldito Remaster.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:16
+    'Cemitério Maldito Remaster.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:16
+    'Cemiterio Maldito - A Origem.jpg', '',//    8.4 kB','',//    11/06/2025, 10:26:16
+    'Cemiterio Maldito - A Origem.png', '',//    181 kB','',//    20/10/2023, 11:05:40
     'Centopeia Humana 1.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:16
     'Centopeia Humana 2.jpg', 'https://archive.org/download/centopeia-humana-2/Centopeia Humana 2.ia.mp4',//    12.0 kB','',//    11/06/2025, 10:26:16
     'Centopeia Humana 2.png', '',//    714 kB','',//    14/11/2022, 05:48:44
@@ -198,13 +194,13 @@ const posters = [
     'Colecionador de Ossos.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
     'Colheita Maldita 1 - 1984.jpg', '',//    7.8 kB','',//    11/06/2025, 10:26:16
     'Colheita Maldita 2 O Sacrifício Final - 1992.jpg', '',//    14.7 kB','',//    11/06/2025, 10:26:16
-    'Colheita Maldita 2009.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:16
     'Colheita Maldita 3 - Colheita Urbana - 1995.jpg', '',//    8.7 kB','',//    11/06/2025, 10:26:16
     'Colheita Maldita 4 - O Encontro- 1996.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:16
     'Colheita Maldita 5 - Campos do Terror - 1998.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:16
     'Colheita Maldita 6 - 666 - Isaac Está de Volta - 1999.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:16
     'Colheita Maldita 7 Revelacao - 2001.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
     'Colheita Maldita 8 - Genesis - 2011.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:18
+    'Colheita Maldita 2009.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:16
     'Colheita Sombria 2023.jfif', '',//    17.5 kB','',//    11/06/2025, 10:11:00
     'Colheita Sombria 2023.jpg', '',//    8.8 kB','',//    11/06/2025, 10:26:18
     'Colinas De Sangue - 2009.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:18
@@ -296,7 +292,6 @@ const posters = [
     'Halloween m14 Ends 2022.jpg', '',//    9.2 kB','',//    11/06/2025, 10:26:18
     'Hannibal - 2001.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:18
     'Hannibal - A Origem do Mal - 2007.jpg', '',//    8.8 kB','',//    11/06/2025, 10:26:18
-    'Hellraiser - 2022.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:18
     'Hellraiser 1 Renascido do Inferno.jpg', '',//    17.1 kB','',//    11/06/2025, 10:26:18
     'Hellraiser 10 - 2022.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:18
     'Hellraiser 10 2022.jpg', '',//    10.3 kB','',//    11/06/2025, 10:26:18
@@ -309,6 +304,7 @@ const posters = [
     'Hellraiser 8 O Mundo do Inferno.jpg', '',//    19.1 kB','',//    11/06/2025, 10:26:18
     'Hellraiser 9 Revelacoes.jpg', '',//    16.2 kB','',//    11/06/2025, 10:26:18
     'Hellraiser O Julgamento.jpg', '',//    12.0 kB','',//    11/06/2025, 10:26:18
+    'Hellraiser - 2022.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:18
     'Hereditário - 2018.jpg', '',//    10.6 kB','',//    11/06/2025, 10:26:18
     'Herege.jpg', '',//    27.5 kB','',//    11/06/2025, 23:10:28
     'Histeria - 2000.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:18
@@ -317,7 +313,6 @@ const posters = [
     'Hush - A Morte Ouve - 2016.jpg', '',//    7.3 kB','',//    11/06/2025, 10:26:18
     'Ilha dos Mortos - 2009.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:18
     'Imagens do Além - 2008.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:18
-    'index.php', '',//    61 B','',//    28/10/2022, 10:27:16
     'Instinto Assassino - 1991.jpg', '',//    17.9 kB','',//    11/06/2025, 10:26:18
     'Invasão Zumbi 1 - 2016.jpg', '',//    17.2 kB','',//    11/06/2025, 10:26:18
     'Invasão Zumbi 2 - Peninsula - 2020.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:18
@@ -336,7 +331,6 @@ const posters = [
     'Jason X - 2001.jpg', '',//    17.0 kB','',//    11/06/2025, 10:26:18
     'Jogo Macabro.jpg', '',//    15.4 kB','',//    11/06/2025, 10:26:18
     'Jogos Mortais 1.jpg', 'https://archive.org/download/jogos-mortais-1_202507/Jogos Mortais 1.mp4',//    10.9 kB','',//    11/06/2025, 10:26:18
-    'Jogos Mortais 10.jpg', '',//    6.8 kB','',//    11/06/2025, 10:26:18
     'Jogos Mortais 2.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:18
     'Jogos Mortais 3.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:18
     'Jogos Mortais 4.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:18
@@ -345,6 +339,7 @@ const posters = [
     'Jogos Mortais 7.jpg', '',//    17.5 kB','',//    11/06/2025, 10:26:18
     'Jogos Mortais 8.jpg', '',//    14.5 kB','',//    11/06/2025, 10:26:18
     'Jogos Mortais 9 - Espiral - O Legado de Jogos Mortais.jpg', '',//    10.4 kB','',//    11/06/2025, 10:26:18
+    'Jogos Mortais 10.jpg', '',//    6.8 kB','',//    11/06/2025, 10:26:18
     'Laranja Mecanica.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:18
     'Leatherface Massacre no Texas.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:18
     'Lenda Urbana 1 - 1998.jpg', '',//    15.6 kB','',//    11/06/2025, 10:26:18
@@ -460,12 +455,12 @@ const posters = [
     'O Lobisomem - 2010.jpg', '',//    16.6 kB','',//    11/06/2025, 10:26:20
     'O Massacre Da Serra Elétrica 1.jpg', 'https://archive.org/download/o-massacre-da-serra-eletrica-1/O Massacre Da Serra Elétrica 1.mp4',//    14.9 kB','',//    11/06/2025, 10:26:20
     'O Massacre Da Serra Elétrica 2.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:20
-    'O Massacre Da Serra Elétrica 2003.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:20
-    'O Massacre da Serra Elétrica 2022.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:20
     'O Massacre Da Serra Elétrica 3 1990.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:20
     'O Massacre da Serra Eletrica 3D.jpg', '',//    14.2 kB','',//    11/06/2025, 10:26:20
     'O massacre da serra elétrica 4 O retorno.jpg', '',//    14.3 kB','',//    11/06/2025, 10:26:20
     'O Massacre Da Serra Elétrica Inicio.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:20
+    'O Massacre Da Serra Elétrica 2003.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:20
+    'O Massacre da Serra Elétrica 2022.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:20
     'O Menu 2022.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:20
     'O Mestre dos Brinquedos 2 A Volta do Mestre dos Brinquedos 1990.jpg', '',//    11.2 kB','',//    11/06/2025, 10:26:20
     'O Mestre dos Brinquedos 3 - A Vingança de Toulon (1991).jpg', '',//    99.9 kB','',//    11/06/2025, 10:39:00
@@ -632,9 +627,9 @@ const posters = [
     'Sobrenatural 4 - A última Chave - 2018.jpg', '',//    17.2 kB','',//    11/06/2025, 10:26:20
     'Sobrenatural 4.jpg', '',//    9.6 kB','',//    11/06/2025, 10:26:20
     'Sobrenatural 5.jpg', '',//    7.4 kB','',//    11/06/2025, 10:26:20
-    'Sorria 2.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:20
-    'Sorria.jpg', '',//    9.3 kB','',//    11/06/2025, 10:26:20
-    'Sorria.png', '',//    122 kB','',//    16/11/2022, 16:51:50
+    'Sorria.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:20
+    'Sorria.png', '',//    13.2 kB','',//    11/06/2025, 10:26:20
+    'Sorria 2.jpg', '',//    9.3 kB','',//    11/06/2025, 10:26:20
     'Sozinha.jpeg', '',//    4.7 kB','',//    11/06/2025, 23:10:56
     'Sozinha.jpg', '',//    4.7 kB','',//    11/06/2025, 23:11:14
     'Spawn - O Soldado do Inferno.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:20

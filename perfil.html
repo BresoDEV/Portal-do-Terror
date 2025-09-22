@@ -1,6 +1,7 @@
 <!---------------------------------->
 <script src="usuarios.js"></script>
 <script src="api.js"></script>
+<script src="filmes.js"></script>
 <!---------------------------------->
 <script>
     if (!estaLogado()) {
@@ -128,6 +129,12 @@
                 margin-bottom: 10px;
             }
         }
+
+        .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: var(--gap);
+    }
     </style>
 </head>
 
@@ -152,6 +159,10 @@
             </div>
         </div>
 
+        <!---------------------------->
+        <div class="gallery" id="gallery"></div>
+        <!---------------------------->
+
         <div class="actions">
             <center>
                 <a href="filmes.html">Assistir Filmes</a>
@@ -168,11 +179,54 @@
 </body>
 <script>
 
+    var ct = 0
+    posters.forEach(() => {
+
+
+        if (!posters[ct]) {
+            return
+        }
+        if ('' == posters[ct + 1]) {
+            //console.log(posters[ct])//ver filmes faltando
+
+        }
+
+
+        else {
+
+            const a = document.createElement('a');
+            //a.href = "player.html?filme="+posters[ct + 1];
+            //a.target = '_blank';
+            a.className = 'poster';
+            //a.setAttribute('aria-label', 'Capa do filme ' + (idx + 1));
+            a.setAttribute('role', 'img');
+
+            const img = document.createElement('img');
+            img.src = 'capas/' + posters[ct];
+
+
+            a.appendChild(img);
+            document.getElementById('gallery').appendChild(a);
+
+            var filme_link = posters[ct + 1]
+
+            a.addEventListener('click', () => {
+                document.getElementById('player_filme').style.display = 'block'
+                console.clear()
+                console.log(filme_link)
+                document.getElementById('video').src = filme_link;
+                document.getElementById('video').play()
+            })
+        }
+        ct += 2
+
+    });
+
 
     inner('nome', getnomeDefinido())
     inner('devicekey', '<strong>Dispositivo:</strong> ' + getDevicekey())
-    inner('telefone','<strong>Telefone:</strong> ' +  usuarios[getnomeDefinido()].telefone)
-    inner('plano','<strong>Plano:</strong> ' +  usuarios[getnomeDefinido()].plano)
+    inner('telefone', '<strong>Telefone:</strong> ' + usuarios[getnomeDefinido()].telefone)
+    inner('plano', '<strong>Plano:</strong> ' + usuarios[getnomeDefinido()].plano)
 
 
 
