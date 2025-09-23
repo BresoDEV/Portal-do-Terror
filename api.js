@@ -212,7 +212,7 @@ function playFilme(nome) {
                 addClick('fechar', () => {
                     //get('video').stop()
                     get('video').src = ' '
-                    get('player_filme').style.display = 'none'
+                    get('player_filme').remove();
                 })
             } 
         }
