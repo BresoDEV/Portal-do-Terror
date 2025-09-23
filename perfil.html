@@ -8,15 +8,13 @@
         redirecionar('index.html')
     }
 </script>
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Meu Perfil - Portaria para o Inferno</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Meu Perfil - Portaria para o Inferno</title>
+        <style>
         body {
             background: url('img/bg.jpg') no-repeat center center fixed;
             background-size: cover;
@@ -130,98 +128,151 @@
             }
         }
 
+
+
+
+
+
+
+        .poster {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      overflow: hidden;
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.12));
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+      transition: transform .28s cubic-bezier(.2, .9, .2, 1), box-shadow .28s;
+      transform-origin: center;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .poster:focus {
+      outline: 2px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .poster img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform-origin: center;
+      transition: transform .4s ease;
+    }
+
+    .poster:hover,
+    .poster:focus {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7), 0 6px 22px rgba(0, 0, 0, 0.5);
+    }
+
+    .poster:hover img {
+      transform: scale(1.06) rotate(-0.3deg)
+    }
+
         .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
       gap: var(--gap);
     }
-    </style>
-</head>
-
-<body>
-
-    <header>
-        <h1>Meu Perfil</h1>
-    </header>
-
-    <main class="profile-container">
-
-        <div class="profile-info">
-            <div class="profile-picture">
-                <img src="img/boo.gif" alt="Foto do usuário" />
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Meu Perfil</h1>
+        </header>
+        <main class="profile-container">
+            <div class="profile-info">
+                <div class="profile-picture">
+                    <img src="img/boo.gif" alt="Foto do usuário">
+                </div>
+                <div class="profile-details">
+                    <h2 id="nome">Nome do Usuário</h2>
+                    <p id="devicekey">
+                        <strong>Dispositivo:</strong>
+                        usuario@email.com
+                    </p>
+                    <p id="telefone">
+                        <strong>Telefone:</strong>
+                        (11) 91234-5678
+                    </p>
+                    <p id="plano">
+                        <strong>Plano:</strong>
+                        Assinatura Premium
+                    </p>
+                    <p>
+                        <strong>Status do Pagamento:</strong>
+                        Em dia ✅
+                    </p>
+                </div>
             </div>
-            <div class="profile-details">
-                <h2 id="nome">Nome do Usuário</h2>
-                <p id="devicekey"><strong>Dispositivo:</strong> usuario@email.com</p>
-                <p id="telefone"><strong>Telefone:</strong> (11) 91234-5678</p>
-                <p id="plano"><strong>Plano:</strong> Assinatura Premium</p>
-                <p><strong>Status do Pagamento:</strong> Em dia ✅</p>
+            <div class="actions">
+                <center>
+                    <a href="filmes.html">Assistir Filmes</a>
+                    <a id="Sair">Sair</a>
+                </center>
             </div>
-        </div>
-
-        <!---------------------------->
-        <div class="gallery" id="gallery"></div>
-        <!---------------------------->
-
-        <div class="actions">
-            <center>
-                <a href="filmes.html">Assistir Filmes</a>
-                <a id="Sair">Sair</a>
-            </center>
-        </div>
-
-    </main>
-
-    <footer>
-        © 2025 Portaria para o Inferno. Todos os direitos reservados.
-    </footer>
-
-</body>
-<script>
-
-    var ct = 0
-    posters.forEach(() => {
+            <!---------------------------->
+            <div class="gallery" id="gallery"></div>
+            <!---------------------------->
+        </main>
+        <footer>
+            © 2025 Portaria para o Inferno. Todos os direitos reservados.
+        </footer>
+    </body>
+    <script>
 
 
-        if (!posters[ct]) {
-            return
-        }
-        if ('' == posters[ct + 1]) {
-            //console.log(posters[ct])//ver filmes faltando
-
-        }
+///------------------------------------------------------------------
 
 
-        else {
+console.clear()
 
-            const a = document.createElement('a');
-            //a.href = "player.html?filme="+posters[ct + 1];
-            //a.target = '_blank';
-            a.className = 'poster';
-            //a.setAttribute('aria-label', 'Capa do filme ' + (idx + 1));
+    var favoritos = listarfilmefavoritos();
+    favoritos.forEach(x => {
+
+        var capinha = buscar_capa_via_link(posters,x)
+        console.log(x)
+        console.log(capinha)
+
+        if(capinha !== '')
+        {
+            console.log(x)
+        
+        const a = document.createElement('a'); 
+            a.className = 'poster'; 
             a.setAttribute('role', 'img');
 
             const img = document.createElement('img');
-            img.src = 'capas/' + posters[ct];
+            img.src = capinha;
 
 
             a.appendChild(img);
             document.getElementById('gallery').appendChild(a);
-
-            var filme_link = posters[ct + 1]
-
+ 
             a.addEventListener('click', () => {
-                document.getElementById('player_filme').style.display = 'block'
-                console.clear()
-                console.log(filme_link)
-                document.getElementById('video').src = filme_link;
-                document.getElementById('video').play()
+
+                addPlayerNaPagina()
+                playFilme(x)
+                
+                //document.getElementById('player_filme').style.display = 'block'
+                //console.clear()
+                //console.log(filme_link)
+                //document.getElementById('video').src = filme_link;
+                //document.getElementById('video').play()
             })
         }
-        ct += 2
+
+        
 
     });
 
+
+///------------------------------------------------------------------
+    
 
     inner('nome', getnomeDefinido())
     inner('devicekey', '<strong>Dispositivo:</strong> ' + getDevicekey())
@@ -237,7 +288,5 @@
     addClick('Voltar', () => {
         redirecionar('index.html')
     })
-
-</script>
-
+    </script>
 </html>

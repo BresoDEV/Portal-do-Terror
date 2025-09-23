@@ -183,11 +183,25 @@ function addPlayerNaPagina() {
     fechar.style.right = '5%'
     fechar.style.top = '5%'
     fechar.style.fontSize = 'x-large'
-    fechar.textContent = 'X'
+    fechar.textContent = '❌'
     fechar.id = 'fechar'
+
+    const addfavorito = document.createElement('div')
+    addfavorito.style.fontFamily = 'Calibri'
+    addfavorito.style.backgroundColor = 'rgb(21, 21, 21)'
+    addfavorito.style.color = 'rgb(194, 77, 77)'
+    addfavorito.style.padding = '5px'
+    addfavorito.style.borderRadius = '150%'
+    addfavorito.style.position = 'fixed'
+    addfavorito.style.left = '5%'
+    addfavorito.style.top = '5%'
+    addfavorito.style.fontSize = 'x-large'
+    addfavorito.textContent = '⭐'
+    addfavorito.id = 'addfavorito_botao'
 
     div.appendChild(video)
     div.appendChild(fechar)
+    div.appendChild(addfavorito)
     document.body.appendChild(div)
 
      
@@ -214,6 +228,11 @@ function playFilme(nome) {
                     get('video').src = ' '
                     get('player_filme').remove();
                 })
+                
+                addClick('addfavorito_botao', () => {
+                    addfilmefavoritos(nome)
+                    console.log('Add nos favoritos')
+                })
             } 
         }
     }
@@ -221,6 +240,10 @@ function playFilme(nome) {
 //--------------------------------------------------
 
 function buscar_capa_via_link(array_filmes,link){
+
+    if(link ==''){
+        return ''
+    }
     var ct=0;
     var capa='';
     array_filmes.forEach(x => {
@@ -260,6 +283,7 @@ function listarfilmefavoritos(){
       return cccc;
 }
 
+ 
 function deletarfilmesfavoritos(){
     localStorage.removeItem('Favoritos do Terror')
 }
