@@ -114,6 +114,9 @@ function logar(nome, pass) {
 
 
 function obterMeuPlano() {
+    //basico
+    //premium
+    //master
     if (usuarios[getnomeDefinido()]) {
         return usuarios[getnomeDefinido()].plano//plano
     }
@@ -186,6 +189,14 @@ function addPlayerNaPagina() {
     div.appendChild(video)
     div.appendChild(fechar)
     document.body.appendChild(div)
+
+     
+
+    //desabilita o botao de download se nao for conta MASTER
+    if(obterMeuPlano() !== 'master'){
+        video.setAttribute("controlsList", "nodownload");
+    }
+
 }
 
 function playFilme(nome) {

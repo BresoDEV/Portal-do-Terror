@@ -19,7 +19,7 @@ const usuarios = {
         deviceKey2: "null",
         deviceKey3: "null",
         deviceKey4: "null",
-        plano: "basico",
+        plano: "master",
         telefone:"null",
         pagamento_em_dia: "nao",
         dev:"0",

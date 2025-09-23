@@ -2,8 +2,6 @@
 <script src="usuarios.js"></script>
 <script src="api.js"></script>
 <!---------------------------------->
-
-
 <script>
   if (!estaLogado()) {
     redirecionar('index.html')
@@ -12,18 +10,14 @@
 
 
   const meuPlano = obterMeuPlano()
-
-
 </script>
-
 <!doctype html>
 <html lang="pt-BR">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Catálogo de Filmes — Apenas Capas</title>
-  <style>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catálogo de Filmes — Apenas Capas</title>
+        <style>
     :root {
       --bg: #0b0b0d;
       --card: #0f1720;
@@ -229,46 +223,42 @@
       color: #ff0000;
       border: none;
     }
-  </style>
-</head>
-
-<body>
-
-  <div class="player_filme" id="player_filme">
+        </style>
+    </head>
+    <body>
+        <!--
+   <div class="player_filme" id="player_filme">
     <video id="video" controls src=""></video>
     <div class="fechar" id="fechar">
       X
     </div>
   </div>
-
-
-
-  <div class="wrap">
-    <header>
-
-      <div aria-hidden="true" id="Perfil"
-        style="border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:23px">
-        Perfil</div>
-      <input class="buscar" id="buscar" type="text" placeholder="Buscar filme...">
-    </header>
-
-    <main>
-
-
-      <section id="gallery" class="gallery" aria-live="polite">
-        <!-- Posters serão injetados aqui pelo JavaScript -->
-      </section>
-
-      <div id="empty" class="empty" style="display:none">
-        Nenhuma capa disponível.
-      </div>
-    </main>
-  </div>
-  <br>
-  <br>
-  <br>
-  <script src="filmes.js"></script>
-  <script>
+ -->
+        <div class="wrap">
+            <header>
+                <div aria-hidden="true" id="Perfil" style="border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:23px">
+                    Perfil
+                </div>
+                <input
+                    class="buscar"
+                    id="buscar"
+                    type="text"
+                    placeholder="Buscar filme..."
+                >
+            </header>
+            <main>
+                <section id="gallery" class="gallery" aria-live="polite">
+                    <!-- Posters serão injetados aqui pelo JavaScript --></section>
+                <div id="empty" class="empty" style="display:none">
+                    Nenhuma capa disponível.
+                </div>
+            </main>
+        </div>
+        <br>
+        <br>
+        <br>
+        <script src="filmes.js"></script>
+        <script>
 
 
     if (meuPlano == 'basico') {
@@ -328,11 +318,16 @@
           var filme_link = posters[ct + 1]
 
           a.addEventListener('click', () => {
-            document.getElementById('player_filme').style.display = 'block'
-            console.clear()
-            console.log(filme_link)
-            document.getElementById('video').src = filme_link;
-            document.getElementById('video').play()
+
+
+            addPlayerNaPagina()
+            playFilme(filme_link)
+    
+            //document.getElementById('player_filme').style.display = 'block'
+            //console.clear()
+            //console.log(filme_link)
+            //document.getElementById('video').src = filme_link;
+            //document.getElementById('video').play()
           })
         }
         ct += 2
@@ -380,10 +375,13 @@
                 var filme_link = posters[ct + 1]
 
                 a.addEventListener('click', () => {
-                  document.getElementById('player_filme').style.display = 'block'
-                  console.clear()
-                  console.log(filme_link)
-                  document.getElementById('video').src = filme_link;
+                  
+                  addPlayerNaPagina()
+                  playFilme(filme_link)
+                  //document.getElementById('player_filme').style.display = 'block'
+                  //console.clear()
+                  //console.log(filme_link)
+                  //document.getElementById('video').src = filme_link;
                 })
 
               }
@@ -399,10 +397,10 @@
 
 
 
-    setInterval(() => {
-      document.getElementById('player_filme').style.height = '100vh'
-      document.getElementById('player_filme').style.width = '100vw'
-    }, 1);
+   // setInterval(() => {
+   //   document.getElementById('player_filme').style.height = '100vh'
+   //   document.getElementById('player_filme').style.width = '100vw'
+   // }, 1);
 
 
 
@@ -415,8 +413,6 @@
     addClick('Perfil', () => {
       redirecionar('perfil.html')
     })
-
-  </script>
-</body>
-
+        </script>
+    </body>
 </html>
