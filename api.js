@@ -154,9 +154,11 @@ function inner(id, valor) {
 
 //------------------------
 function addPlayerNaPagina() {
+
+  
     const div = document.createElement('div')
     div.id = 'player_filme'
-    div.style.display = 'none'
+    //div.style.display = 'none'
     div.style.width = '100%'
     div.style.height = '100%'
     div.style.backgroundColor = 'black'
@@ -180,8 +182,8 @@ function addPlayerNaPagina() {
     fechar.style.padding = '5px'
     fechar.style.borderRadius = '150%'
     fechar.style.position = 'fixed'
-    fechar.style.right = '5%'
-    fechar.style.top = '5%'
+    fechar.style.right = '2%'
+    fechar.style.top = '2%'
     fechar.style.fontSize = 'x-large'
     fechar.textContent = '❌'
     fechar.id = 'fechar'
@@ -193,8 +195,8 @@ function addPlayerNaPagina() {
     addfavorito.style.padding = '5px'
     addfavorito.style.borderRadius = '150%'
     addfavorito.style.position = 'fixed'
-    addfavorito.style.left = '5%'
-    addfavorito.style.top = '5%'
+    addfavorito.style.left = '2%'
+    addfavorito.style.top = '2%'
     addfavorito.style.fontSize = 'x-large'
     addfavorito.textContent = '⭐'
     addfavorito.id = 'addfavorito_botao'
@@ -204,11 +206,12 @@ function addPlayerNaPagina() {
     div.appendChild(addfavorito)
     document.body.appendChild(div)
 
-     
+
 
     //desabilita o botao de download se nao for conta MASTER
-    if(obterMeuPlano() !== 'master'){
+    if (obterMeuPlano() !== 'master') {
         video.setAttribute("controlsList", "nodownload");
+        video.controls = false
     }
 
 }
@@ -218,9 +221,18 @@ function playFilme(nome) {
         if (get('video')) {
             if (get('fechar')) {
 
-                get('player_filme').style.display = 'block'
+                //get('player_filme').style.display = 'block'
                 get('video').src = nome
                 get('video').play()
+
+
+                //-------------------------
+                if (verificarSeEstaNosFavoritos(nome)) {
+                    get('addfavorito_botao').style.backgroundColor = 'green'
+                } else {
+                    get('addfavorito_botao').style.backgroundColor = 'black'
+                }
+                //-------------------------
 
 
                 addClick('fechar', () => {
@@ -228,64 +240,93 @@ function playFilme(nome) {
                     get('video').src = ' '
                     get('player_filme').remove();
                 })
-                
+
                 addClick('addfavorito_botao', () => {
-                    addfilmefavoritos(nome)
-                    console.log('Add nos favoritos')
+
+                    if (verificarSeEstaNosFavoritos(nome)) {
+                        removerFilmeFavoritos(nome)
+                        console.log('removido dos favoritos')
+                        get('addfavorito_botao').style.backgroundColor = 'black'
+                    } else {
+                        addfilmefavoritos(nome)
+                        console.log('Add nos favoritos')
+                        get('addfavorito_botao').style.backgroundColor = 'green'
+                    }
+
+
                 })
-            } 
+            }
         }
     }
 }
 //--------------------------------------------------
 
-function buscar_capa_via_link(array_filmes,link){
+function buscar_capa_via_link(array_filmes, link) {
 
-    if(link ==''){
+    if (link == '') {
         return ''
     }
-    var ct=0;
-    var capa='';
+    var ct = 0;
+    var capa = '';
     array_filmes.forEach(x => {
-        if(x==link){
-            capa= 'capas/'+array_filmes[ct-1]
+        if (x == link) {
+            capa = 'capas/' + array_filmes[ct - 1]
         }
         ct++;
     });
 
     for (let i = 0; i < 10; i++) {
         //.replace('%20',' ')
-        capa= capa.replace('%20',' ')
+        capa = capa.replace('%20', ' ')
     }
     return capa
 }
 
 //--------------------------------------------------
 
-function addfilmefavoritos(link){
+function addfilmefavoritos(link) {
     if (localStorage.getItem('Favoritos do Terror')) {
         var favs = JSON.parse(localStorage.getItem('Favoritos do Terror'))
         favs.push(link)
-        localStorage.setItem('Favoritos do Terror',JSON.stringify(favs))
-      }else{
+        localStorage.setItem('Favoritos do Terror', JSON.stringify(favs))
+    } else {
         var favs = ['']
-        localStorage.setItem('Favoritos do Terror',JSON.stringify(favs))
-      }
+        localStorage.setItem('Favoritos do Terror', JSON.stringify(favs))
+    }
 }
 
-function listarfilmefavoritos(){
-    var cccc =[]
+function listarfilmefavoritos() {
+    var cccc = []
     if (localStorage.getItem('Favoritos do Terror')) {
         JSON.parse(localStorage.getItem('Favoritos do Terror')).forEach(x => {
             cccc.push(x)
         });
-      }
-      return cccc;
+    }
+    return cccc;
 }
 
- 
-function deletarfilmesfavoritos(){
+
+function deletarfilmesfavoritos() {
     localStorage.removeItem('Favoritos do Terror')
+}
+
+function verificarSeEstaNosFavoritos(link) {
+    if (localStorage.getItem('Favoritos do Terror')) {
+        return localStorage.getItem('Favoritos do Terror').includes(link)
+    }
+    return false;
+}
+
+function removerFilmeFavoritos(link) {
+    var cccc = []
+    if (localStorage.getItem('Favoritos do Terror')) {
+        JSON.parse(localStorage.getItem('Favoritos do Terror')).forEach(x => {
+            if (x !== link) {
+                cccc.push(x)
+            }
+        });
+        localStorage.setItem('Favoritos do Terror', JSON.stringify(cccc))
+    }
 }
 
 

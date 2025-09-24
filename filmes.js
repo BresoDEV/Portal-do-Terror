@@ -65,6 +65,7 @@ const posters = [
     'A Morte Pede Carona.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
     'A Morte te dá Parabéns 1 - 2018.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:16
     'A Morte Te Dá Parabéns 2.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
+    'A Mosca 1958.jpg', 'https://archive.org/download/a-mosca-1958/A%20Mosca%201958.mkv',//    6.6 kB','',//    11/06/2025, 10:26:16
     'A Mosca - Remake - 1986.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:16
     'A Mosca 2 - 1989.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:16
     'A Mulher de Preto 1.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:16
@@ -158,6 +159,7 @@ const posters = [
     'Bonecos em Guerra - O Capítulo Final (1994).jpg', '',//    108 kB','',//    11/06/2025, 10:39:02
     'Bones - Anjo das Trevas - 2001.jpg', '',//    7.4 kB','',//    11/06/2025, 10:26:16
     'Brinquedos Diabólicos - 1992.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:16
+    'Bring Her Back.jpg', 'https://archive.org/download/bring-her-back/Bring%20Her%20Back.mp4',//    11.3 kB','',//    11/06/2025, 10:26:16
     'Bruxa de Blair 1.jpg', '',//    9.2 kB','',//    11/06/2025, 10:26:16
     'Bruxa de Blair 2.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:16
     'Bruxas - 2009.jpg', '',//    15.1 kB','',//    11/06/2025, 10:26:16
@@ -166,7 +168,7 @@ const posters = [
     'Cadillac Preto - 2003.jpg', '',//    10.1 kB','',//    11/06/2025, 10:26:16
     'Cães Assassinos - 2006.jpg', '',//    8.6 kB','',//    11/06/2025, 10:26:18
     'Canibais - A Tribo.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:16
-    'Carrie - A Estranha 1976.jpg', '',//    15.0 kB','',//    11/06/2025, 10:26:16
+    'Carrie - A Estranha 1976.jpg', 'https://archive.org/download/carrie-a-estranha-1976_202509/Carrie%20-%20A%20Estranha%201976.mp4',//    15.0 kB','',//    11/06/2025, 10:26:16
     'Carrie, a Estranha - 2002.jpg', '',//    188 kB','',//    23/06/2025, 12:40:24
     'Cemiterio Maldito 1.jpg', '',//    15.6 kB','',//    11/06/2025, 10:26:16
     'Cemiterio Maldito 2.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:16
@@ -220,7 +222,7 @@ const posters = [
     'Deixe-me Entrar.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:18
     'Despertar dos Mortos - 2011.jpg', '',//    16.9 kB','',//    11/06/2025, 10:26:18
     'Devorador de Almas - 2006.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:18
-    'Dezesseis Facadas.jpg', '',//    206 kB','',//    11/06/2025, 23:08:36
+    'Dezesseis Facadas.jpg', 'https://archive.org/download/dezesseis-facadas/Dezesseis%20Facadas.mp4',//    206 kB','',//    11/06/2025, 23:08:36
     'Dia dos Mortos - 1985.jpg', '',//    14.5 kB','',//    11/06/2025, 10:26:18
     'Dia dos Mortos.jpg', '',//    14.3 kB','',//    11/06/2025, 10:26:18
     'Diário do Mortos - 2007.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:18
@@ -350,7 +352,7 @@ const posters = [
     'Lendas do Além-Túmulo - 2000.jpg', '',//    15.7 kB','',//    11/06/2025, 10:26:18
     'Livrai-nos do Mal.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:18
     'Lobisomem Americano em Londres - 1981.jpg', '',//    15.1 kB','',//    11/06/2025, 10:26:18
-    'Lobisomem Americano em Paris - 1997.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:18
+    'Lobisomem Americano em Paris - 1997.jpg', 'https://archive.org/download/lobisomem-americano-em-paris-1997/Lobisomem%20Americano%20em%20Paris%20-%201997.mkv',//    11.4 kB','',//    11/06/2025, 10:26:18
     'logo.jpg', '',//    9.8 kB','',//    11/06/2025, 10:26:18
     'logo.png', '',//    26.1 kB','',//    15/11/2022, 01:43:26
     'Longlegs.jpg', '',//    12.2 kB','',//    11/06/2025, 10:26:18
@@ -451,8 +453,8 @@ const posters = [
     'O Iluminado.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:20
     'O Internato - 2018.jpg', '',//    9.0 kB','',//    11/06/2025, 10:26:20
     'O Limite do Medo.jpg', '',//    11.8 kB','',//    11/06/2025, 10:26:20
-    'O Lobisomem - 1941.jpg', '',//    17.9 kB','',//    11/06/2025, 10:26:20
-    'O Lobisomem - 2010.jpg', '',//    16.6 kB','',//    11/06/2025, 10:26:20
+    'O Lobisomem - 1941.jpg', 'https://archive.org/download/o-lobisomem-1941/O%20Lobisomem%20-%201941.mkv',//    17.9 kB','',//    11/06/2025, 10:26:20
+    'O Lobisomem - 2010.jpg', 'https://archive.org/download/o-lobisomem-2010/O%20Lobisomem%20-%202010.mkv',//    16.6 kB','',//    11/06/2025, 10:26:20
     'O Massacre Da Serra Elétrica 1.jpg', 'https://archive.org/download/o-massacre-da-serra-eletrica-1/O Massacre Da Serra Elétrica 1.mp4',//    14.9 kB','',//    11/06/2025, 10:26:20
     'O Massacre Da Serra Elétrica 2.jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:20
     'O Massacre Da Serra Elétrica 3 1990.jpg', '',//    13.5 kB','',//    11/06/2025, 10:26:20

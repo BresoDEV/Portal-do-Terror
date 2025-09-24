@@ -190,7 +190,7 @@
                 <div class="profile-picture">
                     <img src="img/boo.gif" alt="Foto do usuário">
                 </div>
-                <div class="profile-details">
+                <div class="profile-details" style="flex: none;">
                     <h2 id="nome">Nome do Usuário</h2>
                     <p id="devicekey">
                         <strong>Dispositivo:</strong>
@@ -204,35 +204,34 @@
                         <strong>Plano:</strong>
                         Assinatura Premium
                     </p>
-                    <p>
-                        <strong>Status do Pagamento:</strong>
-                        Em dia ✅
-                    </p>
                 </div>
             </div>
             <div class="actions">
                 <center>
                     <a href="filmes.html">Assistir Filmes</a>
-                    <a id="Sair">Sair</a>
+                    <a id="Sair">Deslogar</a>
                 </center>
             </div>
+            <h3>Meus filmes favoritos:</h3>
             <!---------------------------->
-            <div class="gallery" id="gallery"></div>
+            <div class="gallery" id="gallery" style="margin-top:10px ;"></div>
             <!---------------------------->
         </main>
         <footer>
             © 2025 Portaria para o Inferno. Todos os direitos reservados.
         </footer>
     </body>
+    
     <script>
 
 
 ///------------------------------------------------------------------
 
 
-console.clear()
+
 
     var favoritos = listarfilmefavoritos();
+    
     favoritos.forEach(x => {
 
         var capinha = buscar_capa_via_link(posters,x)
