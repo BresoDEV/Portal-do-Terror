@@ -4,7 +4,7 @@ const usuarios = {
         senha: "1",
         deviceKey:  "QHMP588X1758244156100",//celular
         deviceKey2: "0YVJF1Q41758244570080",//pc gamer
-        deviceKey3: "CTRMSRLV1758242978004",//pc gamer localhost
+        deviceKey3: "17G3CYLU1758814909009",//pS4
         deviceKey4: "JMSGS74H1758501590399",
         plano: "master",
         telefone:"996180319",
