@@ -13,11 +13,12 @@
 </script>
 <!doctype html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Catálogo de Filmes — Apenas Capas</title>
-        <style>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de Filmes — Apenas Capas</title>
+  <style>
     :root {
       --bg: #0b0b0d;
       --card: #0f1720;
@@ -46,7 +47,7 @@
 
 
       background: url('img/bg.jpg') no-repeat center center fixed;
-            background-size: cover;
+      background-size: cover;
     }
 
     .wrap {
@@ -223,10 +224,11 @@
       color: #ff0000;
       border: none;
     }
-        </style>
-    </head>
-    <body>
-        <!--
+  </style>
+</head>
+
+<body>
+  <!--
    <div class="player_filme" id="player_filme">
     <video id="video" controls src=""></video>
     <div class="fechar" id="fechar">
@@ -234,43 +236,64 @@
     </div>
   </div>
  -->
-        <div class="wrap">
-            <header>
-                <div aria-hidden="true" id="Perfil" style="border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:23px">
-                    Perfil
-                </div>
-                <input
-                    class="buscar"
-                    id="buscar"
-                    type="text"
-                    placeholder="Buscar filme..."
-                >
-            </header>
-            <main>
-                <section id="gallery" class="gallery" aria-live="polite">
-                    <!-- Posters serão injetados aqui pelo JavaScript --></section>
-                <div id="empty" class="empty" style="display:none">
-                    Nenhuma capa disponível.
-                </div>
-            </main>
-        </div>
-        <br>
-        <br>
-        <br>
-        <script src="filmes.js"></script>
-        <script>
+  <div class="wrap">
+    <header>
+      <div aria-hidden="true" id="Perfil"
+        style="border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:23px">
+        Perfil
+      </div>
+
+      <input class="buscar" id="buscar" type="text" placeholder="Buscar filme...">
+    </header>
+    <main>
+      <section id="gallery" class="gallery" aria-live="polite">
+        <!-- Posters serão injetados aqui pelo JavaScript -->
+      </section>
+      <div id="empty" class="empty" style="display:none">
+        Nenhuma capa disponível.
+      </div>
+    </main>
+  </div>
+  <br>
+  <br>
+  <!------------------------------------>
+  <center>
+    <button aria-hidden="true" id="Anterior"
+      style="width: 40vw;border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:3vw">
+      <center>
+        Anterior
+      </center>
+    </button>
+    <button aria-hidden="true" id="Proxima"
+      style="width: 40vw;border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:3vw">
+      <center>
+        Proxima
+      </center>
+    </button>
+  </center>
+  <!------------------------------------>
+  <div aria-hidden="true" id="sortearFilme"
+    style="border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:3vw">
+    <center>
+      Não sabe qual filme assistir? A gente escolhe
+    </center>
+  </div>
+  <!------------------------------------>
+  <br>
+  <script src="filmes.js"></script>
+  <script>
 
 
     if (meuPlano == 'basico') {
       get('buscar').remove()
       //remover download
     }
-    if (meuPlano == 'premium') {
-      //remover download
-    }
-    if (meuPlano == 'master') {
-
-    }
+    //if (meuPlano == 'premium') {
+    //  //remover download
+    //}
+    //if (meuPlano == 'master') {
+    //
+    //}
     //-----------------
 
     const gallery = document.getElementById('gallery');
@@ -278,10 +301,31 @@
 
 
 
+    function addFilme(capa, link) {
+      const a = document.createElement('a');
+      a.className = 'poster';
+      a.setAttribute('role', 'img');
 
-    function renderPosters(list) {
+      const img = document.createElement('img');
+      img.src = 'capas/' + capa;
+
+      a.appendChild(img);
+      gallery.appendChild(a);
+
+      var filme_link = link
+      //alimenta o array com os links validos
+      array_links_de_filmes_validos.push(filme_link)
+      //---------------------------------
+      a.addEventListener('click', () => {
+        addPlayerNaPagina()
+        playFilme(filme_link)
+      })
+    }
+
+
+
+    function carregarTodosFilmes(list) {
       var ct = 0;
-      gallery.innerHTML = '';
       if (!list || list.length === 0) {
         empty.style.display = 'block';
         return;
@@ -289,53 +333,60 @@
       empty.style.display = 'none';
 
       list.forEach(() => {
-
         if (!posters[ct]) {
           return
         }
         if ('' == posters[ct + 1]) {
           //console.log(posters[ct])//ver filmes faltando
-
         }
-
-
         else {
-
-          const a = document.createElement('a');
-          //a.href = "player.html?filme="+posters[ct + 1];
-          //a.target = '_blank';
-          a.className = 'poster';
-          //a.setAttribute('aria-label', 'Capa do filme ' + (idx + 1));
-          a.setAttribute('role', 'img');
-
-          const img = document.createElement('img');
-          img.src = 'capas/' + posters[ct];
-
-
-          a.appendChild(img);
-          gallery.appendChild(a);
-
-          var filme_link = posters[ct + 1]
-
-          a.addEventListener('click', () => {
-
-
-            addPlayerNaPagina()
-            playFilme(filme_link)
-    
-            //document.getElementById('player_filme').style.display = 'block'
-            //console.clear()
-            //console.log(filme_link)
-            //document.getElementById('video').src = filme_link;
-            //document.getElementById('video').play()
-          })
+          array_capas_de_filmes_validos.push(posters[ct])
+          array_links_de_filmes_validos.push(posters[ct + 1])
         }
         ct += 2
-
       });
     }
 
-    renderPosters(posters);
+    carregarTodosFilmes(posters);
+
+
+
+    var paginaAtual = 0
+    
+    renderPage()
+
+    function renderPage() {
+
+      gallery.innerHTML = '';
+      document.documentElement.scrollTop=0//rola ate o topo
+
+      var ct = 0;
+      for (let i = (itensPorPagina * paginaAtual); i < (itensPorPagina * paginaAtual + itensPorPagina); i++) {
+        if (array_capas_de_filmes_validos[i]) {
+          if (array_links_de_filmes_validos[i]) {
+            addFilme(array_capas_de_filmes_validos[i], array_links_de_filmes_validos[i])
+            ct++
+          }
+        }
+      }
+
+      if (ct == 0) {//nao exibiu nenhum filme
+        paginaAtual--
+        renderPage()
+      }
+    }
+
+    addClick('Proxima', () => {
+      paginaAtual++
+      renderPage()
+    })
+    addClick('Anterior', () => {
+      if (paginaAtual !== 0) {
+        paginaAtual--
+      }
+      renderPage()
+    })
+
 
 
 
@@ -343,64 +394,34 @@
     if (document.getElementById('buscar')) {
       document.getElementById('buscar').addEventListener('input', () => {
 
-        var ct = 0
+
+        if (document.getElementById('buscar').value == '') {
+          paginaAtual = 0
+          renderPage()
+          return
+        }
+
+
         gallery.innerHTML = '';
+        document.documentElement.scrollTop=0//rola ate o topo
+
+        for (let i = 0; i < array_capas_de_filmes_validos.length; i++) {
+          if (array_capas_de_filmes_validos[i].toLowerCase().includes(document.getElementById('buscar').value.toLowerCase())) {
 
 
+            addFilme(array_capas_de_filmes_validos[i], array_links_de_filmes_validos[i])
 
-        posters.forEach(() => {
-
-          if (posters[ct]) {
-            if (posters[ct + 1] !== '') {
-
-
-
-
-              if (posters[ct].toLowerCase().includes(document.getElementById('buscar').value.toLowerCase())) {
-
-                const a = document.createElement('a');
-                //a.href = "player.html?filme="+posters[ct + 1];
-                //a.target = '_blank';
-                a.className = 'poster';
-                //a.setAttribute('aria-label', 'Capa do filme ' + (idx + 1));
-                a.setAttribute('role', 'img');
-
-                const img = document.createElement('img');
-                img.src = 'capas/' + posters[ct];
-
-
-                a.appendChild(img);
-                gallery.appendChild(a);
-
-                var filme_link = posters[ct + 1]
-
-                a.addEventListener('click', () => {
-                  
-                  addPlayerNaPagina()
-                  playFilme(filme_link)
-                  //document.getElementById('player_filme').style.display = 'block'
-                  //console.clear()
-                  //console.log(filme_link)
-                  //document.getElementById('video').src = filme_link;
-                })
-
-              }
-
-            }
           }
-          ct += 2
 
-        });
+        }
+
+
       })
     }
 
 
 
 
-   // setInterval(() => {
-   //   document.getElementById('player_filme').style.height = '100vh'
-   //   document.getElementById('player_filme').style.width = '100vw'
-   // }, 1);
 
 
 
@@ -413,6 +434,13 @@
     addClick('Perfil', () => {
       redirecionar('perfil.html')
     })
-        </script>
-    </body>
+
+
+    addClick('sortearFilme', () => {
+      addPlayerNaPagina()
+      playFilme(sortearFilme())
+    })
+  </script>
+</body>
+
 </html>

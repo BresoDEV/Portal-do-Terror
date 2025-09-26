@@ -31,7 +31,7 @@ const posters = [
     'A Epidemia - 2010.jpg', 'https://archive.org/download/a-epidemia-2010/A Epidemia - 2010.mp4',//    14.6 kB','',//    11/06/2025, 10:26:14
     'A Espera do Mal - 2005.jpg', 'https://archive.org/download/a-espera-do-mal-2005/A Espera do Mal - 2005.mp4',//    9.0 kB','',//    11/06/2025, 10:26:14
     'A Experiência - 1995.jpg', 'https://archive.org/download/a-experiencia-1995/A Experiência - 1995.mp4',//    12.7 kB','',//    11/06/2025, 10:26:14
-    'A Experiência 2 - 1998.jpg', '',//    13.3 kB','',//    11/06/2025, 10:26:14
+    'A Experiência 2 - 1998.jpg', 'https://archive.org/download/a-experiencia-2-1998_202509/A%20Experi%C3%AAncia%202%20-%201998.mkv',//    13.3 kB','',//    11/06/2025, 10:26:14
     'A Experiência 3 - 2004.jpg', 'https://archive.org/download/a-experiencia-3-2004_202507/A Experiência 3 - 2004.mp4',//    12.1 kB','',//    11/06/2025, 10:26:14
     'A Experiência 4 - O Despertar - 2007.jpg', 'https://archive.org/download/a-experiencia-4-o-despertar-2007_202507/A Experiência 4 - O Despertar - 2007.mp4',//    14.3 kB','',//    11/06/2025, 10:26:14
     'A Filha de Drácula - 1936.jpg', 'https://archive.org/download/a-filha-de-dracula-1936_202509/A%20Filha%20de%20Dr%C3%A1cula%20-%201936.mkv',//    17.7 kB','',//    11/06/2025, 10:26:14
@@ -51,23 +51,23 @@ const posters = [
     'A Hora do Pesadelo 6.jpg', 'https://archive.org/download/a-hora-do-pesadelo-6_202509/A%20Hora%20do%20Pesadelo%206.mkv',//    11.3 kB','',//    11/06/2025, 10:26:16
     'A Hora do Pesadelo 7.jpg', 'https://archive.org/download/a-hora-do-pesadelo-7_202509/A%20Hora%20do%20Pesadelo%207.mkv',//    14.9 kB','',//    11/06/2025, 10:26:16
     'A Ilha do Dr. Moreau - 1977.jpg', '',//    10.8 kB','',//    11/06/2025, 10:26:16
-    'A Ilha do Dr. Moreau - 1996.jpg', '',//    11.0 kB','',//    11/06/2025, 10:26:16
-    'A Ilha dos Mortos.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:16
+    'A Ilha do Dr. Moreau - 1996.jpg', 'https://archive.org/download/a-ilha-do-dr.-moreau-1996_202509/A%20Ilha%20do%20Dr.%20Moreau%20-%201996.mkv',//    11.0 kB','',//    11/06/2025, 10:26:16
+    'A Ilha dos Mortos.jpg', 'https://archive.org/download/a-ilha-dos-mortos_202509/A%20Ilha%20dos%20Mortos.mkv',//    16.1 kB','',//    11/06/2025, 10:26:16
     'A LENDA DO CAVALEIRO FANTASMA.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:16
     'A Luz Do Demonio.jpg', '',//    8.0 kB','',//    11/06/2025, 10:26:16
-    'A Maldição da Casa Winchester - 2018.jpg', '',//    9.2 kB','',//    11/06/2025, 10:26:16
+    'A Maldição da Casa Winchester - 2018.jpg', 'https://archive.org/download/a-maldicao-da-casa-winchester-2018_202509/A%20Maldi%C3%A7%C3%A3o%20da%20Casa%20Winchester%20-%202018.mkv',//    9.2 kB','',//    11/06/2025, 10:26:16
     'A Maldição da Mosca - 1965.jpg', '',//    17.2 kB','',//    11/06/2025, 10:26:16
     'A Maldicao de Samantha.jpg', '',//    12.6 kB','',//    11/06/2025, 10:26:16
     'A Maldição do Mestre dos Brinquedos (1998).jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:16
     'A Montanha dos Canibais - 1978.jpg', '',//    17.5 kB','',//    11/06/2025, 10:26:16
     'A Morte do Demonio.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
     'A Morte é a Única Saída - 2017.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:16
-    'A Morte Pede Carona.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
+    'A Morte Pede Carona.jpg', 'https://archive.org/download/a-morte-pede-carona/A%20Morte%20Pede%20Carona.mp4',//    11.7 kB','',//    11/06/2025, 10:26:16
     'A Morte te dá Parabéns 1 - 2018.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:16
     'A Morte Te Dá Parabéns 2.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
     'A Mosca 1958.jpg', 'https://archive.org/download/a-mosca-1958/A%20Mosca%201958.mkv',//    6.6 kB','',//    11/06/2025, 10:26:16
-    'A Mosca - Remake - 1986.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:16
-    'A Mosca 2 - 1989.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:16
+    'A Mosca - Remake - 1986.jpg', 'https://archive.org/download/a-mosca-remake-1986/A%20Mosca%20-%20Remake%20-%201986.mkv',//    6.6 kB','',//    11/06/2025, 10:26:16
+    'A Mosca 2 - 1989.jpg', 'https://archive.org/download/a-mosca-2-1989/A%20Mosca%202%20-%201989.mkv',//    6.6 kB','',//    11/06/2025, 10:26:16
     'A Mulher de Preto 1.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:16
     'A Mulher de Preto 2.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:16
     'A Mumia - 1932.jpg', '',//    20.2 kB','',//    11/06/2025, 10:26:16
@@ -96,10 +96,10 @@ const posters = [
     'A Última Casa à Esquerda - Remake - 2009.jpg', '',//    10.5 kB','',//    11/06/2025, 10:26:16
     'A Vingança de Jennifer.jpg', '',//    12.9 kB','',//    11/06/2025, 10:26:16
     'A Viúva das Sombras - 2021.jpg', '',//    14.1 kB','',//    11/06/2025, 10:26:16
-    'A Volta dos Mortos Vivos 1.jpg', '',//    15.5 kB','',//    11/06/2025, 10:26:16
-    'A Volta dos Mortos Vivos 2.jpg', '',//    13.2 kB','',//    11/06/2025, 10:26:16
-    'A Volta dos Mortos Vivos 3.jpg', '',//    14.7 kB','',//    11/06/2025, 10:26:16
-    'A Volta dos Mortos Vivos 4.jpg', '',//    16.1 kB','',//    11/06/2025, 10:26:16
+    'A Volta dos Mortos Vivos 1.jpg', 'https://archive.org/download/a-volta-dos-mortos-vivos-1_202509/A%20Volta%20dos%20Mortos%20Vivos%201.mkv',//    15.5 kB','',//    11/06/2025, 10:26:16
+    'A Volta dos Mortos Vivos 2.jpg', 'https://archive.org/download/a-volta-dos-mortos-vivos-2/A%20Volta%20dos%20Mortos%20Vivos%202.mkv',//    13.2 kB','',//    11/06/2025, 10:26:16
+    'A Volta dos Mortos Vivos 3.jpg', 'https://archive.org/download/a-volta-dos-mortos-vivos-3/A%20Volta%20dos%20Mortos%20Vivos%203.mkv',//    14.7 kB','',//    11/06/2025, 10:26:16
+    'A Volta dos Mortos Vivos 4.jpg', 'https://archive.org/download/a-volta-dos-mortos-vivos-4-necropolis/A%20Volta%20dos%20Mortos%20Vivos%204%20-%20Necropolis.mkv',//    16.1 kB','',//    11/06/2025, 10:26:16
     'Abismo do Medo 1.jpg', '',//    15.7 kB','',//    11/06/2025, 10:26:16
     'Abismo do Medo 2.jpg', '',//    12.2 kB','',//    11/06/2025, 10:26:16
     'Advogado do Diabo.jpg', '',//    14.5 kB','',//    11/06/2025, 10:26:16
@@ -127,7 +127,7 @@ const posters = [
     'Annabelle 3 - De Volta Para Casa - 2019.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
     'Aprisionados - 2015.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
     'Aracnofobia - 1990.jpg', '',//    9.1 kB','',//    11/06/2025, 10:26:16
-    'Arraste-me para o Inferno.jpg', '',//    17.1 kB','',//    11/06/2025, 10:26:16
+    'Arraste-me para o Inferno.jpg', 'https://archive.org/download/arraste-me-para-o-inferno/Arraste-me%20para%20o%20Inferno.mkv',//    17.1 kB','',//    11/06/2025, 10:26:16
     'As Ruínas - 2008.jpg', '',//    11.9 kB','',//    11/06/2025, 10:26:16
     'As Senhoras de Salem - 2012.jpg', '',//    14.2 kB','',//    11/06/2025, 10:26:16
     'As Strippers Zumbis - 2007.jpg', '',//    17.9 kB','',//    11/06/2025, 10:26:16
@@ -176,10 +176,9 @@ const posters = [
     'Cemitério Maldito Remaster.jpg', '',//    12.1 kB','',//    11/06/2025, 10:26:16
     'Cemiterio Maldito - A Origem.jpg', '',//    8.4 kB','',//    11/06/2025, 10:26:16
     'Cemiterio Maldito - A Origem.png', '',//    181 kB','',//    20/10/2023, 11:05:40
-    'Centopeia Humana 1.jpg', '',//    13.7 kB','',//    11/06/2025, 10:26:16
+    'Centopeia Humana 1.jpg', 'https://archive.org/download/centopeia-humana-1/Centopeia%20Humana%201.mp4',//    13.7 kB','',//    11/06/2025, 10:26:16
     'Centopeia Humana 2.jpg', 'https://archive.org/download/centopeia-humana-2/Centopeia Humana 2.ia.mp4',//    12.0 kB','',//    11/06/2025, 10:26:16
-    'Centopeia Humana 2.png', '',//    714 kB','',//    14/11/2022, 05:48:44
-    'Centopeia Humana 3.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
+    'Centopeia Humana 3.jpg', 'https://archive.org/download/centopeia-humana-3/Centopeia%20Humana%203.mp4',//    11.4 kB','',//    11/06/2025, 10:26:16
     'Cerdita.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
     'Chamado vs O Grito - 2018.jpg', '',//    12.7 kB','',//    11/06/2025, 10:26:16
     'Chernobyl - Sinta a Radiação - 2012.jpg', '',//    15.8 kB','',//    11/06/2025, 10:26:16

@@ -1,5 +1,12 @@
 
 
+var array_links_de_filmes_validos = []
+var array_capas_de_filmes_validos = []
+var esconder_botoes_favoritos_video_ai_iniciar_o_filme = true;
+var efeitoVHS = true;
+var tempoEfeitoVHS = 3000;
+var itensPorPagina = 20
+
 function estaLogado() {
     return localStorage.getItem('Portal_estaLogado') !== null
 }
@@ -44,6 +51,12 @@ function getSenha() {
 }
 function setSenha(key) {
     localStorage.setItem('Portal_senha', key)
+}
+//--------------------------------------
+function ehDEV(){
+    console.log(getnomeDefinido())
+    console.log(usuarios[getnomeDefinido()].dev)
+    return usuarios[getnomeDefinido()].dev =='1'
 }
 //--------------------------------------
 
@@ -153,9 +166,17 @@ function inner(id, valor) {
 }
 
 //------------------------
+
+if (!localStorage.getItem('contador_de_minutos_assistidos')) {
+    localStorage.setItem('contador_de_minutos_assistidos', '0')
+}
+var contador_de_minutos_assistidos = parseInt(localStorage.getItem('contador_de_minutos_assistidos'));
+var looping_contador_de_minutos_assistidos;
+//-------------------------------
+
 function addPlayerNaPagina() {
 
-  
+
     const div = document.createElement('div')
     div.id = 'player_filme'
     //div.style.display = 'none'
@@ -173,6 +194,7 @@ function addPlayerNaPagina() {
     video.style.height = '100vh'
     video.src = ' '
     video.controls = true
+
 
 
     const fechar = document.createElement('div')
@@ -201,18 +223,51 @@ function addPlayerNaPagina() {
     addfavorito.textContent = '⭐'
     addfavorito.id = 'addfavorito_botao'
 
+
+
+
+
+
+
     div.appendChild(video)
     div.appendChild(fechar)
     div.appendChild(addfavorito)
+
+    
+    if (efeitoVHS) {
+        const ruido = document.createElement('img')
+        ruido.id = 'ruido'
+        ruido.style.width = '100vw'
+        ruido.style.height = '100vh'
+        ruido.style.zIndex = 100000
+        ruido.style.position = 'fixed'
+        ruido.style.left = '0'
+        ruido.style.top = '0'
+        ruido.style.backgroundColor = 'transparent'
+    
+        var index = Math.floor(Math.random()*4)
+        ruido.src = 'img/ruido'+index+'.gif'
+
+        div.appendChild(ruido)
+    }
+
     document.body.appendChild(div)
 
-
+    //===================================
+    looping_contador_de_minutos_assistidos = setInterval(() => {
+        contador_de_minutos_assistidos++
+        localStorage.setItem('contador_de_minutos_assistidos', contador_de_minutos_assistidos)
+        console.log(contador_de_minutos_assistidos)
+    }, 60000);
+    //===================================
 
     //desabilita o botao de download se nao for conta MASTER
     if (obterMeuPlano() !== 'master') {
         video.setAttribute("controlsList", "nodownload");
         video.controls = false
     }
+
+
 
 }
 
@@ -223,7 +278,45 @@ function playFilme(nome) {
 
                 //get('player_filme').style.display = 'block'
                 get('video').src = nome
-                get('video').play()
+
+                get('video').poster = buscar_capa_via_link(posters, nome)
+
+
+
+                setTimeout(() => {
+                    get('video').play()
+                    if(efeitoVHS){
+                        get('ruido').remove()
+                    }
+                    
+                }, tempoEfeitoVHS);
+
+                //---------------------------------------
+                if (esconder_botoes_favoritos_video_ai_iniciar_o_filme) {
+                    setTimeout(() => {
+                        
+                            get('fechar').style.display = 'none'
+                            get('addfavorito_botao').style.display = 'none'
+                    }, 4000);
+
+                    get('video').addEventListener('touchstart', () => {
+                        get('fechar').style.display = 'block'
+                        get('addfavorito_botao').style.display = 'block'
+                        setTimeout(() => {
+                            get('fechar').style.display = 'none'
+                            get('addfavorito_botao').style.display = 'none'
+                        }, 4000);
+                    })
+                    get('video').addEventListener('mousemove', () => {
+                        get('fechar').style.display = 'block'
+                        get('addfavorito_botao').style.display = 'block'
+                        setTimeout(() => {
+                            get('fechar').style.display = 'none'
+                            get('addfavorito_botao').style.display = 'none'
+                        }, 4000);
+                    })
+                }
+
 
 
                 //-------------------------
@@ -236,9 +329,10 @@ function playFilme(nome) {
 
 
                 addClick('fechar', () => {
-                    //get('video').stop()
                     get('video').src = ' '
                     get('player_filme').remove();
+
+                    clearInterval(looping_contador_de_minutos_assistidos)
                 })
 
                 addClick('addfavorito_botao', () => {
@@ -329,6 +423,36 @@ function removerFilmeFavoritos(link) {
     }
 }
 
+//-----------------------------------
+function sortearFilme() {
+    return array_links_de_filmes_validos[Math.floor(Math.random() * array_links_de_filmes_validos.length)]
+}
+
+
+//-----------------------------------
+function detectarDispositivo() {
+    const userAgent = navigator.userAgent.toLowerCase();
+
+    if (/playstation 5/.test(userAgent)) return 'PlayStation 5';
+    if (/playstation 4/.test(userAgent)) return 'PlayStation 4';
+    if (/xbox/.test(userAgent)) return 'Xbox';
+    if (/smart-tv|smarttv|tizen|webos|appletv|tv safari/.test(userAgent)) return 'Smart TV';
+    if (/ipad/.test(userAgent)) return 'Tablet (iPad)';
+    if (/android/.test(userAgent) && !/mobile/.test(userAgent)) return 'Tablet (Android)';
+    if (/tablet/.test(userAgent)) return 'Tablet';
+    if (/android|iphone|ipod|mobile/.test(userAgent)) return 'Celular';
+    if (/windows nt|macintosh|x11/.test(userAgent)) return 'Computador';
+
+    return 'Desconhecido';
+}
+
+function obterDadosGET(id){
+    const params = new URLSearchParams(window.location.search);
+    if(params.get(id)){
+        return params.get(id);
+    }
+    return ''
+}
 
 //--------------------------------------------------
 console.log('----------------');

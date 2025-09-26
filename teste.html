@@ -23,25 +23,20 @@
   <button id="Processar">Processar</button>
   <br>
   <br>
+  <input type="text" id="desc"><button id="Copiardesc">Copiar</button><br>
+  <br>
   <input type="text" id="tags"><button id="Copiartags">Copiar</button><br>
   <br>
-  <input type="text" id="desc"><button id="Copiardesc">Copiar</button><br>
 
   <hr>
   <br>
-  <button id="Reproduzir">Reproduzir filme</button>
-
-  <hr>
+  <button id="CriarDIV">Criar</button>
   <br>
-  <button id="addfilmefavoritos">Add Filme favoritos</button>
-  <button id="listarfilmefavoritos">Listar Filme favoritos</button>
-  <br>
-  <p id="aa"></p>
-  <p id="bbb"></p>
+  <button id="ApagarDIV">Apagar</button>
+<p id="p"></p>
 
 
 </body>
-
 
 
 
@@ -51,54 +46,12 @@
 
 
 
-
-
-
-  //------------------------------------------------------------------------
-  addClick('addfilmefavoritos', () => {
-
-    addfilmefavoritos(Math.floor(Math.random() * 100))
-
-  })
-
-
-  addClick('listarfilmefavoritos', () => {
-    listarfilmefavoritos().forEach(x => {
-      console.log(x)
-    });
-  })
+  
 
 
 
 
 
-
-  //--------------------------------------------------------------------------
-  //--------------------------------------------------------------------------
-  addClick('Reproduzir', () => {
-    addPlayerNaPagina()
-    playFilme(posters[3])
-  })
-  //--------------------------------------------------------------------------
-  function detectarDispositivo() {
-    const userAgent = navigator.userAgent.toLowerCase();
-
-    if (/playstation 5/.test(userAgent)) return 'PlayStation 5';
-    if (/playstation 4/.test(userAgent)) return 'PlayStation 4';
-    if (/xbox/.test(userAgent)) return 'Xbox';
-    if (/smart-tv|smarttv|tizen|webos|appletv|tv safari/.test(userAgent)) return 'Smart TV';
-    if (/ipad/.test(userAgent)) return 'Tablet (iPad)';
-    if (/android/.test(userAgent) && !/mobile/.test(userAgent)) return 'Tablet (Android)';
-    if (/tablet/.test(userAgent)) return 'Tablet';
-    if (/android|iphone|ipod|mobile/.test(userAgent)) return 'Celular';
-    if (/windows nt|macintosh|x11/.test(userAgent)) return 'Computador';
-
-    return 'Desconhecido';
-  }
-
-  // Exemplo de uso:
-  const tipoDispositivo = detectarDispositivo();
-  //document.body.innerHTML += `<p><strong>Dispositivo detectado:</strong> ${tipoDispositivo}</p>`;
 
 
   //--------------------------------------------------------------------------
