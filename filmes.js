@@ -60,19 +60,20 @@ const posters = [
     'A Maldicao de Samantha.jpg', '',//    12.6 kB','',//    11/06/2025, 10:26:16
     'A Maldição do Mestre dos Brinquedos (1998).jpg', '',//    13.8 kB','',//    11/06/2025, 10:26:16
     'A Montanha dos Canibais - 1978.jpg', '',//    17.5 kB','',//    11/06/2025, 10:26:16
-    'A Morte do Demonio.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
-    'A Morte é a Única Saída - 2017.jpg', '',//    14.9 kB','',//    11/06/2025, 10:26:16
+    'A Morte do Demonio.jpg', 'https://archive.org/download/a-morte-do-demonio_202509/A%20Morte%20do%20Demonio.mp4',//    11.7 kB','',//    11/06/2025, 10:26:16
+    'A Morte é a Única Saída - 2017.jpg', 'https://archive.org/download/a-morte-e-a-unica-saida-2017/A%20Morte%20%C3%A9%20a%20%C3%9Anica%20Sa%C3%ADda%20-%202017.mkv',//    14.9 kB','',//    11/06/2025, 10:26:16
     'A Morte Pede Carona.jpg', 'https://archive.org/download/a-morte-pede-carona/A%20Morte%20Pede%20Carona.mp4',//    11.7 kB','',//    11/06/2025, 10:26:16
-    'A Morte te dá Parabéns 1 - 2018.jpg', '',//    14.8 kB','',//    11/06/2025, 10:26:16
-    'A Morte Te Dá Parabéns 2.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
+    'A Morte te dá Parabéns 1 - 2018.jpg', 'https://archive.org/download/a-morte-te-da-parabens-1-2018/A%20Morte%20Te%20D%C3%A1%20Parab%C3%A9ns%201%20-%202018.mkv',//    14.8 kB','',//    11/06/2025, 10:26:16
+    'A Morte Te Dá Parabéns 2.jpg', 'https://archive.org/download/a-morte-te-da-parabens-2/A%20Morte%20Te%20D%C3%A1%20Parab%C3%A9ns%202.mp4',//    9.7 kB','',//    11/06/2025, 10:26:16
     'A Mosca 1958.jpg', 'https://archive.org/download/a-mosca-1958/A%20Mosca%201958.mkv',//    6.6 kB','',//    11/06/2025, 10:26:16
     'A Mosca - Remake - 1986.jpg', 'https://archive.org/download/a-mosca-remake-1986/A%20Mosca%20-%20Remake%20-%201986.mkv',//    6.6 kB','',//    11/06/2025, 10:26:16
     'A Mosca 2 - 1989.jpg', 'https://archive.org/download/a-mosca-2-1989/A%20Mosca%202%20-%201989.mkv',//    6.6 kB','',//    11/06/2025, 10:26:16
-    'A Mulher de Preto 1.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:16
-    'A Mulher de Preto 2.jpg', '',//    12.3 kB','',//    11/06/2025, 10:26:16
-    'A Mumia - 1932.jpg', '',//    20.2 kB','',//    11/06/2025, 10:26:16
-    'A Múmia - 1959.jpg', '',//    16.6 kB','',//    11/06/2025, 10:26:16
-    'A Múmia - 2017.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:16
+    'A Mulher de Preto 1.jpg', 'https://archive.org/download/a-mulher-de-preto-1/A%20Mulher%20de%20Preto%201.mkv',//    12.3 kB','',//    11/06/2025, 10:26:16
+    'A Mulher de Preto 2.jpg', 'https://archive.org/download/a-mulher-de-preto-2/A%20Mulher%20de%20Preto%202.mkv',//    12.3 kB','',//    11/06/2025, 10:26:16
+    'A Mulher no Jardim.jpg', 'https://archive.org/download/a-mulher-no-jardim/A%20Mulher%20no%20Jardim.mp4',//    12.3 kB','',//    11/06/2025, 10:26:16
+    'A Mumia - 1932.jpg', 'https://archive.org/download/a-mumia-1932/A%20Mumia%20-%201932.mkv',//    20.2 kB','',//    11/06/2025, 10:26:16
+    'A Múmia - 1959.jpg', 'https://archive.org/download/a-mumia-1959/A%20M%C3%BAmia%20-%201959.mkv',//    16.6 kB','',//    11/06/2025, 10:26:16
+    'A Múmia - 2017.jpg', 'https://archive.org/download/a-mumia-2017/A%20M%C3%BAmia%20-%202017.mkv',//    11.5 kB','',//    11/06/2025, 10:26:16
     'A Noite dos Mortos Vivos - 1990.jpg', '',//    14.4 kB','',//    11/06/2025, 10:26:16
     'A Noite dos Mortos Vivos - Re-Animação - 2012.jpg', '',//    16.5 kB','',//    11/06/2025, 10:26:16
     'A Noite dos Mortos Vivos 3D - 2006.jpg', '',//    16.8 kB','',//    11/06/2025, 10:26:16
@@ -122,9 +123,9 @@ const posters = [
     'Anjos Rebeldes 3.jpg', '',//    11.5 kB','',//    11/06/2025, 10:26:16
     'Anjos Rebeldes 4.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
     'Anjos Rebeldes 5.jpg', '',//    11.4 kB','',//    11/06/2025, 10:26:16
-    'Annabelle 1 - 2014.jpg', '',//    6.6 kB','',//    11/06/2025, 10:26:16
-    'Annabelle 2 - A Criação do Mal.jpg', '',//    13.0 kB','',//    11/06/2025, 10:26:16
-    'Annabelle 3 - De Volta Para Casa - 2019.jpg', '',//    11.7 kB','',//    11/06/2025, 10:26:16
+    'Annabelle 1 - 2014.jpg', 'https://archive.org/download/annabelle-1-2014/Annabelle%201%20-%202014.mkv',//    6.6 kB','',//    11/06/2025, 10:26:16
+    'Annabelle 2 - A Criação do Mal.jpg', 'https://archive.org/download/annabelle-2-a-criacao-do-mal_202509/Annabelle%202%20-%20A%20Cria%C3%A7%C3%A3o%20do%20Mal.mkv',//    13.0 kB','',//    11/06/2025, 10:26:16
+    'Annabelle 3 - De Volta Para Casa - 2019.jpg', 'https://archive.org/download/annabelle-3-de-volta-para-casa-2019/Annabelle%203%20-%20De%20Volta%20Para%20Casa%20-%202019.mkv',//    11.7 kB','',//    11/06/2025, 10:26:16
     'Aprisionados - 2015.jpg', '',//    9.7 kB','',//    11/06/2025, 10:26:16
     'Aracnofobia - 1990.jpg', '',//    9.1 kB','',//    11/06/2025, 10:26:16
     'Arraste-me para o Inferno.jpg', 'https://archive.org/download/arraste-me-para-o-inferno/Arraste-me%20para%20o%20Inferno.mkv',//    17.1 kB','',//    11/06/2025, 10:26:16
@@ -169,7 +170,7 @@ const posters = [
     'Cães Assassinos - 2006.jpg', '',//    8.6 kB','',//    11/06/2025, 10:26:18
     'Canibais - A Tribo.jpg', '',//    11.6 kB','',//    11/06/2025, 10:26:16
     'Carrie - A Estranha 1976.jpg', 'https://archive.org/download/carrie-a-estranha-1976_202509/Carrie%20-%20A%20Estranha%201976.mp4',//    15.0 kB','',//    11/06/2025, 10:26:16
-    'Carrie, a Estranha - 2002.jpg', '',//    188 kB','',//    23/06/2025, 12:40:24
+    'Carrie, a Estranha - 2002.jpg', 'https://archive.org/download/carrie-a-estranha-2002/Carrie%2C%20a%20Estranha%20-%202002.mp4',//    188 kB','',//    23/06/2025, 12:40:24
     'Cemiterio Maldito 1.jpg', '',//    15.6 kB','',//    11/06/2025, 10:26:16
     'Cemiterio Maldito 2.jpg', '',//    11.3 kB','',//    11/06/2025, 10:26:16
     'Cemitério Maldito Remaster.jpg', '',//    10.7 kB','',//    11/06/2025, 10:26:16

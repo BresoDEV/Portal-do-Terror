@@ -5,7 +5,18 @@ var array_capas_de_filmes_validos = []
 var esconder_botoes_favoritos_video_ai_iniciar_o_filme = true;
 var efeitoVHS = true;
 var tempoEfeitoVHS = 3000;
-var itensPorPagina = 20
+var itensPorPagina = 30
+
+
+
+if (!localStorage.getItem('efeitoVHS')) {
+    localStorage.setItem('efeitoVHS', '1')
+}
+if (localStorage.getItem('efeitoVHS') == '1') {
+    efeitoVHS = true
+} else {
+    efeitoVHS = false
+}
 
 function estaLogado() {
     return localStorage.getItem('Portal_estaLogado') !== null
@@ -53,10 +64,10 @@ function setSenha(key) {
     localStorage.setItem('Portal_senha', key)
 }
 //--------------------------------------
-function ehDEV(){
+function ehDEV() {
     console.log(getnomeDefinido())
     console.log(usuarios[getnomeDefinido()].dev)
-    return usuarios[getnomeDefinido()].dev =='1'
+    return usuarios[getnomeDefinido()].dev == '1'
 }
 //--------------------------------------
 
@@ -233,7 +244,7 @@ function addPlayerNaPagina() {
     div.appendChild(fechar)
     div.appendChild(addfavorito)
 
-    
+
     if (efeitoVHS) {
         const ruido = document.createElement('img')
         ruido.id = 'ruido'
@@ -244,9 +255,9 @@ function addPlayerNaPagina() {
         ruido.style.left = '0'
         ruido.style.top = '0'
         ruido.style.backgroundColor = 'transparent'
-    
-        var index = Math.floor(Math.random()*4)
-        ruido.src = 'img/ruido'+index+'.gif'
+
+        var index = Math.floor(Math.random() * 4)
+        ruido.src = 'img/ruido' + index + '.gif'
 
         div.appendChild(ruido)
     }
@@ -285,18 +296,18 @@ function playFilme(nome) {
 
                 setTimeout(() => {
                     get('video').play()
-                    if(efeitoVHS){
+                    if (efeitoVHS) {
                         get('ruido').remove()
                     }
-                    
+
                 }, tempoEfeitoVHS);
 
                 //---------------------------------------
                 if (esconder_botoes_favoritos_video_ai_iniciar_o_filme) {
                     setTimeout(() => {
-                        
-                            get('fechar').style.display = 'none'
-                            get('addfavorito_botao').style.display = 'none'
+
+                        get('fechar').style.display = 'none'
+                        get('addfavorito_botao').style.display = 'none'
                     }, 4000);
 
                     get('video').addEventListener('touchstart', () => {
@@ -384,7 +395,7 @@ function addfilmefavoritos(link) {
         favs.push(link)
         localStorage.setItem('Favoritos do Terror', JSON.stringify(favs))
     } else {
-        var favs = ['']
+        var favs = [link]
         localStorage.setItem('Favoritos do Terror', JSON.stringify(favs))
     }
 }
@@ -446,13 +457,63 @@ function detectarDispositivo() {
     return 'Desconhecido';
 }
 
-function obterDadosGET(id){
+function obterDadosGET(id) {
     const params = new URLSearchParams(window.location.search);
-    if(params.get(id)){
+    if (params.get(id)) {
         return params.get(id);
     }
     return ''
 }
+
+//--------------------------------------------------
+
+//script neve
+document.querySelectorAll('a').forEach(x => {
+    x.innerHTML += ' &#127876;'
+});
+
+function nevando() {
+
+    var larg = screen.width;
+    var alt = screen.height;
+
+    var posX = Math.floor(Math.random() * larg)
+    var posY = 0 - Math.floor(Math.random() * 500)
+
+    const div = document.createElement('div')
+    div.style.position = 'fixed'
+    div.style.width = '3px'
+    div.style.height = '3px'
+    div.style.backgroundColor = 'white'
+    div.style.top = posY + 'px'
+    div.style.left = posX + 'px'
+    div.style.borderRadius = '150%'
+    div.textContent = ' '
+
+    const adicao = Math.floor(Math.random() * 3) + 1
+
+    var vv = setInterval(() => {
+
+        if (posY < (alt + 10)) {
+            posY += adicao
+            div.style.top = posY + 'px'
+            div.style.left = posX + 'px'
+        } else {
+            //saiu da tela
+            div.remove()
+            clearInterval(vv)
+            nevando()
+        }
+
+
+    }, 50);
+
+    document.body.appendChild(div)
+}
+
+
+
+
 
 //--------------------------------------------------
 console.log('----------------');

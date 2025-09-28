@@ -16,6 +16,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Meu Perfil - Portaria para o Inferno</title>
     <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+            /* Remove o flash azul no toque */
+            -webkit-touch-callout: none;
+            /* Remove menu de toque (iOS) */
+            user-select: none;
+            /* Impede seleção de texto acidental (opcional) */
+            -webkit-user-select: none;
+            /* Compatibilidade com WebKit */
+        }
+
         body {
             background: url('img/bg.jpg') no-repeat center center fixed;
             background-size: cover;
@@ -95,7 +106,8 @@
             margin-top: 30px;
         }
 
-        .actions a {
+        .actions a,
+        button {
             display: inline-block;
             background-color: #f44336;
             padding: 12px 25px;
@@ -192,7 +204,7 @@
     <main class="profile-container">
         <div class="profile-info">
             <div class="profile-picture">
-                <img src="img/boo.gif" alt="Foto do usuário">
+                <img src="" id="Foto" alt="Foto do usuário">
             </div>
             <div class="profile-details" style="flex: none;">
                 <h2 id="nome">Nome do Usuário</h2>
@@ -218,6 +230,7 @@
             <center id="bts">
                 <a href="filmes.html">Assistir Filmes</a>
                 <a id="Sair">Deslogar</a>
+                <a id="VHS">Efeito VHS</a>
             </center>
         </div>
         <h3 id="Meus filmes favoritos">Meus filmes favoritos:</h3>
@@ -233,11 +246,43 @@
 <script>
 
 
+    for (let i = 0; i < 50; i++) {
+        nevando()
+    }
+
+
+    get('Foto').src = 'img/perfil/' + Math.floor(Math.random() * 6) + '.jpg'
+
     ///------------------------------------------------------------------
 
     if (ehDEV()) {
-        get('bts').innerHTML += '<a href="adm.html" style="background-color: rgba(0, 200, 0, 0.7);">DEV</a>'
+        get('bts').innerHTML += '<a href="adm.html" style="background-color: rgba(0, 200, 200, 0.7);">DEV</a>'
     }
+
+    //--------------------------------------------
+
+
+    if (localStorage.getItem('efeitoVHS') == '1') {
+        get('VHS').style.backgroundColor = 'green'
+        get('VHS').textContent = 'Efeito VHS: Ativado'
+    }
+    else {
+        get('VHS').style.backgroundColor = 'red'
+        get('VHS').textContent = 'Efeito VHS: Desativado'
+    }
+
+    addClick('VHS', () => {
+
+
+        if (localStorage.getItem('efeitoVHS') == '1') {
+            localStorage.setItem('efeitoVHS', '0')
+        }
+        else {
+            localStorage.setItem('efeitoVHS', '1')
+        }
+        window.location.reload()
+    })
+    //--------------------------------------------
 
 
 

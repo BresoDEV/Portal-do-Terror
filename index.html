@@ -26,6 +26,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portaria para o Inferno - Filmes de Terror</title>
     <style>
+        *{
+            -webkit-tap-highlight-color: transparent;
+            /* Remove o flash azul no toque */
+            -webkit-touch-callout: none;
+            /* Remove menu de toque (iOS) */
+            user-select: none;
+            /* Impede seleção de texto acidental (opcional) */
+            -webkit-user-select: none;
+            /* Compatibilidade com WebKit */
+        }
+        
         body {
             background: url('img/bg.jpg') no-repeat center center fixed;
             background-size: cover;
@@ -49,6 +60,7 @@
             color: white;
             font-weight: bold;
             transition: all 0.3s ease;
+            
         }
 
         a:hover {
@@ -85,6 +97,7 @@
             font-size: 1.1rem;
             margin: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            
         }
 
         /* Seção Como Funciona */

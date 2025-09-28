@@ -19,6 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Catálogo de Filmes — Apenas Capas</title>
   <style>
+    
     :root {
       --bg: #0b0b0d;
       --card: #0f1720;
@@ -28,6 +29,15 @@
     }
 
     * {
+      -webkit-tap-highlight-color: transparent;
+            /* Remove o flash azul no toque */
+            -webkit-touch-callout: none;
+            /* Remove menu de toque (iOS) */
+            user-select: none;
+            /* Impede seleção de texto acidental (opcional) */
+            -webkit-user-select: none;
+            /* Compatibilidade com WebKit */
+            
       box-sizing: border-box
     }
 

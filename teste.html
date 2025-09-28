@@ -12,28 +12,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>aa</title>
 </head>
+<style>
+  * {
+    -webkit-tap-highlight-color: transparent;
+    /* Remove o flash azul no toque */
+    -webkit-touch-callout: none;
+    /* Remove menu de toque (iOS) */
+    user-select: none;
+    /* Impede seleção de texto acidental (opcional) */
+    -webkit-user-select: none;
+    /* Compatibilidade com WebKit */
+  }
+
+  * {
+    background-color: rgb(33, 33, 33);
+    color: aliceblue;
+    border-radius: 5px;
+    border: none;
+    font-size: 110%;
+  }
+
+  hr {
+    border: 1px solid lime;
+  }
+
+  input,
+  button,
+  textarea {
+    width: 50%;
+    background-color: rgb(80, 80, 80);
+    margin-top: 5px;
+    resize: none;
+    padding: 5px;
+  }
+
+  textarea {
+    height: 100px;
+  }
+</style>
 
 <body>
-  <br>
-  <br>
-  <br>
-  <br>
-  <input type="text" id="nome_filme" placeholder="Nome do Filme">
-  <br>
-  <button id="Processar">Processar</button>
-  <br>
-  <br>
-  <input type="text" id="desc"><button id="Copiardesc">Copiar</button><br>
-  <br>
-  <input type="text" id="tags"><button id="Copiartags">Copiar</button><br>
-  <br>
+  <center>
+    <br>
+    <input type="text" id="nome_filme" placeholder="Nome do Filme">
+    <br>
+    <button id="Processar">Processar</button>
+    <br>
+    <br>
+    <textarea type="text" id="desc"></textarea><br><button id="Copiardesc">Copiar</button>
+    <br>
+    <br>
+    <textarea type="text" id="tags"></textarea><br><button id="Copiartags">Copiar</button><br>
+    <br>
+  </center>
 
   <hr>
+  <textarea name="" id="textarea" cols="30" rows="10"></textarea>
   <br>
-  <button id="CriarDIV">Criar</button>
-  <br>
-  <button id="ApagarDIV">Apagar</button>
-<p id="p"></p>
+
+  <p id="p"></p>
 
 
 </body>
@@ -46,13 +83,20 @@
 
 
 
-  
+  setInterval(() => {
+    if (apertando) {
+      console.log('apertando')
+    }
+  }, 5000);
 
 
+  //--------------------------------------------------------------------------
 
-
-
-
+  get('nome_filme').addEventListener('mouseenter', () => {
+    get('nome_filme').value = ''
+    get('tags').value = ''
+    get('desc').value = ''
+  })
 
   //--------------------------------------------------------------------------
   const frases = [
@@ -123,7 +167,7 @@
             setTimeout(() => {
               get('nome_filme').style.backgroundColor = 'red'
               setTimeout(() => {
-                get('nome_filme').style.backgroundColor = 'white'
+                get('nome_filme').style.backgroundColor = 'rgb(80, 80, 80)'
 
               }, 250);
             }, 250);

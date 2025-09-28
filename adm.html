@@ -6,6 +6,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+      * {
+            -webkit-tap-highlight-color: transparent;
+            /* Remove o flash azul no toque */
+            -webkit-touch-callout: none;
+            /* Remove menu de toque (iOS) */
+            user-select: none;
+            /* Impede seleção de texto acidental (opcional) */
+            -webkit-user-select: none;
+            /* Compatibilidade com WebKit */
+        }
+        
     button {
         padding: 1vw;
         border-radius: 1vw;
@@ -48,6 +59,7 @@
 <center>
     <button onclick="window.location.reload()">Esconder tudo</button><br>
     <button onclick="window.location.href='perfil.html'">Voltar</button><br><br>
+    <button id="deletarfilmesfavoritos">deletar favoritos</button><br>
     <button id="clearStorage">clear Storage</button><br>
     <button id="ListarUsers">Listar users</button><br>
     <button id="ListarUsers2">Listar users 2</button><br>
@@ -120,6 +132,11 @@
 
     addClick('clearStorage', () => {
         localStorage.clear();
+    })
+
+
+    addClick('deletarfilmesfavoritos', () => {
+        deletarfilmesfavoritos();
     })
 
 
