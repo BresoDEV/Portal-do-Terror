@@ -6,6 +6,7 @@ var esconder_botoes_favoritos_video_ai_iniciar_o_filme = true;
 var efeitoVHS = true;
 var tempoEfeitoVHS = 3000;
 var itensPorPagina = 30
+var usarBibliotecaVIDEOJS = true
 
 
 
@@ -185,100 +186,99 @@ var contador_de_minutos_assistidos = parseInt(localStorage.getItem('contador_de_
 var looping_contador_de_minutos_assistidos;
 //-------------------------------
 
+
+
 function addPlayerNaPagina() {
 
-
     const div = document.createElement('div')
-    div.id = 'player_filme'
-    //div.style.display = 'none'
-    div.style.width = '100%'
-    div.style.height = '100%'
-    div.style.backgroundColor = 'black'
-    div.style.position = 'fixed'
-    div.style.left = '0'
-    div.style.top = '0'
-    div.style.zIndex = '1000000'
+        div.id = 'player_filme'
+        //div.style.display = 'none'
+        div.style.width = '100%'
+        div.style.height = '100%'
+        div.style.backgroundColor = 'black'
+        div.style.position = 'fixed'
+        div.style.left = '0'
+        div.style.top = '0'
+        div.style.zIndex = '1000000'
 
-    const video = document.createElement('video')
-    video.id = 'video'
-    video.style.width = '100%'
-    video.style.height = '100vh'
-    video.src = ' '
-    video.controls = true
-
-
-
-    const fechar = document.createElement('div')
-    fechar.style.fontFamily = 'Calibri'
-    fechar.style.backgroundColor = 'rgb(21, 21, 21)'
-    fechar.style.color = 'rgb(194, 77, 77)'
-    fechar.style.padding = '5px'
-    fechar.style.borderRadius = '150%'
-    fechar.style.position = 'fixed'
-    fechar.style.right = '2%'
-    fechar.style.top = '2%'
-    fechar.style.fontSize = 'x-large'
-    fechar.textContent = '❌'
-    fechar.id = 'fechar'
-
-    const addfavorito = document.createElement('div')
-    addfavorito.style.fontFamily = 'Calibri'
-    addfavorito.style.backgroundColor = 'rgb(21, 21, 21)'
-    addfavorito.style.color = 'rgb(194, 77, 77)'
-    addfavorito.style.padding = '5px'
-    addfavorito.style.borderRadius = '150%'
-    addfavorito.style.position = 'fixed'
-    addfavorito.style.left = '2%'
-    addfavorito.style.top = '2%'
-    addfavorito.style.fontSize = 'x-large'
-    addfavorito.textContent = '⭐'
-    addfavorito.id = 'addfavorito_botao'
+        const video = document.createElement('video')
+        video.id = 'video'
+        video.style.width = '100%'
+        video.style.height = '100vh'
+        video.src = ' '
+        video.controls = true
 
 
+
+        const fechar = document.createElement('div')
+        fechar.style.fontFamily = 'Calibri'
+        fechar.style.backgroundColor = 'rgb(21, 21, 21)'
+        fechar.style.color = 'rgb(194, 77, 77)'
+        fechar.style.padding = '5px'
+        fechar.style.borderRadius = '150%'
+        fechar.style.position = 'fixed'
+        fechar.style.right = '2%'
+        fechar.style.top = '2%'
+        fechar.style.fontSize = 'x-large'
+        fechar.textContent = '❌'
+        fechar.id = 'fechar'
+
+        const addfavorito = document.createElement('div')
+        addfavorito.style.fontFamily = 'Calibri'
+        addfavorito.style.backgroundColor = 'rgb(21, 21, 21)'
+        addfavorito.style.color = 'rgb(194, 77, 77)'
+        addfavorito.style.padding = '5px'
+        addfavorito.style.borderRadius = '150%'
+        addfavorito.style.position = 'fixed'
+        addfavorito.style.left = '2%'
+        addfavorito.style.top = '2%'
+        addfavorito.style.fontSize = 'x-large'
+        addfavorito.textContent = '⭐'
+        addfavorito.id = 'addfavorito_botao'
 
 
 
 
 
-    div.appendChild(video)
-    div.appendChild(fechar)
-    div.appendChild(addfavorito)
 
 
-    if (efeitoVHS) {
-        const ruido = document.createElement('img')
-        ruido.id = 'ruido'
-        ruido.style.width = '100vw'
-        ruido.style.height = '100vh'
-        ruido.style.zIndex = 100000
-        ruido.style.position = 'fixed'
-        ruido.style.left = '0'
-        ruido.style.top = '0'
-        ruido.style.backgroundColor = 'transparent'
-
-        var index = Math.floor(Math.random() * 4)
-        ruido.src = 'img/ruido' + index + '.gif'
-
-        div.appendChild(ruido)
-    }
-
-    document.body.appendChild(div)
-
-    //===================================
-    looping_contador_de_minutos_assistidos = setInterval(() => {
-        contador_de_minutos_assistidos++
-        localStorage.setItem('contador_de_minutos_assistidos', contador_de_minutos_assistidos)
-        console.log(contador_de_minutos_assistidos)
-    }, 60000);
-    //===================================
-
-    //desabilita o botao de download se nao for conta MASTER
-    if (obterMeuPlano() !== 'master') {
-        video.setAttribute("controlsList", "nodownload");
-        video.controls = false
-    }
+        div.appendChild(video)
+        div.appendChild(fechar)
+        div.appendChild(addfavorito)
 
 
+        if (efeitoVHS) {
+            const ruido = document.createElement('img')
+            ruido.id = 'ruido'
+            ruido.style.width = '100vw'
+            ruido.style.height = '100vh'
+            ruido.style.zIndex = 100000
+            ruido.style.position = 'fixed'
+            ruido.style.left = '0'
+            ruido.style.top = '0'
+            ruido.style.backgroundColor = 'transparent'
+
+            var index = Math.floor(Math.random() * 4)
+            ruido.src = 'img/ruido' + index + '.gif'
+
+            div.appendChild(ruido)
+        }
+
+        document.body.appendChild(div)
+
+        //===================================
+        looping_contador_de_minutos_assistidos = setInterval(() => {
+            contador_de_minutos_assistidos++
+            localStorage.setItem('contador_de_minutos_assistidos', contador_de_minutos_assistidos)
+            console.log(contador_de_minutos_assistidos)
+        }, 60000);
+        //===================================
+
+        //desabilita o botao de download se nao for conta MASTER
+        if (obterMeuPlano() !== 'master') {
+            video.setAttribute("controlsList", "nodownload");
+            video.controls = false
+        }
 
 }
 
