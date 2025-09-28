@@ -663,24 +663,26 @@ function definirFonte(nome) {
 
                         get('fechar').style.display = 'none'
                         get('addfavorito_botao').style.display = 'none'
-                    }, 4000);
 
-                    get('video').addEventListener('touchstart', () => {
-                        get('fechar').style.display = 'block'
-                        get('addfavorito_botao').style.display = 'block'
-                        setTimeout(() => {
-                            get('fechar').style.display = 'none'
-                            get('addfavorito_botao').style.display = 'none'
-                        }, 4000);
-                    })
-                    get('video').addEventListener('mousemove', () => {
-                        get('fechar').style.display = 'block'
-                        get('addfavorito_botao').style.display = 'block'
-                        setTimeout(() => {
-                            get('fechar').style.display = 'none'
-                            get('addfavorito_botao').style.display = 'none'
-                        }, 4000);
-                    })
+                        get('video').addEventListener('touchstart', () => {
+                            get('fechar').style.display = 'block'
+                            get('addfavorito_botao').style.display = 'block'
+                            setTimeout(() => {
+                                get('fechar').style.display = 'none'
+                                get('addfavorito_botao').style.display = 'none'
+                            }, 4000);
+                        })
+                        get('video').addEventListener('mousemove', () => {
+                            get('fechar').style.display = 'block'
+                            get('addfavorito_botao').style.display = 'block'
+                            setTimeout(() => {
+                                get('fechar').style.display = 'none'
+                                get('addfavorito_botao').style.display = 'none'
+                            }, 4000);
+                        })
+                    }, 2000);
+
+                    
                 }
 
 
