@@ -190,99 +190,109 @@ var looping_contador_de_minutos_assistidos;
 
 function addPlayerNaPagina() {
 
+    if(usarBibliotecaVIDEOJS){
+        criarPlayerVideoJS()
+        return;
+    }
+
     const div = document.createElement('div')
-        div.id = 'player_filme'
-        //div.style.display = 'none'
-        div.style.width = '100%'
-        div.style.height = '100%'
-        div.style.backgroundColor = 'black'
-        div.style.position = 'fixed'
-        div.style.left = '0'
-        div.style.top = '0'
-        div.style.zIndex = '1000000'
+    div.id = 'player_filme'
+    //div.style.display = 'none'
+    div.style.width = '100%'
+    div.style.height = '100%'
+    div.style.backgroundColor = 'black'
+    div.style.position = 'fixed'
+    div.style.left = '0'
+    div.style.top = '0'
+    div.style.zIndex = '1000000'
 
-        const video = document.createElement('video')
-        video.id = 'video'
-        video.style.width = '100%'
-        video.style.height = '100vh'
-        video.src = ' '
-        video.controls = true
-
-
-
-        const fechar = document.createElement('div')
-        fechar.style.fontFamily = 'Calibri'
-        fechar.style.backgroundColor = 'rgb(21, 21, 21)'
-        fechar.style.color = 'rgb(194, 77, 77)'
-        fechar.style.padding = '5px'
-        fechar.style.borderRadius = '150%'
-        fechar.style.position = 'fixed'
-        fechar.style.right = '2%'
-        fechar.style.top = '2%'
-        fechar.style.fontSize = 'x-large'
-        fechar.textContent = '❌'
-        fechar.id = 'fechar'
-
-        const addfavorito = document.createElement('div')
-        addfavorito.style.fontFamily = 'Calibri'
-        addfavorito.style.backgroundColor = 'rgb(21, 21, 21)'
-        addfavorito.style.color = 'rgb(194, 77, 77)'
-        addfavorito.style.padding = '5px'
-        addfavorito.style.borderRadius = '150%'
-        addfavorito.style.position = 'fixed'
-        addfavorito.style.left = '2%'
-        addfavorito.style.top = '2%'
-        addfavorito.style.fontSize = 'x-large'
-        addfavorito.textContent = '⭐'
-        addfavorito.id = 'addfavorito_botao'
+    const video = document.createElement('video')
+    video.id = 'video'
+    video.style.width = '100%'
+    video.style.height = '100vh'
+    video.src = ' '
+    video.controls = true
 
 
+
+    const fechar = document.createElement('div')
+    fechar.style.fontFamily = 'Calibri'
+    fechar.style.backgroundColor = 'rgb(21, 21, 21)'
+    fechar.style.color = 'rgb(194, 77, 77)'
+    fechar.style.padding = '5px'
+    fechar.style.borderRadius = '150%'
+    fechar.style.position = 'fixed'
+    fechar.style.right = '2%'
+    fechar.style.top = '2%'
+    fechar.style.fontSize = 'x-large'
+    fechar.textContent = '❌'
+    fechar.id = 'fechar'
+
+    const addfavorito = document.createElement('div')
+    addfavorito.style.fontFamily = 'Calibri'
+    addfavorito.style.backgroundColor = 'rgb(21, 21, 21)'
+    addfavorito.style.color = 'rgb(194, 77, 77)'
+    addfavorito.style.padding = '5px'
+    addfavorito.style.borderRadius = '150%'
+    addfavorito.style.position = 'fixed'
+    addfavorito.style.left = '2%'
+    addfavorito.style.top = '2%'
+    addfavorito.style.fontSize = 'x-large'
+    addfavorito.textContent = '⭐'
+    addfavorito.id = 'addfavorito_botao'
 
 
 
 
 
-        div.appendChild(video)
-        div.appendChild(fechar)
-        div.appendChild(addfavorito)
 
 
-        if (efeitoVHS) {
-            const ruido = document.createElement('img')
-            ruido.id = 'ruido'
-            ruido.style.width = '100vw'
-            ruido.style.height = '100vh'
-            ruido.style.zIndex = 100000
-            ruido.style.position = 'fixed'
-            ruido.style.left = '0'
-            ruido.style.top = '0'
-            ruido.style.backgroundColor = 'transparent'
+    div.appendChild(video)
+    div.appendChild(fechar)
+    div.appendChild(addfavorito)
 
-            var index = Math.floor(Math.random() * 4)
-            ruido.src = 'img/ruido' + index + '.gif'
 
-            div.appendChild(ruido)
-        }
+    if (efeitoVHS) {
+        const ruido = document.createElement('img')
+        ruido.id = 'ruido'
+        ruido.style.width = '100vw'
+        ruido.style.height = '100vh'
+        ruido.style.zIndex = 100000
+        ruido.style.position = 'fixed'
+        ruido.style.left = '0'
+        ruido.style.top = '0'
+        ruido.style.backgroundColor = 'transparent'
 
-        document.body.appendChild(div)
+        var index = Math.floor(Math.random() * 4)
+        ruido.src = 'img/ruido' + index + '.gif'
 
-        //===================================
-        looping_contador_de_minutos_assistidos = setInterval(() => {
-            contador_de_minutos_assistidos++
-            localStorage.setItem('contador_de_minutos_assistidos', contador_de_minutos_assistidos)
-            console.log(contador_de_minutos_assistidos)
-        }, 60000);
-        //===================================
+        div.appendChild(ruido)
+    }
 
-        //desabilita o botao de download se nao for conta MASTER
-        if (obterMeuPlano() !== 'master') {
-            video.setAttribute("controlsList", "nodownload");
-            video.controls = false
-        }
+    document.body.appendChild(div)
+
+    //===================================
+    looping_contador_de_minutos_assistidos = setInterval(() => {
+        contador_de_minutos_assistidos++
+        localStorage.setItem('contador_de_minutos_assistidos', contador_de_minutos_assistidos)
+        console.log(contador_de_minutos_assistidos)
+    }, 60000);
+    //===================================
+
+    //desabilita o botao de download se nao for conta MASTER
+    if (obterMeuPlano() !== 'master') {
+        video.setAttribute("controlsList", "nodownload");
+        video.controls = false
+    }
 
 }
 
 function playFilme(nome) {
+
+    if(usarBibliotecaVIDEOJS){
+        definirFonte(nome)
+        return;
+    }
     if (get('player_filme')) {
         if (get('video')) {
             if (get('fechar')) {
@@ -521,3 +531,194 @@ console.log('nome do user: ' + getnomeDefinido());
 console.log('deviceKey: ' + getDevicekey());
 console.log('API.js ok');
 console.log('----------------');
+
+
+
+
+let player; // variável global para guardar a instância
+
+// Função que cria o player
+function criarPlayerVideoJS() {
+
+
+    const div = document.createElement('div')
+    div.id = 'player_filme'
+    //div.style.display = 'none'
+    div.style.width = '100%'
+    div.style.height = '100%'
+    div.style.backgroundColor = 'black'
+    div.style.position = 'fixed'
+    div.style.left = '0'
+    div.style.top = '0'
+    div.style.zIndex = '1000000'
+
+
+
+    const videoEl = document.createElement("video");
+    videoEl.id = "video";
+    videoEl.className = "video-js vjs-red-theme";
+    videoEl.setAttribute("controls", true);
+    videoEl.style.width = "100%";
+    videoEl.style.height = "100vh";
+    videoEl.controls = true
+
+
+
+
+
+    //------------------------------------
+    const fechar = document.createElement('div')
+    fechar.style.fontFamily = 'Calibri'
+    fechar.style.backgroundColor = 'rgb(21, 21, 21)'
+    fechar.style.color = 'rgb(194, 77, 77)'
+    fechar.style.padding = '5px'
+    fechar.style.borderRadius = '150%'
+    fechar.style.position = 'fixed'
+    fechar.style.right = '2%'
+    fechar.style.top = '2%'
+    fechar.style.fontSize = 'x-large'
+    fechar.textContent = '❌'
+    fechar.id = 'fechar'
+
+    const addfavorito = document.createElement('div')
+    addfavorito.style.fontFamily = 'Calibri'
+    addfavorito.style.backgroundColor = 'rgb(21, 21, 21)'
+    addfavorito.style.color = 'rgb(194, 77, 77)'
+    addfavorito.style.padding = '5px'
+    addfavorito.style.borderRadius = '150%'
+    addfavorito.style.position = 'fixed'
+    addfavorito.style.left = '2%'
+    addfavorito.style.top = '2%'
+    addfavorito.style.fontSize = 'x-large'
+    addfavorito.textContent = '⭐'
+    addfavorito.id = 'addfavorito_botao'
+    //------------------------------------
+
+    div.appendChild(videoEl);
+    div.appendChild(fechar)
+    div.appendChild(addfavorito)
+    
+
+    if (efeitoVHS) {
+        const ruido = document.createElement('img')
+        ruido.id = 'ruido'
+        ruido.style.width = '100vw'
+        ruido.style.height = '100vh'
+        ruido.style.zIndex = 100000
+        ruido.style.position = 'fixed'
+        ruido.style.left = '0'
+        ruido.style.top = '0'
+        ruido.style.backgroundColor = 'transparent'
+
+        var index = Math.floor(Math.random() * 4)
+        ruido.src = 'img/ruido' + index + '.gif'
+
+        div.appendChild(ruido)
+    }
+
+    document.body.appendChild(div)
+
+    // Inicializa Video.js
+    player = videojs(videoEl, {
+        autoplay: false,
+        controls: true,
+        width: 300,
+        height: 300,
+        fluid: false
+    });
+
+    looping_contador_de_minutos_assistidos = setInterval(() => {
+        contador_de_minutos_assistidos++
+        localStorage.setItem('contador_de_minutos_assistidos', contador_de_minutos_assistidos)
+        console.log(contador_de_minutos_assistidos)
+    }, 60000);
+    //===================================
+
+
+}
+
+// Função que define a fonte do vídeo
+function definirFonte(nome) {
+
+    if (get('player_filme')) {
+        if (get('video')) {
+            if (get('fechar')) {
+
+                //get('player_filme').style.display = 'block'
+                player.src({ src: nome, type: "video/mp4" });
+                player.play()
+
+
+                setTimeout(() => {
+                    player.play()
+                    if (efeitoVHS) {
+                        get('ruido').remove()
+                    }
+
+                }, tempoEfeitoVHS);
+
+                //---------------------------------------
+                if (esconder_botoes_favoritos_video_ai_iniciar_o_filme) {
+                    setTimeout(() => {
+
+                        get('fechar').style.display = 'none'
+                        get('addfavorito_botao').style.display = 'none'
+                    }, 4000);
+
+                    get('video').addEventListener('touchstart', () => {
+                        get('fechar').style.display = 'block'
+                        get('addfavorito_botao').style.display = 'block'
+                        setTimeout(() => {
+                            get('fechar').style.display = 'none'
+                            get('addfavorito_botao').style.display = 'none'
+                        }, 4000);
+                    })
+                    get('video').addEventListener('mousemove', () => {
+                        get('fechar').style.display = 'block'
+                        get('addfavorito_botao').style.display = 'block'
+                        setTimeout(() => {
+                            get('fechar').style.display = 'none'
+                            get('addfavorito_botao').style.display = 'none'
+                        }, 4000);
+                    })
+                }
+
+
+
+                //-------------------------
+                if (verificarSeEstaNosFavoritos(nome)) {
+                    get('addfavorito_botao').style.backgroundColor = 'green'
+                } else {
+                    get('addfavorito_botao').style.backgroundColor = 'black'
+                }
+                //-------------------------
+
+
+                addClick('fechar', () => {
+                    get('video').src = ' '
+                    get('player_filme').remove();
+
+                    clearInterval(looping_contador_de_minutos_assistidos)
+                })
+
+                addClick('addfavorito_botao', () => {
+
+                    if (verificarSeEstaNosFavoritos(nome)) {
+                        removerFilmeFavoritos(nome)
+                        console.log('removido dos favoritos')
+                        get('addfavorito_botao').style.backgroundColor = 'black'
+                    } else {
+                        addfilmefavoritos(nome)
+                        console.log('Add nos favoritos')
+                        get('addfavorito_botao').style.backgroundColor = 'green'
+                    }
+
+
+                })
+            }
+        }
+    }
+ 
+
+    
+}

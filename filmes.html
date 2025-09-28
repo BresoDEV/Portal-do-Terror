@@ -13,13 +13,23 @@
 </script>
 <!doctype html>
 <html lang="pt-BR">
-  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Catálogo de Filmes — Apenas Capas</title>
-  <style>
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catálogo de Filmes — Apenas Capas</title>
+        <style>
+
+
+.vjs-red-theme .vjs-control-bar,
+.vjs-red-theme .vjs-big-play-button {
+  background-color: rgb(124, 38, 38) !important;
+  border-color: rgb(107, 21, 21) !important;
+}
+.vjs-red-theme .vjs-progress-holder .vjs-play-progress {
+  background-color: rgb(130, 30, 30) !important;
+}
     
     :root {
       --bg: #0b0b0d;
@@ -235,11 +245,10 @@
       color: #ff0000;
       border: none;
     }
-  </style>
-</head>
-
-<body>
-  <!--
+        </style>
+    </head>
+    <body>
+        <!--
    <div class="player_filme" id="player_filme">
     <video id="video" controls src=""></video>
     <div class="fechar" id="fechar">
@@ -247,53 +256,51 @@
     </div>
   </div>
  -->
-  <div class="wrap">
-    <header>
-      <div aria-hidden="true" id="Perfil"
-        style="border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:23px">
-        Perfil
-      </div>
-
-      <input class="buscar" id="buscar" type="text" placeholder="Buscar filme...">
-    </header>
-    <main>
-      <section id="gallery" class="gallery" aria-live="polite">
-        <!-- Posters serão injetados aqui pelo JavaScript -->
-      </section>
-      <div id="empty" class="empty" style="display:none">
-        Nenhuma capa disponível.
-      </div>
-    </main>
-  </div>
-  <br>
-  <br>
-  <!------------------------------------>
-  <center>
-    <button aria-hidden="true" id="Anterior"
-      style="width: 40vw;border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:3vw">
-      <center>
-        Anterior
-      </center>
-    </button>
-    <button aria-hidden="true" id="Proxima"
-      style="width: 40vw;border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:3vw">
-      <center>
-        Proxima
-      </center>
-    </button>
-  </center>
-  <!------------------------------------>
-  <div aria-hidden="true" id="sortearFilme"
-    style="border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:3vw">
-    <center>
-      Não sabe qual filme assistir? A gente escolhe
-    </center>
-  </div>
-  <!------------------------------------>
-  <br>
-   
-  <script src="filmes.js"></script>
-  <script>
+        <div class="wrap">
+            <header>
+                <div aria-hidden="true" id="Perfil" style="border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:23px">
+                    Perfil
+                </div>
+                <input
+                    class="buscar"
+                    id="buscar"
+                    type="text"
+                    placeholder="Buscar filme..."
+                >
+            </header>
+            <main>
+                <section id="gallery" class="gallery" aria-live="polite">
+                    <!-- Posters serão injetados aqui pelo JavaScript --></section>
+                <div id="empty" class="empty" style="display:none">
+                    Nenhuma capa disponível.
+                </div>
+            </main>
+        </div>
+        <br>
+        <br>
+        <!------------------------------------>
+        <center>
+            <button aria-hidden="true" id="Anterior" style="width: 40vw;border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:3vw">
+                <center>
+                    Anterior
+                </center>
+            </button>
+            <button aria-hidden="true" id="Proxima" style="width: 40vw;border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:3vw">
+                <center>
+                    Proxima
+                </center>
+            </button>
+        </center>
+        <!------------------------------------>
+        <div aria-hidden="true" id="sortearFilme" style="border-radius:5px;padding:5px;color:rgb(241, 225, 225);background-color:rgb(169, 75, 75);font-size:3vw">
+            <center>
+                Não sabe qual filme assistir? A gente escolhe
+            </center>
+        </div>
+        <!------------------------------------>
+        <br>
+        <script src="filmes.js"></script>
+        <script>
  
     if (meuPlano == 'basico') {
       get('buscar').remove()
@@ -328,6 +335,7 @@
       array_links_de_filmes_validos.push(filme_link)
       //---------------------------------
       a.addEventListener('click', () => {
+
         addPlayerNaPagina()
         playFilme(filme_link)
       })
@@ -451,7 +459,6 @@
       addPlayerNaPagina()
       playFilme(sortearFilme())
     })
-  </script>
-</body>
-
+        </script>
+    </body>
 </html>
