@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Vídeo no Canvas com Som</title>
+</head>
+<body style="background:#111; display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh;">
+
+  <canvas id="meuCanvas" width="640" height="360" style="border:2px solid #0f0;"></canvas>
+
+  <video id="meuVideo" 
+         src="https://archive.org/download/lobisomem-americano-em-paris-1997/Lobisomem%20Americano%20em%20Paris%20-%201997.mkv" 
+         loop 
+         playsinline 
+         style="display:none;">
+  </video>
+
+  <button id="playBtn" style="margin-top:20px; padding:10px 20px; font-size:16px;">
+    ▶️ Reproduzir com Som
+  </button>
+
+  <script>
+    const video = document.getElementById("meuVideo");
+    const canvas = document.getElementById("meuCanvas");
+    const ctx = canvas.getContext("2d");
+    const btn = document.getElementById("playBtn");
+
+    function desenharFrame() {
+      if (!video.paused && !video.ended) {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      }
+      requestAnimationFrame(desenharFrame);
+    }
+
+    btn.addEventListener("click", () => {
+      video.play();
+      desenharFrame();
+      btn.style.display = "none"; // esconde o botão depois do play
+    });
+  </script>
+
+</body>
+</html>
