@@ -6,7 +6,7 @@ var esconder_botoes_favoritos_video_ai_iniciar_o_filme = true;
 var efeitoVHS = true;
 var tempoEfeitoVHS = 3000;
 var itensPorPagina = 30
-var usarBibliotecaVIDEOJS = false;
+var usarBibliotecaVIDEOJS = true
 
 
 
@@ -190,7 +190,7 @@ var looping_contador_de_minutos_assistidos;
 
 function addPlayerNaPagina() {
 
-    if (usarBibliotecaVIDEOJS) {
+    if(usarBibliotecaVIDEOJS){
         criarPlayerVideoJS()
         return;
     }
@@ -287,24 +287,9 @@ function addPlayerNaPagina() {
 
 }
 
-async function getHTML(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Erro na requisição: ${response.status}`);
-        }
-        const html = await response.text(); // converte o response em texto (HTML)
-        console.log(html)
-        return html;
-    } catch (error) {
-        console.error("Erro ao buscar HTML:", error);
-    }
-}
-
-
 function playFilme(nome) {
 
-    if (usarBibliotecaVIDEOJS) {
+    if(usarBibliotecaVIDEOJS){
         definirFonte(nome)
         return;
     }
@@ -313,86 +298,78 @@ function playFilme(nome) {
             if (get('fechar')) {
 
                 //get('player_filme').style.display = 'block'
+                get('video').src = nome
 
-                getHTML("https://portariaapi.free.nf/mediafireAPI.php?url="+nome).then(xx => {
-                   
-                    get('video').src = xx
+                get('video').poster = buscar_capa_via_link(posters, nome)
 
-                    get('video').poster = buscar_capa_via_link(posters, nome)
-    
-    
-    
+
+
+                setTimeout(() => {
+                    get('video').play()
+                    if (efeitoVHS) {
+                        get('ruido').remove()
+                    }
+
+                }, tempoEfeitoVHS);
+
+                //---------------------------------------
+                if (esconder_botoes_favoritos_video_ai_iniciar_o_filme) {
                     setTimeout(() => {
-                        //get('video').play()
-                        if (efeitoVHS) {
-                            get('ruido').remove()
-                        }
-    
-                    }, tempoEfeitoVHS);
-    
-                    //---------------------------------------
-                    if (esconder_botoes_favoritos_video_ai_iniciar_o_filme) {
+
+                        get('fechar').style.display = 'none'
+                        get('addfavorito_botao').style.display = 'none'
+                    }, 4000);
+
+                    get('video').addEventListener('touchstart', () => {
+                        get('fechar').style.display = 'block'
+                        get('addfavorito_botao').style.display = 'block'
                         setTimeout(() => {
-    
                             get('fechar').style.display = 'none'
                             get('addfavorito_botao').style.display = 'none'
                         }, 4000);
-    
-                        get('video').addEventListener('touchstart', () => {
-                            get('fechar').style.display = 'block'
-                            get('addfavorito_botao').style.display = 'block'
-                            setTimeout(() => {
-                                get('fechar').style.display = 'none'
-                                get('addfavorito_botao').style.display = 'none'
-                            }, 4000);
-                        })
-                        get('video').addEventListener('mousemove', () => {
-                            get('fechar').style.display = 'block'
-                            get('addfavorito_botao').style.display = 'block'
-                            setTimeout(() => {
-                                get('fechar').style.display = 'none'
-                                get('addfavorito_botao').style.display = 'none'
-                            }, 4000);
-                        })
-                    }
-    
-    
-    
-                    //-------------------------
+                    })
+                    get('video').addEventListener('mousemove', () => {
+                        get('fechar').style.display = 'block'
+                        get('addfavorito_botao').style.display = 'block'
+                        setTimeout(() => {
+                            get('fechar').style.display = 'none'
+                            get('addfavorito_botao').style.display = 'none'
+                        }, 4000);
+                    })
+                }
+
+
+
+                //-------------------------
+                if (verificarSeEstaNosFavoritos(nome)) {
+                    get('addfavorito_botao').style.backgroundColor = 'green'
+                } else {
+                    get('addfavorito_botao').style.backgroundColor = 'black'
+                }
+                //-------------------------
+
+
+                addClick('fechar', () => {
+                    get('video').src = ' '
+                    get('player_filme').remove();
+
+                    clearInterval(looping_contador_de_minutos_assistidos)
+                })
+
+                addClick('addfavorito_botao', () => {
+
                     if (verificarSeEstaNosFavoritos(nome)) {
-                        get('addfavorito_botao').style.backgroundColor = 'green'
-                    } else {
+                        removerFilmeFavoritos(nome)
+                        console.log('removido dos favoritos')
                         get('addfavorito_botao').style.backgroundColor = 'black'
+                    } else {
+                        addfilmefavoritos(nome)
+                        console.log('Add nos favoritos')
+                        get('addfavorito_botao').style.backgroundColor = 'green'
                     }
-                    //-------------------------
-    
-    
-                    addClick('fechar', () => {
-                        get('video').src = ' '
-                        get('player_filme').remove();
-    
-                        clearInterval(looping_contador_de_minutos_assistidos)
-                    })
-    
-                    addClick('addfavorito_botao', () => {
-    
-                        if (verificarSeEstaNosFavoritos(nome)) {
-                            removerFilmeFavoritos(nome)
-                            console.log('removido dos favoritos')
-                            get('addfavorito_botao').style.backgroundColor = 'black'
-                        } else {
-                            addfilmefavoritos(nome)
-                            console.log('Add nos favoritos')
-                            get('addfavorito_botao').style.backgroundColor = 'green'
-                        }
-    
-    
-                    })
-                    
-                });
 
 
-                
+                })
             }
         }
     }
@@ -510,20 +487,20 @@ function soSeForNatal() {
     const hoje = new Date();
     const dia = hoje.getDate();      // 1 a 31
     const mes = hoje.getMonth();     // 0 = janeiro, 11 = dezembro
-
+  
     if (dia === 25 && mes === 11) { // dezembro é 11
-        //----------------------------------------
-        document.querySelectorAll('a').forEach(x => {
-            x.innerHTML += ' &#127876;'
-        });
+     //----------------------------------------
+     document.querySelectorAll('a').forEach(x => {
+        x.innerHTML += ' &#127876;'
+    });
 
-        for (let i = 0; i < 50; i++) {
-            nevando()
-        }
-
-        //----------------------------------------
+    for (let i = 0; i < 50; i++) {
+        nevando()
     }
-}
+     
+     //----------------------------------------
+    }
+  }
 
 
 
@@ -642,7 +619,7 @@ function criarPlayerVideoJS() {
     div.appendChild(videoEl);
     div.appendChild(fechar)
     div.appendChild(addfavorito)
-
+    
 
     if (efeitoVHS) {
         const ruido = document.createElement('img')
@@ -682,8 +659,6 @@ function criarPlayerVideoJS() {
 
 }
 
-
-
 // Função que define a fonte do vídeo
 function definirFonte(nome) {
 
@@ -691,91 +666,83 @@ function definirFonte(nome) {
         if (get('video')) {
             if (get('fechar')) {
 
-                getHTML("https://portariaapi.free.nf/mediafireAPI.php?url="+nome).then(xx => {
-                   
-                   setTimeout(() => {
-                    
-                    player.src({ src: xx, type: "video/mp4" });
-                    //player.play()
-    
-    
-                    setTimeout(() => {
-                        //player.play()
-                        if (efeitoVHS) {
-                            get('ruido').remove()
-                        }
-    
-                    }, tempoEfeitoVHS);
-    
-                    //---------------------------------------
-                    if (esconder_botoes_favoritos_video_ai_iniciar_o_filme) {
-                        setTimeout(() => {
-    
-                            get('fechar').style.display = 'none'
-                            get('addfavorito_botao').style.display = 'none'
-    
-                            get('video').addEventListener('touchstart', () => {
-                                get('fechar').style.display = 'block'
-                                get('addfavorito_botao').style.display = 'block'
-                                setTimeout(() => {
-                                    get('fechar').style.display = 'none'
-                                    get('addfavorito_botao').style.display = 'none'
-                                }, 4000);
-                            })
-                            get('video').addEventListener('mousemove', () => {
-                                get('fechar').style.display = 'block'
-                                get('addfavorito_botao').style.display = 'block'
-                                setTimeout(() => {
-                                    get('fechar').style.display = 'none'
-                                    get('addfavorito_botao').style.display = 'none'
-                                }, 4000);
-                            })
-                        }, 2000);
-    
-    
-                    }
-    
-    
-    
-                    //-------------------------
-                    if (verificarSeEstaNosFavoritos(nome)) {
-                        get('addfavorito_botao').style.backgroundColor = 'green'
-                    } else {
-                        get('addfavorito_botao').style.backgroundColor = 'black'
-                    }
-                    //-------------------------
-    
-    
-                    addClick('fechar', () => {
-                        get('video').src = ' '
-                        get('player_filme').remove();
-    
-                        clearInterval(looping_contador_de_minutos_assistidos)
-                    })
-    
-                    addClick('addfavorito_botao', () => {
-    
-                        if (verificarSeEstaNosFavoritos(nome)) {
-                            removerFilmeFavoritos(nome)
-                            console.log('removido dos favoritos')
-                            get('addfavorito_botao').style.backgroundColor = 'black'
-                        } else {
-                            addfilmefavoritos(nome)
-                            console.log('Add nos favoritos')
-                            get('addfavorito_botao').style.backgroundColor = 'green'
-                        }
-    
-    
-                    })
-
-                   }, 3000);
-                });
                 //get('player_filme').style.display = 'block'
-               
+                player.src({ src: nome, type: "video/mp4" });
+                player.play()
+
+
+                setTimeout(() => {
+                    player.play()
+                    if (efeitoVHS) {
+                        get('ruido').remove()
+                    }
+
+                }, tempoEfeitoVHS);
+
+                //---------------------------------------
+                if (esconder_botoes_favoritos_video_ai_iniciar_o_filme) {
+                    setTimeout(() => {
+
+                        get('fechar').style.display = 'none'
+                        get('addfavorito_botao').style.display = 'none'
+
+                        get('video').addEventListener('touchstart', () => {
+                            get('fechar').style.display = 'block'
+                            get('addfavorito_botao').style.display = 'block'
+                            setTimeout(() => {
+                                get('fechar').style.display = 'none'
+                                get('addfavorito_botao').style.display = 'none'
+                            }, 4000);
+                        })
+                        get('video').addEventListener('mousemove', () => {
+                            get('fechar').style.display = 'block'
+                            get('addfavorito_botao').style.display = 'block'
+                            setTimeout(() => {
+                                get('fechar').style.display = 'none'
+                                get('addfavorito_botao').style.display = 'none'
+                            }, 4000);
+                        })
+                    }, 2000);
+
+                    
+                }
+
+
+
+                //-------------------------
+                if (verificarSeEstaNosFavoritos(nome)) {
+                    get('addfavorito_botao').style.backgroundColor = 'green'
+                } else {
+                    get('addfavorito_botao').style.backgroundColor = 'black'
+                }
+                //-------------------------
+
+
+                addClick('fechar', () => {
+                    get('video').src = ' '
+                    get('player_filme').remove();
+
+                    clearInterval(looping_contador_de_minutos_assistidos)
+                })
+
+                addClick('addfavorito_botao', () => {
+
+                    if (verificarSeEstaNosFavoritos(nome)) {
+                        removerFilmeFavoritos(nome)
+                        console.log('removido dos favoritos')
+                        get('addfavorito_botao').style.backgroundColor = 'black'
+                    } else {
+                        addfilmefavoritos(nome)
+                        console.log('Add nos favoritos')
+                        get('addfavorito_botao').style.backgroundColor = 'green'
+                    }
+
+
+                })
             }
         }
     }
+ 
 
-
-
+    
 }
