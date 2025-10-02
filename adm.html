@@ -54,6 +54,13 @@
         border-radius: 4px;
         cursor: pointer;
     }
+    a{
+        color: coral;
+    }
+
+    td:hover{
+        background-color: cornflowerblue;
+    }
 </style>
 
 <center>
@@ -91,10 +98,10 @@
 
 
             if(posters[ct + 1] == ''){
-                s+="<tr style=\"background-color:rgb(123, 66, 66)\"><td>"+posters[ct]+"</td><td>"+posters[ct + 1]+"</td></tr>"
+                s+="<tr style=\"background-color:rgb(123, 66, 66)\"><td>"+posters[ct]+"</td></tr>"
             }
             else{
-                s+="<tr><td>"+posters[ct]+"</td><td>"+posters[ct + 1]+"</td></tr>"
+                s+="<tr><td>"+posters[ct]+" <a style=\"float:right\" href=\""+posters[ct + 1]+"\" target=\"_blank\">Acessar  /  Download</a></td></tr>"
             }
 
 

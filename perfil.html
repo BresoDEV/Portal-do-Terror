@@ -225,6 +225,10 @@
                     <strong>Minutos Assistidos:</strong>
                     0 min.
                 </p>
+                <p id="dispositivo">
+                    <strong>Dispositivo: </strong>
+                     
+                </p>
             </div>
         </div>
         <div class="actions">
@@ -247,9 +251,7 @@
 <script>
 
 
-    for (let i = 0; i < 50; i++) {
-        nevando()
-    }
+    
 
 
     get('Foto').src = 'img/perfil/' + Math.floor(Math.random() * 6) + '.jpg'
@@ -340,6 +342,7 @@
     inner('telefone', '<strong>Telefone:</strong> ' + usuarios[getnomeDefinido()].telefone)
     inner('plano', '<strong>Plano:</strong> ' + usuarios[getnomeDefinido()].plano)
     inner('minutos', '<strong>Minutos Assistidos:</strong> ' + localStorage.getItem('contador_de_minutos_assistidos') + ' min')
+    inner('dispositivo', '<strong>Dispositivo:</strong> ' + detectarDispositivo())
 
 
 

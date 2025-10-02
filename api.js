@@ -478,9 +478,31 @@ function obterDadosGET(id) {
 //--------------------------------------------------
 
 //script neve
-document.querySelectorAll('a').forEach(x => {
-    x.innerHTML += ' &#127876;'
-});
+
+setTimeout(() => {
+    soSeForNatal()
+}, 5000);
+
+function soSeForNatal() {
+    const hoje = new Date();
+    const dia = hoje.getDate();      // 1 a 31
+    const mes = hoje.getMonth();     // 0 = janeiro, 11 = dezembro
+  
+    if (dia === 25 && mes === 11) { // dezembro é 11
+     //----------------------------------------
+     document.querySelectorAll('a').forEach(x => {
+        x.innerHTML += ' &#127876;'
+    });
+
+    for (let i = 0; i < 50; i++) {
+        nevando()
+    }
+     
+     //----------------------------------------
+    }
+  }
+
+
 
 function nevando() {
 

@@ -12,6 +12,19 @@ const usuarios = {
         dev:"1",
         reiniciar_trial:"0"
       },
+    "1": {
+        id:"1",
+        senha: "1",
+        deviceKey:  "MR3PVB9J1759367669640",
+        deviceKey2: "null",
+        deviceKey3: "null",
+        deviceKey4: "null",
+        plano: "master",
+        telefone:"996180319",
+        pagamento_em_dia: "sim",
+        dev:"1",
+        reiniciar_trial:"0"
+      },
     "modelo": {
         id:"2",
         senha: "null",

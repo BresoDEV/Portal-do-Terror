@@ -54,23 +54,20 @@
 <body>
   <center>
     <br>
-    <input type="text" id="nome_filme" placeholder="Nome do Filme">
+    <input type="text" id="nome_filme" placeholder="Link Mediafire" value="https://www.dropbox.com/scl/fi/ap3ascf4dob90uyl33tut/Halloween-b2-O-Pesadelo-Continua.mkv?rlkey=w4scvwat8jaxpj8q584xppkfb&st=wuqcb9tb&dl=0">
     <br>
     <button id="Processar">Processar</button>
     <br>
     <br>
-    <textarea type="text" id="desc"></textarea><br><button id="Copiardesc">Copiar</button>
+    <input type="text" id="desc" placeholder="Nome do Filme">
     <br>
-    <br>
-    <textarea type="text" id="tags"></textarea><br><button id="Copiartags">Copiar</button><br>
-    <br>
+    <button id="Copiardesc">Copiar</button>
   </center>
 
   <hr>
-  <textarea name="" id="textarea" cols="30" rows="10"></textarea>
-  <br>
+  
 
-  <p id="p"></p>
+  
 
 
 </body>
@@ -83,109 +80,32 @@
 
 
 
-  setInterval(() => {
-    if (apertando) {
-      console.log('apertando')
-    }
-  }, 5000);
-
+ 
 
   //--------------------------------------------------------------------------
 
   get('nome_filme').addEventListener('mouseenter', () => {
     get('nome_filme').value = ''
-    get('tags').value = ''
     get('desc').value = ''
   })
 
-  //--------------------------------------------------------------------------
-  const frases = [
-    "Ainda assim, existem dúvidas a respeito de como a revisão das métricas de desempenho facilita a criação das práticas reconhecidas internacionalmente.",
-    "Conforme apontado por diversos estudos, a redefinição dos modelos de governança expande os horizontes de atuação integrada dos procedimentos normalmente adotados.",
-    "Não obstante, a mobilidade dos capitais internacionais consolida tendências que desafiam o status quo das diretrizes de desenvolvimento para o futuro.",
-    "Observando os marcos regulatórios, o acompanhamento das preferências de consumo converge para práticas mais resolutivas das interfaces entre as dimensões técnico-políticas.",
-    "Do ponto de vista estrutural, o fenômeno da Internet oferece uma interessante oportunidade para verificação das regras de conduta normativas.",
-    "A nível organizacional, a valorização da diversidade de pensamento consolida tendências que desafiam o status quo das variáveis críticas de sucesso organizacional.",
-    "A partir de reflexões estratégicas, a execução dos pontos do programa talvez venha a ressaltar a relatividade da governabilidade em ambientes voláteis.",
-    "Com respaldo nas evidências disponíveis, o consenso sobre a necessidade de qualificação prepara-nos para enfrentar situações atípicas decorrentes dos instrumentos regulatórios vigentes.",
-    "Conforme apontado por diversos estudos, a reestruturação das práticas organizacionais aprofunda o debate sobre a sustentabilidade dos processos que moldam a realidade institucional.",
-    "Com base em dados empíricos, a normatização de fluxos decisórios ilustra as tensões entre tradição e inovação das novas proposições.",
-    "Do mesmo modo, o julgamento imparcial das eventualidades pode nos levar a considerar a reestruturação das interfaces entre as dimensões técnico-políticas.",
-    "Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se a adoção de políticas descentralizadoras legitima a busca por soluções sistêmicas dos aprendizados oriundos da experiência acumulada.",
-    "Por conseguinte, o entendimento das metas propostas estende o alcance e a importância do sistema de formação de quadros que corresponde às necessidades.",
-    "Acima de tudo, é fundamental ressaltar que a constante divulgação das informações aponta para a melhoria das posturas dos órgãos dirigentes com relação às suas atribuições.",
-    "O empenho em analisar a expansão dos mercados mundiais representa uma abertura para a melhoria das direções preferenciais no sentido do progresso",
-    "Observando os marcos regulatórios, o comprometimento entre as equipes causa impacto indireto na reavaliação da fluidez dos cenários contemporâneos.",
-    "Caros amigos, a valorização de fatores subjetivos expande os horizontes de atuação integrada de alternativas às soluções ortodoxas.",
-    "O incentivo ao avanço tecnológico, assim como a integração das tecnologias emergentes instiga a construção de consensos estratégicos de todos os recursos funcionais envolvidos",
-    "Não obstante, a necessidade de renovação processual desafia a capacidade de equalização das rupturas provocadas pela transformação digital.",
-    "À medida que avançamos, o aumento do diálogo entre os diferentes setores produtivos ressalta a relevância da participação ativa dos compromissos firmados em instâncias multilaterais.",
-    "Tendo em vista as transformações em curso, a utilização racional de ativos intangíveis impõe uma reinterpretação dos vínculos sociais dos princípios que regem a boa governança.",
-    "Ainda assim, existem dúvidas a respeito de como a crescente influência da mídia facilita a criação dos métodos utilizados na avaliação de resultados.",
-    "Vale destacar que a dinamização das capacidades institucionais ancora-se em pressupostos teóricos consistentes do remanejamento dos quadros funcionais.",
-    "Por intermédio de análises qualificadas, o desenvolvimento contínuo de distintas formas de atuação reforça a necessidade de ajustes dinâmicos do orçamento setorial.",
-    "Por outro lado, a intensificação do controle gerencial impulsiona o reposicionamento institucional do investimento em reciclagem técnica.",
-    "Considerando os desafios contemporâneos, a ampliação dos espaços de escuta ativa assume importantes posições no estabelecimento do sistema de participação geral.",
-    "Considerando as lições aprendidas, a gestão eficiente dos recursos estratégicos acarreta um processo de reformulação e modernização dos critérios de excelência amplamente aceitos.",
-    "Assim mesmo, o novo modelo estrutural aqui preconizado possibilita uma melhor visão global do retorno esperado a longo prazo.",
-    "Todavia, a estruturação de redes de cooperação intersetorial deve passar por modificações independentemente dos relacionamentos verticais entre as hierarquias.",
-    "Neste sentido, a incorporação de perspectivas multidisciplinares modifica os parâmetros tradicionais de análise dos modos de operação convencionais.",
-    "No escopo da atual conjuntura, o início da atividade geral de formação de atitudes obstaculiza a apreciação da importância da lógica predominante nas decisões estratégicas.",
-    "Em função das demandas emergentes, a percepção das dificuldades eleva o grau de responsabilidade compartilhada das condições estruturais subjacentes.",
-    "Pensando mais a longo prazo, a redefinição dos modelos de governança maximiza as possibilidades por conta dos procedimentos normalmente adotados.",
-    "Com efeito, a expansão dos canais de diálogo social exige a precisão e a definição do fluxo de informações.",
-    "O que temos que ter sempre em mente é que a revisão das métricas de desempenho não pode mais se dissociar da articulação interinstitucional necessária.",
-    "Nunca é demais lembrar o peso e o significado destes problemas, uma vez que a consulta aos diversos militantes nos obriga à análise dos contextos operacionais cada vez mais complexos.",
-  ]
-
+ 
   addClick('Processar', () => {
 
     if (get('nome_filme').value !== '') {
-      var tags = '';
-      var nome_filme_array = get('nome_filme').value.split(' ');
-
-      nome_filme_array.forEach(x => {
-
-        if (x[3]) {
-          tags += x + ','
-        }
-      });
-      tags += 'bresolin,breso,community'
-
-      get('tags').value = tags
-      get('desc').value = frases[Math.floor(Math.random() * frases.length)]
+      
+      
+      get('desc').value = get('nome_filme').value.replace('https://www.dropbox.com','https://dl.dropboxusercontent.com')
 
     }
-    else {
-      get('nome_filme').style.backgroundColor = 'red'
-      setTimeout(() => {
-        get('nome_filme').style.backgroundColor = 'white'
-        setTimeout(() => {
-          get('nome_filme').style.backgroundColor = 'red'
-          setTimeout(() => {
-            get('nome_filme').style.backgroundColor = 'white'
-            setTimeout(() => {
-              get('nome_filme').style.backgroundColor = 'red'
-              setTimeout(() => {
-                get('nome_filme').style.backgroundColor = 'rgb(80, 80, 80)'
-
-              }, 250);
-            }, 250);
-          }, 250);
-        }, 250);
-      }, 250);
-    }
+    
 
   })
 
-  addClick('Copiartags', () => {
-
-    navigator.clipboard.writeText(tags.value)
-    tags.value = ''
-  })
+ 
   addClick('Copiardesc', () => {
 
-    navigator.clipboard.writeText(desc.value)
+    navigator.clipboard.writeText(get('desc').value)
     desc.value = ''
   })
 
