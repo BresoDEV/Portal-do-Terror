@@ -279,19 +279,19 @@ const posters = [
   'Gritos Mortais.jpg', '',//',//    11.3 kB','',//    11/06/2025, 10:26:18
   'Grotesco 2009.jpg', '',//',//    17.1 kB','',//    11/06/2025, 10:26:18
   
-  'Halloween a1 A Noite do Terror.jpg',              'https://dl.dropboxusercontent.com/scl/fi/olk5cvdkvmr6oju8kxwpg/Halloween-a1-A-Noite-do-Terror.mkv?rlkey=f2cw1b65a5gx2twdrzsdqnxq1&st=w097jumy&dl=0',//',//    10.3 kB','',//    11/06/2025, 10:26:18
-  'Halloween b2 O Pesadelo Continua.jpg',           'https://dl.dropboxusercontent.com/scl/fi/ap3ascf4dob90uyl33tut/Halloween-b2-O-Pesadelo-Continua.mkv?rlkey=w4scvwat8jaxpj8q584xppkfb&st=58zyphuf&dl=0',//',//    12.3 kB','',//    11/06/2025, 10:26:18
+  'Halloween a1 A Noite do Terror.jpg',               'https://dl.dropboxusercontent.com/scl/fi/olk5cvdkvmr6oju8kxwpg/Halloween-a1-A-Noite-do-Terror.mkv?rlkey=f2cw1b65a5gx2twdrzsdqnxq1&st=w097jumy&dl=0',//',//    10.3 kB','',//    11/06/2025, 10:26:18
+  'Halloween b2 O Pesadelo Continua.jpg',             'https://dl.dropboxusercontent.com/scl/fi/ap3ascf4dob90uyl33tut/Halloween-b2-O-Pesadelo-Continua.mkv?rlkey=w4scvwat8jaxpj8q584xppkfb&st=58zyphuf&dl=0',//',//    12.3 kB','',//    11/06/2025, 10:26:18
   'Halloween c3 A Noite das Bruxas.jpg',              'https://dl.dropboxusercontent.com/scl/fi/5ghovw8tp446rxqzrj8zb/Halloween-c3-A-Noite-das-Bruxas.mkv?rlkey=c3k4y6zrjf8q452csr6v0t0cx&st=szriv6xe&dl=0',//',//    12.6 kB','',//    11/06/2025, 10:26:18
-  'Halloween d4 O Retorno de Michael Myers.jpg',        'https://dl.dropboxusercontent.com/scl/fi/dmzwnwcdlxatwe6bso4sy/Halloween-d4-O-Retorno-de-Michael-Myers.mkv?rlkey=p3qgn7gz6owcrl1jghg9mm7uq&st=mcv83d3s&dl=0',//',//    12.3 kB','',//    11/06/2025, 10:26:18
+  'Halloween d4 O Retorno de Michael Myers.jpg',      'https://dl.dropboxusercontent.com/scl/fi/dmzwnwcdlxatwe6bso4sy/Halloween-d4-O-Retorno-de-Michael-Myers.mkv?rlkey=p3qgn7gz6owcrl1jghg9mm7uq&st=mcv83d3s&dl=0',//',//    12.3 kB','',//    11/06/2025, 10:26:18
   'Halloween e5 A Vingança de Michael Myers.jpg',     'https://dl.dropboxusercontent.com/scl/fi/hpoxo2ive2m22x8t14b7w/Halloween-e5-A-Vingan-a-de-Michael-Myers.mkv?rlkey=m8ww05e4uzpeo9icazamvsk3y&st=yov0udfc&dl=0',//',//    11.8 kB','',//    11/06/2025, 10:26:18
-  'Halloween f6 A Última Vingança.jpg',              'https://dl.dropboxusercontent.com/scl/fi/tsollkoge0f094h4d7hhe/Halloween-f6-A-ltima-Vingan-a.mkv?rlkey=2nausiq40eir8diyt03mahcwl&st=arfm06d0&dl=0',//',//    9.5 kB','',//    11/06/2025, 10:26:18
-  'Halloween g7 H20.jpg',                         'https://dl.dropboxusercontent.com/scl/fi/jbvl9t2fvj0s3t250oczb/Halloween-g7-H20.mkv?rlkey=35crc9z25day2kd00g2ad6ed7&st=w8anwx2m&dl=0',//',//    12.3 kB','',//    11/06/2025, 10:26:18
-  'Halloween h8 - Ressurreição.jpg',             'https://dl.dropboxusercontent.com/scl/fi/8tdk1j9be5uey2usah277/Halloween-h8-Ressurrei-o.mkv?rlkey=1x4mhj0gnlfjk8sg9g21u43qr&st=q7arxhwa&dl=0',//',//    9.9 kB','',//    11/06/2025, 10:26:18
-  'Halloween i9 - O Inicio.jpg',                 'https://dl.dropboxusercontent.com/scl/fi/2pziaavptf2kke0uv9jah/Halloween-i9-O-Inicio.mkv?rlkey=zaxmj391lt2az2a5hqgp3s00h&st=yhqy3zxq&dl=0',//',//    16.0 kB','',//    11/06/2025, 10:26:18
+  'Halloween f6 A Última Vingança.jpg',               'https://dl.dropboxusercontent.com/scl/fi/tsollkoge0f094h4d7hhe/Halloween-f6-A-ltima-Vingan-a.mkv?rlkey=2nausiq40eir8diyt03mahcwl&st=arfm06d0&dl=0',//',//    9.5 kB','',//    11/06/2025, 10:26:18
+  'Halloween g7 H20.jpg',                             'https://dl.dropboxusercontent.com/scl/fi/jbvl9t2fvj0s3t250oczb/Halloween-g7-H20.mkv?rlkey=35crc9z25day2kd00g2ad6ed7&st=w8anwx2m&dl=0',//',//    12.3 kB','',//    11/06/2025, 10:26:18
+  'Halloween h8 - Ressurreição.jpg',                  'https://dl.dropboxusercontent.com/scl/fi/8tdk1j9be5uey2usah277/Halloween-h8-Ressurrei-o.mkv?rlkey=1x4mhj0gnlfjk8sg9g21u43qr&st=q7arxhwa&dl=0',//',//    9.9 kB','',//    11/06/2025, 10:26:18
+  'Halloween i9 - O Inicio.jpg',                      'https://dl.dropboxusercontent.com/scl/fi/2pziaavptf2kke0uv9jah/Halloween-i9-O-Inicio.mkv?rlkey=zaxmj391lt2az2a5hqgp3s00h&st=yhqy3zxq&dl=0',//',//    16.0 kB','',//    11/06/2025, 10:26:18
   'Halloween j10 2.jpg',                          '',
-  'Halloween k11 2018.jpg',                      'https://dl.dropboxusercontent.com/scl/fi/dq10vg8xm38p8m8h5pkar/Halloween-k11-2018.mkv?rlkey=puqbcov48diy6ac3zbaiemar8&st=0sxna9rp&dl=0',//',//    10.2 kB','',//    11/06/2025, 10:26:18
+  'Halloween k11 2018.jpg',                           'https://dl.dropboxusercontent.com/scl/fi/dq10vg8xm38p8m8h5pkar/Halloween-k11-2018.mkv?rlkey=puqbcov48diy6ac3zbaiemar8&st=0sxna9rp&dl=0',//',//    10.2 kB','',//    11/06/2025, 10:26:18
   'Halloween l12 Kills.jpg', '',
-  
+
   'Halloween m13 Ends.jpg', '',//',//    7.5 kB','',//    11/06/2025, 10:26:18
   'Halloween m14 Ends 2022.jpg', '',//',//    9.2 kB','',//    11/06/2025, 10:26:18
   'Hannibal - 2001.jpg', '',//',//    11.0 kB','',//    11/06/2025, 10:26:18
