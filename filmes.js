@@ -1,13 +1,13 @@
 const posters = [
   '120 Dias de Sodoma.jpg', '',//',//    16.5 kB','',//    11/06/2025, 10:26:14
-  '60 Minutos Para Morrer - 2017.jpg', '',//https://archive.org/download/60-minutos-para-morrer-2017/60 Minutos Para Morrer - 2017.mp4',//    13.4 kB','',//    11/06/2025, 10:26:14
+  '60 Minutos Para Morrer - 2017.jpg', 'https://archive.org/download/60-minutos-para-morrer-2017/60 Minutos Para Morrer - 2017.mp4',//https://archive.org/download/60-minutos-para-morrer-2017/60 Minutos Para Morrer - 2017.mp4',//    13.4 kB','',//    11/06/2025, 10:26:14
   '7 Desejos - 2017.jpg', '',//',//    11.2 kB','',//    11/06/2025, 10:26:14
-  'A Arte do Demonio - 2004.jpg', '',//https://archive.org/download/a-arte-do-demonio-2004/A Arte do Demonio - 2004.mp4',//    10.3 kB','',//    11/06/2025, 10:26:14
-  'A Arte do Demonio 2 - 2005.jpg', '',//https://archive.org/download/a-arte-do-demonio-2-2005/A Arte do Demonio 2 - 2005.mp4',//    15.0 kB','',//    11/06/2025, 10:26:14
-  'A Arte do Demonio 3 - 2008.jpg', '',//https://archive.org/download/a-arte-do-demonio-3-2008/A Arte do Demonio 3 - 2008.mp4',//    12.3 kB','',//    11/06/2025, 10:26:14
-  'A Autopsia.jpg', '',//https://archive.org/download/a-autopsia/A Autopsia.ia.mp4',//    10.9 kB','',//    11/06/2025, 10:26:14
-  'A Bolha Assasina 1958.jpg', '',//https://archive.org/download/a-bolha-assasina-1958/A Bolha Assasina 1958.mp4',//    18.1 kB','',//    11/06/2025, 10:26:14
-  'A Bolha Assassina - 1988.jpg', '',//https://ia902904.us.archive.org/23/items/a-bolha-assassina-1988_202507/A%20Bolha%20Assassina%20-%201988.mp4',//    12.9 kB','',//    11/06/2025, 10:26:14
+  'A Arte do Demonio - 2004.jpg', 'https://archive.org/download/a-arte-do-demonio-2004/A Arte do Demonio - 2004.mp4',//https://archive.org/download/a-arte-do-demonio-2004/A Arte do Demonio - 2004.mp4',//    10.3 kB','',//    11/06/2025, 10:26:14
+  'A Arte do Demonio 2 - 2005.jpg', 'https://archive.org/download/a-arte-do-demonio-2-2005/A Arte do Demonio 2 - 2005.mp4',//https://archive.org/download/a-arte-do-demonio-2-2005/A Arte do Demonio 2 - 2005.mp4',//    15.0 kB','',//    11/06/2025, 10:26:14
+  'A Arte do Demonio 3 - 2008.jpg', 'https://archive.org/download/a-arte-do-demonio-3-2008/A Arte do Demonio 3 - 2008.mp4',//https://archive.org/download/a-arte-do-demonio-3-2008/A Arte do Demonio 3 - 2008.mp4',//    12.3 kB','',//    11/06/2025, 10:26:14
+  'A Autopsia.jpg', 'https://archive.org/download/a-autopsia/A Autopsia.ia.mp4',//https://archive.org/download/a-autopsia/A Autopsia.ia.mp4',//    10.9 kB','',//    11/06/2025, 10:26:14
+  'A Bolha Assasina 1958.jpg', 'https://archive.org/download/a-bolha-assasina-1958/A Bolha Assasina 1958.mp4',//https://archive.org/download/a-bolha-assasina-1958/A Bolha Assasina 1958.mp4',//    18.1 kB','',//    11/06/2025, 10:26:14
+  'A Bolha Assassina - 1988.jpg', 'https://ia902904.us.archive.org/23/items/a-bolha-assassina-1988_202507/A%20Bolha%20Assassina%20-%201988.mp4',//https://ia902904.us.archive.org/23/items/a-bolha-assassina-1988_202507/A%20Bolha%20Assassina%20-%201988.mp4',//    12.9 kB','',//    11/06/2025, 10:26:14
   'A Casa Amaldiçoada - 1999.jpg', '',//https://archive.org/download/a-casa-amaldicoada-1999/A Casa Amaldiçoada - 1999.mp4',//    12.1 kB','',//    11/06/2025, 10:26:14
   'A Casa da Colina - 1999.jpg', '',//',//    11.2 kB','',//    11/06/2025, 10:26:14
   'A Casa de Vidro 1 - 2001.jpg', '',//https://archive.org/download/a-casa-de-vidro-1-2001/A Casa de Vidro 1 - 2001.mp4',//    9.3 kB','',//    11/06/2025, 10:26:14
