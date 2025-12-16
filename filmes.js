@@ -8,28 +8,28 @@ const posters = [
   'A Autopsia.jpg', 'https://archive.org/download/a-autopsia/A Autopsia.ia.mp4',//https://archive.org/download/a-autopsia/A Autopsia.ia.mp4',//    10.9 kB','',//    11/06/2025, 10:26:14
   'A Bolha Assasina 1958.jpg', 'https://archive.org/download/a-bolha-assasina-1958/A Bolha Assasina 1958.mp4',//https://archive.org/download/a-bolha-assasina-1958/A Bolha Assasina 1958.mp4',//    18.1 kB','',//    11/06/2025, 10:26:14
   'A Bolha Assassina - 1988.jpg', 'https://ia902904.us.archive.org/23/items/a-bolha-assassina-1988_202507/A%20Bolha%20Assassina%20-%201988.mp4',//https://ia902904.us.archive.org/23/items/a-bolha-assassina-1988_202507/A%20Bolha%20Assassina%20-%201988.mp4',//    12.9 kB','',//    11/06/2025, 10:26:14
-  'A Casa Amaldiçoada - 1999.jpg', '',//https://archive.org/download/a-casa-amaldicoada-1999/A Casa Amaldiçoada - 1999.mp4',//    12.1 kB','',//    11/06/2025, 10:26:14
+  'A Casa Amaldiçoada - 1999.jpg', 'https://archive.org/download/a-casa-amaldicoada-1999/A Casa Amaldiçoada - 1999.mp4',//https://archive.org/download/a-casa-amaldicoada-1999/A Casa Amaldiçoada - 1999.mp4',//    12.1 kB','',//    11/06/2025, 10:26:14
   'A Casa da Colina - 1999.jpg', '',//',//    11.2 kB','',//    11/06/2025, 10:26:14
-  'A Casa de Vidro 1 - 2001.jpg', '',//https://archive.org/download/a-casa-de-vidro-1-2001/A Casa de Vidro 1 - 2001.mp4',//    9.3 kB','',//    11/06/2025, 10:26:14
-  'A Casa de Vidro 2 - 2006.jpg', '',//https://archive.org/download/a-casa-de-vidro-2-2006/A Casa de Vidro 2 - 2006.mp4',//    14.2 kB','',//    11/06/2025, 10:26:14
-  'A Casa do Espanto 1.jpg', '',//https://archive.org/download/a-casa-do-espanto-1/A Casa do Espanto 1.mp4',//    10.7 kB','',//    11/06/2025, 10:26:14
-  'A Casa do Espanto 2.jpg', '',//https://archive.org/download/a-casa-do-espanto-2_202507/A Casa do Espanto 2.mp4',//    7.1 kB','',//    11/06/2025, 10:26:14
-  'A Casa do Espanto 3.jpg', '',//https://archive.org/download/a-casa-do-espanto-3_202507/A Casa do Espanto 3.mp4',//    10.7 kB','',//    11/06/2025, 10:26:14
-  'A Casa do Espanto 4.jpg', '',//https://archive.org/download/a-casa-do-espanto-4_202507/A Casa do Espanto 4.mp4',//    13.5 kB','',//    11/06/2025, 10:26:14
-  'A Casa Dos 1000 Corpos.jpg', '',//https://archive.org/download/a-casa-dos-1000-corpos_202507/A Casa Dos 1000 Corpos.mp4',//    15.3 kB','',//    11/06/2025, 10:26:14
-  'A Casa dos Mortos  - O Filme - 2003.jpg', '',//https://archive.org/download/a-casa-dos-mortos-o-filme-2003/A Casa dos Mortos  - O Filme - 2003.mp4',//    6.2 kB','',//    11/06/2025, 10:26:14
-  'A Casa dos Mortos 2 - 2005.jpg', '',//https://archive.org/download/a-casa-dos-mortos-2-2005/A Casa dos Mortos 2 - 2005.mp4',//    15.0 kB','',//    11/06/2025, 10:26:14
-  'A Casa dos Passaros Mortos.jpg', '',//https://archive.org/download/a-casa-dos-passaros-mortos/A Casa dos Passaros Mortos.mp4',//    11.7 kB','',//    11/06/2025, 10:26:14
-  'A Casa Que Jack Construiu.jpg', '',//https://archive.org/download/a-casa-que-jack-construiu/A Casa Que Jack Construiu.ia.mp4',//    13.5 kB','',//    11/06/2025, 10:26:14
-  'A Casa que Pingava Sangue - 1971.jpg', '',//https://archive.org/download/a-casa-que-pingava-sangue-1971_202507/A Casa que Pingava Sangue - 1971.mp4',//    15.2 kB','',//    11/06/2025, 10:26:14
-  'A Caverna - 2005.jpg', '',//https://archive.org/download/a-caverna-2005/A Caverna - 2005.mp4',//    11.7 kB','',//    11/06/2025, 10:26:14
-  'A Caverna Maldita - 2006.jpg', '',//https://archive.org/download/a-caverna-maldita-2006/A Caverna Maldita - 2006.mp4',//    18.5 kB','',//    11/06/2025, 10:26:14
-  'A Coisa - 2011.jpg', '',//https://archive.org/download/a-coisa-2011/A Coisa - 2011.mp4',//    10.6 kB','',//    11/06/2025, 10:26:14
-  'A Enfermeira Assassina - 2014.jpg', '',//https://archive.org/download/a-enfermeira-assassina-2014/A Enfermeira Assassina - 2014.mp4',//    11.4 kB','',//    11/06/2025, 10:26:14
-  'A Entidade.jpg', '',//https://archive.org/download/a-entidade_202507/A Entidade.ia.mp4',//    14.2 kB','',//    11/06/2025, 10:26:14
-  'A Entidade 2.jpg', '',//https://archive.org/download/a-entidade-2/A Entidade 2.ia.mp4',//    11.9 kB','',//    11/06/2025, 10:26:14
-  'A Epidemia - 2010.jpg', '',//https://archive.org/download/a-epidemia-2010/A Epidemia - 2010.mp4',//    14.6 kB','',//    11/06/2025, 10:26:14
-  'A Espera do Mal - 2005.jpg', '',//https://archive.org/download/a-espera-do-mal-2005/A Espera do Mal - 2005.mp4',//    9.0 kB','',//    11/06/2025, 10:26:14
+  'A Casa de Vidro 1 - 2001.jpg', 'https://archive.org/download/a-casa-de-vidro-1-2001/A Casa de Vidro 1 - 2001.mp4',//https://archive.org/download/a-casa-de-vidro-1-2001/A Casa de Vidro 1 - 2001.mp4',//    9.3 kB','',//    11/06/2025, 10:26:14
+  'A Casa de Vidro 2 - 2006.jpg', 'https://archive.org/download/a-casa-de-vidro-2-2006/A Casa de Vidro 2 - 2006.mp4',//https://archive.org/download/a-casa-de-vidro-2-2006/A Casa de Vidro 2 - 2006.mp4',//    14.2 kB','',//    11/06/2025, 10:26:14
+  'A Casa do Espanto 1.jpg', 'https://archive.org/download/a-casa-do-espanto-1/A Casa do Espanto 1.mp4',//https://archive.org/download/a-casa-do-espanto-1/A Casa do Espanto 1.mp4',//    10.7 kB','',//    11/06/2025, 10:26:14
+  'A Casa do Espanto 2.jpg', 'https://archive.org/download/a-casa-do-espanto-2_202507/A Casa do Espanto 2.mp4',//https://archive.org/download/a-casa-do-espanto-2_202507/A Casa do Espanto 2.mp4',//    7.1 kB','',//    11/06/2025, 10:26:14
+  'A Casa do Espanto 3.jpg', 'https://archive.org/download/a-casa-do-espanto-3_202507/A Casa do Espanto 3.mp4',//https://archive.org/download/a-casa-do-espanto-3_202507/A Casa do Espanto 3.mp4',//    10.7 kB','',//    11/06/2025, 10:26:14
+  'A Casa do Espanto 4.jpg', 'https://archive.org/download/a-casa-do-espanto-4_202507/A Casa do Espanto 4.mp4',//https://archive.org/download/a-casa-do-espanto-4_202507/A Casa do Espanto 4.mp4',//    13.5 kB','',//    11/06/2025, 10:26:14
+  'A Casa Dos 1000 Corpos.jpg', 'https://archive.org/download/a-casa-dos-1000-corpos_202507/A Casa Dos 1000 Corpos.mp4',//https://archive.org/download/a-casa-dos-1000-corpos_202507/A Casa Dos 1000 Corpos.mp4',//    15.3 kB','',//    11/06/2025, 10:26:14
+  'A Casa dos Mortos  - O Filme - 2003.jpg', 'https://archive.org/download/a-casa-dos-mortos-o-filme-2003/A Casa dos Mortos  - O Filme - 2003.mp4',//https://archive.org/download/a-casa-dos-mortos-o-filme-2003/A Casa dos Mortos  - O Filme - 2003.mp4',//    6.2 kB','',//    11/06/2025, 10:26:14
+  'A Casa dos Mortos 2 - 2005.jpg', 'https://archive.org/download/a-casa-dos-mortos-2-2005/A Casa dos Mortos 2 - 2005.mp4',//https://archive.org/download/a-casa-dos-mortos-2-2005/A Casa dos Mortos 2 - 2005.mp4',//    15.0 kB','',//    11/06/2025, 10:26:14
+  'A Casa dos Passaros Mortos.jpg', 'https://archive.org/download/a-casa-dos-passaros-mortos/A Casa dos Passaros Mortos.mp4',//https://archive.org/download/a-casa-dos-passaros-mortos/A Casa dos Passaros Mortos.mp4',//    11.7 kB','',//    11/06/2025, 10:26:14
+  'A Casa Que Jack Construiu.jpg', 'https://archive.org/download/a-casa-que-jack-construiu/A Casa Que Jack Construiu.ia.mp4',//https://archive.org/download/a-casa-que-jack-construiu/A Casa Que Jack Construiu.ia.mp4',//    13.5 kB','',//    11/06/2025, 10:26:14
+  'A Casa que Pingava Sangue - 1971.jpg', 'https://archive.org/download/a-casa-que-pingava-sangue-1971_202507/A Casa que Pingava Sangue - 1971.mp4',//https://archive.org/download/a-casa-que-pingava-sangue-1971_202507/A Casa que Pingava Sangue - 1971.mp4',//    15.2 kB','',//    11/06/2025, 10:26:14
+  'A Caverna - 2005.jpg', 'https://archive.org/download/a-caverna-2005/A Caverna - 2005.mp4',//https://archive.org/download/a-caverna-2005/A Caverna - 2005.mp4',//    11.7 kB','',//    11/06/2025, 10:26:14
+  'A Caverna Maldita - 2006.jpg', 'https://archive.org/download/a-caverna-maldita-2006/A Caverna Maldita - 2006.mp4',//https://archive.org/download/a-caverna-maldita-2006/A Caverna Maldita - 2006.mp4',//    18.5 kB','',//    11/06/2025, 10:26:14
+  'A Coisa - 2011.jpg', 'https://archive.org/download/a-coisa-2011/A Coisa - 2011.mp4',//https://archive.org/download/a-coisa-2011/A Coisa - 2011.mp4',//    10.6 kB','',//    11/06/2025, 10:26:14
+  'A Enfermeira Assassina - 2014.jpg', 'https://archive.org/download/a-enfermeira-assassina-2014/A Enfermeira Assassina - 2014.mp4',//https://archive.org/download/a-enfermeira-assassina-2014/A Enfermeira Assassina - 2014.mp4',//    11.4 kB','',//    11/06/2025, 10:26:14
+  'A Entidade.jpg', 'https://archive.org/download/a-entidade_202507/A Entidade.ia.mp4',//https://archive.org/download/a-entidade_202507/A Entidade.ia.mp4',//    14.2 kB','',//    11/06/2025, 10:26:14
+  'A Entidade 2.jpg', 'https://archive.org/download/a-entidade-2/A Entidade 2.ia.mp4',//https://archive.org/download/a-entidade-2/A Entidade 2.ia.mp4',//    11.9 kB','',//    11/06/2025, 10:26:14
+  'A Epidemia - 2010.jpg', 'https://archive.org/download/a-epidemia-2010/A Epidemia - 2010.mp4',//https://archive.org/download/a-epidemia-2010/A Epidemia - 2010.mp4',//    14.6 kB','',//    11/06/2025, 10:26:14
+  'A Espera do Mal - 2005.jpg', 'https://archive.org/download/a-espera-do-mal-2005/A Espera do Mal - 2005.mp4',//https://archive.org/download/a-espera-do-mal-2005/A Espera do Mal - 2005.mp4',//    9.0 kB','',//    11/06/2025, 10:26:14
   'A Experiência - 1995.jpg', '',//https://archive.org/download/a-experiencia-1995/A Experiência - 1995.mp4',//    12.7 kB','',//    11/06/2025, 10:26:14
   'A Experiência 2 - 1998.jpg', '',//https://archive.org/download/a-experiencia-2-1998_202509/A%20Experi%C3%AAncia%202%20-%201998.mkv',//    13.3 kB','',//    11/06/2025, 10:26:14
   'A Experiência 3 - 2004.jpg', '',//https://archive.org/download/a-experiencia-3-2004_202507/A Experiência 3 - 2004.mp4',//    12.1 kB','',//    11/06/2025, 10:26:14
