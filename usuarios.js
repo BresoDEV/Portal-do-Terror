@@ -12,21 +12,21 @@ const usuarios = {
         dev:"1",
         reiniciar_trial:"0"
       },
-    "1": {
-        id:"1",
+    "Bilo": {
+        id:"2",
         senha: "1",
-        deviceKey:  "MR3PVB9J1759367669640",
+        deviceKey:  "PKW9DASO1765893599475",
         deviceKey2: "null",
         deviceKey3: "null",
         deviceKey4: "null",
         plano: "master",
         telefone:"996180319",
-        pagamento_em_dia: "sim",
+        pagamento_em_dia: "nao",
         dev:"1",
         reiniciar_trial:"0"
       },
     "modelo": {
-        id:"2",
+        id:"3",
         senha: "null",
         deviceKey:  "null",
         deviceKey2: "null",
