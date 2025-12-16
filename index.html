@@ -9,7 +9,7 @@
     if (estaLogado()) {
 
         if (logar(getnomeDefinido(), getSenha())) {
-           redirecionar('filmes.html')
+           redirecionar('filmes.html?seed='+Math.floor(Math.random()*9999))
         }else{
             deslogar()
            // redirecionar('login.html')

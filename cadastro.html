@@ -4,7 +4,9 @@
 <!---------------------------------->
 <script>
     if (estaLogado()) {
-        redirecionar('filmes.html')
+
+
+        redirecionar('filmes.html?seed='+Math.floor(Math.random()*9999))
     }
 
 

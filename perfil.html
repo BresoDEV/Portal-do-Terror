@@ -233,7 +233,7 @@
         </div>
         <div class="actions">
             <center id="bts">
-                <a href="filmes.html">Assistir Filmes</a>
+                <a id="assistirFilmes">Assistir Filmesss</a>
                 <a id="Sair">Deslogar</a>
                 <a id="VHS">Efeito VHS</a>
             </center>
@@ -251,6 +251,10 @@
 <script>
 
 
+    document.getElementById('assistirFilmes').addEventListener('click',()=>{
+        console.log('ddfsad')
+        window.location.href = 'filmes.html?seed='+Math.floor(Math.random()*9999);
+    })
     
 
 
