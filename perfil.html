@@ -12,11 +12,11 @@
 <html lang="pt-br">
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet">
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Meu Perfil - Portaria para o Inferno</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Meu Perfil - Portaria para o Inferno</title>
+        <style>
         * {
             -webkit-tap-highlight-color: transparent;
             /* Remove o flash azul no toque */
@@ -195,68 +195,74 @@
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: var(--gap);
         }
-    </style>
-</head>
-
-<body>
-    <header>
-        <h1>Meu Perfil</h1>
-    </header>
-    <main class="profile-container">
-        <div class="profile-info">
-            <div class="profile-picture">
-                <img src="" id="Foto" alt="Foto do usuário">
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Meu Perfil</h1>
+        </header>
+        <main class="profile-container">
+            <div class="profile-info">
+                <div class="profile-picture">
+                    <img src="" id="Foto" alt="Foto do usuário">
+                </div>
+                <div class="profile-details" style="flex: none;">
+                    <h2 id="nome">Nome do Usuário</h2>
+                    <p id="devicekey">
+                        <strong>Dispositivo:</strong>
+                        usuario@email.com
+                    </p>
+                    <p id="telefone">
+                        <strong>Telefone:</strong>
+                        (11) 91234-5678
+                    </p>
+                    <p id="plano">
+                        <strong>Plano:</strong>
+                        Assinatura Premium
+                    </p>
+                    <p id="minutos">
+                        <strong>Minutos Assistidos:</strong>
+                        0 min.
+                    </p>
+                    <p id="dispositivo">
+                        <strong>Dispositivo:</strong>
+                    </p>
+                </div>
             </div>
-            <div class="profile-details" style="flex: none;">
-                <h2 id="nome">Nome do Usuário</h2>
-                <p id="devicekey">
-                    <strong>Dispositivo:</strong>
-                    usuario@email.com
-                </p>
-                <p id="telefone">
-                    <strong>Telefone:</strong>
-                    (11) 91234-5678
-                </p>
-                <p id="plano">
-                    <strong>Plano:</strong>
-                    Assinatura Premium
-                </p>
-                <p id="minutos">
-                    <strong>Minutos Assistidos:</strong>
-                    0 min.
-                </p>
-                <p id="dispositivo">
-                    <strong>Dispositivo: </strong>
-                     
-                </p>
+            <div class="actions">
+                <center id="bts">
+                    <a id="assistirFilmes">Assistir Filmes</a>
+                    <a id="Sair">Deslogar</a>
+                    <a id="VHS">Efeito VHS</a>
+                </center>
             </div>
-        </div>
-        <div class="actions">
-            <center id="bts">
-                <a id="assistirFilmes">Assistir Filmesss</a>
-                <a id="Sair">Deslogar</a>
-                <a id="VHS">Efeito VHS</a>
-            </center>
-        </div>
-        <h3 id="Meus filmes favoritos">Meus filmes favoritos:</h3>
-        <!---------------------------->
-        <div class="gallery" id="gallery" style="margin-top:10px ;"></div>
-        <!---------------------------->
-    </main>
-    <footer>
-        © 2025 Portaria para o Inferno. Todos os direitos reservados.
-    </footer>
-</body>
+            <h3 id="Meus filmes favoritos">Meus filmes favoritos:</h3>
+            <!---------------------------->
+            <div class="gallery" id="gallery" style="margin-top:10px ;"></div>
+            <!---------------------------->
+        </main>
+        <footer>
+            © 2025 Portaria para o Inferno. Todos os direitos reservados.
+        </footer>
+    </body>
+    <script>
 
-<script>
+ 
+
+ 
+  
+        document.addEventListener('DOMContentLoaded', function() {
+
+            document.getElementById('assistirFilmes').addEventListener('click', function() {
+                window.location.href = 'filmes.html?seed='+Math.floor(Math.random()*9999);
+            });
+
+        });
 
 
-    document.getElementById('assistirFilmes').addEventListener('click',()=>{
-        console.log('ddfsad')
-        window.location.href = 'filmes.html?seed='+Math.floor(Math.random()*9999);
-    })
-    
 
+
+        
 
     get('Foto').src = 'img/perfil/' + Math.floor(Math.random() * 6) + '.jpg'
 
@@ -357,6 +363,5 @@
     addClick('Voltar', () => {
         redirecionar('index.html')
     })
-</script>
-
+    </script>
 </html>
